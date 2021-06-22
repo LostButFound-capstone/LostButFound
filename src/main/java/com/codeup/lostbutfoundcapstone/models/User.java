@@ -51,6 +51,16 @@ public class User {
         this.profile_image_path = profile_image_path;
     }
 
+    public User(User copy) {
+        id = copy.id;
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
+        admin = copy.admin;
+        verified = copy.verified;
+        profile_image_path = copy.profile_image_path;
+    }
+
     public long getId() {
         return id;
     }
