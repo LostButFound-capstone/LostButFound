@@ -18,15 +18,15 @@ public class PropertyController {
 
     private final PropertyCategoryRepository propertyCategoryDao;
 
-    private final UserRepository userDoa;
+    private final UserRepository userDao;
 
 
 
-    public PropertyController(PropertyRepository propertyDao, PropertyCategoryRepository propertyCategoryDao, UserRepository userDoa){
+    public PropertyController(PropertyRepository propertyDao, PropertyCategoryRepository propertyCategoryDao, UserRepository userDao){
 
         this.propertyDao = propertyDao;
         this.propertyCategoryDao = propertyCategoryDao;
-        this.userDoa =  userDoa;
+        this.userDao =  userDao;
     }
 
 
