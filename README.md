@@ -7,6 +7,8 @@ LostButFound is an application used to help users post found property, or search
 #Final Database Design
 <img width="871" src="https://user-images.githubusercontent.com/78042252/122949829-9751fd80-d341-11eb-979f-6ea227e559d0.jpg">
 
+<img width="871" alt="Screen Shot 2021-06-21 at 2 41 05 PM" src="https://user-images.githubusercontent.com/78042252/122951756-24498680-d343-11eb-8898-cd7fde376531.png">
+
 
 #ToDo's
 1. Splash Page
