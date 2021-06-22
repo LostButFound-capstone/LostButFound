@@ -5,5 +5,5 @@ import com.codeup.lostbutfoundcapstone.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<Property, Long> {
-    User findByUsername(String username);
+//    User findByUsername(String username);
 }
