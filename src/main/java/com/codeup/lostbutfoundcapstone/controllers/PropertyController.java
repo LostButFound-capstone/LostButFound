@@ -7,7 +7,8 @@ import com.codeup.lostbutfoundcapstone.DAOs.UserRepository;
 import com.codeup.lostbutfoundcapstone.models.Property;
 import com.codeup.lostbutfoundcapstone.models.PropertyCategory;
 import com.codeup.lostbutfoundcapstone.models.User;
-import org.springframework.security.core.context.SecurityContextHolder;
+import com.codeup.lostbutfoundcapstone.services.EmailService;
+//import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,13 +25,16 @@ public class PropertyController {
 
     private final UserRepository userDao;
 
+    private final EmailService emailService;
 
 
-    public PropertyController(PropertyRepository propertyDao, PropertyCategoryRepository propertyCategoryDao, UserRepository userDao){
+
+    public PropertyController(PropertyRepository propertyDao, PropertyCategoryRepository propertyCategoryDao, UserRepository userDao, EmailService emailService){
 
         this.propertyDao = propertyDao;
         this.propertyCategoryDao = propertyCategoryDao;
         this.userDao =  userDao;
+        this.emailService = emailService;
     }
 
 
@@ -54,15 +58,15 @@ public class PropertyController {
         return "create";
     }
 
-    @PostMapping("/property/create")
-    public String createPostProperty(@ModelAttribute Property property) {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        property.setUser(user);
-
-        Property savedProperty = propertyDao.save(property);
-
-        emailService.prepareAndSend(property, property.getTitle(), property.getBody());
-
-        return "redirect:/property/" + savedProperty.getId();
-    }
+//    @PostMapping("/property/create")
+//    public String createPostProperty(@ModelAttribute Property property) {
+//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        property.setUser(user);
+//
+//        Property savedProperty = propertyDao.save(property);
+//
+//        emailService.prepareAndSend(property, property.getTitle(), "Check this out!");
+//
+//        return "redirect:/property/" + savedProperty.getId();
+//    }
 }
