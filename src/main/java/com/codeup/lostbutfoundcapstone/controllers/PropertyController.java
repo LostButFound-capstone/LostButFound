@@ -43,7 +43,6 @@ public class PropertyController {
     public String property(Model model){
 
         return "home";
-
     }
 
     @PostMapping("/property/{id}")
@@ -61,7 +60,7 @@ public class PropertyController {
     }
 
     @PostMapping("/property/create")
-    public String createPostProperty(@ModelAttribute Property property, @ModelAttribute List) {
+    public String createPostProperty(@ModelAttribute Property property) {
 //        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = userDao.getById(1L);
 
