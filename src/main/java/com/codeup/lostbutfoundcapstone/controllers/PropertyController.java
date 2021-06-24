@@ -69,4 +69,13 @@ public class PropertyController {
 //
 //        return "redirect:/property/" + savedProperty.getId();
 //    }
+
+    @GetMapping("/user/{id}")
+    public String showProfilePage(@PathVariable long id, Model model) {
+//        (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+
+
+        return "users/profile";
+    }
 }
