@@ -6,6 +6,44 @@
     <nav th:replace="fragments/navbar :: navbar"></nav>
   </header>
 
+  <form th:action="@{/property/create}" method="post" th:object="${property}">
+    <h5>Create a missing item post by filling out the forms below:</h5>
+    <br>
+    <label for="createTitle">Title:</label>
+    <input id="createTitle" type="text" th:field="*{title}">
+    <br>
+    <label for="dateFound"></label>
+    <input id="dateFound" type="date" th:field="*{date_found}">
+    <br>
+    <label>Choose one or more categories that fits the item you found:</label>
+    <br>
+    <th:block th:each="category : ${categories}">
+      <label th:for="${category.id}"><span th:text="${category.property_type}"></span></label><br>
+      <input type="checkbox" th:id="${category.id}" th:value="${category.id}">
+      <br>
+    </th:block>
+
+    <label for="locations">Where did you find this item?</label>
+
+    <select id="locations" th:field="*{location_id}">
+      <th:block th:each="location : ${locations}">
+        <option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
+      </th:block>
+    </select>
+
+<!--    <input type="checkbox" id="location1" name="vehicle1" value="">-->
+<!--    <label for="location1"> I have a bike</label><br>-->
+<!--    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">-->
+<!--    <label for="vehicle2"> I have a car</label><br>-->
+<!--    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">-->
+<!--    <label for="vehicle3"> I have a boat</label><br>-->
+    <!--        <label for="imageURL">Image URL:</label>-->
+    <!--        <input id="imageURL" type="text" name="imageURL">-->
+    <!--        <label for="imageDescription">Image Description:</label>-->
+    <!--        <input id="imageDescription" type="text">-->
+
+    <input type="submit">
+  </form>
 
 
 </body>
