@@ -1,8 +1,8 @@
 package com.codeup.lostbutfoundcapstone.DAOs;
 
-import com.codeup.lostbutfoundcapstone.models.Property;
+import com.codeup.lostbutfoundcapstone.models.PropertyCategory;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PropertyCategoryRepository extends JpaRepository <Property, Long>{
+public interface PropertyCategoryRepository extends JpaRepository <PropertyCategory, Long>{
 
 }
