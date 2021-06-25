@@ -1,5 +1,9 @@
 :root {
-
+    --shaded-green: #41B3A3; /* Main Background Color */
+    --pale-green: #85CDCB;
+    --muddy-red-orange: #E27D60;
+    --light-brown: #E8A87C;
+    --shaded-mate-red: #C38D9E;
 }
 
 *,
@@ -7,3 +11,46 @@
 *::after {
     box-sizing: border-box;
 }
+
+.bg-pale-green {
+    background-color: var(--pale-green);
+}
+
+/* Main Background Color */
+.bg-shaded-green {
+    background-color: var(--shaded-green);
+}
+
+.bg-shaded-mate-red {
+    background-color: var(--shaded-mate-red);
+}
+
+.bg-light-brown {
+    background-color: var(--light-brown);
+}
+
+.bg-muddy-red-orange {
+    background-color: var(--muddy-red-orange);
+}
+
+#logo {
+    height: 40px;
+    width: 40px;
+    border-radius: 8px;
+}
+
+#user-pic {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.navbar-toggler {
+    padding: 5px;
+    border: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
