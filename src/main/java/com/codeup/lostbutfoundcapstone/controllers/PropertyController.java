@@ -74,7 +74,7 @@ public class PropertyController {
     }
 
     @GetMapping("/user/profile")
-    public String showProfilePage(@PathVariable long id, Model model) {
+    public String showProfilePage( Model model) {
 //        (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
 
