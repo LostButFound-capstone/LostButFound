@@ -8,7 +8,35 @@
         <nav th:replace="fragments/navbar :: navbar"></nav>
     </header>
 
+    <form th:action="@{/property/listings}" method="post">
+        <label for="locations">Locations:</label>
+        <select id="locations" name="location">
+            <th:block th:each="location : ${locations}">
+                <option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
+            </th:block>
+        </select>
 
+        <label for="categories">Categories:</label>
+        <select id="categories" name="category">
+            <th:block th:each="category : ${categories}">
+                <option th:value="${category.id}"><span th:text="${category.property_type}"></span></option>
+            </th:block>
+        </select>
+
+        <label for="dateFound">Date:</label>
+        <input id="dateFound" type="date" name="date_found">
+        <button type="submit">Submit</button>
+    </form>
+
+    <div th:each="item : ${properties}">
+        <p th:text="${item.title}" />
+        <p th:text="${item.location.location_name}"></p>
+        <p th:text="${item.date_found}"></p>
+        <th:block th:each="category : ${item.categories}">
+            <p th:text="${category.property_type}"></p>
+        </th:block>
+    </div>
+li
 
 </body>
 </html>

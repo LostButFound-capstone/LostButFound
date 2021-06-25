@@ -12,10 +12,7 @@ import com.codeup.lostbutfoundcapstone.services.EmailService;
 //import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -89,9 +86,20 @@ public class PropertyController {
         return "users/profile";
     }
 
-    @GetMapping("property/listings")
+    @GetMapping("/property/listings")
     public String showListings(Model model) {
-        model.addAttribute("listings", propertyDao.findAll());
-        return "property/listings-dummy";
+        model.addAttribute("properties", propertyDao.findAll());
+        model.addAttribute("locations", locationDao.findAll());
+        model.addAttribute("categories", propertyCategoryDao.findAll());
+
+        return "property/listings";
     }
+
+    @PostMapping("/property/listings")
+    public String filterFunctionality(@RequestParam(name = "location") String location_id, @RequestParam(name = "category") String category_id, @RequestParam(name = "date_found") String date_found) {
+
+
+        return "redirect:/property/listings";
+    }
+
 }
