@@ -14,8 +14,8 @@
     <div class="media align-items-center py-3 mb-3">
         <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="d-block ui-w-100 rounded-circle">
         <div class="media-body ">
-            <h4 class="font-weight-bold mb-0"><span th:text="${username}">World</span>Chuck Berry</h4>
-            <h4 class="font-weight-bold mb-2"><span class="text-muted font-weight-normal"><span th:text="${email}">World</span>@johnnybegood</span></h4>
+            <h4 class="font-weight-bold mb-0"><span th:text="${currentUser.username}"></span></h4>
+            <h4 class="font-weight-bold mb-2"><span class="text-muted font-weight-normal"><span th:text="${currentUser.email}"></span></span></h4>
             <a href="#" class="btn btn-primary btn-sm">Edit</a>
 <!--            <a href="#" class="btn btn-default btn-sm">Profile</a>-->
         </div>
@@ -28,21 +28,21 @@
 
                 <tr>
                     <td>Verified User:</td>
-                    <td><span th:text="${verified}">World</span>Yes</td>
+                    <td><span ></span>Yes</td>
                 </tr>
                 <tr>
                     <td>Role:</td>
-                    <td><span th:text="${admin}">World</span>User</td>
+                    <td><span ></span>User</td>
                 </tr>
 
                 <tr>
                     <td>Username:</td>
-                    <td><span th:text="${username}">World</span>johnnybegood42</td>
+                    <td><span th:text="${currentUser.username}"></span></td>
                 </tr>
 
                 <tr>
                     <td>E-mail:</td>
-                    <td><span th:text="${email}">World</span>johnnybegood@gmail.com</td>
+                    <td><span th:text="${currentUser.email}"></span></td>
                 </tr>
 
                 </tbody>
@@ -60,8 +60,10 @@
             </div>
             <hr class="border-muted m-0">
 
-            <div th:each="item : ${property}">
+            <div th:each="item : ${properties}">
                 <p th:text="${item.title}" />
+                <p th:text="${item.location.location_name}"></p>
+                <p th:text="${item.date_found}"></p>
             </div>
 
 

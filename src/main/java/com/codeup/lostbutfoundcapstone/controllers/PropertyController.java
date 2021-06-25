@@ -66,6 +66,9 @@ public class PropertyController {
 
         property.setUser(user);
 
+
+
+
         Property savedProperty = propertyDao.save(property);
 
         emailService.prepareAndSend(property, property.getTitle(), "Check this out!");
@@ -74,11 +77,21 @@ public class PropertyController {
     }
 
     @GetMapping("/user/profile")
-    public String showProfilePage( Model model) {
-//        (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    public String showProfilePage(Model model) {
+//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userDao.getById(2L);
 
 
+
+        model.addAttribute("currentUser", user);
+        model.addAttribute("properties", propertyDao.findPropertyByUser(user));
 
         return "users/profile";
+    }
+
+    @GetMapping("property/listings")
+    public String showListings(Model model) {
+        model.addAttribute("listings", propertyDao.findAll());
+        return "property/listings-dummy";
     }
 }
