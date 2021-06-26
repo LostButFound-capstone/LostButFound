@@ -15,9 +15,10 @@
         <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="d-block ui-w-100 rounded-circle">
         <div class="media-body ">
             <h4 class="font-weight-bold mb-0"><span th:text="${currentUser.username}"></span></h4>
-            <h4 class="font-weight-bold mb-2"><span class="text-muted font-weight-normal"><span th:text="${currentUser.email}"></span></span></h4>
+            <h4 class="font-weight-bold mb-2"><span class="text-muted font-weight-normal"><span
+                    th:text="${currentUser.email}"></span></span></h4>
             <a href="#" class="btn btn-primary btn-sm">Edit</a>
-<!--            <a href="#" class="btn btn-default btn-sm">Profile</a>-->
+            <!--            <a href="#" class="btn btn-default btn-sm">Profile</a>-->
         </div>
     </div>
 
@@ -28,11 +29,11 @@
 
                 <tr>
                     <td>Verified User:</td>
-                    <td><span ></span>Yes</td>
+                    <td><span></span>Yes</td>
                 </tr>
                 <tr>
                     <td>Role:</td>
-                    <td><span ></span>User</td>
+                    <td><span></span>User</td>
                 </tr>
 
                 <tr>
@@ -50,93 +51,93 @@
         </div>
     </div>
 
-<!--===================================== post ======================================================-->
-    <div class="card mb-4">
-        <div class="row no-gutters row-bordered card-body d-block text-body">
-            <div class="d-flex col-md align-items-center ">
+    <!--===================================== post ======================================================-->
+    <!--    <div class="card mb-4">-->
+    <!--        <div class="row no-gutters row-bordered card-body d-block text-body">-->
+    <!--            <div class="d-flex col-md align-items-center ">-->
 
-                <div class="text-muted small line-height-1"><h4>Post</h4></div>
+    <!--                <div class="text-muted small line-height-1"><h4>Post</h4></div>-->
 
-            </div>
-            <hr class="border-muted m-0">
+    <!--            </div>-->
+    <!--            <hr class="border-muted m-0">-->
+
+
+    <div class="album py-5 bg-light">
+        <div class="container">
 
             <div th:each="item : ${properties}">
-                <p th:text="${item.title}" />
-                <p th:text="${item.location.location_name}"></p>
-                <p th:text="${item.date_found}"></p>
-                <th:block th:each="category : ${item.categories}">
-                    <p th:text="${category.property_type}"></p>
-                </th:block>
-            </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <div class="card-body">
+                                <p>Item:</p>
+                                <p>
+                                <p th:text="${item.title}"/></p>
+                                <p>Location:</p>
+                                <p th:text="${item.location.location_name}"></p>
+                                <p>Date Found:</p>
+                                <p th:text="${item.date_found}"></p>
+                                <th:block th:each="category : ${item.categories}">
+                                    <p th:text="${category.property_type}"></p>
+                                </th:block>
+                            </div>
+                        </div>
+                    </div>
 
-
-            <div class="row no-gutters row-bordered">
-                <div class="d-flex col-md align-items-center">
-                    <a href="#" class="card-body d-block text-body">
-                        <div class="text-muted small line-height-1">Post</div>
-                        <div class="text-xlarge">1</div>
-                    </a>
                 </div>
-
             </div>
-            <hr class="border-muted m-0">
 
 
-            <div class="row no-gutters row-bordered">
-                <div class="d-flex col-md align-items-center">
-                    <a href="#" class="card-body d-block text-body">
-                        <div class="text-muted small line-height-1">Post</div>
-                        <div class="text-xlarge">2</div>
-                    </a>
-                </div>
-
-            </div>
-            <hr class="border-muted m-0">
-
-            <div class="row no-gutters row-bordered">
-                <div class="d-flex col-md align-items-center">
-                    <a href="#" class="card-body d-block text-body">
-                        <div class="text-muted small line-height-1">Post</div>
-                        <div class="text-xlarge">3</div>
-                    </a>
-                </div>
-
-            </div>
-            <hr class="border-muted m-0">
         </div>
-
-
     </div>
 
-<!--============================= inquiries =========================================================-->
-    <div class="card mb-4">
-        <div class="row no-gutters row-bordered card-body d-block text-body">
-            <div class="d-flex col-md align-items-center ">
 
-                <div class="text-muted small line-height-1"><h4>Inquiries</h4></div>
+    <!--            <div class="row no-gutters row-bordered">-->
+    <!--                <div class="d-flex col-md align-items-center">-->
+    <!--                    <a href="#" class="card-body d-block text-body">-->
+    <!--                        <div class="text-muted small line-height-1">Post</div>-->
+    <!--                        <div class="text-xlarge">3</div>-->
+    <!--                    </a>-->
+    <!--                </div>-->
 
-            </div>
-            <hr class="border-muted m-0">
-
-            <div th:each="item : ${inquiries}">
-                <p th:text="${item.title}" />
-            </div>
-
-
-            <div class="row no-gutters row-bordered">
-                <div class="d-flex col-md align-items-center">
-                    <a href="#" class="card-body d-block text-body">
-                        <div class="text-muted small line-height-1">Inquiries</div>
-                        <div class="text-xlarge">1</div>
-                    </a>
-                </div>
-
-            </div>
-            <hr class="border-muted m-0">
-        </div>
+    <!--            </div>-->
+    <!--            <hr class="border-muted m-0">-->
+    <!--        </div>-->
 
 
-    </div>
+    <!--    </div>-->
+
+    <!--============================= inquiries =========================================================-->
+
+
+    <!--    <div class="card mb-4">-->
+    <!--        <div class="row no-gutters row-bordered card-body d-block text-body">-->
+    <!--            <div class="d-flex col-md align-items-center ">-->
+
+    <!--                <div class="text-muted small line-height-1"><h4>Inquiries</h4></div>-->
+
+    <!--            </div>-->
+    <!--            <hr class="border-muted m-0">-->
+
+    <!--            <div th:each="item : ${inquiries}">-->
+    <!--                <p th:text="${item.title}"/>-->
+    <!--            </div>-->
+
+
+    <!--            <div class="row no-gutters row-bordered">-->
+    <!--                <div class="d-flex col-md align-items-center">-->
+    <!--                    <a href="#" class="card-body d-block text-body">-->
+    <!--                        <div class="text-muted small line-height-1">Inquiries</div>-->
+    <!--                        <div class="text-xlarge">1</div>-->
+    <!--                    </a>-->
+    <!--                </div>-->
+
+    <!--            </div>-->
+    <!--            <hr class="border-muted m-0">-->
+    <!--        </div>-->
+
+
+    <!--    </div>-->
 </div>
 </body>
 </html>
