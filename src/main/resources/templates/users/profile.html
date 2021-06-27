@@ -9,7 +9,7 @@
     <nav th:replace="fragments/navbar :: navbar"></nav>
 </header>
 <!--======================================================== user image and info =================================================-->
-<div class="container bootdey flex-grow-1 container-p-y">
+<div class="container">
 
     <div class="media align-items-center py-3 mb-3">
         <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="d-block ui-w-100 rounded-circle">
@@ -63,20 +63,26 @@
 
 
     <div class="album py-5 bg-light">
-        <div class="container">
 
-            <div th:each="item : ${properties}">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
+        <div class="container ">
+
+
+            <div class="row">
+
+                <div class="col-md-4 ">
+                    <div th:each="item : ${properties}">
+                        <div class="card mb-4 box-shadow ">
+
                             <div class="card-body">
-                                <p>Item:</p>
-                                <p>
+
                                 <p th:text="${item.title}"/></p>
-                                <p>Location:</p>
-                                <p th:text="${item.location.location_name}"></p>
+                                <p style="float: right;" th:text="${item.location.location_name}"></p>
+                                <p>Found at:</p>
+
+                                <p style="float: right;" th:text="${item.date_found}"></p>
                                 <p>Date Found:</p>
-                                <p th:text="${item.date_found}"></p>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+
                                 <th:block th:each="category : ${item.categories}">
                                     <p th:text="${category.property_type}"></p>
                                 </th:block>
