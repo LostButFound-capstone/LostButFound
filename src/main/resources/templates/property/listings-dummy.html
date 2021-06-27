@@ -8,9 +8,10 @@
         <nav th:replace="fragments/navbar :: navbar"></nav>
     </header>
 
-    <form th:action="@{/property/listings}" method="post">
+    <form th:action="@{/property/listings}" method="get">
         <label for="locations">Locations:</label>
         <select id="locations" name="location">
+                <option value="null">Choose one:</option>
             <th:block th:each="location : ${locations}">
                 <option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
             </th:block>
@@ -18,6 +19,7 @@
 
         <label for="categories">Categories:</label>
         <select id="categories" name="category">
+                <option value="null">Choose one:</option>
             <th:block th:each="category : ${categories}">
                 <option th:value="${category.id}"><span th:text="${category.property_type}"></span></option>
             </th:block>
@@ -36,7 +38,6 @@
             <p th:text="${category.property_type}"></p>
         </th:block>
     </div>
-li
 
 </body>
 </html>
