@@ -1,10 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head :: head">
+
 </head>
 <body>
+<header>
+    <nav th:replace="fragments/navbar :: navbar"></nav>
+</header>
+<!--<div>-->
+<!--    <h1>Inquiry Form</h1>-->
+<!--    <h6>Please fill in your information and a good description of the item you lost.</h6>-->
+<!--</div>-->
+
+<div class="container mt-4">
+    <div class="card">
+        <div class=" card-header text-center mb-4">
+            <h1>Inquiry Form</h1>
+            <h6>Please fill in your information and a good description of the item you lost.</h6>
+        </div>
+        <div class="card-body text-center">
+
+            <div class="form-group w-50">
+                <label style="float: left" class="inputs" for="email">Contact @Email:</label>
+                <input class="form-control" id="email" th:field="*{email}"/>
+            </div>
+
+
+            <div class="form-group w-100">
+                <label style="float: left" class="inputs" for="description">Description of your item:</label>
+                <textarea class="form-control" id="description" th:field="*{description}"></textarea>
+            </div>
+
+            <a href="#" class="btn btn-success">Submit</a>
+        </div>
+
+    </div>
+</div>
+
 
 </body>
 </html>
