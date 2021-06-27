@@ -14,14 +14,14 @@
     <label for="createTitle">Title:</label>
     <input id="createTitle" type="text" th:field="*{title}">
     <br>
-    <label for="dateFound"></label>
-    <input id="dateFound" type="date" th:field="*{date_found}">
+<!--    <label for="dateFound"></label>-->
+<!--    <input id="dateFound" type="date" th:field="*{date_found}">-->
     <br>
     <label>Choose one or more categories that fits the item you found:</label>
     <br>
     <th:block th:each="category : ${categories}">
       <label th:for="${category.id}"><span th:text="${category.property_type}"></span></label><br>
-      <input type="checkbox" th:id="${category.id}" th:value="${category.id}">
+      <input type="checkbox" name="categories" th:id="${category.id}" th:value="${category.id}">
       <br>
     </th:block>
 

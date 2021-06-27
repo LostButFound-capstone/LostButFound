@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
 
@@ -52,27 +53,44 @@ public class PropertyController {
 
     @GetMapping("/property/create")
     public String createProperty(Model model) {
+
         model.addAttribute("property", new Property());
         model.addAttribute("categories", propertyCategoryDao.findAll());
         model.addAttribute("locations", locationDao.findAll());
+
+
+
         return "property/create";
     }
 
     @PostMapping("/property/create")
-    public String createPostProperty(@ModelAttribute Property property) {
+    public String createPostProperty(@ModelAttribute Property property, @RequestParam(name = "categories") List<String> categories) {
 //        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User user = userDao.getById(1L);
+//        User user = userDao.getById(1L);
+//
+//        property.setUser(user);
+//
+//
+//
+//
+//        Property savedProperty = propertyDao.save(property);
+//
+//        emailService.prepareAndSend(property, property.getTitle(), "Check this out!");
+        System.out.println(categories);
 
-        property.setUser(user);
+        List<PropertyCategory> categoryList = new ArrayList<>();
+        for (String categoryIdString : categories) {
+            Long category_id = Long.parseLong(categoryIdString);
+            PropertyCategory category = propertyCategoryDao.getById(category_id);
+            categoryList.add(category);
+        }
+
+        for (PropertyCategory category : categoryList) {
+            System.out.println(category.getProperty_type());
+        }
 
 
-
-
-        Property savedProperty = propertyDao.save(property);
-
-        emailService.prepareAndSend(property, property.getTitle(), "Check this out!");
-
-        return "redirect:/property/" + savedProperty.getId();
+        return "redirect:/property/listings";
     }
 
     @GetMapping("/user/profile")
