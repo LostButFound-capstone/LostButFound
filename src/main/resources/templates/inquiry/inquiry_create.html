@@ -13,17 +13,58 @@
 <!--    <h6>Please fill in your information and a good description of the item you lost.</h6>-->
 <!--</div>-->
 
-<div class="container mt-4">
+<div class="container mt-4 mb-4">
     <div class="card">
 
-        <div class="text-center">
-            <h2 th:text="${listing.title}"/></p>
-            <p>Found at:</p>
-            <h2 th:text="${listing.location.location_name}"></h2>
+        <div class="card mx-3 my-3">
+            <div class="card-body">
 
-            <p>Date Found:</p>
-            <p th:text="${listing.date_found}"></p>
+                <div class="d-inline-flex">
+                    <h2>User:</h2>
+                </div>
+                <div class="d-inline-flex">
+                    <h2 th:text="${listing.user.username}"></h2>
+                </div>
+                <br>
 
+                <div class="d-inline-flex">
+                    <h3>Lost item:</h3>
+                </div>
+                <div class="d-inline-flex">
+                    <h3 th:text="${listing.title}"/></h2>
+                </div>
+                <br>
+
+                <div class="d-inline-flex">
+                    <h3>Found at:</h3>
+                </div>
+                <div class="d-inline-flex">
+                    <h3 th:text="${listing.location.location_name}"></h3>
+                </div>
+                <br>
+
+                <div class="d-inline-flex">
+                    <h3>Date Found:</h3>
+                </div>
+                <div class="d-inline-flex">
+                    <h3 th:text="${listing.date_found}"></h3>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="mx-4">
+            <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ex itaque officia quia
+                repudiandae,
+                sunt tempora. Accusantium adipisci aperiam atque dolore hic iusto maxime molestias, nam qui ut
+                voluptas
+                voluptates.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ex itaque
+                officia
+                quia
+                repudiandae,
+                sunt tempora. Accusantium adipisci aperiam atque dolore hic iusto maxime molestias, nam qui ut
+                voluptas
+                voluptates.</h5>
         </div>
 
         <form th:action="@{/inquiry}" method="post" th:object="${inquiry}">
@@ -35,15 +76,23 @@
                 <!--                </div>-->
 
 
-                <div class="form-group w-100">
-                    <label style="float: left" class="inputs" for="description">Description of your item:</label>
-                    <textarea class="form-control" id="description" th:field="*{inquiry_description}"></textarea>
+                <div class="form-group w-100 mb-4">
+                    <label style="float: left;" class="inputs" for="description">Description of your
+                        item:</label>
+                    <textarea class="form-control" id="description"
+                              th:field="*{inquiry_description}"></textarea>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label style="float: left;" class="inputs" for="picture">Upload a Photo</label>
+                    <input type="text" name="picture" class="form-control" id="picture">
                 </div>
 
                 <a href="#" class="btn btn-success">Submit</a>
             </div>
         </form>
     </div>
+
 </div>
 
 

@@ -64,33 +64,33 @@
 
     <div class="album py-5 bg-light">
 
-        <div class="container ">
+        <div class="container">
 
 
             <div class="row">
 
-                <div class="col-md-4 ">
-                    <div th:each="item : ${properties}">
-                        <div class="card mb-4 box-shadow ">
 
-                            <div class="card-body">
+                <div class="col" th:each="item : ${properties}">
+                    <div class="card mb-4 box-shadow ">
 
-                                <p th:text="${item.title}"/></p>
-                                <p style="float: right;" th:text="${item.location.location_name}"></p>
-                                <p>Found at:</p>
+                        <div class="card-body">
 
-                                <p style="float: right;" th:text="${item.date_found}"></p>
-                                <p>Date Found:</p>
-                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            <p th:text="${item.title}"/></p>
+                            <p style="float: right;" th:text="${item.location.location_name}"></p>
+                            <p>Found at:</p>
 
-                                <th:block th:each="category : ${item.categories}">
-                                    <p th:text="${category.property_type}"></p>
-                                </th:block>
-                            </div>
+                            <p style="float: right;" th:text="${item.date_found}"></p>
+                            <p>Date Found:</p>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+
+                            <th:block th:each="category : ${item.categories}">
+                                <p th:text="${category.property_type}"></p>
+                            </th:block>
                         </div>
                     </div>
-
                 </div>
+
+
             </div>
 
 
