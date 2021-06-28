@@ -18,10 +18,12 @@ public class Property {
 
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date date_found;
 
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date date_posted;
 
     @Column(nullable = false)
