@@ -15,26 +15,34 @@
 
 <div class="container mt-4">
     <div class="card">
-        <div class=" card-header text-center mb-4">
-            <h1>Inquiry Form</h1>
-            <h6>Please fill in your information and a good description of the item you lost.</h6>
-        </div>
-        <div class="card-body text-center">
 
-            <div class="form-group w-50">
-                <label style="float: left" class="inputs" for="email">Contact @Email:</label>
-                <input class="form-control" id="email" th:field="*{email}"/>
-            </div>
+        <div class="text-center">
+            <h2 th:text="${listing.title}"/></p>
+            <p>Found at:</p>
+            <h2 th:text="${listing.location.location_name}"></h2>
 
+            <p>Date Found:</p>
+            <p th:text="${listing.date_found}"></p>
 
-            <div class="form-group w-100">
-                <label style="float: left" class="inputs" for="description">Description of your item:</label>
-                <textarea class="form-control" id="description" th:field="*{description}"></textarea>
-            </div>
-
-            <a href="#" class="btn btn-success">Submit</a>
         </div>
 
+        <form th:action="@{/inquiry}" method="post" th:object="${inquiry}">
+            <div class="card-body text-center">
+
+                <!--                <div class="form-group w-50">-->
+                <!--                    <label style="float: left" class="inputs" for="email">Contact @Email:</label>-->
+                <!--                    <input class="form-control" id="email" th:text="${user.email}"/>-->
+                <!--                </div>-->
+
+
+                <div class="form-group w-100">
+                    <label style="float: left" class="inputs" for="description">Description of your item:</label>
+                    <textarea class="form-control" id="description" th:field="*{inquiry_description}"></textarea>
+                </div>
+
+                <a href="#" class="btn btn-success">Submit</a>
+            </div>
+        </form>
     </div>
 </div>
 
