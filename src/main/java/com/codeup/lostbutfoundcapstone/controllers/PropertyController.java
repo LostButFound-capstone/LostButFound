@@ -11,10 +11,14 @@ import com.codeup.lostbutfoundcapstone.models.PropertyCategory;
 import com.codeup.lostbutfoundcapstone.models.User;
 import com.codeup.lostbutfoundcapstone.services.EmailService;
 //import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
@@ -64,30 +68,40 @@ public class PropertyController {
     }
 
     @PostMapping("/property/create")
-    public String createPostProperty(@ModelAttribute Property property, @RequestParam(name = "categories") List<String> categories) {
+    public String createPostProperty(@ModelAttribute Property property, @RequestParam(name = "categories", required = false) List<String> categories, @RequestParam("date") String date) throws ParseException {
 //        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        User user = userDao.getById(1L);
-//
-//        property.setUser(user);
-//
-//
-//
-//
-//        Property savedProperty = propertyDao.save(property);
-//
-//        emailService.prepareAndSend(property, property.getTitle(), "Check this out!");
-        System.out.println(categories);
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date blankDate = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date currentDate = formatter.parse(dateFormat.format(blankDate));
+        Date dateFound = formatter.parse(date);
+
+        System.out.println("current date = " + currentDate);
+        System.out.println("date found = " + dateFound);
 
         List<PropertyCategory> categoryList = new ArrayList<>();
-        for (String categoryIdString : categories) {
-            Long category_id = Long.parseLong(categoryIdString);
-            PropertyCategory category = propertyCategoryDao.getById(category_id);
-            categoryList.add(category);
+        if (categories != null) {
+            for (String categoryIdString : categories) {
+                Long category_id = Long.parseLong(categoryIdString);
+                PropertyCategory category = propertyCategoryDao.getById(category_id);
+                categoryList.add(category);
+            }
+
+//            for (PropertyCategory category : categoryList) {
+//                System.out.println(category.getProperty_type());
+//            }
         }
 
-        for (PropertyCategory category : categoryList) {
-            System.out.println(category.getProperty_type());
-        }
+        User user = userDao.getById(1L);
+        property.setUser(user);
+        property.setDate_found(dateFound);
+        property.setDate_posted(currentDate);
+        property.setCategories(categoryList);
+
+        Property savedProperty = propertyDao.save(property);
+
+//        emailService.prepareAndSend(property, property.getTitle(), "Check this out!");
 
 
         return "redirect:/property/listings";
@@ -107,10 +121,21 @@ public class PropertyController {
     }
 
     @GetMapping("/property/listings")
-    public String showListings(Model model, @RequestParam(name = "location" , required = false) String location_id, @RequestParam(name = "category" , required = false) String category_id, @RequestParam(name = "date_found" , required = false) String date_found) {
+    public String showListings(Model model, @RequestParam(name = "location" , required = false) String location_id, @RequestParam(name = "category" , required = false) String category_id, @RequestParam(name = "date_found" , required = false) String date) throws ParseException {
         model.addAttribute("properties", propertyDao.findAll());
         model.addAttribute("locations", locationDao.findAll());
         model.addAttribute("categories", propertyCategoryDao.findAll());
+
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat reformat = new SimpleDateFormat("MM-dd-yyyy");
+        if (date != null) {
+            Date newDate = formatter.parse(date);
+            Date reformatDate = reformat.parse(date);
+            System.out.println("newDate = " + newDate);
+            System.out.println("newDate.toString() = " + newDate.toString());
+            System.out.println("reformat.parse(date) = " + reformat.parse(date));
+            System.out.println("reformatDate = " + reformatDate.toString());
+        }
 
 
         if(location_id == null && category_id == null) {

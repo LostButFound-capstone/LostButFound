@@ -3,6 +3,7 @@ package com.codeup.lostbutfoundcapstone.models;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -17,13 +18,9 @@ public class Property {
     private String title;
 
     @Column(nullable = false)
-    @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date date_found;
 
     @Column(nullable = false)
-    @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date date_posted;
 
     @Column(nullable = false)
@@ -151,5 +148,10 @@ public class Property {
 
     public void setInquiries(List<Inquiry> inquiries) {
         this.inquiries = inquiries;
+    }
+
+    public String getFormattedDateFound() {
+        SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy");
+        return formatter.format(this.date_found);
     }
 }
