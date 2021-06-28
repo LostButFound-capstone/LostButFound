@@ -1,10 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+	<title>Listings Page</title>
+
 </head>
+
 <body>
 
+<header>
+	<nav th:replace="fragments/navbar :: navbar"></nav>
+</header>
+
+
+
+	<form th:action="@{/property/listings}" method="post">
+		<div class="card mb-4">
+			<div class="row no-gutters row-bordered card-body d-block text-body">
+				<div class="d-flex col-md align-items-center ">
+
+					<div class="text-muted small line-height-1"><h4>Lost Property:</h4></div>
+
+<!--How to Search-->
+				<div class="container">
+					<h5>How to search:</h5>
+
+					<ul>
+						<h5>To search for your lost property, you will need to:</h5>
+						<li></li>
+					</ul>
+				</div>
+				</div>
+<!--Search filter-->
+				<div class="dropdown text-center">
+					<button class="btn btn-secondary" type="button" id="locations" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+						<select>
+							<option value="">Select a location:</option>
+							<th:block th:each="location : ${locations}">
+								<option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
+							</th:block>
+						</select>
+					</button>
+				</div>
+
+				<div class="dropdown text-center">
+					<button class="btn btn-secondary" type="button" id="categories" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+						<select>
+							<option value="">Select a category:</option>
+							<th:block th:each="category : ${categories}">
+								<option th:value="${category.id}"><span th:text="${category.property_type}"></span></option>
+							</th:block>
+						</select>
+					</button>
+				</div>
+
+<!--				<label for="locations">Locations:</label>-->
+<!--				<select id="locations" name="location">-->
+<!--					-->
+<!--				</select>-->
+
+<!--				<label for="categories">Categories:</label>-->
+<!--				<select id="categories" name="category">-->
+<!--					<th:block th:each="category : ${categories}">-->
+<!--						<option th:value="${category.id}"><span th:text="${category.property_type}"></span></option>-->
+<!--					</th:block>-->
+<!--				</select>-->
+
+				<label for="dateFound">Date:</label>
+				<input id="dateFound" type="date" name="date_found">
+
+				<button type="submit">Filter</button>
+
+<!--Property Cards-->
+				<div class="album py-5 bg-light">
+
+					<div class="container">
+
+
+						<div class="row">
+
+
+							<div class="col" th:each="item : ${properties}">
+								<div class="card mb-4 box-shadow ">
+
+									<div class="card-body">
+
+										<p th:text="${item.title}"/></p>
+										<p style="float: right;" th:text="${item.location.location_name}"></p>
+										<p>Found at:</p>
+
+										<p style="float: right;" th:text="${item.date_found}"></p>
+										<p>Date Found:</p>
+										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+
+										<th:block th:each="category : ${item.categories}">
+											<p th:text="${category.property_type}"></p>
+										</th:block>
+									</div>
+								</div>
+							</div>
+
+
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
 </body>
 </html>
