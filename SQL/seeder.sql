@@ -65,6 +65,5 @@ VALUES ('San Antonio Airport', 12345),
        ('San Pedro Springs Park', 12345),
        ('Six Flags Fiesta Texas', 12345),
        ('Splashtown', 12345),
-       ('San Antonio Museum of Art', 12345),
        ('Mission San Jose', 12345),
        ('Traders Village', 12345);
