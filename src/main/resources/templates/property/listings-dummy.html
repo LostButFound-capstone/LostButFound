@@ -33,7 +33,7 @@
     <div th:each="item : ${properties}">
         <p th:text="${item.title}" />
         <p th:text="${item.location.location_name}"></p>
-        <p th:text="${item.date_found}"></p>
+        <p th:text="${item.formattedDateFound}"></p>
         <th:block th:each="category : ${item.categories}">
             <p th:text="${category.property_type}"></p>
         </th:block>
