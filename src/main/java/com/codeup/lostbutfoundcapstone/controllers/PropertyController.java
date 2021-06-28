@@ -42,7 +42,7 @@ public class PropertyController {
     @GetMapping("/property")
     public String property(Model model){
 
-        return "home";
+        return "new_home_desktop";
     }
 
     @PostMapping("/property/{id}")

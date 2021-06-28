@@ -4,6 +4,11 @@
     --muddy-red-orange: #E27D60;
     --light-brown: #E8A87C;
     --shaded-mate-red: #C38D9E;
+
+    --main-bg-color: lightcyan;
+    --alt-bg-color1: lightyellow;
+    --alt-bg-color2: lightslategrey;
+    --alt-bg-color3: linen;
 }
 
 *,
@@ -52,5 +57,9 @@
 
 .navbar-toggler:focus {
     box-shadow: none;
+}
+
+.one-edge-shadow {
+    box-shadow: 0 8px 6px -6px black;
 }
 
