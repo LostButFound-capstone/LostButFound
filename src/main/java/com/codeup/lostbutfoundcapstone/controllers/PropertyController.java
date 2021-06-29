@@ -163,7 +163,7 @@ public class PropertyController {
             model.addAttribute("properties", propertyDao.findPropertyByLocationAndDate_found(date_found, location_id));
 
         } else if(!date.equals("") && !category_id.equals("null") && location_id.equals("null")) {
-            System.out.println("date found and location id are not null but location is");
+            System.out.println("date found and category id are not null but location id is");
 
             Date newDate = formatter.parse(date);
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -180,6 +180,14 @@ public class PropertyController {
 
             model.addAttribute("properties", propertyDao.findPropertyByCategoriesAndLocation(category, location));
 
+        } else if (!category_id.equals("null") && !location_id.equals("null") && !date.equals("")) {
+            System.out.println("All inputs have been used");
+
+            Date newDate = formatter.parse(date);
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String date_found = dateFormat.format(newDate);
+
+            model.addAttribute("properties", propertyDao.findPropertyByCategoriesAndLocationAndDate_found(category_id, date_found, location_id));
         }
 
         System.out.println(location_id);
