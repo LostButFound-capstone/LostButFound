@@ -6,26 +6,26 @@
 <body>
     <nav th:fragment="navbar">
         <div class="collapse" id="navbarToggleExternalContent">
-            <div class="bg-shaded-green p-3">
+            <div class="main-bg-color p-3">
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn border-white text-white" type="submit">Search</button>
                 </form>
             </div>
-            <div class="bg-pale-green p-3">
+            <div class="shade1 p-3">
                 <a class="text-decoration-none" th:href="@{/sign-up}"> <h5 class="text-white h4 border-bottom border-white">Sign Up</h5> </a>
             </div>
-            <div class="bg-shaded-mate-red p-3">
+            <div class="shade2 p-3">
                 <a class="text-decoration-none" th:href="@{/login}"> <h5 class="text-white h4 border-bottom border-white">Login</h5> </a>
             </div>
-            <div class="bg-light-brown p-3">
+            <div class="shade3 p-3">
                 <a class="text-decoration-none" th:href="@{/listing}"> <h5 class="text-white h4 border-bottom border-white">Listing</h5> </a>
             </div>
-            <div class="bg-muddy-red-orange p-3">
+            <div class="shade4 p-3">
                 <a class="text-decoration-none" th:href="@{/profile}"> <h5 class="text-white h4 border-bottom border-white">Profile</h5> </a>
             </div>
         </div>
-        <div class="navbar navbar-dark bg-shaded-green">
+        <div class="navbar navbar-dark main-bg-color">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
