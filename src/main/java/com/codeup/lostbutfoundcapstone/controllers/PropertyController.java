@@ -120,42 +120,48 @@ public class PropertyController {
         return "users/profile";
     }
 
-    @GetMapping("/property/listings")
+    @GetMapping("/listings")
     public String showListings(Model model, @RequestParam(name = "location" , required = false) String location_id, @RequestParam(name = "category" , required = false) String category_id, @RequestParam(name = "date_found" , required = false) String date) throws ParseException {
         model.addAttribute("properties", propertyDao.findAll());
         model.addAttribute("locations", locationDao.findAll());
         model.addAttribute("categories", propertyCategoryDao.findAll());
-
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        SimpleDateFormat reformat = new SimpleDateFormat("MM-dd-yyyy");
-        if (date != null) {
+
+        if(location_id == null && category_id == null && date == null) {
+            System.out.println("All actually null");
+            model.addAttribute("properties", propertyDao.findAll());
+        } else if (location_id.equals("null") && category_id.equals("null") && date.equals("")) {
+            System.out.println("location_id and category_id equal null but as a string, while date is an empty string");
+            System.out.println("date = " + date);
+            model.addAttribute("properties", propertyDao.findAll());
+        } else if(!date.equals("") && location_id.equals("null") && category_id.equals("null")) {
+            System.out.println("date found is not equal to null string but location id and category id is");
             Date newDate = formatter.parse(date);
-            Date reformatDate = reformat.parse(date);
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String date_found = dateFormat.format(newDate);
             System.out.println("newDate = " + newDate);
-            System.out.println("newDate.toString() = " + newDate.toString());
-            System.out.println("reformat.parse(date) = " + reformat.parse(date));
-            System.out.println("reformatDate = " + reformatDate.toString());
-        }
-
-
-        if(location_id == null && category_id == null) {
-            System.out.println("both actually null");
-            model.addAttribute("properties", propertyDao.findAll());
-        } else if (location_id.equals("null") && category_id.equals("null")) {
-            System.out.println("both equal null but as a string");
-            model.addAttribute("properties", propertyDao.findAll());
-        } else if (!location_id.equals("null") && category_id.equals("null")) {
-            System.out.println("location id is not equal to null string but category id is");
+            System.out.println("date_found = " + date_found);
+            model.addAttribute("properties", propertyDao.findPropertyByDate_found(date_found));
+        } else if (!location_id.equals("null") && category_id.equals("null") && date.equals("")) {
+            System.out.println("location id is not equal to null string but date found and category id is");
             Long locationIdNum = Long.parseLong(location_id);
             Location location = locationDao.getById(locationIdNum);
             model.addAttribute("properties", propertyDao.findPropertyByLocation(location));
-        } else if (!category_id.equals("null") && location_id.equals("null")) {
-            System.out.println("category id is not equal to null string but location id is");
+        } else if (!category_id.equals("null") && location_id.equals("null") && date.equals("")) {
+            System.out.println("category id is not equal to null string but date found and location id is");
             Long categoryIdNum = Long.parseLong(category_id);
             PropertyCategory category = propertyCategoryDao.getById(categoryIdNum);
             model.addAttribute("properties", propertyDao.findPropertyByCategories(category));
-        } else if (!category_id.equals("null") && !location_id.equals("null")) {
-            System.out.println("both category and location are not null");
+        } else if(!date.equals("") && !location_id.equals("null") && category_id.equals("null")) {
+            System.out.println("date found and location id is not equal to null string but category id is");
+            Date newDate = formatter.parse(date);
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String date_found = dateFormat.format(newDate);
+            model.addAttribute("properties", propertyDao.findPropertyByLocationAndDate_found(date_found, location_id));
+        } else if(!date.equals("") && !category_id.equals("null") && location_id.equals("null")) {
+            System.out.println("date found and location id are not null but location is");
+        } else if (!category_id.equals("null") && !location_id.equals("null") && date.equals("")) {
+            System.out.println("both category and location are not null but date found is null string");
             Long locationIdNum = Long.parseLong(location_id);
             Location location = locationDao.getById(locationIdNum);
             Long categoryIdNum = Long.parseLong(category_id);
@@ -165,7 +171,7 @@ public class PropertyController {
 
         System.out.println(location_id);
         System.out.println(category_id);
-
+        System.out.println(date);
         return "property/listings-dummy";
     }
 
