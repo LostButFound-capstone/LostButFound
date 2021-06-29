@@ -43,19 +43,19 @@ public class PropertyController {
     }
 
 
-    @GetMapping("/home")
+    @GetMapping("/property")
     public String property(Model model){
 
-        return "home";
+        return "new_home_desktop";
     }
 
-//    @PostMapping("/property/{id}")
-//    public String propertyId(@PathVariable long id, Model model){
-//
-//        return null;
-//    }
+    @PostMapping("/property/{id}")
+    public String propertyId(@PathVariable long id, Model model){
 
-    @GetMapping("/create")
+        return null;
+    }
+
+    @GetMapping("/property/create")
     public String createProperty(Model model) {
 
         model.addAttribute("property", new Property());
@@ -67,7 +67,7 @@ public class PropertyController {
         return "property/create";
     }
 
-    @PostMapping("/create")
+    @PostMapping("/property/create")
     public String createPostProperty(@ModelAttribute Property property, @RequestParam(name = "categories", required = false) List<String> categories, @RequestParam("date") String date) throws ParseException {
 //        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -87,6 +87,10 @@ public class PropertyController {
                 PropertyCategory category = propertyCategoryDao.getById(category_id);
                 categoryList.add(category);
             }
+
+//            for (PropertyCategory category : categoryList) {
+//                System.out.println(category.getProperty_type());
+//            }
         }
 
         User user = userDao.getById(1L);
@@ -99,13 +103,14 @@ public class PropertyController {
 
 //        emailService.prepareAndSend(property, property.getTitle(), "Check this out!");
 
-        return "redirect:/listings";
+
+        return "redirect:/property/listings";
     }
 
-    @GetMapping("/profile")
+    @GetMapping("/user/profile")
     public String showProfilePage(Model model) {
 //        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User user = userDao.getById(2L);
+        User user = userDao.getById(1L);
 
 
 
@@ -120,7 +125,6 @@ public class PropertyController {
         model.addAttribute("properties", propertyDao.findAll());
         model.addAttribute("locations", locationDao.findAll());
         model.addAttribute("categories", propertyCategoryDao.findAll());
-
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
         if(location_id == null && category_id == null && date == null) {
@@ -130,7 +134,8 @@ public class PropertyController {
             System.out.println("location_id and category_id equal null but as a string, while date is an empty string");
             System.out.println("date = " + date);
             model.addAttribute("properties", propertyDao.findAll());
-        } else if(date != null && !date.equals("") && location_id.equals("null") && category_id.equals("null")) {
+        } else if(!date.equals("") && location_id.equals("null") && category_id.equals("null")) {
+            System.out.println("date found is not equal to null string but location id and category id is");
             Date newDate = formatter.parse(date);
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             String date_found = dateFormat.format(newDate);
@@ -142,7 +147,7 @@ public class PropertyController {
             Long locationIdNum = Long.parseLong(location_id);
             Location location = locationDao.getById(locationIdNum);
             model.addAttribute("properties", propertyDao.findPropertyByLocation(location));
-        } else if(!category_id.equals("null") && location_id.equals("null") && date.equals("")) {
+        } else if (!category_id.equals("null") && location_id.equals("null") && date.equals("")) {
             System.out.println("category id is not equal to null string but date found and location id is");
             Long categoryIdNum = Long.parseLong(category_id);
             PropertyCategory category = propertyCategoryDao.getById(categoryIdNum);
@@ -155,9 +160,6 @@ public class PropertyController {
             model.addAttribute("properties", propertyDao.findPropertyByLocationAndDate_found(date_found, location_id));
         } else if(!date.equals("") && !category_id.equals("null") && location_id.equals("null")) {
             System.out.println("date found and location id are not null but location is");
-            Date newDate = formatter.parse(date);
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            String date_found = dateFormat.format(newDate);
         } else if (!category_id.equals("null") && !location_id.equals("null") && date.equals("")) {
             System.out.println("both category and location are not null but date found is null string");
             Long locationIdNum = Long.parseLong(location_id);
@@ -170,7 +172,6 @@ public class PropertyController {
         System.out.println(location_id);
         System.out.println(category_id);
         System.out.println(date);
-
         return "property/listings-dummy";
     }
 
@@ -183,9 +184,9 @@ public class PropertyController {
 //        return "redirect:/property/listings";
 //    }
 
-    @GetMapping("/edit/{id}")
-    public String editProperty(@PathVariable Long id, Model model) {
-        model.addAttribute("property", propertyDao.getById(id));
+    @GetMapping("/property/edit")
+    public String editProperty(Model model) {
+        model.addAttribute("property", new Property());
         model.addAttribute("categories", propertyCategoryDao.findAll());
         model.addAttribute("locations", locationDao.findAll());
         return "property/edit-dummy";
