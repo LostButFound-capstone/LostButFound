@@ -29,10 +29,10 @@ public class HomeController {
         this.userDao =  userDao;
     }
 
-    @GetMapping("/home")
+    @GetMapping("/iffyhome")
     public String property(Model model){
 
-        return "home";
+        return "new_home_desktop";
     }
 
 }
