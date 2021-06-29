@@ -20,6 +20,10 @@ body {
     background-color: var(--main-bg-color);
 }
 
+.border-br {
+    border-bottom: solid 1px white;
+}
+
 /* Color Schemes */
 .main-bg-color {
     background-color: var(--main-bg-color);
