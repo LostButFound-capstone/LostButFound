@@ -14,13 +14,21 @@ import java.util.List;
 
 public interface PropertyRepository extends JpaRepository<Property, Long> {
     List<Property> findPropertyByUser(User user);
+
     List<Property> findPropertyByCategories(PropertyCategory category);
+
     List<Property> findPropertyByLocation(Location location);
-    @Query("select p from Property p where p.date_found <= :date")
-    List<Property> findPropertyByDate_found(@Param("date") Date date);
-//    List<Property> findPropertyByDate_found(Date date);
+
+    @Query(value = "SELECT * FROM property p where p.date_found like %?1%", nativeQuery = true)
+    List<Property> findPropertyByDate_found(String date);
+
     List<Property> findPropertyByCategoriesAndLocation(PropertyCategory category, Location location);
-//    List<Property> findPropertyByCategoriesAndDate_found(PropertyCategory category, Date date);
-//    List<Property> findPropertyByLocationAndDate_found(Location location, Date date);
-//    List<Property> findPropertyByCategoriesAndLocationAndDate_found(PropertyCategory category, Location location, Date date);
+
+    @Query(value = "SELECT * FROM property p WHERE p.date_found LIKE %?1% AND ", nativeQuery = true)
+    List<Property> findPropertyByCategoriesAndDate_found(PropertyCategory category, Date date);
+
+    @Query(value = "SELECT * FROM property p WHERE p.date_found LIKE %?1% AND p.location_id = ?2", nativeQuery = true)
+    List<Property> findPropertyByLocationAndDate_found(String date, String location_id);
+
+    //    List<Property> findPropertyByCategoriesAndLocationAndDate_found(PropertyCategory category, Location location, Date date);
 }
