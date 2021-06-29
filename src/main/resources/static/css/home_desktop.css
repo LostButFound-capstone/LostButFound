@@ -67,4 +67,34 @@
 /*}*/
 
 
+body {
+    background-color: var(--main-bg-color);
+}
 
+.button-bg-color1 {
+    background-color: var(--button-bg-color1);
+}
+
+.lost-button{
+    background-color: var(--button-bg-color1);
+}
+
+.lost-button {
+    color: white;
+}
+
+.find-button {
+    background-color: var(--button-bg-color2)
+}
+
+.find-button {
+    color : white;
+}
+
+.how-we-do {
+    color: white;
+}
+
+.what-we-do {
+    color: white;
+}
