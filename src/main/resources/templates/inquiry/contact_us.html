@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head :: head">
+
+</head>
+<body>
+
+<header>
+    <nav th:replace="fragments/navbar :: navbar"></nav>
+</header>
+
+
+<div class="container">
+    <form action="">
+
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" placeholder="Your email..">
+
+
+        <label for="subject">Subject</label>
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+        <input type="submit" value="Submit">
+
+    </form>
+</div>
+
+</body>
+<footer th:replace="fragments/footer :: footer">
+
+</footer>
+</html>
