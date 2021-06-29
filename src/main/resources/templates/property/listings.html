@@ -8,6 +8,7 @@
 	<nav th:replace="fragments/navbar :: navbar"></nav>
 </header>
 
+<div class="container">
 	<form th:action="@{/property/listings}" method="post">
 <!--		<div class="card mb-4">-->
 <!--			<div class="row no-gutters row-bordered card-body d-block text-body">-->
@@ -16,17 +17,17 @@
 
 
 <!--How to Search-->
-				<div class="container align-text-center">
-					<h3>Find lost property:</h3>
-					How to search:
-					<ul>
-						<li>Choose from a location you would like to search from.</li>
-						<li>Select specific categories for your lost property.</li>
-						<li>Select the date property was lost</li>
-					</ul>
-				</div>
-				</div>
+			<div class="container">
+				<h3>Find lost property:</h3>
+				How to search:
+				<ul>
+					<li>Choose from a location you would like to search from.</li>
+					<li>Select specific categories for your lost property.</li>
+					<li>Select the date property was lost</li>
+				</ul>
+			</div>
 <!--Search filter-->
+			<div class="container">
 				<div class="dropdown text-center">
 					<button class="btn-secondary" type="button" id="locations" data-toggle="dropdown">
 
@@ -50,7 +51,14 @@
 						</select>
 					</button>
 				</div>
-
+				<div class="input-group date" data-provide="datepicker-inline">
+					<input type="date" name="date_found" class="form-control">
+					<div class="input-group-addon">
+						<span class="glyphicon glyphicon-th"></span>
+					</div>
+				</div>
+				<button type="submit">Filter</button>
+			</div>
 <!--				<label for="locations">Locations:</label>-->
 <!--				<select id="locations" name="location">-->
 <!--					-->
@@ -63,35 +71,34 @@
 <!--					</th:block>-->
 <!--				</select>-->
 
-				<label for="dateFound">Date:</label>
-				<input id="dateFound" type="date" name="date_found">
+<!--			<label for="dateFound">Date:</label>-->
+<!--			<input id="dateFound" type="date" name="date_found">-->
 
-				<button type="submit">Filter</button>
+
 
 <!--Property Cards-->
-				<div class="album py-5 bg-light">
-					<div class="container">
-						<div class="row">
-							<div class="col" th:each="item : ${properties}">
-								<div class="card mb-4 box-shadow ">
-									<div class="card-body">
-										<p th:text="${item.title}"/></p>
-										<p style="float: right;" th:text="${item.location.location_name}"></p>
-										<p>Found at:</p>
-										<p style="float: right;" th:text="${item.date_found}"></p>
-										<p>Date Found:</p>
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<th:block th:each="category : ${item.categories}">
-											<p th:text="${category.property_type}"></p>
-										</th:block>
-									</div>
+			<div class="album py-5 bg-light">
+				<div class="container">
+					<div class="row">
+						<div class="col" th:each="item : ${properties}">
+							<div class="card mb-4 box-shadow ">
+								<div class="card-body">
+									<p th:text="${item.title}"/></p>
+									<p style="float: right;" th:text="${item.location.location_name}"></p>
+									<p>Found at:</p>
+									<p style="float: right;" th:text="${item.date_found}"></p>
+									<p>Date Found:</p>
+									<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+									<th:block th:each="category : ${item.categories}">
+										<p th:text="${category.property_type}"></p>
+									</th:block>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 	</form>
+</div>
 </body>
 </html>
