@@ -67,4 +67,42 @@
 /*}*/
 
 
+body {
+    background-color: var(--main-bg-color);
+}
 
+.button-bg-color1 {
+    background-color: var(--button-bg-color1);
+}
+
+.lost-button{
+    background-color: var(--button-bg-color1);
+
+    text-align: center;
+}
+
+.lost-button {
+    color: white;
+}
+
+.find-button {
+    background-color: var(--button-bg-color2);
+
+    text-align: center;
+}
+
+.find-button {
+    color : white;
+}
+
+.how-we-do {
+    color: white;
+    text-align: left;
+    margin-left: 50px ;
+}
+
+.what-we-do {
+    color: white;
+    text-align: left;
+    margin-left: 50px;
+}

@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 public interface PropertyRepository extends JpaRepository<Property, Long> {
+    // Single parameter query
     List<Property> findPropertyByUser(User user);
 
     List<Property> findPropertyByCategories(PropertyCategory category);
@@ -22,13 +23,16 @@ public interface PropertyRepository extends JpaRepository<Property, Long> {
     @Query(value = "SELECT * FROM property p where p.date_found like %?1%", nativeQuery = true)
     List<Property> findPropertyByDate_found(String date);
 
+    // Double parameter query
     List<Property> findPropertyByCategoriesAndLocation(PropertyCategory category, Location location);
 
-    @Query(value = "SELECT * FROM property p WHERE p.date_found LIKE %?1% AND ", nativeQuery = true)
-    List<Property> findPropertyByCategoriesAndDate_found(PropertyCategory category, Date date);
+    @Query(value = "SELECT * FROM property JOIN property_categories ON property_categories.post_id = property.id WHERE property_categories.category_id = ?1 AND property.date_found LIKE %?2%", nativeQuery = true)
+    List<Property> findPropertyByCategoriesAndDate_found(String category, String date);
 
     @Query(value = "SELECT * FROM property p WHERE p.date_found LIKE %?1% AND p.location_id = ?2", nativeQuery = true)
     List<Property> findPropertyByLocationAndDate_found(String date, String location_id);
 
-    //    List<Property> findPropertyByCategoriesAndLocationAndDate_found(PropertyCategory category, Location location, Date date);
+    // Triple parameter query
+    @Query(value = "SELECT * FROM property JOIN property_categories ON property_categories.post_id = property.id WHERE property_categories.category_id = ?1 AND property.date_found LIKE %?2% AND property.location_id = ?3", nativeQuery = true)
+    List<Property> findPropertyByCategoriesAndLocationAndDate_found(String category, String date, String location);
 }
