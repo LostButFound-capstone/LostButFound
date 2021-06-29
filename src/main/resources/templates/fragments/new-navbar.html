@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+<nav th:fragment="new-navbar">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="main-bg-color p-3">
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn border-white text-white" type="submit">Search</button>
+      </form>
+    </div>
+    <div class="shade1 p-3">
+      <a class="text-decoration-none" th:href="@{/home}"> <h5 class="text-white h4 border-bottom border-white">Home</h5> </a>
+    </div>
+    <div class="shade2 p-3">
+      <a class="text-decoration-none" th:href="@{/profile}"> <h5 class="text-white h4 border-bottom border-white">Profile</h5> </a>
+    </div>
+    <div class="shade3 p-3">
+      <a class="text-decoration-none" th:href="@{/listings}"> <h5 class="text-white h4 border-bottom border-white">Listing</h5> </a>
+    </div>
+    <div class="shade4 p-3">
+      <a class="text-decoration-none" th:href="@{/create}"> <h5 class="text-white h4 border-bottom border-white">Create Post</h5> </a>
+    </div>
+  </div>
+  <div class="navbar navbar-dark main-bg-color">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!--                <div>-->
+      <!--                    <img id="logo" src="img/logo.png" alt="logo">-->
+      <!--                </div>-->
+      <a>
+        <img id="user-pic" src="https://fer-uig.glitch.me" alt="user-icon">
+      </a>
+    </div>
+  </div>
+</nav>
+</body>
+</html>
