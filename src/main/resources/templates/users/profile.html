@@ -5,6 +5,7 @@
 
 </head>
 <body>
+
 <header>
     <nav th:replace="fragments/navbar :: navbar"></nav>
 </header>
@@ -29,11 +30,27 @@
 
                 <tr>
                     <td>Verified User:</td>
-                    <td><span></span>Yes</td>
+
+                    <div th:if="${currentUser.isVerified}">
+                        <td>Yes</td>
+                    </div>
+
+                    <div th:if="${currentUser.isVerified == false}">
+                        <td>No</td>
+                    </div>
                 </tr>
+
+
                 <tr>
                     <td>Role:</td>
-                    <td><span></span>User</td>
+
+                    <div th:if="${currentUser.isAdmin}">
+                        <td>Admin</td>
+                    </div>
+
+                    <div th:if="${currentUser.isAdmin == false}">
+                        <td>User</td>
+                    </div>
                 </tr>
 
                 <tr>
@@ -81,11 +98,14 @@
 
                             <p style="float: right;" th:text="${item.date_found}"></p>
                             <p>Date Found:</p>
-                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
 
-                            <th:block th:each="category : ${item.categories}">
-                                <p th:text="${category.property_type}"></p>
-                            </th:block>
+                            <p style="float: right" th:text="${item.date_posted}"></p>
+                            <p>Date Posted:</p>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+
+                            <!--                            <th:block th:each="category : ${item.categories}">-->
+                            <!--                                <p th:text="${category.property_type}"></p>-->
+                            <!--                            </th:block>-->
                         </div>
                     </div>
                 </div>
