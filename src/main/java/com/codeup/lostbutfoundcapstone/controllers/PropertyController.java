@@ -110,7 +110,7 @@ public class PropertyController {
     @GetMapping("/user/profile")
     public String showProfilePage(Model model) {
 //        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User user = userDao.getById(2L);
+        User user = userDao.getById(1L);
 
 
 
