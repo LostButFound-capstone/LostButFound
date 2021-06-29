@@ -1,14 +1,13 @@
 :root {
-    --shaded-green: #41B3A3; /* Main Background Color */
-    --pale-green: #85CDCB;
-    --muddy-red-orange: #E27D60;
-    --light-brown: #E8A87C;
-    --shaded-mate-red: #C38D9E;
+    --shades-of-main-bg-1: #929FAD;
+    --shades-of-main-bg-2: #A0ABB8;
+    --shades-of-main-bg-3: #ADB7C2;
+    --shades-of-main-bg-4: #BBC3CC;
+    --shades-of-main-bg-5: #C9CFD6;
 
-    --main-bg-color: lightcyan;
-    --alt-bg-color1: lightyellow;
-    --alt-bg-color2: lightslategrey;
-    --alt-bg-color3: linen;
+    --button-bg-color2: #997877;
+    --button-bg-color1: #879977; /* OPTION: #C25B56 */
+    --main-bg-color: lightslategrey; /* #778799 - Main Background Color */
 }
 
 *,
@@ -17,26 +16,44 @@
     box-sizing: border-box;
 }
 
-.bg-pale-green {
-    background-color: var(--pale-green);
+body {
+    background-color: var(--main-bg-color);
 }
 
-/* Main Background Color */
-.bg-shaded-green {
-    background-color: var(--shaded-green);
+/* Color Schemes */
+.main-bg-color {
+    background-color: var(--main-bg-color);
 }
 
-.bg-shaded-mate-red {
-    background-color: var(--shaded-mate-red);
+.button-bg-color1 {
+    background-color: var(--button-bg-color1);
 }
 
-.bg-light-brown {
-    background-color: var(--light-brown);
+.button-bg-color2 {
+    background-color: var(--button-bg-color2);
 }
 
-.bg-muddy-red-orange {
-    background-color: var(--muddy-red-orange);
+.shade1 {
+    background-color: var(--shades-of-main-bg-1);
 }
+
+.shade2 {
+    background-color: var(--shades-of-main-bg-2);
+}
+
+.shade3 {
+    background-color: var(--shades-of-main-bg-3);
+}
+
+.shade4 {
+    background-color: var(--shades-of-main-bg-4);
+}
+
+.shade5 {
+    background-color: var(--shades-of-main-bg-5);
+}
+/* Color Schemes - End */
+
 
 #logo {
     height: 40px;
