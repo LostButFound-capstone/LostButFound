@@ -4,6 +4,8 @@
     <title>Home</title>
 </head>
 <body>
+
+    <!-- Mobile Head -->
     <header>
         <!-- If NOT logged on th:if="${}" -->
         <th:block>
@@ -14,8 +16,9 @@
 <!--            <nav th:replace="fragments/new-navbar :: new-navbar"></nav>-->
 <!--        </th:block>-->
     </header>
-    <main>
 
+    <!-- Mobile View -->
+    <main>
         <div class="text-center mt-4 mb-3">
             <img class="w-50 h-50" src="img/lost-lightpink.svg" alt="logo">
         </div>
@@ -59,6 +62,51 @@
             </p>
         </div>
     </main>
+
+    <!-- Desktop View -->
+<!--    <main>-->
+<!--        <div class="text-center mt-4 mb-3">-->
+<!--            <img class="w-50 h-50" src="img/lost-lightpink.svg" alt="logo">-->
+<!--        </div>-->
+<!--        <div class="text-center d-flex">-->
+<!--            <div class="row">-->
+<!--                <div class="col">-->
+<!--                    <div class="p-4 m-3 text-white button-bg-color1 d-flex justify-content-center align-items-center flex-column one-edge-shadow rounded-3">-->
+<!--                        <h3>I lost something...</h3>-->
+<!--                        <a class="btn btn-outline-light" th:href="@{/listings}" role="button">Find</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col">-->
+<!--                    <div class="p-4 m-3 text-white button-bg-color2 d-flex justify-content-center align-items-center flex-column one-edge-shadow rounded-3">-->
+<!--                        <h3>I found something...</h3>-->
+<!--                        <a class="btn btn-outline-light" th:href="@{/create}" role="button">Share</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="text-center mt-4 mb-3">-->
+<!--            <img class="w-50 h-50" src="img/todo-lightpink.svg" alt="todo">-->
+<!--        </div>-->
+
+<!--        <div class="text-white px-3 pt-3">-->
+<!--            <h3 class=" text-center border-br mt-2 mb-4">What do we want to accomplish?</h3>-->
+<!--            <p>-->
+<!--                Have you ever been strolling along, minding your own business, and you come across a pair of sunglasses-->
+<!--                someone left-->
+<!--                behind at the park?-->
+<!--            </p>-->
+<!--            <p>-->
+<!--                Like those really nice ones? And you didn't want to leave them there, but you also didn't know-->
+<!--                how to get them back to the person that lost them? Or have you ever been super late for a flight and-->
+<!--                forgot to pick-->
+<!--                up your jacket as you run to your gate?-->
+<!--            </p>-->
+<!--            <p>-->
+<!--                That's where we come in! We help the residents of San Antonio reunite with lost belongings by providing a secure platform for individuals to share.-->
+<!--            </p>-->
+<!--        </div>-->
+<!--    </main>-->
 
 </body>
 </html>
