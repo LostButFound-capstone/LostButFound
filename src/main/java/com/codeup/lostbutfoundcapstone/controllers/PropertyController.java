@@ -205,12 +205,59 @@ public class PropertyController {
 //        return "redirect:/property/listings";
 //    }
 
-    @GetMapping("/edit")
-    public String editProperty(Model model) {
-        model.addAttribute("property", new Property());
+    @GetMapping("/edit/{id}")
+    public String showEditProperty(@PathVariable Long id, Model model) {
+        Property property = propertyDao.getById(id);
+        Date date = property.getDate_found();
+
+        String dateString = new SimpleDateFormat("yyyy-MM-dd").format(date);
+
+        model.addAttribute("dateFound", dateString);
+        model.addAttribute("datePosted", property.getDate_posted());
+        model.addAttribute("property", propertyDao.getById(id));
         model.addAttribute("categories", propertyCategoryDao.findAll());
         model.addAttribute("locations", locationDao.findAll());
         return "property/edit-dummy";
+    }
+
+    @PostMapping("/edit/{id}")
+    public String editProperty(@PathVariable Long id, @ModelAttribute Property property, @RequestParam(name = "categories", required = false) List<String> categories, @RequestParam("date") String date, @RequestParam("datePosted") String date_posted) throws ParseException {
+        //        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date blankDate = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date currentDate = formatter.parse(dateFormat.format(blankDate));
+        Date dateFound = formatter.parse(date);
+
+        System.out.println("current date = " + currentDate);
+        System.out.println("date found = " + dateFound);
+
+        List<PropertyCategory> categoryList = new ArrayList<>();
+        if (categories != null) {
+            for (String categoryIdString : categories) {
+                Long category_id = Long.parseLong(categoryIdString);
+                PropertyCategory category = propertyCategoryDao.getById(category_id);
+                categoryList.add(category);
+            }
+        }
+
+        property.setUser(propertyDao.getById(id).getUser());
+        property.setDate_posted(propertyDao.getById(id).getDate_posted());
+        property.setDate_found(dateFound);
+        property.setCategories(categoryList);
+
+        propertyDao.save(property);
+
+        return "redirect:/profile";
+    }
+
+    @PostMapping("/delete/{id}")
+    public String postsDelete(@PathVariable Long id) {
+
+        propertyDao.deleteById(id);
+
+        return "redirect:/profile";
     }
 
 }
