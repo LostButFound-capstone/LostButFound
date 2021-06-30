@@ -24,6 +24,11 @@
     <div class="shade4 p-3">
       <a class="text-decoration-none" th:href="@{/create}"> <h5 class="text-white h4 border-bottom border-white">Create Post</h5> </a>
     </div>
+    <div class="shade5 p-3">
+      <form th:action="@{/logout}" th:method="post">
+        <a class="text-decoration-none" th:href="@{/logout}"> <h5 class="text-white h4 border-bottom border-white">Logout</h5> </a>
+      </form>
+    </div>
   </div>
   <div class="navbar navbar-dark main-bg-color">
     <div class="container-fluid">

@@ -5,8 +5,9 @@
     --shades-of-main-bg-4: #BBC3CC;
     --shades-of-main-bg-5: #C9CFD6;
 
-    --button-bg-color2: #997877;
-    --button-bg-color1: #879977; /* OPTION: #C25B56 */
+    --button-bg-color2: darkturquoise; /* OPTION: #997877 */
+    --button-bg-color1: darkslateblue; /* OPTION: #879977 */
+    /* OPTION: #C25B56 */
     --main-bg-color: lightslategrey; /* #778799 - Main Background Color */
 
     --main-font: 'Montserrat', sans-serif;
