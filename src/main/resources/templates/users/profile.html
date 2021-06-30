@@ -101,8 +101,10 @@
 
                             <p style="float: right" th:text="${item.date_posted}"></p>
                             <p>Date Posted:</p>
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-
+                            <a role="button" class="btn btn-sm btn-outline-secondary" th:href="@{/edit/{id}(id=${item.id})}">Edit</a>
+                            <form th:action="@{/delete/{id}(id=${item.id})}" method="post">
+                            <button type="submit" class="btn btn-sm btn-outline-secondary btn-danger">Delete</button>
+                            </form>
                             <!--                            <th:block th:each="category : ${item.categories}">-->
                             <!--                                <p th:text="${category.property_type}"></p>-->
                             <!--                            </th:block>-->
