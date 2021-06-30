@@ -8,7 +8,7 @@
 	<nav th:replace="fragments/navbar :: navbar"></nav>
 </header>
 
-<div class="container">
+<div class="container border">
 	<form th:action="@{/property/listings}" method="post">
 <!--		<div class="card mb-4">-->
 <!--			<div class="row no-gutters row-bordered card-body d-block text-body">-->
@@ -17,30 +17,32 @@
 
 
 <!--How to Search-->
-			<div class="container">
-				<h3>Find lost property:</h3>
-				How to search:
-				<ul>
-					<li>Choose from a location you would like to search from.</li>
-					<li>Select specific categories for your lost property.</li>
-					<li>Select the date property was lost</li>
-				</ul>
+			<div class="container-fluid border">
+				<div>
+					<div class="row-sm-4">
+						<h3>Find lost property:</h3>
+						How to search:
+						<ul>
+							<li>Choose from a location you would like to search from.</li>
+							<li>Select specific categories for your lost property.</li>
+							<li>Select the date property was lost</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 <!--Search filter-->
-			<div class="container">
-				<div class="dropdown text-center">
-					<button class="btn-secondary" type="button" id="locations" data-toggle="dropdown">
-
-						<select>
-							<option value="">Select a location:</option>
-							<th:block th:each="location : ${locations}">
-								<option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
-							</th:block>
-						</select>
-					</button>
-				</div>
-
-				<div class="dropdown text-center">
+			<div class="container-fluid border btn-group">
+					<div class="dropdown text-center col-sm-3">
+						<button class="btn btn-primary dropdown-toggle" type="button" id="locations" data-toggle="dropdown">
+							<select>
+								<option value="">Select a location:</option>
+								<th:block th:each="location : ${locations}">
+									<option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
+								</th:block>
+							</select>
+						</button>
+					</div>
+				<div class="dropdown text-center col-sm-3">
 					<button class="btn btn-secondary" type="button" id="categories" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
 						<select>
@@ -51,12 +53,16 @@
 						</select>
 					</button>
 				</div>
-				<div class="input-group date" data-provide="datepicker-inline">
-					<input type="date" name="date_found" class="form-control">
-					<div class="input-group-addon">
-						<span class="glyphicon glyphicon-th"></span>
-					</div>
-				</div>
+<!--				<div class="input-group date col-sm-3" data-provide="datepicker">-->
+<!--					<button  type="date" name="date_found" class="form-control">-->
+<!--					<span class="input-group-addon">-->
+<!--						<span class="glyphicon glyphicon-th"></span>-->
+<!--					</span>-->
+<!--					</button>-->
+<!--				</div>-->
+				<label for="dateFound"></label>
+				<input id="dateFound" type="date" name="date_found">
+
 				<button type="submit">Filter</button>
 			</div>
 <!--				<label for="locations">Locations:</label>-->
@@ -71,8 +77,7 @@
 <!--					</th:block>-->
 <!--				</select>-->
 
-<!--			<label for="dateFound">Date:</label>-->
-<!--			<input id="dateFound" type="date" name="date_found">-->
+
 
 
 
@@ -101,4 +106,6 @@
 	</form>
 </div>
 </body>
+<footer th:replace="fragments/footer :: footer">
+</footer>
 </html>
