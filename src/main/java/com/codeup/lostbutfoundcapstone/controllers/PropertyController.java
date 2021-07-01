@@ -61,7 +61,6 @@ public class PropertyController {
         model.addAttribute("locations", locationDao.findAll());
 
 
-
         return "property/create";
     }
 
@@ -109,6 +108,32 @@ public class PropertyController {
         model.addAttribute("properties", propertyDao.findPropertyByUser(user));
 
         return "users/profile";
+    }
+
+    @GetMapping("/profile/edit")
+    public String showEditProfile(Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        model.addAttribute("currentUser", user);
+        model.addAttribute("properties", propertyDao.findPropertyByUser(user));
+
+        return "users/edit-profile";
+    }
+
+    @PostMapping("/profile/edit")
+    public String editProfile(@RequestParam(name = "username") String username, @RequestParam(name = "email") String email, @RequestParam(name = "password") String password, @RequestParam(name = "profilePicture") String profileImgURL) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        user.setVerified(false);
+        user.setAdmin(false);
+        user.setUsername(username);
+        user.setEmail(email);
+        user.setPassword(password);
+        user.setProfile_image_path(profileImgURL);
+
+        userDao.save(user);
+
+        return "redirect:/profile";
     }
 
     @GetMapping("/listings")
@@ -251,17 +276,32 @@ public class PropertyController {
 
     @GetMapping("/inquiry/{id}")
     public String showInquiry(@PathVariable Long id, Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
         Property property = propertyDao.getById(id);
 
         model.addAttribute("listing", property);
+        model.addAttribute("inquiry", new Inquiry());
 
         return "inquiry/inquiry_create";
     }
 
-//    @PostMapping("/inquiry/{id}")
-//    public String createInquiry(@PathVariable Long id, @ModelAttribute Inquiry inquiry) {
-//
-//
-//
-//    }
+    @PostMapping("/inquiry/{id}")
+    public String createInquiry(@PathVariable Long id, @ModelAttribute Inquiry inquiry, @RequestParam(name = "imageURL") String imageURL) throws ParseException {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+//        InquiryImage
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date blankDate = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date currentDate = formatter.parse(dateFormat.format(blankDate));
+
+        inquiry.setUser(user);
+
+
+
+
+        return "redirect:/inquiry/{id}";
+    }
 }
