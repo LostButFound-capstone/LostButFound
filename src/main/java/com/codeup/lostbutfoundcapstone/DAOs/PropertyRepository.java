@@ -14,6 +14,9 @@ import java.util.List;
 
 public interface PropertyRepository extends JpaRepository<Property, Long> {
     // Single parameter query
+    @Query(value = "SELECT * FROM p property where p.title like %?1%", nativeQuery = true)
+    List<Property> findPropertyByTitle(String title);
+
     List<Property> findPropertyByUser(User user);
 
     List<Property> findPropertyByCategories(PropertyCategory category);
