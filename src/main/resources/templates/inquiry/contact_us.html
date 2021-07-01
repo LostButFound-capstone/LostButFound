@@ -11,29 +11,50 @@
 </header>
 
 
-<div class="container">
-    <form action="">
+<div class="container mt-5">
 
-        <label for="fname">First Name</label>
-        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    <div class="card">
+        <div class="card-header text-center">
+            <h1>Contact Us</h1>
+        </div>
+        <div class="card-body">
+            <div class="card card-head mb-2">
+                <div class="card-body card-head table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th><h2>User Name</h2></th>
 
-        <label for="lname">Last Name</label>
-        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                            <th><h2>Title</h2></th>
 
-        <label for="email">Email</label>
-        <input type="text" id="email" name="email" placeholder="Your email..">
+                            <th><h2>Email</h2></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><h3 th:text="${admin.username}"></h3></td>
+                            <td><h3>Admin</h3></td>
+                            <td><h3 th:text="${admin.email}"></h3></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
+<!--            <div class="card tr">-->
+<!--                <div class="card-body card-head">-->
+<!--                    -->
+<!--                    <h3></h3>-->
+<!--                    -->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+    </div>
 
-        <label for="subject">Subject</label>
-        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-
-        <input type="submit" value="Submit">
-
-    </form>
 </div>
 
-</body>
 <footer th:replace="fragments/footer :: footer">
 
 </footer>
+</body>
 </html>

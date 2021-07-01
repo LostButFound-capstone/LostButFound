@@ -37,5 +37,12 @@ public class InquiryController {
         return "inquiry/inquiry_create";
     }
 
+    @GetMapping("/contact")
+    public String showContactForm(Model model){
+        model.addAttribute("admin", userDao.getById(2L));
+
+        return "inquiry/contact_us";
+    }
+
 
 }
