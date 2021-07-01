@@ -87,6 +87,11 @@ p {
     border-radius: 50%;
 }
 
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: .5rem;
+    padding-left: 1rem;
+}
+
 .navbar-toggler {
     padding: 5px;
     border: none;
