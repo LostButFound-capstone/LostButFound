@@ -260,4 +260,17 @@ public class PropertyController {
         return "redirect:/profile";
     }
 
+    @GetMapping("/inquiry/{id}")
+    public String showInquiry(@PathVariable Long id, Model model) {
+        Property property = propertyDao.getById(id);
+
+        model.addAttribute("listing", property);
+
+        return "inquiry/inquiry_create";
+    }
+
+//    @PostMapping("/inquiry/{id}")
+//    public String createInquiry(@PathVariable Long id) {
+//
+//    }
 }
