@@ -17,8 +17,8 @@
 <!--        </th:block>-->
     </header>
 
-    <!-- Mobile View -->
-    <main>
+    <!-- Small Screens View -->
+    <main class="d-block d-lg-none d-xxl-none">
         <div class="text-center mt-4 mb-3">
             <img class="w-50 h-50" src="img/lost-lightpink.svg" alt="logo">
         </div>
@@ -46,67 +46,48 @@
         <div class="text-white px-3 pt-3">
             <h3 class=" text-center border-br mt-2 mb-4">What do we want to accomplish?</h3>
             <p>
-                Have you ever been strolling along, minding your own business, and you come across a pair of sunglasses
-                someone left
-                behind at the park?
-            </p>
-            <p>
-                Like those really nice ones? And you didn't want to leave them there, but you also didn't know
-                how to get them back to the person that lost them? Or have you ever been super late for a flight and
-                forgot to pick
-                up your jacket as you run to your gate?
-            </p>
-            <p>
-                That's where we come in. We help the residents of San Antonio reunite and
-                get reunited with lost belongings.
+                We help the residents of San Antonio reunite with lost belongings.
             </p>
         </div>
     </main>
 
-    <!-- Desktop View -->
-<!--    <main>-->
-<!--        <div class="text-center mt-4 mb-3">-->
-<!--            <img class="w-50 h-50" src="img/lost-lightpink.svg" alt="logo">-->
-<!--        </div>-->
-<!--        <div class="text-center d-flex">-->
-<!--            <div class="row">-->
-<!--                <div class="col">-->
-<!--                    <div class="p-4 m-3 text-white button-bg-color1 d-flex justify-content-center align-items-center flex-column one-edge-shadow rounded-3">-->
-<!--                        <h3>I lost something...</h3>-->
-<!--                        <a class="btn btn-outline-light" th:href="@{/listings}" role="button">Find</a>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col">-->
-<!--                    <div class="p-4 m-3 text-white button-bg-color2 d-flex justify-content-center align-items-center flex-column one-edge-shadow rounded-3">-->
-<!--                        <h3>I found something...</h3>-->
-<!--                        <a class="btn btn-outline-light" th:href="@{/create}" role="button">Share</a>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
+    <!-- Large Screens View -->
+    <main class="d-none d-lg-block d-xxl-block">
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="box1 d-flex flex-column text-white">
+                <h3>What do we want to accomplish?</h3>
+                <p class="mt-2 mb-4">We help the residents of San Antonio reunite with lost belongings.</p>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="p-4 text-white button-bg-color1 d-flex justify-content-center align-items-center flex-column one-edge-shadow rounded-3">
+                            <h3>I lost something...</h3>
+                            <a class="btn btn-outline-light" th:href="@{/listings}" role="button">Find</a>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="p-4 ml-3 text-white button-bg-color2 d-flex justify-content-center align-items-center flex-column one-edge-shadow rounded-3">
+                            <h3>I found something...</h3>
+                            <a class="btn btn-outline-light" th:href="@{/create}" role="button">Share</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box2 text-center">
+                <img id="lost" src="img/lost-lightpink.svg" alt="logo">
+            </div>
+        </div>
 
-<!--        <div class="text-center mt-4 mb-3">-->
-<!--            <img class="w-50 h-50" src="img/todo-lightpink.svg" alt="todo">-->
-<!--        </div>-->
-
-<!--        <div class="text-white px-3 pt-3">-->
-<!--            <h3 class=" text-center border-br mt-2 mb-4">What do we want to accomplish?</h3>-->
-<!--            <p>-->
-<!--                Have you ever been strolling along, minding your own business, and you come across a pair of sunglasses-->
-<!--                someone left-->
-<!--                behind at the park?-->
-<!--            </p>-->
-<!--            <p>-->
-<!--                Like those really nice ones? And you didn't want to leave them there, but you also didn't know-->
-<!--                how to get them back to the person that lost them? Or have you ever been super late for a flight and-->
-<!--                forgot to pick-->
-<!--                up your jacket as you run to your gate?-->
-<!--            </p>-->
-<!--            <p>-->
-<!--                That's where we come in! We help the residents of San Antonio reunite with lost belongings by providing a secure platform for individuals to share.-->
-<!--            </p>-->
-<!--        </div>-->
-<!--    </main>-->
-
+    </main>
+<!--    <p>-->
+<!--        Have you ever been strolling along, minding your own business, and you come across a pair of sunglasses-->
+<!--        someone left-->
+<!--        behind at the park?-->
+<!--    </p>-->
+<!--    <p>-->
+<!--        Like those really nice ones? And you didn't want to leave them there, but you also didn't know-->
+<!--        how to get them back to the person that lost them? Or have you ever been super late for a flight and-->
+<!--        forgot to pick-->
+<!--        up your jacket as you run to your gate?-->
+<!--    </p>-->
 </body>
 </html>
