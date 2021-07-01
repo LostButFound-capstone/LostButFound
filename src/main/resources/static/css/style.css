@@ -105,3 +105,29 @@ p {
     box-shadow: 0 8px 6px -6px black;
 }
 
+.box1 {
+    height: 100%;
+    width: 48%;
+    padding: 5em;
+}
+
+.box1 > h3 {
+    font-size: 36px;
+}
+
+.box1 > p {
+    font-size: 20px;
+}
+
+.box2 {
+    height: 100%;
+    width: 52%;
+}
+
+#lost {
+    height: 100%;
+    width: 100%;
+    padding-right: 80px;
+}
+
+
