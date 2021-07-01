@@ -5,13 +5,11 @@ import com.codeup.lostbutfoundcapstone.DAOs.LocationRepository;
 import com.codeup.lostbutfoundcapstone.DAOs.PropertyCategoryRepository;
 import com.codeup.lostbutfoundcapstone.DAOs.PropertyRepository;
 import com.codeup.lostbutfoundcapstone.DAOs.UserRepository;
-import com.codeup.lostbutfoundcapstone.models.Location;
-import com.codeup.lostbutfoundcapstone.models.Property;
-import com.codeup.lostbutfoundcapstone.models.PropertyCategory;
-import com.codeup.lostbutfoundcapstone.models.User;
+import com.codeup.lostbutfoundcapstone.models.*;
 import com.codeup.lostbutfoundcapstone.services.EmailService;
 //import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -43,10 +41,10 @@ public class PropertyController {
     }
 
 
-    @GetMapping("/property")
+    @GetMapping("/home")
     public String property(Model model){
 
-        return "new_home_desktop";
+        return "home";
     }
 
     @PostMapping("/property/{id}")
@@ -69,7 +67,7 @@ public class PropertyController {
 
     @PostMapping("/create")
     public String createPostProperty(@ModelAttribute Property property, @RequestParam(name = "categories", required = false) List<String> categories, @RequestParam("date") String date) throws ParseException {
-//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date blankDate = new Date();
@@ -89,7 +87,6 @@ public class PropertyController {
             }
         }
 
-        User user = userDao.getById(1L);
         property.setUser(user);
         property.setDate_found(dateFound);
         property.setDate_posted(currentDate);
@@ -104,8 +101,8 @@ public class PropertyController {
 
     @GetMapping("/profile")
     public String showProfilePage(Model model) {
-//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User user = userDao.getById(1L);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
 
 
         model.addAttribute("currentUser", user);
@@ -262,7 +259,9 @@ public class PropertyController {
     }
 
 //    @PostMapping("/inquiry/{id}")
-//    public String createInquiry(@PathVariable Long id) {
+//    public String createInquiry(@PathVariable Long id, @ModelAttribute Inquiry inquiry) {
+//
+//
 //
 //    }
 }

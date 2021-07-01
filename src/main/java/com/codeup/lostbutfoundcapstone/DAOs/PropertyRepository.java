@@ -29,6 +29,9 @@ public interface PropertyRepository extends JpaRepository<Property, Long> {
     // Double parameter query
     List<Property> findPropertyByCategoriesAndLocation(PropertyCategory category, Location location);
 
+    @Query(value = "SELECT * FROM property p JOIN property_categories ON property_categories.post_id = p.id JOIN categories ON categories.id = property_categories.category_id JOIN locations ON locations.id = p.location_id where categories.property_type like %?1% and locations.location_name like %?2%", nativeQuery = true)
+    List<Property> findPropertyByCategoriesIsLikeAndLocationIsLike(String category, String location);
+
     @Query(value = "SELECT * FROM property JOIN property_categories ON property_categories.post_id = property.id WHERE property_categories.category_id = ?1 AND property.date_found LIKE %?2%", nativeQuery = true)
     List<Property> findPropertyByCategoriesAndDate_found(String category, String date);
 
