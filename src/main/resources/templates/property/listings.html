@@ -1,81 +1,112 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/head :: head">
-	<title>Listings Page</title>
+
 </head>
 <body>
 <header>
 	<nav th:replace="fragments/navbar :: navbar"></nav>
 </header>
-
-<div class="container border">
-	<form th:action="@{/property/listings}" method="post">
-<!--		<div class="card mb-4">-->
-<!--			<div class="row no-gutters row-bordered card-body d-block text-body">-->
-<!--				<div class="d-flex col-md align-items-center ">-->
-
-
-
-<!--How to Search-->
-			<div class="container-fluid border">
-				<div>
-					<div class="row-sm-4">
-						<h3>Find lost property:</h3>
-						How to search:
-						<ul>
-							<li>Choose from a location you would like to search from.</li>
-							<li>Select specific categories for your lost property.</li>
-							<li>Select the date property was lost</li>
-						</ul>
-					</div>
-				</div>
-			</div>
+<style>
+    select, input, button {
+        margin-bottom: 1em;
+        padding: .25em;
+        border: 0;
+        border-bottom: 2px solid currentcolor;
+        font-weight: bold;
+        letter-spacing: .15em;
+        border-radius: 0;
+    &:focus, &:active {
+                  outline: 0;
+                  border-bottom-color: red;
+              }
+	{}
+</style>
+<div class="container no-gutters border">
+	<h3 align="center">Find lost property:</h3>
+	<h5>Filter your search:</h5>
 <!--Search filter-->
-			<div class="container-fluid border btn-group">
-					<div class="dropdown text-center col-sm-3">
-						<button class="btn btn-primary dropdown-toggle" type="button" id="locations" data-toggle="dropdown">
-							<select>
-								<option value="">Select a location:</option>
-								<th:block th:each="location : ${locations}">
-									<option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
-								</th:block>
-							</select>
-						</button>
-					</div>
-				<div class="dropdown text-center col-sm-3">
-					<button class="btn btn-secondary" type="button" id="categories" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-						<select>
-							<option value="">Select a category:</option>
+		<form th:action="@{/listings}" method="get">
+			<div class="container-fluid border">
+				<div class="row border align-items-center">
+
+<!--Location dropdown-->
+						<label for="locations">Filter a location:</label>
+						<select class="col" id="locations" data-selected="">
+							<option  value="null" selected="selected" disabled="disabled">Select a location</option>
+							<th:block th:each="location : ${locations}">
+								<option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
+							</th:block>
+						</select>
+<!--					</div>-->
+<!--					<div class="col">-->
+						<select class="col" id="categories" data-selected="">
+							<option value="null" selected="selected" disabled="disabled">Select a category:</option>
 							<th:block th:each="category : ${categories}">
 								<option th:value="${category.id}"><span th:text="${category.property_type}"></span></option>
 							</th:block>
 						</select>
-					</button>
+<!--					</div>-->
+					<div class="row border align-items-center">
+						<input class="col" id="dateFound" type="date" name="date_found">
+
+
+						<button class="col" type="submit">Filter</button>
+					</div>
 				</div>
-<!--				<div class="input-group date col-sm-3" data-provide="datepicker">-->
-<!--					<button  type="date" name="date_found" class="form-control">-->
-<!--					<span class="input-group-addon">-->
-<!--						<span class="glyphicon glyphicon-th"></span>-->
-<!--					</span>-->
-<!--					</button>-->
-<!--				</div>-->
-				<label for="dateFound"></label>
-				<input id="dateFound" type="date" name="date_found">
-
-				<button type="submit">Filter</button>
 			</div>
-<!--				<label for="locations">Locations:</label>-->
-<!--				<select id="locations" name="location">-->
-<!--					-->
-<!--				</select>-->
+<!--			<div class="container border">-->
+<!--				<div class="row">-->
+<!--					<div class="col">-->
+<!--						<div class="container-fluid border btn-group">-->
+<!--							<div class="row">-->
+<!--								<div class="dropdown">-->
+<!--									<button class="btn btn-primary" type="button" id="locations" data-toggle="dropdown">-->
+<!--										<select>-->
+<!--											<option>Select a location:</option>-->
+<!--											<th:block th:each="location : ${locations}">-->
+<!--												<option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>-->
+<!--											</th:block>-->
+<!--										</select>-->
+<!--									</button>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--							<div class="row">-->
+<!--								<div class="dropdown">-->
+<!--									<button class="btn btn-primary" type="button" id="categories" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--										<select>-->
+<!--											<option value="">Select a category:</option>-->
+<!--											<th:block th:each="category : ${categories}">-->
+<!--												<option th:value="${category.id}"><span th:text="${category.property_type}"></span></option>-->
+<!--											</th:block>-->
+<!--										</select>-->
+<!--									</button>-->
+<!--								</div>-->
+<!--								<div class="col-sm">-->
+<!--									<label for="dateFound"></label>-->
+<!--									<span style="position: relative">-->
+<!--									<input id="dateFound" type="date" name="date_found" placeholder="Select a date">-->
+<!--									</span>-->
+<!--								</div>-->
+<!--			&lt;!&ndash;				</div>&ndash;&gt;-->
+<!--			&lt;!&ndash;				<div class="row">&ndash;&gt;-->
+<!--								<div class="col-sm">-->
+<!--									<button type="button" class="btn btn-primary">Filter</button>-->
+<!--								</div>-->
+<!--			&lt;!&ndash;				</div>&ndash;&gt;-->
+<!--						</div>-->
+<!--&lt;!&ndash;				<label for="locations">Locations:</label>&ndash;&gt;-->
+<!--&lt;!&ndash;				<select id="locations" name="location">&ndash;&gt;-->
+<!--&lt;!&ndash;					&ndash;&gt;-->
+<!--&lt;!&ndash;				</select>&ndash;&gt;-->
 
-<!--				<label for="categories">Categories:</label>-->
-<!--				<select id="categories" name="category">-->
-<!--					<th:block th:each="category : ${categories}">-->
-<!--						<option th:value="${category.id}"><span th:text="${category.property_type}"></span></option>-->
-<!--					</th:block>-->
-<!--				</select>-->
+<!--&lt;!&ndash;				<label for="categories">Categories:</label>&ndash;&gt;-->
+<!--&lt;!&ndash;				<select id="categories" name="category">&ndash;&gt;-->
+<!--&lt;!&ndash;					<th:block th:each="category : ${categories}">&ndash;&gt;-->
+<!--&lt;!&ndash;						<option th:value="${category.id}"><span th:text="${category.property_type}"></span></option>&ndash;&gt;-->
+<!--&lt;!&ndash;					</th:block>&ndash;&gt;-->
+<!--&lt;!&ndash;				</select>&ndash;&gt;-->
 
 
 
