@@ -205,6 +205,13 @@ public class PropertyController {
 
             model.addAttribute("properties", propertyDao.findPropertyByCategoriesAndLocation(category, location));
 
+        } else if(!category_id.equals("null") && !location_id.equals("null") && !date.equals("")) {
+            System.out.println("All inputs are being used");
+            Date newDate = formatter.parse(date);
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String date_found = dateFormat.format(newDate);
+
+            model.addAttribute("properties", propertyDao.findPropertyByCategoriesAndLocationAndDate_found(category_id, date_found, location_id));
         }
 
         System.out.println(location_id);
@@ -314,4 +321,13 @@ public class PropertyController {
 
         return "redirect:/listings";
     }
+
+    @PostMapping("/search")
+    public String searchBar(Model model, @RequestParam(name = "searchBar") String searchString) {
+
+        model.addAttribute("properties", propertyDao.findPropertyByCategoriesIsLikeOrLocationIsLike(searchString, searchString));
+
+        return "redirect:/listings";
+    }
+
 }

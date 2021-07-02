@@ -7,14 +7,10 @@
 
     <!-- Mobile Head -->
     <header>
-        <!-- If NOT logged on th:if="${}" -->
-        <th:block>
-            <nav th:replace="fragments/navbar :: navbar"></nav>
-        </th:block>
-        <!-- If logged on th:if="${}" -->
-<!--        <th:block>-->
-<!--            <nav th:replace="fragments/new-navbar :: new-navbar"></nav>-->
-<!--        </th:block>-->
+        <!-- If NOT logged on -->
+        <nav th:replace="fragments/navbar :: navbar" sec:authorize="!isAuthenticated()"></nav>
+        <!-- If logged on -->
+        <nav th:replace="fragments/new-navbar :: new-navbar" sec:authorize="isAuthenticated()"></nav>
     </header>
 
     <!-- Small Screens View -->
