@@ -4,7 +4,7 @@ package com.codeup.lostbutfoundcapstone.controllers;
 import com.codeup.lostbutfoundcapstone.DAOs.*;
 import com.codeup.lostbutfoundcapstone.models.*;
 import com.codeup.lostbutfoundcapstone.services.EmailService;
-//import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -28,7 +28,7 @@ public class PropertyController {
     private final UserRepository userDao;
     private final InquiryRepository inquiryDao;
     private final EmailService emailService;
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
 
     public PropertyController(PropertyRepository propertyDao, PropertyCategoryRepository propertyCategoryDao, UserRepository userDao, EmailService emailService, LocationRepository locationDao, InquiryRepository inquiryDao, PasswordEncoder passwordEncoder) {
@@ -94,7 +94,6 @@ public class PropertyController {
 
         Property savedProperty = propertyDao.save(property);
 
-//        emailService.prepareAndSend(property, property.getTitle(), "Check this out!");
 
         return "redirect:/listings";
     }
@@ -111,8 +110,8 @@ public class PropertyController {
         return "users/profile";
     }
 
-    @GetMapping("/profile/edit")
-    public String showEditProfile(Model model) {
+    @GetMapping("/profile/edit/{id}")
+    public String showEditProfile(@PathVariable Long id, Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         model.addAttribute("currentUser", user);
@@ -121,9 +120,10 @@ public class PropertyController {
         return "users/edit-profile";
     }
 
-    @PostMapping("/profile/edit")
-    public String editProfile(@RequestParam(name = "username") String username, @RequestParam(name = "email") String email, @RequestParam(name = "password") String password, @RequestParam(name = "profilePicture") String profileImgURL) {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    @PostMapping("/profile/edit/{id}")
+    public String editProfile(@PathVariable Long id, @RequestParam(name = "username") String username, @RequestParam(name = "email") String email, @RequestParam(name = "password") String password, @RequestParam(name = "profilePicture") String profileImgURL) {
+//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userDao.getById(id);
 
         String hash = passwordEncoder.encode(password);
 
@@ -305,9 +305,13 @@ public class PropertyController {
         inquiry.setUser(user);
         inquiry.setDate_posted(currentDate);
         inquiry.setImages(images);
+        Property property = propertyDao.getById(id);
 
-        inquiryDao.save(inquiry);
+        User userPoster = property.getUser();
+        Inquiry savedInquiry = inquiryDao.save(inquiry);
 
-        return "redirect:/inquiry/" + id;
+        emailService.prepareAndSend(property, "Hello, " + userPoster.getUsername() + "", savedInquiry.getInquiry_description());
+
+        return "redirect:/listings";
     }
 }

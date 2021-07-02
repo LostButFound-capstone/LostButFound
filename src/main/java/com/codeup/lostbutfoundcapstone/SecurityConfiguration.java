@@ -42,7 +42,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 /* Logout configuration */
                 .and()
                 .logout()
-                .logoutSuccessUrl("/login?logout") // append a query string value
+                .logoutSuccessUrl("/home") // append a query string value
                 /* Pages that can be viewed without having to log in */
                 .and()
                 .authorizeRequests()
@@ -53,7 +53,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(
                         "/create", // only authenticated users can create ads
-                        "/edit/{id}" // only authenticated users can edit ads
+                        "/edit/{id}",
+                        "/profile",
+                        "/inquiry/{id}"// only authenticated users can edit ads
                 )
                 .authenticated()
         ;
