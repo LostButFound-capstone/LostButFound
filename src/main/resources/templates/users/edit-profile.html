@@ -28,31 +28,7 @@
             <table class="table user-view-table m-0">
                 <tbody>
 
-                <!--                <tr>-->
-                <!--                    <td>Verified User:</td>-->
-
-                <!--                    <div th:if="${currentUser.isVerified}">-->
-                <!--                        <td>Yes</td>-->
-                <!--                    </div>-->
-
-                <!--                    <div th:if="${currentUser.isVerified == false}">-->
-                <!--                        <td>No</td>-->
-                <!--                    </div>-->
-                <!--                </tr>-->
-
-
-                <!--                <tr>-->
-                <!--                    <td>Role:</td>-->
-
-                <!--                    <div th:if="${currentUser.isAdmin}">-->
-                <!--                        <td>Admin</td>-->
-                <!--                    </div>-->
-
-                <!--                    <div th:if="${currentUser.isAdmin == false}">-->
-                <!--                        <td>User</td>-->
-                <!--                    </div>-->
-                <!--                </tr>-->
-                <form th:action="@{/profile/edit}" method="post">
+                <form th:action="@{/profile/edit/{id}(id=${currentUser.id})}" method="post">
                     <tr>
                         <td>Edit Username:</td>
                         <td><input name="username" type="text" th:value="${currentUser.username}"></td>
@@ -64,8 +40,8 @@
                     </tr>
 
                     <tr>
-                        <td>Edit Password:</td>
-                        <td><input name="password" type="text" th:value="${currentUser.password}"></td>
+                        <td>Please type in a new password or re-input your old password:</td>
+                        <td><input name="password" type="text"></td>
                     </tr>
 
                     <tr>
