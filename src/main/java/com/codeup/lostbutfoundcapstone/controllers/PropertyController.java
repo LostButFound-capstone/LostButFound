@@ -1,17 +1,13 @@
 package com.codeup.lostbutfoundcapstone.controllers;
 
 
-import com.codeup.lostbutfoundcapstone.DAOs.LocationRepository;
-import com.codeup.lostbutfoundcapstone.DAOs.PropertyCategoryRepository;
-import com.codeup.lostbutfoundcapstone.DAOs.PropertyRepository;
-import com.codeup.lostbutfoundcapstone.DAOs.UserRepository;
-import com.codeup.lostbutfoundcapstone.models.Location;
-import com.codeup.lostbutfoundcapstone.models.Property;
-import com.codeup.lostbutfoundcapstone.models.PropertyCategory;
-import com.codeup.lostbutfoundcapstone.models.User;
+import com.codeup.lostbutfoundcapstone.DAOs.*;
+import com.codeup.lostbutfoundcapstone.models.*;
 import com.codeup.lostbutfoundcapstone.services.EmailService;
-//import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -30,23 +26,26 @@ public class PropertyController {
     private final PropertyCategoryRepository propertyCategoryDao;
     private final LocationRepository locationDao;
     private final UserRepository userDao;
+    private final InquiryRepository inquiryDao;
     private final EmailService emailService;
+    private final PasswordEncoder passwordEncoder;
 
 
-
-    public PropertyController(PropertyRepository propertyDao, PropertyCategoryRepository propertyCategoryDao, UserRepository userDao, EmailService emailService, LocationRepository locationDao){
+    public PropertyController(PropertyRepository propertyDao, PropertyCategoryRepository propertyCategoryDao, UserRepository userDao, EmailService emailService, LocationRepository locationDao, InquiryRepository inquiryDao, PasswordEncoder passwordEncoder) {
         this.propertyDao = propertyDao;
         this.propertyCategoryDao = propertyCategoryDao;
         this.userDao =  userDao;
         this.emailService = emailService;
         this.locationDao = locationDao;
+        this.inquiryDao = inquiryDao;
+        this.passwordEncoder = passwordEncoder;
     }
 
 
-    @GetMapping("/property")
+    @GetMapping("/home")
     public String property(Model model){
 
-        return "new_home_desktop";
+        return "home";
     }
 
     @PostMapping("/property/{id}")
@@ -63,13 +62,12 @@ public class PropertyController {
         model.addAttribute("locations", locationDao.findAll());
 
 
-
         return "property/create";
     }
 
     @PostMapping("/create")
     public String createPostProperty(@ModelAttribute Property property, @RequestParam(name = "categories", required = false) List<String> categories, @RequestParam("date") String date) throws ParseException {
-//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date blankDate = new Date();
@@ -89,7 +87,6 @@ public class PropertyController {
             }
         }
 
-        User user = userDao.getById(1L);
         property.setUser(user);
         property.setDate_found(dateFound);
         property.setDate_posted(currentDate);
@@ -97,21 +94,49 @@ public class PropertyController {
 
         Property savedProperty = propertyDao.save(property);
 
-//        emailService.prepareAndSend(property, property.getTitle(), "Check this out!");
 
         return "redirect:/listings";
     }
 
     @GetMapping("/profile")
     public String showProfilePage(Model model) {
-//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User user = userDao.getById(1L);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
 
 
         model.addAttribute("currentUser", user);
         model.addAttribute("properties", propertyDao.findPropertyByUser(user));
 
         return "users/profile";
+    }
+
+    @GetMapping("/profile/edit/{id}")
+    public String showEditProfile(@PathVariable Long id, Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        model.addAttribute("currentUser", user);
+        model.addAttribute("properties", propertyDao.findPropertyByUser(user));
+
+        return "users/edit-profile";
+    }
+
+    @PostMapping("/profile/edit/{id}")
+    public String editProfile(@PathVariable Long id, @RequestParam(name = "username") String username, @RequestParam(name = "email") String email, @RequestParam(name = "password") String password, @RequestParam(name = "profilePicture") String profileImgURL) {
+//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userDao.getById(id);
+
+        String hash = passwordEncoder.encode(password);
+
+        user.setVerified(false);
+        user.setAdmin(false);
+        user.setUsername(username);
+        user.setEmail(email);
+        user.setPassword(hash);
+        user.setProfile_image_path(profileImgURL);
+
+        userDao.save(user);
+
+        return "redirect:/profile";
     }
 
     @GetMapping("/listings")
@@ -252,4 +277,41 @@ public class PropertyController {
         return "redirect:/profile";
     }
 
+    @GetMapping("/inquiry/{id}")
+    public String showInquiry(@PathVariable Long id, Model model) {
+        //User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        Property property = propertyDao.getById(id);
+
+        model.addAttribute("listing", property);
+        model.addAttribute("inquiry", new Inquiry());
+
+        return "inquiry/inquiry_create";
+    }
+
+    @PostMapping("/inquiry/{id}")
+    public String createInquiry(@PathVariable Long id, @ModelAttribute Inquiry inquiry, @RequestParam(name = "imageURL") String imageURL, @RequestParam(name = "imageDescription") String imageDescription) throws ParseException {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        InquiryImage image = new InquiryImage(imageURL, imageDescription, inquiry);
+        List<InquiryImage> images = new ArrayList<>();
+        images.add(image);
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date blankDate = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date currentDate = formatter.parse(dateFormat.format(blankDate));
+
+        inquiry.setUser(user);
+        inquiry.setDate_posted(currentDate);
+        inquiry.setImages(images);
+        Property property = propertyDao.getById(id);
+
+        User userPoster = property.getUser();
+        Inquiry savedInquiry = inquiryDao.save(inquiry);
+
+        emailService.prepareAndSend(property, "Hello, " + userPoster.getUsername() + "", savedInquiry.getInquiry_description());
+
+        return "redirect:/listings";
+    }
 }

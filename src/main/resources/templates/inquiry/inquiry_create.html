@@ -67,7 +67,7 @@
                 voluptates.</h5>
         </div>
 
-        <form th:action="@{/inquiry}" method="post" th:object="${inquiry}">
+        <form th:action="@{/inquiry/{id}(id=${listing.id})}" method="post" th:object="${inquiry}">
             <div class="card-body text-center">
 
                 <!--                <div class="form-group w-50">-->
@@ -84,11 +84,13 @@
                 </div>
 
                 <div class="form-group mb-3">
-                    <label style="float: left;" class="inputs" for="picture">Upload a Photo</label>
-                    <input type="text" name="picture" class="form-control" id="picture">
+                    <label style="float: left;" class="inputs" for="imageURL">Upload an image:</label>
+                    <input type="text" name="imageURL" class="form-control" id="imageURL">
+                    <label style="float: left;" for="imageDescription" class="inputs">Image description:</label>
+                    <input type="text" name="imageDescription" class="form-control" id="imageDescription">
                 </div>
 
-                <a href="#" class="btn btn-success">Submit</a>
+                <input type="submit" class="btn btn-success">
             </div>
         </form>
     </div>

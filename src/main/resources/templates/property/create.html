@@ -8,7 +8,7 @@
     <nav th:replace="fragments/navbar :: navbar"></nav>
   </header>
 
-  <form th:action="@{/property/create}" method="post" th:object="${property}">
+  <form th:action="@{/create}" method="post" th:object="${property}">
     <h5>Create a missing item post by filling out the forms below:</h5>
     <br>
     <label for="createTitle">Title:</label>
