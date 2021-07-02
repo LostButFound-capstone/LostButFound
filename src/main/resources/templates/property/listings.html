@@ -29,11 +29,10 @@
 
 		<form th:action="@{/listings}" method="get">
 			<div class="container-fluid border">
-				<div class="row align-items-center">
+				<div class="row border align-items-center">
 
 <!--Location dropdown-->
-<!--					<div class="col">-->
-<!--						<label for="locations">Filter a location:</label>-->
+						<label for="locations">Filter a location:</label>
 						<select class="col" id="locations" data-selected="">
 							<option  value="null" selected="selected" disabled="disabled">Select a location</option>
 							<th:block th:each="location : ${locations}">
@@ -49,12 +48,12 @@
 							</th:block>
 						</select>
 <!--					</div>-->
-<!--					<div class="col">-->
+					<div class="row border align-items-center">
 						<input class="col" id="dateFound" type="date" name="date_found">
-<!--					</div>-->
-<!--					<div class="col">-->
+
+
 						<button class="col" type="submit">Filter</button>
-<!--					</div>-->
+					</div>
 				</div>
 			</div>
 <!--			<div class="container border">-->
