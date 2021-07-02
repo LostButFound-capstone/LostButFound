@@ -5,11 +5,11 @@
 </head>
 <body>
 <!--    extra-small screens to mediums screens-->
-<nav th:fragment="navbar" class="d-block d-lg-none d-xxl-none">
+<nav th:fragment="new-navbar" class="d-block d-lg-none d-xxl-none">
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="main-bg-color p-3">
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <form class="d-flex" th:action="@{/search}" method="post">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchBar">
         <button class="btn border-white text-white" type="submit">Search</button>
       </form>
     </div>
@@ -27,7 +27,7 @@
     </div>
     <div class="shade5 p-3">
       <form th:action="@{/logout}" th:method="post">
-        <a class="text-decoration-none" th:href="@{/logout}"> <h5 class="text-white h4 border-bottom border-white">Logout</h5> </a>
+        <button class="btn-link text-decoration-none p-0"> <h5 class="text-white h4 border-bottom border-white">Logout</h5> </button>
       </form>
     </div>
   </div>
@@ -47,15 +47,15 @@
 </nav>
 
 <!--    large screens to xxl-screens-->
-<nav th:fragment="navbar" class="navbar navbar-expand-lg main-bg-color d-none d-lg-block d-xxl-block">
+<nav th:fragment="new-navbar" class="navbar navbar-expand-lg main-bg-color d-none d-lg-block d-xxl-block">
   <div class="container-fluid">
 
     <a class="navbar-brand" href="#">
       <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24">
     </a>
 
-    <form class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <form class="d-flex" th:action="@{/search}" method="post">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchBar">
       <button class="btn border-white text-white" type="submit">Search</button>
     </form>
 
@@ -75,7 +75,7 @@
         </li>
         <li class="nav-item">
           <form th:action="@{/logout}" th:method="post">
-            <a class="text-decoration-none" th:href="@{/logout}"> <h5 class="text-white h4 border-bottom border-white">Logout</h5> </a>
+            <button class="btn-link nav-link text-white">Logout</button>
           </form>
         </li>
       </ul>
