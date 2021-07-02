@@ -322,12 +322,12 @@ public class PropertyController {
         return "redirect:/listings";
     }
 
-//    @PostMapping("/search");
-//    public String searchBar(Model model, @RequestParam(name = "searchBar") String searchString) {
-//
-//        model.addAttribute("properties", propertyDao.findPropertyByCategoriesIsLikeOrLocationIsLike(searchString, searchString));
-//
-//        return "redirect:/listings";
-//    }
+    @PostMapping("/search")
+    public String searchBar(Model model, @RequestParam(name = "searchBar") String searchString) {
+
+        model.addAttribute("properties", propertyDao.findPropertyByCategoriesIsLikeOrLocationIsLike(searchString, searchString));
+
+        return "redirect:/listings";
+    }
 
 }
