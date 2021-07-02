@@ -104,6 +104,17 @@ p {
     box-shadow: 0 8px 6px -6px black;
 }
 
+.btn-link {
+    border: none;
+    outline: none;
+    background: none;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    cursor: pointer;
+}
+
 .box1 {
     height: 100%;
     width: 48%;
