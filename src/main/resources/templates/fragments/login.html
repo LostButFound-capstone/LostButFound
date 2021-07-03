@@ -85,17 +85,18 @@
 
 <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 
+
 <div id="id01" class="modal">
 
-  <form class="modal-content animate" action="/action_page.php" method="post">
+  <form class="modal-content animate" th:action="@{/login}"  method="POST">
 
 
     <div class="container">
       <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required id="uname">
+      <input type="text" placeholder="Enter Username" name="uname" required id="uname" th:feild="*{username}">
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required id="psw">
+      <input type="password" placeholder="Enter Password" name="psw" required id="psw" th:feild="*{password}">
 
       <button class="btn-lg" type="submit">Login</button>
     </div>
