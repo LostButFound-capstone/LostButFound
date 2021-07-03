@@ -9,32 +9,85 @@
   </header>
 
   <form th:action="@{/create}" method="post" th:object="${property}">
-    <h5>Create a missing item post by filling out the forms below:</h5>
+
     <br>
-    <label for="createTitle">Title:</label>
-    <input id="createTitle" type="text" th:field="*{title}">
+
+    <div class="fill-out-form">
+
+    <h5>Tell us about what you found!</h5>
+    </div>
+
     <br>
-    <label for="dateFound"></label>
-    <input id="dateFound" type="date" name="date">
-    <br>
-    <label>Choose one or more categories that fits the item you found:</label>
-    <br>
-    <th:block th:each="category : ${categories}">
-      <label th:for="${category.id}"><span th:text="${category.property_type}"></span></label><br>
-      <input type="checkbox" name="categories" th:id="${category.id}" th:value="${category.id}">
+
+    <div class="title">
+
+    <label for="createTitle">What did you find?</label>
       <br>
+
+
+    <input id="createTitle" type="text" th:field="*{title}">
+    </div>
+
+    <br>
+
+    <div class="date">
+
+    <label for="dateFound">When did you find it?</label>
+
+      <br>
+
+    <input id="dateFound" type="date" name="date">
+    </div>
+
+    <br>
+
+    <div class="categories">
+
+    <label>Choose one or more categories that fits the item you found:</label>
+    </div>
+
+    <br>
+
+
+    <div class="category-choices">
+
+    <th:block th:each="category : ${categories}">
+      <label th:for="${category.id}"><span th:text="${category.property_type}"></span></label>
+      <input type="checkbox" name="categories" th:id="${category.id}" th:value="${category.id}">
+
+      <br>
+
+      <br>
+
     </th:block>
+    </div>
+
+    <br>
+
+    <div class="where">
 
     <label for="locations">Where did you find this item?</label>
-
+ <br>
     <select id="locations" th:field="*{location}">
       <th:block th:each="location : ${locations}">
         <option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
       </th:block>
     </select>
 
+      <br>
+      <br>
+      <br>
 
-    <input type="submit">
+<!--      <div class="button">-->
+<!--    <input type="submit">-->
+      <button type="submit" class="btn btn-outline-warning mt-3">Submit</button>
+      </div>
+
+      <br>
+      <br>
+      <br>
+
+    </div>
   </form>
 
 
