@@ -22,8 +22,8 @@
             <div class="shade3 p-3">
                 <a class="text-decoration-none" th:href="@{/listings}"> <h5 class="text-white h4 border-bottom border-white">Listing</h5> </a>
             </div>
-            <div class="shade4 p-3">
-                <a class="text-decoration-none" th:href="@{/login}"> <h5 class="text-white h4 border-bottom border-white">Login</h5> </a>
+            <div th:replace="fragments/login-fragment :: modal">
+
             </div>
             <div class="shade5 p-3">
                 <a class="text-decoration-none" th:href="@{/sign-up}"> <h5 class="text-white h4 border-bottom border-white">Sign Up</h5> </a>
@@ -68,9 +68,7 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" th:href="@{/listings}">Listings</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" th:href="@{/login}">Login</a>
-                    </li>
+                    <li th:replace="fragments/login-fragment :: modal-lg"></li>
                     <li class="nav-item">
                         <a class="nav-link text-white" th:href="@{/sign-up}">Sign Up</a>
                     </li>
