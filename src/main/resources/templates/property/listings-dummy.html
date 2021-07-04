@@ -4,9 +4,12 @@
     <title>Listings</title>
 </head>
 <body>
-    <header>
-        <nav th:replace="fragments/navbar :: navbar"></nav>
-    </header>
+<header>
+    <!-- If NOT logged on -->
+    <nav th:replace="fragments/navbar :: navbar" sec:authorize="!isAuthenticated()"></nav>
+    <!-- If logged on -->
+    <nav th:replace="fragments/new-navbar :: new-navbar" sec:authorize="isAuthenticated()"></nav>
+</header>
 
     <form th:action="@{/listings}" method="get">
         <label for="locations">Locations:</label>
@@ -37,8 +40,22 @@
         <th:block th:each="category : ${item.categories}">
             <p th:text="${category.property_type}"></p>
         </th:block>
-        <a role="button" class="btn btn-sm btn-outline-secondary" th:href="@{/inquiry/{id}(id=${item.id})}">Inquire</a>
+        <a sec:authorize="isAuthenticated()" role="button" class="btn btn-sm btn-outline-secondary" th:href="@{/inquiry/{id}(id=${item.id})}">Inquire</a>
+        <a sec:authorize="!isAuthenticated()" role="button" class="btn btn-sm btn-outline-secondary popup" onclick="myFunction2()">Inquire
+            <span class="popuptext" id="myPopupLg">To inquire about a missing item, you need to be a logged in user!</span>
+        </a>
     </div>
 
+    <script>
+        // When the user clicks on div, open the popup
+        function myFunction() {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+        }
+        function myFunction2() {
+            var popup = document.getElementById("myPopupLg");
+            popup.classList.toggle("show");
+        }
+    </script>
 </body>
 </html>

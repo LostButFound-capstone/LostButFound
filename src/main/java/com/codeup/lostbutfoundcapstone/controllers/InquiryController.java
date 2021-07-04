@@ -44,5 +44,10 @@ public class InquiryController {
         return "inquiry/contact_us";
     }
 
+    @GetMapping("/modaltest")
+    public String showModal() {
+
+        return "modal-scratch";
+    }
 
 }

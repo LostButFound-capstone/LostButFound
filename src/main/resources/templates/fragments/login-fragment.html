@@ -85,7 +85,7 @@
 
 <div th:fragment="modal">
 
-    <button id="button-modal" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
+    <button id="button-modalSmall" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
         Login
     </button>
 
@@ -96,11 +96,11 @@
 
 
             <div class="container">
-                <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="username" required id="uname" >
+                <label for="usernameSmall"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="username" required id="usernameSmall" >
 
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="password" required id="psw" >
+                <label for="passwordSmall"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" required id="passwordSmall" >
 
                 <button class="btn-lg" type="submit">Login</button>
             </div>
@@ -110,7 +110,7 @@
 </div>
 <li th:fragment="modal-lg" class="nav-item">
 
-    <button id="button-modal" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">
+    <button id="button-modalLg" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">
         Login
     </button>
 
@@ -139,7 +139,7 @@
     var modal = document.getElementById('id01');
 
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
+    window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
         }
@@ -147,7 +147,7 @@
     var modalLg = document.getElementById('id02');
 
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
+    window.onclick = function(event) {
         if (event.target == modalLg) {
             modal.style.display = "none";
         }

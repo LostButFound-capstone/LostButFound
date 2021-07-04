@@ -29,7 +29,11 @@
                 <div class="col">
                     <div class="p-4 m-3 text-white button-bg-color2 d-flex justify-content-center align-items-center flex-column one-edge-shadow rounded-3">
                         <h3>I found something...</h3>
-                        <a class="btn btn-outline-light" th:href="@{/create}" role="button">Share</a>
+                        <a sec:authorize="isAuthenticated()" class="btn btn-outline-light" th:href="@{/create}" role="button">Share</a>
+                        <a sec:authorize="!isAuthenticated()" class="btn btn-outline-light popup" role="button" onclick="myFunction()">Share
+                            <img src="img/nambeshadap.png" class="popuptext" id="myPopup" alt="nambe-shadap">
+                        </a>
+<!--                        <a class="btn btn-outline-light" th:href="@{/create}" role="button">Share</a>-->
                     </div>
                 </div>
             </div>
@@ -63,7 +67,10 @@
                     <div class="col-6">
                         <div class="p-4 ml-3 text-white button-bg-color2 d-flex justify-content-center align-items-center flex-column one-edge-shadow rounded-3">
                             <h3>I found something...</h3>
-                            <a class="btn btn-outline-light" th:href="@{/create}" role="button">Share</a>
+                            <a sec:authorize="isAuthenticated()" class="btn btn-outline-light" th:href="@{/create}" role="button">Share</a>
+                            <button sec:authorize="!isAuthenticated()" class="btn btn-outline-light popup" role="button" onclick="myFunction2()">Share
+                                <span class="popuptext" id="myPopupLg">To create a missing item post, you need to be a logged in user!</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -88,26 +95,17 @@
 
 <script th:replace="fragments/login-fragment :: modaljs"></script>
 <script th:replace="fragments/signup-fragment :: signup-modaljs"></script>
-
-<!--<script>-->
-<!--    // Get the modal-->
-<!--    var modal = document.getElementById('id01');-->
-
-<!--    // When the user clicks anywhere outside of the modal, close it-->
-<!--    window.onclick = function (event) {-->
-<!--        if (event.target == modal) {-->
-<!--            modal.style.display = "none";-->
-<!--        }-->
-<!--    }-->
-<!--    var modalLg = document.getElementById('id02');-->
-
-<!--    // When the user clicks anywhere outside of the modal, close it-->
-<!--    window.onclick = function (event) {-->
-<!--        if (event.target == modalLg) {-->
-<!--            modal.style.display = "none";-->
-<!--        }-->
-<!--    }-->
-<!--</script>-->
+    <script>
+        // When the user clicks on div, open the popup
+        function myFunction() {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+        }
+        function myFunction2() {
+            var popup = document.getElementById("myPopupLg");
+            popup.classList.toggle("show");
+        }
+    </script>
 
 </body>
 </html>
