@@ -9,78 +9,92 @@
 
 <div th:fragment="signup-modal" class="shade4 p-3">
 
-    <a id="button-modalSmall" class="text-decoration-none" role="button" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">
+    <a id="button-modalSmall" class="text-decoration-none" role="button"
+       onclick="document.getElementById('id03').style.display='block'" style="width:auto;">
         <h5 class="text-white h4 border-bottom border-white">Sign Up</h5>
     </a>
 
     <div id="id03" class="modal">
 
-        <form class="modal-content animate" th:action="@{/sign-up}" method="POST" >
+        <form class="modal-content animate" th:action="@{/sign-up}" method="POST">
 
-            <div class="form-group">
-                <label class="inputs" for="usernameSignupSmall">Username</label>
-                <input class="form-control" id="usernameSignupSmall" name="username"/>
+            <div class="imgcontainer mb-4">
+                <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
             </div>
-            <div class="form-group">
-                <label class="inputs" for="emailSignupSmall">Email</label>
-                <input class="form-control" id="emailSignupSmall" name="email"/>
+
+            <div class="container">
+                <div class="form-group">
+                    <label class="inputs" for="usernameSignupSmall">Username</label>
+                    <input class="form-control" id="usernameSignupSmall" name="username" required/>
+                </div>
+                <div class="form-group">
+                    <label class="inputs" for="emailSignupSmall">Email</label>
+                    <input class="form-control" id="emailSignupSmall" name="email" required/>
+                </div>
+                <div class="form-group">
+                    <label class="inputs" for="passwordSignupSmall">Password</label>
+                    <input class="form-control" id="passwordSignupSmall" type="password" name="password" required/>
+                </div>
+                <!--        <input value="Sign me up!" type="submit"/>-->
+                <button type="submit" class="btn mt-3 button-fragment">Sign Up!</button>
             </div>
-            <div class="form-group">
-                <label class="inputs" for="passwordSignupSmall">Password</label>
-                <input class="form-control" id="passwordSignupSmall" type="password" name="password"/>
-            </div>
-            <!--        <input value="Sign me up!" type="submit"/>-->
-            <button type="submit" class="btn btn-outline-warning mt-3">Sign Up!</button>
         </form>
     </div>
 </div>
 
 <li th:fragment="signup-modal-lg">
 
-  <a id="button-modalLarge" class="nav-link text-white" role="button" onclick="document.getElementById('id04').style.display='block'" style="width:auto;">
-    Sign Up
-  </a>
+    <a id="button-modalLarge" class="nav-link text-white" role="button"
+       onclick="document.getElementById('id04').style.display='block'" style="width:auto;">
+        Sign Up
+    </a>
 
-  <div id="id04" class="modal">
+    <div id="id04" class="modal">
 
         <form class="modal-content animate" th:action="@{/sign-up}" method="POST">
 
-            <div class="form-group">
-                <label class="inputs" for="usernameSignupLarge">Username</label>
-                <input class="form-control" id="usernameSignupLarge" name="username"/>
+            <div class="imgcontainer mb-4">
+                <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
             </div>
-            <div class="form-group">
-                <label class="inputs" for="emailSignupLarge">Email</label>
-                <input class="form-control" id="emailSignupLarge" name="email"/>
+
+            <div class="container">
+                <div class="form-group">
+                    <label class="inputs" for="usernameSignupLarge">Username</label>
+                    <input class="form-control" id="usernameSignupLarge" name="username" required/>
+                </div>
+                <div class="form-group">
+                    <label class="inputs" for="emailSignupLarge">Email</label>
+                    <input class="form-control" id="emailSignupLarge" name="email" required/>
+                </div>
+                <div class="form-group">
+                    <label class="inputs" for="passwordSignupLarge">Password</label>
+                    <input class="form-control" id="passwordSignupLarge" type="password" name="password" required/>
+                </div>
+                <!--        <input value="Sign me up!" type="submit"/>-->
+                <button type="submit" class="btn  mt-3 button-fragment">Sign Up!</button>
             </div>
-            <div class="form-group">
-                <label class="inputs" for="passwordSignupLarge">Password</label>
-                <input class="form-control" id="passwordSignupLarge" type="password" name="password"/>
-            </div>
-            <!--        <input value="Sign me up!" type="submit"/>-->
-            <button type="submit" class="btn btn-outline-warning mt-3">Sign Up!</button>
         </form>
     </div>
 </li>
 
 <script th:fragment="signup-modaljs">
-  // Get the modal
-  var modal = document.getElementById('id03');
+    // Get the modal
+    var modal = document.getElementById('id03');
 
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
     }
-  }
-  var modalLg = document.getElementById('id04');
+    var modalLg = document.getElementById('id04');
 
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function (event) {
-    if (event.target == modalLg) {
-      modal.style.display = "none";
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modalLg) {
+            modal.style.display = "none";
+        }
     }
-  }
 
 </script>
 

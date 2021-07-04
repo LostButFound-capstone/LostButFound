@@ -21,6 +21,10 @@
 
         <form class="modal-content animate" th:action="@{/login}" method="POST">
 
+            <div class="imgcontainer mb-3">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            </div>
+
             <div class="container">
                 <label for="usernameSmall"><b>Username</b></label>
                 <input type="text" placeholder="Enter Username" name="username" required id="usernameSmall" >
@@ -28,7 +32,7 @@
                 <label for="passwordSmall"><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" name="password" required id="passwordSmall" >
 
-                <button class="btn-lg" type="submit">Login</button>
+                <button class="btn-lg button-fragment" type="submit">Login</button>
             </div>
 
         </form>
@@ -44,6 +48,9 @@
 
         <form class="modal-content animate" th:action="@{/login}" method="POST">
 
+            <div class="imgcontainer mb-3">
+                <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+            </div>
 
             <div class="container">
                 <label for="uname"><b>Username</b></label>
@@ -52,7 +59,7 @@
                 <label for="psw"><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" name="password" required id="psw" >
 
-                <button class="btn-lg" type="submit">Login</button>
+                <button class="btn-lg button-fragment" type="submit">Login</button>
             </div>
 
         </form>

@@ -163,15 +163,15 @@ input[type=text], input[type=password] {
 
 /*}*/
 
-/*#button-modalLg {*/
-/*    background-color: #04AA6D;*/
-/*    color: white;*/
-/*    padding: 14px 20px;*/
-/*    margin: 8px 0;*/
-/*    border: none;*/
-/*    cursor: pointer;*/
-
-/*}*/
+.button-fragment {
+    background-color: rgb(46,192,248);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
 
 /*button:hover {*/
 /*    opacity: 0.8;*/
@@ -206,7 +206,23 @@ input[type=text], input[type=password] {
     width: 80%; /* Could be more or less, depending on screen size */
 }
 
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
 
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
 .animate {
     -webkit-animation: animatezoom 0.6s;
     animation: animatezoom 0.6s
