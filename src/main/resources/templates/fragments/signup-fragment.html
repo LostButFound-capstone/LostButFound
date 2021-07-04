@@ -7,28 +7,27 @@
 </head>
 <body>
 
-<div th:fragment="signup-modal">
+<div th:fragment="signup-modal" class="shade4 p-3">
 
-
-    <button id="button-modal" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">
-        Sign Up
-    </button>
+    <a id="button-modalSmall" class="text-decoration-none" role="button" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">
+        <h5 class="text-white h4 border-bottom border-white">Sign Up</h5>
+    </a>
 
     <div id="id03" class="modal">
 
         <form class="modal-content animate" th:action="@{/sign-up}" method="POST" >
 
             <div class="form-group">
-                <label class="inputs" for="username">Username</label>
-                <input class="form-control" id="username" name="username"/>
+                <label class="inputs" for="usernameSignupSmall">Username</label>
+                <input class="form-control" id="usernameSignupSmall" name="username"/>
             </div>
             <div class="form-group">
-                <label class="inputs" for="email">Email</label>
-                <input class="form-control" id="email" name="email"/>
+                <label class="inputs" for="emailSignupSmall">Email</label>
+                <input class="form-control" id="emailSignupSmall" name="email"/>
             </div>
             <div class="form-group">
-                <label class="inputs" for="password">Password</label>
-                <input class="form-control" id="password" type="password" name="password"/>
+                <label class="inputs" for="passwordSignupSmall">Password</label>
+                <input class="form-control" id="passwordSignupSmall" type="password" name="password"/>
             </div>
             <!--        <input value="Sign me up!" type="submit"/>-->
             <button type="submit" class="btn btn-outline-warning mt-3">Sign Up!</button>
@@ -38,25 +37,25 @@
 
 <li th:fragment="signup-modal-lg">
 
-  <button id="button-modal" onclick="document.getElementById('id04').style.display='block'" style="width:auto;">
+  <a id="button-modalLarge" class="nav-link text-white" role="button" onclick="document.getElementById('id04').style.display='block'" style="width:auto;">
     Sign Up
-  </button>
+  </a>
 
   <div id="id04" class="modal">
 
         <form class="modal-content animate" th:action="@{/sign-up}" method="POST">
 
             <div class="form-group">
-                <label class="inputs" for="username">Username</label>
-                <input class="form-control" id="username" name="username"/>
+                <label class="inputs" for="usernameSignupLarge">Username</label>
+                <input class="form-control" id="usernameSignupLarge" name="username"/>
             </div>
             <div class="form-group">
-                <label class="inputs" for="email">Email</label>
-                <input class="form-control" id="email" name="email"/>
+                <label class="inputs" for="emailSignupLarge">Email</label>
+                <input class="form-control" id="emailSignupLarge" name="email"/>
             </div>
             <div class="form-group">
-                <label class="inputs" for="password">Password</label>
-                <input class="form-control" id="password" type="password" name="password"/>
+                <label class="inputs" for="passwordSignupLarge">Password</label>
+                <input class="form-control" id="passwordSignupLarge" type="password" name="password"/>
             </div>
             <!--        <input value="Sign me up!" type="submit"/>-->
             <button type="submit" class="btn btn-outline-warning mt-3">Sign Up!</button>
