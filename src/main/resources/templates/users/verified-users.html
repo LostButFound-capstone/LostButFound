@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/head :: head">
+  <title>Verified Users</title>
+</head>
+<body>
+<header>
+  <!-- If NOT logged on -->
+  <nav th:replace="fragments/navbar :: navbar" sec:authorize="!isAuthenticated()"></nav>
+  <!-- If logged on -->
+  <nav th:replace="fragments/new-navbar :: new-navbar" sec:authorize="isAuthenticated()"></nav>
+</header>
+
+
+</body>
+</html>
