@@ -330,4 +330,9 @@ public class PropertyController {
         return "redirect:/listings";
     }
 
+//    @GetMapping("/verified-users")
+//    public String showVerifiedUsers(Model model) {
+//
+//    }
+
 }
