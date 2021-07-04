@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class UserController {
@@ -26,15 +27,29 @@ public class UserController {
         return "users/sign-up";
     }
 
+//    @PostMapping("/sign-up")
+//    public String saveUser(@ModelAttribute User user){
+//        String hash = passwordEncoder.encode(user.getPassword());
+//        user.setPassword(hash);
+//        user.setAdmin(false);
+//        user.setVerified(false);
+//        user.setProfile_image_path(null);
+//        users.save(user);
+//        return "redirect:/login";
+//    }
+
     @PostMapping("/sign-up")
-    public String saveUser(@ModelAttribute User user){
-        String hash = passwordEncoder.encode(user.getPassword());
+    public String saveUser(@RequestParam(name = "username") String username, @RequestParam(name = "email") String email, @RequestParam(name = "password") String password){
+        User user = new User();
+        String hash = passwordEncoder.encode(password);
+        user.setUsername(username);
+        user.setEmail(email);
         user.setPassword(hash);
         user.setAdmin(false);
         user.setVerified(false);
         user.setProfile_image_path(null);
         users.save(user);
-        return "redirect:/login";
+        return "redirect:/home";
     }
 
 }
