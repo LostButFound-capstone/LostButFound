@@ -5,7 +5,10 @@
 <head th:replace="fragments/head :: head"></head>
 <body>
   <header>
-    <nav th:replace="fragments/navbar :: navbar"></nav>
+    <!-- If NOT logged on -->
+    <nav th:replace="fragments/navbar :: navbar" sec:authorize="!isAuthenticated()"></nav>
+    <!-- If logged on -->
+    <nav th:replace="fragments/new-navbar :: new-navbar" sec:authorize="isAuthenticated()"></nav>
   </header>
 
   <form th:action="@{/create}" method="post" th:object="${property}">
