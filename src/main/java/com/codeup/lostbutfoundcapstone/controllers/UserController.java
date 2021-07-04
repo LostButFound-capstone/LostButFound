@@ -35,7 +35,7 @@ public class UserController {
         user.setEmail(email);
         user.setPassword(hash);
         user.setAdmin(false);
-        user.setVerified(false);
+        user.setVerified(true);
         user.setProfile_image_path(null);
         users.save(user);
         return "redirect:/home";
