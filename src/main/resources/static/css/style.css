@@ -153,29 +153,29 @@ input[type=text], input[type=password] {
 }
 
 /* Set a style for all buttons */
-#button-modalSmall {
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
+/*#button-modalSmall {*/
+/*  background-color: #04AA6D;*/
+/*  color: white;*/
+/*  padding: 14px 20px;*/
+/*  margin: 8px 0;*/
+/*  border: none;*/
+/*  cursor: pointer;*/
 
-}
+/*}*/
 
-#button-modalLg {
-    background-color: #04AA6D;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
+/*#button-modalLg {*/
+/*    background-color: #04AA6D;*/
+/*    color: white;*/
+/*    padding: 14px 20px;*/
+/*    margin: 8px 0;*/
+/*    border: none;*/
+/*    cursor: pointer;*/
 
-}
+/*}*/
 
-button:hover {
-    opacity: 0.8;
-}
+/*button:hover {*/
+/*    opacity: 0.8;*/
+/*}*/
 
 
 .container {
