@@ -182,6 +182,14 @@ input[type=text], input[type=password] {
     padding: 16px;
 }
 
+/* fa-check */
+.hidden {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
 
 /* The Modal (background) */
 .modal {

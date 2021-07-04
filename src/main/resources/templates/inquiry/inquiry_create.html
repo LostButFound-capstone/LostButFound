@@ -5,6 +5,30 @@
 
 <head th:replace="fragments/head :: head">
 
+    <script>
+        function myFunction() {
+            console.log("I was clicked");
+
+            const client = filestack.init(FileStackAPI);
+            const options = {
+                accept: ["image/*"],
+                onUploadDone: (res) => {
+                    console.log(res);
+                    let handle = "https://www.filestackapi.com/api/file/" + res.filesUploaded[0].handle;
+
+                    if (handle !== null || handle !== "") {
+                        $('.fa-check').toggleClass('hidden', 'visible');
+                    }
+
+                    document.getElementById('hidden').value = handle;
+                }
+
+            };
+
+            client.picker(options).open();
+        }
+    </script>
+
 </head>
 <body>
 <header>
@@ -18,90 +42,93 @@
 <!--    <h6>Please fill in your information and a good description of the item you lost.</h6>-->
 <!--</div>-->
 
-<div class="container mt-4 mb-4">
-    <div class="card">
+    <div class="container mt-4 mb-4">
+        <div class="card">
 
-        <div class="card mx-3 my-3">
-            <div class="card-body">
+            <div class="card mx-3 my-3">
+                <div class="card-body">
 
-                <div class="d-inline-flex">
-                    <h2>User:</h2>
-                </div>
-                <div class="d-inline-flex">
-                    <h2 th:text="${listing.user.username}"></h2>
-                </div>
-                <br>
+                    <div class="d-inline-flex">
+                        <h2>User:</h2>
+                    </div>
+                    <div class="d-inline-flex">
+                        <h2 th:text="${listing.user.username}"></h2>
+                    </div>
+                    <br>
 
-                <div class="d-inline-flex">
-                    <h3>Lost item:</h3>
-                </div>
-                <div class="d-inline-flex">
-                    <h3 th:text="${listing.title}"/></h2>
-                </div>
-                <br>
+                    <div class="d-inline-flex">
+                        <h3>Lost item:</h3>
+                    </div>
+                    <div class="d-inline-flex">
+                        <h3 th:text="${listing.title}"/></h2>
+                    </div>
+                    <br>
 
-                <div class="d-inline-flex">
-                    <h3>Found at:</h3>
-                </div>
-                <div class="d-inline-flex">
-                    <h3 th:text="${listing.location.location_name}"></h3>
-                </div>
-                <br>
+                    <div class="d-inline-flex">
+                        <h3>Found at:</h3>
+                    </div>
+                    <div class="d-inline-flex">
+                        <h3 th:text="${listing.location.location_name}"></h3>
+                    </div>
+                    <br>
 
-                <div class="d-inline-flex">
-                    <h3>Date Found:</h3>
-                </div>
-                <div class="d-inline-flex">
-                    <h3 th:text="${listing.date_found}"></h3>
-                </div>
+                    <div class="d-inline-flex">
+                        <h3>Date Found:</h3>
+                    </div>
+                    <div class="d-inline-flex">
+                        <h3 th:text="${listing.date_found}"></h3>
+                    </div>
 
+                </div>
             </div>
-        </div>
 
-        <div class="mx-4">
-            <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ex itaque officia quia
-                repudiandae,
-                sunt tempora. Accusantium adipisci aperiam atque dolore hic iusto maxime molestias, nam qui ut
-                voluptas
-                voluptates.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ex itaque
-                officia
-                quia
-                repudiandae,
-                sunt tempora. Accusantium adipisci aperiam atque dolore hic iusto maxime molestias, nam qui ut
-                voluptas
-                voluptates.</h5>
-        </div>
-
-        <form th:action="@{/inquiry/{id}(id=${listing.id})}" method="post" th:object="${inquiry}">
-            <div class="card-body text-center">
-
-                <!--                <div class="form-group w-50">-->
-                <!--                    <label style="float: left" class="inputs" for="email">Contact @Email:</label>-->
-                <!--                    <input class="form-control" id="email" th:text="${user.email}"/>-->
-                <!--                </div>-->
-
-
-                <div class="form-group w-100 mb-4">
-                    <label style="float: left;" class="inputs" for="description">Description of your
-                        item:</label>
-                    <textarea class="form-control" id="description"
-                              th:field="*{inquiry_description}"></textarea>
-                </div>
-
-                <div class="form-group mb-3">
-                    <label style="float: left;" class="inputs" for="imageURL">Upload an image:</label>
-                    <input type="text" name="imageURL" class="form-control" id="imageURL">
-                    <label style="float: left;" for="imageDescription" class="inputs">Image description:</label>
-                    <input type="text" name="imageDescription" class="form-control" id="imageDescription">
-                </div>
-
-                <input type="submit" class="btn btn-success">
+            <div class="mx-4">
+                <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ex itaque officia quia
+                    repudiandae,
+                    sunt tempora. Accusantium adipisci aperiam atque dolore hic iusto maxime molestias, nam qui ut
+                    voluptas
+                    voluptates.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ex itaque
+                    officia
+                    quia
+                    repudiandae,
+                    sunt tempora. Accusantium adipisci aperiam atque dolore hic iusto maxime molestias, nam qui ut
+                    voluptas
+                    voluptates.</h5>
             </div>
-        </form>
+
+            <form th:action="@{/inquiry/{id}(id=${listing.id})}" method="post" th:object="${inquiry}">
+                <div class="card-body text-center">
+
+                    <!--                <div class="form-group w-50">-->
+                    <!--                    <label style="float: left" class="inputs" for="email">Contact @Email:</label>-->
+                    <!--                    <input class="form-control" id="email" th:text="${user.email}"/>-->
+                    <!--                </div>-->
+
+
+                    <div class="form-group w-100 mb-4">
+                        <label style="float: left;" class="inputs" for="description">Description of your
+                            item:</label>
+                        <textarea class="form-control" id="description"
+                                  th:field="*{inquiry_description}"></textarea>
+                    </div>
+
+                    <div class="form-group mb-5">
+                        <label style="float: left;" for="imageURL">Upload an image:</label>
+                        <br>
+                        <button style="float: left;" id="imageURL" name="imageURL" type="button" class="btn btn-success" onclick="myFunction()">Choose File</button>
+                        <span><i class="fa fa-check hidden" style="color:green"></i></span>
+                        <br>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label style="float: left;" for="imageDescription" class="inputs">Image description:</label>
+                        <input type="text" name="imageDescription" class="form-control" id="imageDescription">
+                    </div>
+
+                    <input type="submit" class="btn btn-success">
+                </div>
+            </form>
+        </div>
     </div>
-
-</div>
-
-
 </body>
 </html>
