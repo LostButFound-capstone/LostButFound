@@ -27,17 +27,6 @@ public class UserController {
         return "users/sign-up";
     }
 
-//    @PostMapping("/sign-up")
-//    public String saveUser(@ModelAttribute User user){
-//        String hash = passwordEncoder.encode(user.getPassword());
-//        user.setPassword(hash);
-//        user.setAdmin(false);
-//        user.setVerified(false);
-//        user.setProfile_image_path(null);
-//        users.save(user);
-//        return "redirect:/login";
-//    }
-
     @PostMapping("/sign-up")
     public String saveUser(@RequestParam(name = "username") String username, @RequestParam(name = "email") String email, @RequestParam(name = "password") String password){
         User user = new User();

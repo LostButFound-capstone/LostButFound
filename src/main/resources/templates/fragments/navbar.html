@@ -5,7 +5,7 @@
 </head>
 <body>
 <!--    extra-small screens to mediums screens-->
-    <nav th:fragment="navbar" class="d-block d-lg-none d-xxl-none">
+    <nav th:fragment="navbar" class="d-block d-lg-none d-xxl-none fixed-top">
         <div class="collapse" id="navbarToggleExternalContent">
             <div class="main-bg-color p-3">
                 <form class="d-flex" th:action="@{/search}" method="post">
@@ -50,7 +50,7 @@
     </nav>
 
 <!--    large screens to xxl-screens-->
-    <nav th:fragment="navbar" class="navbar navbar-expand-lg main-bg-color d-none d-lg-block d-xxl-block">
+    <nav th:fragment="navbar" class="navbar navbar-expand-lg main-bg-color d-none d-lg-block d-xxl-block fixed-top">
         <div class="container-fluid">
 
             <a class="navbar-brand" href="#">
