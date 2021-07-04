@@ -25,9 +25,14 @@
             <div th:replace="fragments/login-fragment :: modal">
 
             </div>
-            <div class="shade5 p-3">
-                <a class="text-decoration-none" th:href="@{/sign-up}"> <h5 class="text-white h4 border-bottom border-white">Sign Up</h5> </a>
+
+            <div th:replace="fragments/signup-fragment :: signup-modal">
+
             </div>
+
+<!--            <div class="shade5 p-3">-->
+<!--                <a class="text-decoration-none" th:href="@{/sign-up}"> <h5 class="text-white h4 border-bottom border-white">Sign Up</h5> </a>-->
+<!--            </div>-->
         </div>
         <div class="navbar navbar-dark main-bg-color">
             <div class="container-fluid">
@@ -69,9 +74,13 @@
                         <a class="nav-link text-white" th:href="@{/listings}">Listings</a>
                     </li>
                     <li th:replace="fragments/login-fragment :: modal-lg"></li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" th:href="@{/sign-up}">Sign Up</a>
-                    </li>
+
+                    <li th:replace="fragments/signup-fragment :: signup-modal-lg"></li>
+
+
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-link text-white" th:href="@{/sign-up}">Sign Up</a>-->
+<!--                    </li>-->
                 </ul>
             </div>
         </div>
