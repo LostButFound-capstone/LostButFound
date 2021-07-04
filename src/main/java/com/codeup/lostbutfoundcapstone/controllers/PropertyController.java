@@ -330,9 +330,13 @@ public class PropertyController {
         return "redirect:/listings";
     }
 
-//    @GetMapping("/verified-users")
-//    public String showVerifiedUsers(Model model) {
-//
-//    }
+    @GetMapping("/verified-users")
+    public String showVerifiedUsers(Model model) {
+
+        model.addAttribute("verifiedUsers", userDao.findByVerified(true));
+
+
+        return "users/verified-users";
+    }
 
 }
