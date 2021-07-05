@@ -8,7 +8,7 @@
     <nav th:fragment="navbar" class="d-block d-lg-none d-xxl-none fixed-top">
         <div class="collapse" id="navbarToggleExternalContent">
             <div class="main-bg-color p-3">
-                <form class="d-flex" th:action="@{/search}" method="post">
+                <form class="d-flex" th:action="@{/listings}" method="post">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchBar">
                     <button class="btn border-white text-white" type="submit">Search</button>
                 </form>
@@ -57,7 +57,7 @@
                 <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24">
             </a>
 
-            <form class="d-flex" th:action="@{/search}" method="post">
+            <form class="d-flex" th:action="@{/listings}" method="post">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchBar">
                 <button class="btn border-white text-white" type="submit">Search</button>
             </form>
