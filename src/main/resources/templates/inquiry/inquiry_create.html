@@ -5,29 +5,29 @@
 
 <head th:replace="fragments/head :: head">
 
-    <script>
-        function myFunction() {
-            console.log("I was clicked");
+<!--    <script>-->
+<!--        function myFunction() {-->
+<!--            console.log("I was clicked");-->
 
-            const client = filestack.init(FileStackAPI);
-            const options = {
-                accept: ["image/*"],
-                onUploadDone: (res) => {
-                    console.log(res);
-                    let handle = "https://www.filestackapi.com/api/file/" + res.filesUploaded[0].handle;
+<!--            const client = filestack.init(FileStackAPI);-->
+<!--            const options = {-->
+<!--                accept: ["image/*"],-->
+<!--                onUploadDone: (res) => {-->
+<!--                    console.log(res);-->
+<!--                    let handle = "https://www.filestackapi.com/api/file/" + res.filesUploaded[0].handle;-->
 
-                    if (handle !== null || handle !== "") {
-                        $('.fa-check').toggleClass('hidden', 'visible');
-                    }
+<!--                    if (handle !== null || handle !== "") {-->
+<!--                        $('.fa-check').toggleClass('hidden', 'visible');-->
+<!--                    }-->
 
-                    document.getElementById('hidden').value = handle;
-                }
+<!--                    document.getElementById('hidden').value = handle;-->
+<!--                }-->
 
-            };
+<!--            };-->
 
-            client.picker(options).open();
-        }
-    </script>
+<!--            client.picker(options).open();-->
+<!--        }-->
+<!--    </script>-->
 
 </head>
 <body>
