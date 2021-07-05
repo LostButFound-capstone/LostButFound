@@ -3,30 +3,6 @@
 
 <head th:replace="fragments/head :: head">
 
-    <script>
-        function myFunction() {
-            console.log("I was clicked");
-
-            const client = filestack.init(FileStackAPI);
-            const options = {
-                accept: ["image/*"],
-                onUploadDone: (res) => {
-                    console.log(res);
-                    let handle = "https://www.filestackapi.com/api/file/" + res.filesUploaded[0].handle;
-
-                    if (handle !== "") {
-                        $('.fa-check').toggleClass('hidden', 'visible');
-                    }
-
-                    document.getElementById('hidden').value = handle;
-                }
-
-            };
-
-            client.picker(options).open();
-        }
-    </script>
-
 </head>
 <body>
 
@@ -65,7 +41,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="profilePicture">Upload an image:</label>
-                            <button id="profilePicture" type="button" class="btn btn-success" onclick="myFunction()">Choose File</button>
+                            <button id="profilePicture" type="button" class="btn btn-success">Choose File</button>
                             <span><i class="fa fa-check hidden" style="color:green"></i></span>
                         </div>
                         <input type="submit" class="btn btn-success btn-block" value="Submit">
@@ -77,5 +53,38 @@
     </div>
 
     <footer th:replace="fragments/footer :: footer"></footer>
+
+    <script>
+
+        const client = filestack.init(FileStackAPI);
+        const options = {
+            accept: ["image/*"],
+            onFileUploadFinished: anotherFunction,
+        };
+
+        const btn = document.getElementById('profilePicture');
+        const picker = client.picker(options);
+
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            console.log("I was clicked");
+            picker.open();
+        })
+
+        function anotherFunction(res) {
+            console.log(res);
+            let handle = "https://www.filestackapi.com/api/file/" + res.handle;
+            console.log(handle);
+
+            document.getElementById('hidden').value = handle;
+            console.log(document.getElementById('hidden').value)
+
+            if (handle !== "") {
+                // $('.fa-check').toggleClass('hidden', 'visible');
+                document.querySelector('.fa-check').classList.remove('hidden')
+                document.querySelector('.fa-check').classList.add('visible')
+            }
+        }
+    </script>
 </body>
 </html>
