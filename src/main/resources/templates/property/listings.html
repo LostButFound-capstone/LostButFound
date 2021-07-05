@@ -1,12 +1,70 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/head :: head">
+	<style>
+         {
+            margin-bottom: 1em;
+            padding: .25em;
+            border: 0;
+            border-bottom: 2px solid currentcolor;
+            font-weight: bold;
+            letter-spacing: .15em;
+            border-radius: 0;
+        &:focus, &:active {
+                      outline: 0;
+                      border-bottom-color: red;
+                  }
+        }
 
+        .images {
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 3px 3px 3px 3px;
+            overflow: hidden;
+            box-shadow: 0 20px 15px -15px rgba(#000, .5);
+        img,
+        .loader,
+        .no-selection {
+            display: none;
+            letter-spacing: .15em;
+            font-weight: bold;
+        }
+        &[data-selected=""]:not(.loading) {
+             background: #eee;
+        .no-selection {
+            display: block;
+        }
+        }
+        &.loading {
+             background: #eee;
+        .loader {
+            display: block;
+            animation: loading 1.5s linear;
+        }
+        }
+        }
+        @for $i from 1 through 5 {
+            .images[data-selected="#{$i}"] {
+            img[data-image="#{$i}"] {
+                display: block;
+            }
+        }
+        }
+
+        @keyframes loading {
+            to {
+                letter-spacing: .25em;
+            }
+        }
+	</style>
 </head>
 <body>
 <!--Header fragment-->
 <header>
-	<nav th:replace="fragments/navbar :: navbar"></nav>
+<!--	<nav th:replace="fragments/navbar :: navbar"></nav>-->
 </header>
 
 <!--Main Container-->
@@ -20,45 +78,48 @@
 
 
 <!--Filter card-->
-				<div class="container-fluid">
-					<div class="row">
-						<div class="card mb-2 box-shadow ">
-							<div class="card-header">
-								Filter your search:
-							</div>
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col card mb-3 box-shadow ">
+								<div>
 
 <!--Locations dropdown-->
-								<label for="locations">Locations:</label>
-								<select id="locations" data-selected="">
-									<option  value="null" selected="selected" disabled="disabled">Select a location</option>
-									<th:block th:each="location : ${locations}">
-										<option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
-									</th:block>
-								</select>
-<!--Categories dropdown-->
-								<label for="categories">Categories:</label>
-								<select id="categories" data-selected="">
-									<option value="null" selected="selected" disabled="disabled">Select a category:</option>
-									<th:block th:each="category : ${categories}">
-										<option th:value="${category.id}"><span th:text="${category.property_type}"></span></option>
-									</th:block>
-								</select>
-<!--Date-picker-->
-								<label for="dateFound">Date lost:</label>
-								<input  class="mb-2" id="dateFound" type="date" name="date_found">
+									<label for="locations">Locations:</label>
+									<select id="locations" data-selected="">
+										<option  value="null" selected="selected" disabled="disabled">Select a location</option>
+										<th:block th:each="location : ${locations}">
+											<option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
+										</th:block>
+									</select>
+	<!--Categories dropdown-->
+									<label for="categories">Categories:</label>
+									<select id="categories" data-selected="">
+										<option value="null" selected="selected" disabled="disabled">Select a category:</option>
+										<th:block th:each="category : ${categories}">
+											<option th:value="${category.id}"><span th:text="${category.property_type}"></span></option>
+										</th:block>
+									</select>
+	<!--Date-picker-->
+									<label for="dateFound">Date lost:</label>
+									<input  class="mb-2" id="dateFound" type="date" name="date_found">
 
-<!--Filter button-->
-								<button  type="button">Filter</button>
+	<!--Filter button-->
+									<button  type="button">Filter</button>
+								</div>
+							</div>
+							<div class="col card mb-3 box-shadow">
+								im a card
+							</div>
 						</div>
 					</div>
-				</div>
 		</form>
+
 <!--Property Cards-->
-			<div class="album py-5 bg-dark">
+			<div class="card py-5 button-bg-color1">
 				<div class="container">
 					<div class="row">
 						<div class="row" th:each="item : ${properties}">
-							<div class="card box-shadow ">
+							<div class="card mb-3 box-shadow ">
 								<div class="card-body">
 
 									<p th:text="${item.title}"/></p>
@@ -74,7 +135,7 @@
 									</th:block>
 									<p>Categories:</p>
 
-									<a role="button" class="btn btn-sm btn-outline-secondary" th:href="@{/inquiry/{id}(id=${item.id})}">Inquire</a>
+									<a role="button" style="float: right" class="btn btn-sm btn-outline-secondary" th:href="@{/inquiry/{id}(id=${item.id})}">Inquire</a>
 								</div>
 							</div>
 						</div>
