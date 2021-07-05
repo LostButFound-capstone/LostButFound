@@ -107,6 +107,7 @@ public class PropertyController {
         model.addAttribute("currentUser", user);
         model.addAttribute("properties", propertyDao.findPropertyByUser(user));
 
+
         return "users/profile";
     }
 
@@ -220,14 +221,14 @@ public class PropertyController {
         return "property/listings-dummy";
     }
 
-//    @PostMapping("/property/listings")
-//    public String filterFunctionality(@RequestParam(name = "location") String location_id, @RequestParam(name = "category") String category_id, @RequestParam(name = "date_found") String date_found) {
-////        Long locationIdNum = Long.parseLong(location_id);
-////        Long categoryIdNum = Long.parseLong(category_id);
-//
-//
-//        return "redirect:/property/listings";
-//    }
+    @PostMapping("/listings")
+    public String showSearch(Model model) {
+//        Long locationIdNum = Long.parseLong(location_id);
+//        Long categoryIdNum = Long.parseLong(category_id);
+
+
+        return "redirect:/property/listings";
+    }
 
     @GetMapping("/edit/{id}")
     public String showEditProperty(@PathVariable Long id, Model model) {
