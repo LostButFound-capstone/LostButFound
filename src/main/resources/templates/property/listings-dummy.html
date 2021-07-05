@@ -33,7 +33,7 @@
         <button type="submit">Submit</button>
     </form>
 
-    <div th:each="search : ${searchProperties}">
+<!--    <div th:each="search : ${searchProperties}">-->
 
     </div>
 
@@ -46,18 +46,14 @@
         </th:block>
         <a sec:authorize="isAuthenticated()" role="button" class="btn btn-sm btn-outline-secondary" th:href="@{/inquiry/{id}(id=${item.id})}">Inquire</a>
         <a sec:authorize="!isAuthenticated()" role="button" class="btn btn-sm btn-outline-secondary popup" onclick="myFunction2()">Inquire
-            <span class="popuptext" id="myPopupLg">To inquire about a missing item, you need to be a logged in user!</span>
+            <span class="popuptext poppop" id="myPopupLg">To inquire about a missing item, you need to be a logged in user!</span>
         </a>
     </div>
 
     <script>
         // When the user clicks on div, open the popup
-        function myFunction() {
-            var popup = document.getElementById("myPopup");
-            popup.classList.toggle("show");
-        }
         function myFunction2() {
-            var popup = document.getElementById("myPopupLg");
+            var popup = document.getElementsByClassName("poppop")
             popup.classList.toggle("show");
         }
     </script>

@@ -302,3 +302,45 @@ input[type=text], input[type=password] {
     from {opacity: 0;}
     to {opacity:1 ;}
 }
+
+.animated {
+    /*background-image: url("https://i.ytimg.com/vi/D-rAyCEtVHA/hqdefault.jpg");*/
+    width: 50%;
+    height: 50%;
+    background-repeat: no-repeat;
+    background-position: left top;
+    padding-top: 95px;
+    margin-bottom: 60px;
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fadeInLeft {
+    -webkit-animation-name: fadeInLeft;
+    animation-name: fadeInLeft;
+}
+animation-name: fadeInDown;
