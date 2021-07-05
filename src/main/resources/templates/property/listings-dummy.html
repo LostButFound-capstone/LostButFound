@@ -33,6 +33,10 @@
         <button type="submit">Submit</button>
     </form>
 
+    <div th:each="search : ${searchProperties}">
+
+    </div>
+
     <div th:each="item : ${properties}">
         <p th:text="${item.title}" />
         <p th:text="${item.location.location_name}"></p>
