@@ -3,47 +3,47 @@
 <head th:replace="fragments/head :: head">
     <title>Verified Users</title>
     <style>
-        .animated {
-            background-image: url("https://i.ytimg.com/vi/D-rAyCEtVHA/hqdefault.jpg");
-            width: 50%;
-            height: 50%;
-            background-repeat: no-repeat;
-            background-position: left top;
-            padding-top: 95px;
-            margin-bottom: 60px;
-            -webkit-animation-duration: .5s;
-            animation-duration: .5s;
-            -webkit-animation-fill-mode: both;
-            animation-fill-mode: both;
-        }
+        /*.animated {*/
+        /*    background-image: url("https://i.ytimg.com/vi/D-rAyCEtVHA/hqdefault.jpg");*/
+        /*    width: 50%;*/
+        /*    height: 50%;*/
+        /*    background-repeat: no-repeat;*/
+        /*    background-position: left top;*/
+        /*    padding-top: 95px;*/
+        /*    margin-bottom: 60px;*/
+        /*    -webkit-animation-duration: .5s;*/
+        /*    animation-duration: .5s;*/
+        /*    -webkit-animation-fill-mode: both;*/
+        /*    animation-fill-mode: both;*/
+        /*}*/
 
-        @-webkit-keyframes fadeInLeft {
-            0% {
-                opacity: 0;
-                -webkit-transform: translateX(-20px);
-            }
-            100% {
-                opacity: 1;
-                -webkit-transform: translateX(0);
-            }
-        }
+        /*@-webkit-keyframes fadeInLeft {*/
+        /*    0% {*/
+        /*        opacity: 0;*/
+        /*        -webkit-transform: translateX(-20px);*/
+        /*    }*/
+        /*    100% {*/
+        /*        opacity: 1;*/
+        /*        -webkit-transform: translateX(0);*/
+        /*    }*/
+        /*}*/
 
-        @keyframes fadeInLeft {
-            0% {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
+        /*@keyframes fadeInLeft {*/
+        /*    0% {*/
+        /*        opacity: 0;*/
+        /*        transform: translateX(-20px);*/
+        /*    }*/
+        /*    100% {*/
+        /*        opacity: 1;*/
+        /*        transform: translateX(0);*/
+        /*    }*/
+        /*}*/
 
-        .fadeInLeft {
-            -webkit-animation-name: fadeInLeft;
-            animation-name: fadeInLeft;
-        }
-        animation-name: fadeInDown;
+        /*.fadeInLeft {*/
+        /*    -webkit-animation-name: fadeInLeft;*/
+        /*    animation-name: fadeInLeft;*/
+        /*}*/
+        /*animation-name: fadeInDown;*/
     </style>
 </head>
 <body>
@@ -55,12 +55,12 @@
 </header>
 <form th:action="@{/verified-users}" method="get">
     <br><br><br><br>
-        <div th:each="user : ${verifiedUsers}">
+        <div th:each="user : ${verifiedUsers}" id = "animated-example" class = "animated fadeInLeft">
             <h3 th:text="${user.username}" ></h3>
             <p th:text="${user.email}"></p>
         </div>
 </form>
 
-<div id = "animated-example" class = "animated fadeInLeft" ></div>
+<!--<div id = "animated-example" class = "animated fadeInLeft" ></div>-->
 </body>
 </html>
