@@ -43,7 +43,8 @@
         </div>
 
         <div class="card__body">
-            <p class="about__me" th:text="${item.user.username}"></p>
+            <p>Found by: </p>
+            <p style="float: right" class="about__me" th:text="${item.user.username}"></p>
             <div class="important__social__links">
                 <a href="https://github.com/Rahulbaran" target="_blank" rel="noreferrer noopener"><i class="fa fa-github"></i></a>
                 <a href="https://codepen.io/rahulbaran" target="_blank" rel="noreferrer noopener"><i class="fa fa-codepen"></i></a>
