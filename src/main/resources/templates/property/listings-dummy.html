@@ -37,7 +37,16 @@
     </form>
 
     <div th:each="searchItem : ${searchProperties}">
-        <h1 th:text="${searchItem.title}"></h1>
+        <p th:text="${searchItem.title}" />
+        <p th:text="${searchItem.location.location_name}"></p>
+        <p th:text="${searchItem.formattedDateFound}"></p>
+        <th:block th:each="category : ${searchItem.categories}">
+            <p th:text="${category.property_type}"></p>
+        </th:block>
+        <a sec:authorize="isAuthenticated()" role="button" class="btn btn-sm btn-outline-secondary" th:href="@{/inquiry/{id}(id=${searchItem.id})}">Inquire</a>
+        <a sec:authorize="!isAuthenticated()" role="button" class="btn btn-sm btn-outline-secondary popup" onclick="myFunction2(event)">Inquire
+            <span class="popuptext" id="myPopupLg">To inquire about a missing item, you need to be a logged in user!</span>
+        </a>
     </div>
 
 
@@ -58,9 +67,7 @@
         // When the user clicks on div, open the popup
         function myFunction2(event) {
             event.stopPropagation();
-            console.log(event.target.classList);
             var popup = event.target.childNodes[1];
-            console.log(popup);
             popup.classList.toggle("show");
         }
     </script>

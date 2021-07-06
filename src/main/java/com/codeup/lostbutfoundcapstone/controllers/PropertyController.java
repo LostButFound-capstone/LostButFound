@@ -42,11 +42,13 @@ public class PropertyController {
     }
 
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public String property(Model model){
 
         return "home";
     }
+
+
 
     @PostMapping("/property/{id}")
     public String propertyId(@PathVariable long id, Model model){
@@ -338,6 +340,15 @@ public class PropertyController {
 
 
         return "users/verified-users";
+    }
+
+    @GetMapping("/card")
+    public String showCard(Model model) {
+
+        model.addAttribute("properties", propertyDao.findAll());
+
+
+        return "card-scratch";
     }
 
 }
