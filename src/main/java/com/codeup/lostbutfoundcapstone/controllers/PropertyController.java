@@ -117,7 +117,7 @@ public class PropertyController {
 
         model.addAttribute("currentUser", user);
         model.addAttribute("properties", propertyDao.findPropertyByUser(user));
-
+        System.out.println("user.getPassword() = " + user.getPassword());
         return "users/edit-profile";
     }
 
@@ -221,14 +221,14 @@ public class PropertyController {
         return "property/listings-dummy";
     }
 
-    @PostMapping("/listings")
-    public String showSearch(Model model) {
-//        Long locationIdNum = Long.parseLong(location_id);
-//        Long categoryIdNum = Long.parseLong(category_id);
-
-
-        return "redirect:/property/listings";
-    }
+//    @PostMapping("/search-results")
+//    public String showSearch(Model model @RequestParam(name = ) ) {
+////        Long locationIdNum = Long.parseLong(location_id);
+////        Long categoryIdNum = Long.parseLong(category_id);
+//
+//
+//        return "redirect:";
+//    }
 
     @GetMapping("/edit/{id}")
     public String showEditProperty(@PathVariable Long id, Model model) {
@@ -323,13 +323,13 @@ public class PropertyController {
         return "redirect:/listings";
     }
 
-//    @PostMapping("/search")
-//    public String searchBar(Model model, @RequestParam(name = "searchBar") String searchString) {
-//
-//        model.addAttribute("searchProperties", propertyDao.findPropertyByCategoriesIsLikeOrLocationIsLike(searchString, searchString));
-//
-//        return "redirect:/listings";
-//    }
+    @PostMapping("/search-results")
+    public String searchBar(Model model, @RequestParam(name = "searchBar") String searchString) {
+
+        model.addAttribute("searchProperties", propertyDao.findPropertyByCategoriesIsLikeOrLocationIsLike(searchString, searchString));
+
+        return "property/listings-dummy";
+    }
 
     @GetMapping("/verified-users")
     public String showVerifiedUsers(Model model) {

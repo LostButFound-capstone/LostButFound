@@ -11,7 +11,10 @@
     <nav th:replace="fragments/new-navbar :: new-navbar" sec:authorize="isAuthenticated()"></nav>
 </header>
 
+
+
     <form th:action="@{/listings}" method="get">
+        <br><br><br><br>
         <label for="locations">Locations:</label>
         <select id="locations" name="location">
                 <option value="null">Choose one:</option>
@@ -33,9 +36,10 @@
         <button type="submit">Submit</button>
     </form>
 
-<!--    <div th:each="search : ${searchProperties}">-->
-
+    <div th:each="searchItem : ${searchProperties}">
+        <h1 th:text="${searchItem.title}"></h1>
     </div>
+
 
     <div th:each="item : ${properties}">
         <p th:text="${item.title}" />
@@ -45,15 +49,18 @@
             <p th:text="${category.property_type}"></p>
         </th:block>
         <a sec:authorize="isAuthenticated()" role="button" class="btn btn-sm btn-outline-secondary" th:href="@{/inquiry/{id}(id=${item.id})}">Inquire</a>
-        <a sec:authorize="!isAuthenticated()" role="button" class="btn btn-sm btn-outline-secondary popup" onclick="myFunction2()">Inquire
-            <span class="popuptext poppop" id="myPopupLg">To inquire about a missing item, you need to be a logged in user!</span>
+        <a sec:authorize="!isAuthenticated()" role="button" class="btn btn-sm btn-outline-secondary popup" onclick="myFunction2(event)">Inquire
+            <span class="popuptext" id="myPopupLg">To inquire about a missing item, you need to be a logged in user!</span>
         </a>
     </div>
 
     <script>
         // When the user clicks on div, open the popup
-        function myFunction2() {
-            var popup = document.getElementsByClassName("poppop")
+        function myFunction2(event) {
+            event.stopPropagation();
+            console.log(event.target.classList);
+            var popup = event.target.childNodes[1];
+            console.log(popup);
             popup.classList.toggle("show");
         }
     </script>
