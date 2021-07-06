@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
 
 <head th:replace="fragments/head :: head">
 
 </head>
 <body>
 
-    <header>
-        <nav th:replace="fragments/navbar :: navbar"></nav>
-    </header>
+<header>
+    <!-- If NOT logged on -->
+    <nav th:replace="fragments/navbar :: navbar" sec:authorize="!isAuthenticated()"></nav>
+    <!-- If logged on -->
+    <nav th:replace="fragments/new-navbar :: new-navbar" sec:authorize="isAuthenticated()"></nav>
+</header>
 
     <div class="container">
 
