@@ -6,11 +6,14 @@
 <body>
 <!--Header fragment-->
 <header>
-	<nav th:replace="fragments/navbar :: navbar"></nav>
+	<!-- If NOT logged on -->
+	<nav th:replace="fragments/navbar :: navbar" sec:authorize="!isAuthenticated()"></nav>
+	<!-- If logged on -->
+	<nav th:replace="fragments/new-navbar :: new-navbar" sec:authorize="isAuthenticated()"></nav>
 </header>
 
 <!--Main Container-->
-<div class="container-fluid mt-5 no-gutters border">
+<div style="background: -webkit-linear-gradient(280deg, hsla(166, 100%, 35%, 1) 10%, hsla(344, 84%, 60%, 1) 54%, hsla(31, 100%, 50%, 1) 90%);" class="container mt-5 no-gutters border">
 	<br>
 	<br>
 	<h3 align="center">Find lost property:</h3>
@@ -20,9 +23,9 @@
 		<form th:action="@{/listings}" method="get">
 
 <!--Filter card-->
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-sm-3 card box-shadow align-items-center">
+			<div class="container">
+				<div class="row mb-2">
+					<div class="col-sm-6 mr-2 card box-shadow align-items-center">
 <!--Locations dropdown-->
 							<label for="locations_dropdown">Locations:</label>
 							<select id="locations_dropdown" data-selected="">
@@ -46,23 +49,26 @@
 <!--Filter button-->
 							<button  type="button">Filter</button>
 					</div>
-					<div class="row">
+					<div class="col sm-6 card">
+						im a card
+					</div>
+				</div>
+				<div class="row">
 					<div class="images col card mb-3 box-shadow" data-selected="">
 						<span class="loader">loading image...</span>
-						<span class="no-selection">no image selected</span>
+						<span class="no-selection">no location selected =)</span>
 						<img src="img/san_antonio_airport.jpg" data-image="1" alt="San Antonio Airport" title="San Antonio Airport" />
 						<img src="img/river_walk.jpg" data-image="2" alt="River Walk" title="River Walk" />
 						<img src="img/the_alamo.jpg" data-image="3" alt="The Alamo" title="The Alamo" />
 						<img src="img/north_star_mall.jpg" data-image="4" alt="North Star Mall" title="North Star Mall" />
 <!--						<img src="src/main/resources/static/img/san_antonio_airport.jpg" data-image="5" alt="Workshop" title="Workshop" />-->
 					</div>
-					</div>
 				</div>
 			</div>
 		</form>
 
 <!--Property Cards-->
-			<div class="card py-5 button-bg-color1">
+			<div class="card py-5">
 				<div class="container">
 					<div class="row">
 						<div class="row" th:each="item : ${properties}">
