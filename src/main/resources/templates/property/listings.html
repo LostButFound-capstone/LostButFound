@@ -1,117 +1,64 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/head :: head">
-	<style>
-         {
-            margin-bottom: 1em;
-            padding: .25em;
-            border: 0;
-            border-bottom: 2px solid currentcolor;
-            font-weight: bold;
-            letter-spacing: .15em;
-            border-radius: 0;
-        &:focus, &:active {
-                      outline: 0;
-                      border-bottom-color: red;
-                  }
-        }
 
-        .images {
-            width: 300px;
-            height: 300px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 3px 3px 3px 3px;
-            overflow: hidden;
-            box-shadow: 0 20px 15px -15px rgba(#000, .5);
-        img,
-        .loader,
-        .no-selection {
-            display: none;
-            letter-spacing: .15em;
-            font-weight: bold;
-        }
-        &[data-selected=""]:not(.loading) {
-             background: #eee;
-        .no-selection {
-            display: block;
-        }
-        }
-        &.loading {
-             background: #eee;
-        .loader {
-            display: block;
-            animation: loading 1.5s linear;
-        }
-        }
-        }
-        @for $i from 1 through 5 {
-            .images[data-selected="#{$i}"] {
-            img[data-image="#{$i}"] {
-                display: block;
-            }
-        }
-        }
-
-        @keyframes loading {
-            to {
-                letter-spacing: .25em;
-            }
-        }
-	</style>
 </head>
 <body>
 <!--Header fragment-->
 <header>
-<!--	<nav th:replace="fragments/navbar :: navbar"></nav>-->
+	<nav th:replace="fragments/navbar :: navbar"></nav>
 </header>
 
 <!--Main Container-->
-<div class="container-fluid no-gutters border">
+<div class="container-fluid mt-5 no-gutters border">
+	<br>
+	<br>
 	<h3 align="center">Find lost property:</h3>
 
 <!--Listings form-->
 
 		<form th:action="@{/listings}" method="get">
 
-
-
 <!--Filter card-->
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col card mb-3 box-shadow ">
-								<div>
-
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-3 card box-shadow align-items-center">
 <!--Locations dropdown-->
-									<label for="locations">Locations:</label>
-									<select id="locations" data-selected="">
-										<option  value="null" selected="selected" disabled="disabled">Select a location</option>
-										<th:block th:each="location : ${locations}">
-											<option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
-										</th:block>
-									</select>
-	<!--Categories dropdown-->
-									<label for="categories">Categories:</label>
-									<select id="categories" data-selected="">
-										<option value="null" selected="selected" disabled="disabled">Select a category:</option>
-										<th:block th:each="category : ${categories}">
-											<option th:value="${category.id}"><span th:text="${category.property_type}"></span></option>
-										</th:block>
-									</select>
-	<!--Date-picker-->
-									<label for="dateFound">Date lost:</label>
-									<input  class="mb-2" id="dateFound" type="date" name="date_found">
+							<label for="locations_dropdown">Locations:</label>
+							<select id="locations_dropdown" data-selected="">
+								<option  value="" selected="selected" disabled="disabled">Select a location</option>
+								<th:block th:each="location : ${locations}">
+									<option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
+								</th:block>
+							</select>
+<!--Categories dropdown-->
+							<label for="categories">Categories:</label>
+							<select id="categories" data-selected="">
+								<option value="null" selected="selected" disabled="disabled">Select a category:</option>
+								<th:block th:each="category : ${categories}">
+									<option th:value="${category.id}"><span th:text="${category.property_type}"></span></option>
+								</th:block>
+							</select>
+<!--Date-picker-->
+							<label for="dateFound">Date lost:</label>
+							<input class="mb-2" id="dateFound" type="date" name="date_found">
 
-	<!--Filter button-->
-									<button  type="button">Filter</button>
-								</div>
-							</div>
-							<div class="col card mb-3 box-shadow">
-								im a card
-							</div>
-						</div>
+<!--Filter button-->
+							<button  type="button">Filter</button>
 					</div>
+					<div class="row">
+					<div class="images col card mb-3 box-shadow" data-selected="">
+						<span class="loader">loading image...</span>
+						<span class="no-selection">no image selected</span>
+						<img src="img/san_antonio_airport.jpg" data-image="1" alt="San Antonio Airport" title="San Antonio Airport" />
+						<img src="img/river_walk.jpg" data-image="2" alt="River Walk" title="River Walk" />
+						<img src="img/the_alamo.jpg" data-image="3" alt="The Alamo" title="The Alamo" />
+						<img src="img/north_star_mall.jpg" data-image="4" alt="North Star Mall" title="North Star Mall" />
+<!--						<img src="src/main/resources/static/img/san_antonio_airport.jpg" data-image="5" alt="Workshop" title="Workshop" />-->
+					</div>
+					</div>
+				</div>
+			</div>
 		</form>
 
 <!--Property Cards-->
@@ -143,6 +90,22 @@
 				</div>
 			</div>
 		</div>
+<script>
+    const selectbox = document.getElementById("locations_dropdown");
+    const imagecontainer = document.querySelector(".images");
+    let selection = selectbox.dataset.selected;
+
+    selectbox.addEventListener("change", e => {
+        selection = selectbox.value;
+        imagecontainer.classList.add("loading");
+        imagecontainer.dataset.selected = "";
+
+        setTimeout(() => {
+            imagecontainer.classList.remove("loading");
+            imagecontainer.dataset.selected = selection;
+        }, 1500);
+    });
+</script>
 </body>
 
 <!--Footer fragment-->
