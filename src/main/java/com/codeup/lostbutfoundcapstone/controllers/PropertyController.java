@@ -101,9 +101,17 @@ public class PropertyController {
     }
 
     @GetMapping("/profile")
-    public String showProfilePage(Model model) {
+    public String redirectProfilePage() {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
+
+        return "redirect:/profile/" + user.getId();
+    }
+
+    @GetMapping("/profile/{id}")
+    public String showProfilePage(@PathVariable Long id, Model model) {
+//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userDao.getById(id);
 
 
         model.addAttribute("currentUser", user);
@@ -115,7 +123,8 @@ public class PropertyController {
 
     @GetMapping("/profile/edit/{id}")
     public String showEditProfile(@PathVariable Long id, Model model) {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userDao.getById(id);
 
         model.addAttribute("currentUser", user);
         model.addAttribute("properties", propertyDao.findPropertyByUser(user));
@@ -139,7 +148,7 @@ public class PropertyController {
 
         userDao.save(user);
 
-        return "redirect:/profile";
+        return "redirect:/profile/" + id;
     }
 
     @GetMapping("/listings")
@@ -276,7 +285,7 @@ public class PropertyController {
 
         propertyDao.save(property);
 
-        return "redirect:/profile";
+        return "redirect:/profile/" + propertyDao.getById(id).getUser().getId();
     }
 
     @PostMapping("/delete/{id}")
@@ -284,7 +293,7 @@ public class PropertyController {
 
         propertyDao.deleteById(id);
 
-        return "redirect:/profile";
+        return "redirect:/profile/" + propertyDao.getById(id).getUser().getId();
     }
 
     @GetMapping("/inquiry/{id}")
