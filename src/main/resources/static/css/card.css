@@ -19,12 +19,13 @@
     grid-area:header;
     background-color: rgba(40, 40, 56, 0.99);
     min-width:100%;
-    border-bottom:2px dashed #7b7b7b;
+    border-bottom:2px solid #7b7b7b;
     border-top-left-radius: .4rem;
     border-top-right-radius: .4rem;
     display: flex;
     /*justify-content: center;*/
     align-content: center;
+    margin-bottom: 1.5rem;
 }
 .card__header h2 {
     font-weight:600;
@@ -64,7 +65,7 @@
     color: #d4d4d4;
     font-weight:500;
     font-size: 3rem;
-    padding: .5rem 0 .5rem 0;
+    padding: .2rem 0 .5rem 1rem;
     /*border-bottom:3px dashed black;*/
 }
 
@@ -74,7 +75,9 @@
     display:flex;
     justify-content: start;
     font-size:1.5rem;
-    border-top:3px dashed black;
+    border-top:3px solid black;
+    border-bottom-left-radius: .4rem;
+    border-bottom-right-radius: .4rem;
 }
 
 i {
@@ -82,7 +85,8 @@ i {
     padding:.5em;
     border-radius:50%;
     /*box-shadow:5px 5px 5px rgba(0,0,0,.1) inset ,2px 2px 2px rgba(0,0,0,.1),-2px -2px 2px rgba(0,0,0,.1);*/
-    color:#1f1d01;
+    /*color:#1f1d01;*/
+    color: #00b2a9;
     transition:background-color 300ms,color 300ms;
 }
 .fa-facebook {
