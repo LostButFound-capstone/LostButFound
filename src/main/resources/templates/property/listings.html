@@ -13,7 +13,7 @@
 </header>
 
 <!--Main Container-->
-<div style="background: -webkit-linear-gradient(280deg, hsla(166, 100%, 35%, 1) 10%, hsla(344, 84%, 60%, 1) 54%, hsla(31, 100%, 50%, 1) 90%);" class="container mt-5 no-gutters border">
+<div class="container-fluid mt-5 no-gutters border">
 	<br>
 	<br>
 	<h3 align="center">Find lost property:</h3>
@@ -23,9 +23,9 @@
 		<form th:action="@{/listings}" method="get">
 
 <!--Filter card-->
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row mb-2">
-					<div class="col-sm-6 mr-2 card box-shadow align-items-center">
+					<div class="col margin-right-2 card box-shadow align-items-middle">
 <!--Locations dropdown-->
 							<label for="locations_dropdown">Locations:</label>
 							<select id="locations_dropdown" data-selected="">
@@ -46,22 +46,63 @@
 							<label for="dateFound">Date lost:</label>
 							<input class="mb-2" id="dateFound" type="date" name="date_found">
 
+							<button>
+								<div class="base">
+									<i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+									<div class="bg"> Filter
+
+									</div>
+								</div>
+							</button>
 <!--Filter button-->
-							<button  type="button">Filter</button>
+
 					</div>
-					<div class="col sm-6 card">
-						im a card
+					<div class="col-1" >
+
+					</div>
+					<div class="col card align-items-center">
+						How to search:
+						<br>
+
+						- Select a location from the locations drop down.
+						<br>
+
+						- Select a category for your property.
+						<br>
+
+						- Select the date you lost your property at your selected location.
+						<br>
+
+						- Filter through postings made by finders.
+						<br>
+
+						- Once you have found a property post that closely resembles your own, press the inquire button to get in contact with the user that posted the lost property.
+						<br>
 					</div>
 				</div>
 				<div class="row">
 					<div class="images col card mb-3 box-shadow" data-selected="">
-						<span class="loader">loading image...</span>
+						<span class="loader">loading...</span>
 						<span class="no-selection">no location selected =)</span>
 						<img src="img/san_antonio_airport.jpg" data-image="1" alt="San Antonio Airport" title="San Antonio Airport" />
 						<img src="img/river_walk.jpg" data-image="2" alt="River Walk" title="River Walk" />
 						<img src="img/the_alamo.jpg" data-image="3" alt="The Alamo" title="The Alamo" />
 						<img src="img/north_star_mall.jpg" data-image="4" alt="North Star Mall" title="North Star Mall" />
-<!--						<img src="src/main/resources/static/img/san_antonio_airport.jpg" data-image="5" alt="Workshop" title="Workshop" />-->
+						<img src="img/shops_at_lacantera.png" data-image="5" alt="Shops at LaCantera" title="Shops at LaCantera" />
+						<img src="img/ingram_park_mall.jpg" data-image="6" alt="Ingram Park Mall" title="Ingram Park Mall" />
+						<img src="img/south_park_mall.jpg" data-image="7" alt="South Park Mall" title="South Park Mall" />
+						<img src="img/san_antonio_airport.jpg" data-image="8" alt="Workshop" title="Workshop" />
+						<img src="img/san_antonio_airport.jpg" data-image="9" alt="Workshop" title="Workshop" />
+						<img src="img/san_antonio_airport.jpg" data-image="10" alt="Workshop" title="Workshop" />
+						<img src="img/san_antonio_airport.jpg" data-image="11" alt="Workshop" title="Workshop" />
+						<img src="img/san_antonio_airport.jpg" data-image="12" alt="Workshop" title="Workshop" />
+						<img src="img/san_antonio_airport.jpg" data-image="13" alt="Workshop" title="Workshop" />
+						<img src="img/san_antonio_airport.jpg" data-image="14" alt="Workshop" title="Workshop" />
+						<img src="img/san_antonio_airport.jpg" data-image="15" alt="Workshop" title="Workshop" />
+						<img src="img/san_antonio_airport.jpg" data-image="16" alt="Workshop" title="Workshop" />
+						<img src="img/san_antonio_airport.jpg" data-image="17" alt="Workshop" title="Workshop" />
+						<img src="img/san_antonio_airport.jpg" data-image="18" alt="Workshop" title="Workshop" />
+						<img src="img/san_antonio_airport.jpg" data-image="19" alt="Workshop" title="Workshop" />
 					</div>
 				</div>
 			</div>
@@ -89,6 +130,7 @@
 									<p>Categories:</p>
 
 									<a role="button" style="float: right" class="btn btn-sm btn-outline-secondary" th:href="@{/inquiry/{id}(id=${item.id})}">Inquire</a>
+
 								</div>
 							</div>
 						</div>
