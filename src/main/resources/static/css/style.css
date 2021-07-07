@@ -86,6 +86,24 @@ p {
     border-radius: 50%;
 }
 
+.imageContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardImage {
+    width: 200px;
+    height: 200px;
+}
+
+.cardImage > img {
+    object-fit: cover;
+    border-radius: 50%;
+}
+
 .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: .5rem;
     padding-left: 1rem;
