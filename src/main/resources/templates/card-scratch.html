@@ -29,6 +29,8 @@
 <!--        </a>-->
 <!--    </div>-->
 <!--</div>-->
+
+<!--The issue with the padding is in the .about__me class. Would have to apply border radius(border-top-right-radius: .5em, border-bottom-left-radius: .5em, etc.) to each individual container Or wrap entire card in a separate div to round the edges out-->
 <section class="card--container" th:each="item : ${properties}">
     <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
 
@@ -43,7 +45,7 @@
         </div>
 
         <div class="card__body">
-            <p class="about__me">Found by: <span th:text="${item.user.username}"></span></p>
+            <p class="about__me p-1">Found by: <span class="about__me" th:text="${item.user.username}"></span></p>
             <p class="about__me">Location found: <span th:text="${item.location.location_name}"></span></p>
             <div class="important__social__links">
                 <a href="https://github.com/Rahulbaran" target="_blank" rel="noreferrer noopener"><i class="fa fa-github"></i></a>
