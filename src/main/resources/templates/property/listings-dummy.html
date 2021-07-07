@@ -4,6 +4,7 @@
     <title>Listings</title>
 </head>
 <body>
+<link rel="stylesheet" href="/css/card.css">
 <header>
     <!-- If NOT logged on -->
     <nav th:replace="fragments/navbar :: navbar" sec:authorize="!isAuthenticated()"></nav>
@@ -12,64 +13,199 @@
 </header>
 
 
-
-    <form th:action="@{/listings}" method="get">
-        <br><br><br><br>
-        <label for="locations">Locations:</label>
-        <select id="locations" name="location">
-                <option value="null">Choose one:</option>
-            <th:block th:each="location : ${locations}">
-                <option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
-            </th:block>
-        </select>
-
-        <label for="categories">Categories:</label>
-        <select id="categories" name="category">
-                <option value="null">Choose one:</option>
-            <th:block th:each="category : ${categories}">
-                <option th:value="${category.id}"><span th:text="${category.property_type}"></span></option>
-            </th:block>
-        </select>
-
-        <label for="dateFound">Date:</label>
-        <input id="dateFound" type="date" name="date_found">
-        <button type="submit">Submit</button>
-    </form>
-
-    <div th:each="searchItem : ${searchProperties}">
-        <p th:text="${searchItem.title}" />
-        <p th:text="${searchItem.location.location_name}"></p>
-        <p th:text="${searchItem.formattedDateFound}"></p>
-        <th:block th:each="category : ${searchItem.categories}">
-            <p th:text="${category.property_type}"></p>
+<form th:action="@{/listings}" method="get">
+    <br><br><br><br>
+    <label for="locations">Locations:</label>
+    <select id="locations" name="location">
+        <option value="null">Choose one:</option>
+        <th:block th:each="location : ${locations}">
+            <option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
         </th:block>
-        <a sec:authorize="isAuthenticated()" role="button" class="btn btn-sm btn-outline-secondary" th:href="@{/inquiry/{id}(id=${searchItem.id})}">Inquire</a>
-        <a sec:authorize="!isAuthenticated()" role="button" class="btn btn-sm btn-outline-secondary popup" onclick="myFunction2(event)">Inquire
-            <span class="popuptext" id="myPopupLg">To inquire about a missing item, you need to be a logged in user!</span>
-        </a>
-    </div>
+    </select>
 
-
-    <div th:each="item : ${properties}">
-        <p th:text="${item.title}" />
-        <p th:text="${item.location.location_name}"></p>
-        <p th:text="${item.formattedDateFound}"></p>
-        <th:block th:each="category : ${item.categories}">
-            <p th:text="${category.property_type}"></p>
+    <label for="categories">Categories:</label>
+    <select id="categories" name="category">
+        <option value="null">Choose one:</option>
+        <th:block th:each="category : ${categories}">
+            <option th:value="${category.id}"><span th:text="${category.property_type}"></span></option>
         </th:block>
-        <a sec:authorize="isAuthenticated()" role="button" class="btn btn-sm btn-outline-secondary" th:href="@{/inquiry/{id}(id=${item.id})}">Inquire</a>
-        <a sec:authorize="!isAuthenticated()" role="button" class="btn btn-sm btn-outline-secondary popup" onclick="myFunction2(event)">Inquire
-            <span class="popuptext" id="myPopupLg">To inquire about a missing item, you need to be a logged in user!</span>
-        </a>
-    </div>
+    </select>
 
-    <script>
-        // When the user clicks on div, open the popup
-        function myFunction2(event) {
-            event.stopPropagation();
-            var popup = event.target.childNodes[1];
-            popup.classList.toggle("show");
+    <label for="dateFound">Date:</label>
+    <input id="dateFound" type="date" name="date_found">
+    <button type="submit">Submit</button>
+</form>
+
+<div th:each="searchItem : ${searchProperties}">
+    <p th:text="${searchItem.title}"/>
+    <p th:text="${searchItem.location.location_name}"></p>
+    <p th:text="${searchItem.formattedDateFound}"></p>
+    <th:block th:each="category : ${searchItem.categories}">
+        <p th:text="${category.property_type}"></p>
+    </th:block>
+    <a sec:authorize="isAuthenticated()" role="button" class="btn btn-sm btn-outline-secondary"
+       th:href="@{/inquiry/{id}(id=${searchItem.id})}">Inquire</a>
+    <a sec:authorize="!isAuthenticated()" role="button" class="btn btn-sm btn-outline-secondary popup"
+       onclick="myFunction2(event)">Inquire
+        <span class="popuptext" id="myPopupLg">To inquire about a missing item, you need to be a logged in user!</span>
+    </a>
+</div>
+
+
+<div th:each="item : ${properties}">
+    <p th:text="${item.title}"/>
+    <p th:text="${item.location.location_name}"></p>
+    <p th:text="${item.formattedDateFound}"></p>
+    <th:block th:each="category : ${item.categories}">
+        <p th:text="${category.property_type}"></p>
+    </th:block>
+    <a sec:authorize="isAuthenticated()" role="button" class="btn btn-sm btn-outline-secondary"
+       th:href="@{/inquiry/{id}(id=${item.id})}">Inquire</a>
+    <a sec:authorize="!isAuthenticated()" role="button" class="btn btn-sm btn-outline-secondary popup"
+       onclick="myFunction2(event)">Inquire
+        <span class="popuptext" id="myPopupLg">To inquire about a missing item, you need to be a logged in user!</span>
+    </a>
+</div>
+
+<section class="card--container" th:each="item : ${properties}">
+    <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
+
+        <div class="card__header">
+            <div class="card__image">
+                <img th:src="${item.user.profile_image_path}" height="50px" width="50px"/>
+            </div>
+            <h2 th:text="${item.title}"></h2>
+        </div>
+
+        <!--        <div class="image__container">-->
+        <!--            <div class="card__image">-->
+        <!--                <img th:src="${item.user.profile_image_path}" height="200px" width="200px"/>-->
+        <!--            </div>-->
+        <!--        </div>-->
+
+        <div class="card__body">
+            <p class="about__me">Found by:<span class="about__me" th:text="${item.user.username}"></span></p>
+            <p class="about__me">Location found: <span th:text="${item.location.location_name}"></span></p>
+            <p class="about__me">Categories:
+                <th:block th:each="category : ${item.categories}"><span
+                        th:text="${category.property_type}"></span><span> | </span></th:block>
+            </p>
+            <p class="about__me">Date found: <span th:text="${item.formattedDateFound}"></span></p>
+            <p class="about__me">Date posted: <span th:text="${item.formattedDatePosted}"></span></p>
+            <div class="important__social__links">
+                <a sec:authorize="isAuthenticated()" role="button" class="btn btn-sm btn-outline-secondary"
+                   th:href="@{/inquiry/{id}(id=${item.id})}">Inquire</a>
+                <a sec:authorize="!isAuthenticated()" role="button" class="btn btn-sm btn-outline-secondary popup"
+                   onclick="myFunction2(event)">Inquire
+                    <span class="popuptext" id="myPopupLg">To inquire about a missing item, you need to be a logged in user!</span>
+                </a>
+                <i class="fas fa-mobile-alt"></i>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+</section>
+
+<script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+<script>
+    // When the user clicks on div, open the popup
+    function myFunction2(event) {
+        event.stopPropagation();
+        var popup = event.target.childNodes[1];
+        popup.classList.toggle("show");
+    }
+
+    $(function () {
+
+        var html = $('html');
+        // Detections
+        if (!("ontouchstart" in window)) {
+            html.addClass("noTouch");
         }
-    </script>
+        if ("ontouchstart" in window) {
+            html.addClass("isTouch");
+        }
+        if ("ontouchstart" in window) {
+            html.addClass("isTouch");
+        }
+        if (document.documentMode || /Edge/.test(navigator.userAgent)) {
+            if (navigator.appVersion.indexOf("Trident") === -1) {
+                html.addClass("isEDGE");
+            } else {
+                html.addClass("isIE isIE11");
+            }
+        }
+        if (navigator.appVersion.indexOf("MSIE") !== -1) {
+            html.addClass("isIE");
+        }
+        if (
+            navigator.userAgent.indexOf("Safari") != -1 &&
+            navigator.userAgent.indexOf("Chrome") == -1
+        ) {
+            html.addClass("isSafari");
+        }
+
+        // On Screen
+
+        $.fn.isOnScreen = function () {
+            var elementTop = $(this).offset().top,
+                elementBottom = elementTop + $(this).outerHeight(),
+                viewportTop = $(window).scrollTop(),
+                viewportBottom = viewportTop + $(window).height();
+            return elementBottom > viewportTop && elementTop < viewportBottom;
+        };
+
+        function detection() {
+            for (var i = 0; i < items.length; i++) {
+                var el = $(items[i]);
+
+                if (el.isOnScreen()) {
+                    el.addClass("in-view");
+                } else {
+                    el.removeClass("in-view");
+                }
+            }
+        }
+
+        var items = document.querySelectorAll(
+            "*[data-animate-in], *[data-detect-viewport]"
+            ),
+            waiting = false,
+            w = $(window);
+
+        w.on("resize scroll", function () {
+            if (waiting) {
+                return;
+            }
+            waiting = true;
+            detection();
+
+            setTimeout(function () {
+                waiting = false;
+            }, 100);
+        });
+
+        $(document).ready(function () {
+            setTimeout(function () {
+                detection();
+            }, 500);
+
+            for (var i = 0; i < items.length; i++) {
+                var d = 0,
+                    el = $(items[i]);
+                if (items[i].getAttribute("data-animate-in-delay")) {
+                    d = items[i].getAttribute("data-animate-in-delay") / 1000 + "s";
+                } else {
+                    d = 0;
+                }
+                el.css("transition-delay", d);
+            }
+        });
+    });
+
+</script>
 </body>
 </html>
