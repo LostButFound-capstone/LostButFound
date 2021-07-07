@@ -3,6 +3,8 @@
 <head th:replace="fragments/head :: head">
     <title>Listings</title>
 </head>
+<link rel="stylesheet" href="/css/card.css">
+<script src="https://kit.fontawesome.com/ffd5be2154.js" crossorigin="anonymous"></script>
 <body>
 <header>
     <!-- If NOT logged on -->
@@ -35,27 +37,32 @@
     <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
 
         <div class="card__header">
+            <div class="card__image">
+                <img th:src="${item.user.profile_image_path}" height="50px" width="50px"/>
+            </div>
             <h2 th:text="${item.title}"></h2>
         </div>
 
-        <div class="image__container">
-            <div class="card__image">
-                <img th:src="${item.user.profile_image_path}" height="200px" width="200px"/>
-            </div>
-        </div>
+<!--        <div class="image__container">-->
+<!--            <div class="card__image">-->
+<!--                <img th:src="${item.user.profile_image_path}" height="200px" width="200px"/>-->
+<!--            </div>-->
+<!--        </div>-->
 
         <div class="card__body">
-            <p class="about__me p-1">Found by: <span class="about__me" th:text="${item.user.username}"></span></p>
+            <p class="about__me">Found by: <span class="about__me" th:text="${item.user.username}"></span></p>
             <p class="about__me">Location found: <span th:text="${item.location.location_name}"></span></p>
+            <p class="about__me">Categories: <th:block th:each="category : ${item.categories}"> <span th:text="${category.property_type}"></span><span> | </span></th:block></p>
             <div class="important__social__links">
-                <a href="https://github.com/Rahulbaran" target="_blank" rel="noreferrer noopener"><i class="fa fa-github"></i></a>
-                <a href="https://codepen.io/rahulbaran" target="_blank" rel="noreferrer noopener"><i class="fa fa-codepen"></i></a>
-                <a href="https://twitter.com/Rahul9122109422" target="_blank" rel="noreferrer noopener"><i class="fa fa-twitter"></i></a>
-                <a href=""><i class="fa fa-facebook"></i></a>
+                <a sec:authorize="isAuthenticated()" role="button" class="btn btn-sm btn-outline-secondary" th:href="@{/inquiry/{id}(id=${item.id})}">Inquire</a>
+                <a sec:authorize="!isAuthenticated()" role="button" class="btn btn-sm btn-outline-secondary popup" onclick="myFunction2(event)">Inquire
+                    <span class="popuptext" id="myPopupLg">To inquire about a missing item, you need to be a logged in user!</span>
+                </a>
+                <i class="fas fa-mobile-alt"></i>
             </div>
         </div>
     </div>
-    <br><br><br><br>
+    <br><br><br>
 </section>
 <script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
