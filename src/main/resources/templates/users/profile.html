@@ -25,7 +25,7 @@
             </div>
         </div>
 
-        <div class="media-body ">
+        <div class="media-body text-center ">
             <h4 class="font-weight-bold mb-0"><span th:text="${currentUser.username}"></span></h4>
             <h4 class="font-weight-bold mb-2"><span class="text-muted font-weight-normal"><span
                     th:text="${currentUser.email}"></span></span></h4>
@@ -164,11 +164,14 @@
 
     <!--    </div>-->
 </div>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+
 </body>
 
 
-<footer th:replace="fragments/footer :: footer">
 
-</footer>
+
+
 
 </html>
