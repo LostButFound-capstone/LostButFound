@@ -14,11 +14,18 @@
     <!-- If logged on -->
     <nav th:replace="fragments/new-navbar :: new-navbar" sec:authorize="isAuthenticated()"></nav>
 </header>
+
+<div class ="picture">
+    <img src = "img/undraw_next_tasks_iubr.svg">
+</div>
+
 <!--======================================================== user image and info =================================================-->
 <div class="container">
 
     <div class="media align-items-center py-3 mb-3">
         <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="d-block ui-w-100 rounded-circle">
+
+
         <div class="media-body ">
             <h4 class="font-weight-bold mb-0"><span th:text="${currentUser.username}"></span></h4>
             <h4 class="font-weight-bold mb-2"><span class="text-muted font-weight-normal"><span
@@ -27,6 +34,9 @@
             <!--<a href="#" class="btn btn-default btn-sm">Profile</a>-->
         </div>
     </div>
+
+    <div class="info">My Information:</div>
+
 
     <div class="card mb-4">
         <div class="card-body">
@@ -83,8 +93,8 @@
     <!--            </div>-->
     <!--            <hr class="border-muted m-0">-->
 
-
-    <div class="album py-5 bg-light">
+   <div class="listings">My Listings:</div>
+    <div class="album py-5 bg-light"  >
 
         <div class="container">
 
@@ -106,7 +116,13 @@
 
                             <p style="float: right" th:text="${item.date_posted}"></p>
                             <p>Date Posted:</p>
-                            <a role="button" class="btn btn-sm btn-outline-secondary" th:href="@{/edit/{id}(id=${item.id})}">Edit</a>
+                            <a role="button" class="btn btn-sm btn-outline-secondary" th:href="@{/edit/{id}(id=${item.id})}">Edit
+                            </a>
+
+                            <br>
+                            <br>
+
+
                             <form th:action="@{/delete/{id}(id=${item.id})}" method="post">
                             <button type="submit" class="btn btn-sm btn-outline-secondary btn-danger">Delete</button>
                             </form>
@@ -116,6 +132,7 @@
                         </div>
                     </div>
                 </div>
+
 
 
             </div>

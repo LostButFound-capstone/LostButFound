@@ -1,0 +1,19 @@
+.listings {
+    color: white;
+    font-weight: bold;
+}
+
+.info {
+    color: white;
+    font-weight: bold;
+
+}
+
+.picture {
+
+    max-height: 50%;
+    max-width:50%;
+    float: right;
+    margin-right: 250px;
+
+}
