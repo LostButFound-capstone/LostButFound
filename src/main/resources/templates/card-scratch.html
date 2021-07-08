@@ -50,26 +50,28 @@
         <!--            </div>-->
         <!--        </div>-->
 
-        <div class="card__body text-center">
+        <div class="card__body">
             <p class="about__me">Found by:<span class="about__me" th:text="${item.user.username}"></span></p>
             <p class="about__me">Location found: <span th:text="${item.location.location_name}"></span></p>
             <p class="about__me">Categories:
-                <th:block th:each="category : ${item.categories}"><span>
+                <th:block th:each="category : ${item.categories}"><span
                         th:text="${category.property_type}"></span><span> | </span></th:block>
             </p>
-            <p class="about__me">Date found: <span th:text="${item.date_found}"></span></p>
+            <p class="about__me" style="float: right">Date posted: <span th:text="${item.formattedDatePosted}"></span></p>
+            <p class="about__me">Date found: <span th:text="${item.formattedDateFound}"></span></p>
+<!--            <p class="about__me">Date posted: <span th:text="${item.formattedDatePosted}"></span></p>-->
             <div class="important__social__links">
                 <a sec:authorize="isAuthenticated()" role="button" class="btn btn-sm btn-outline-secondary"
                    th:href="@{/inquiry/{id}(id=${item.id})}">Inquire</a>
-                <a sec:authorize="!isAuthenticated()" role="button" class="btn btn-sm btn-outline-secondary popup"
+                <a sec:authorize="!isAuthenticated()" id="inquireBtn" role="button" class="btn btn-sm btn-outline-secondary popup"
                    onclick="myFunction2(event)">Inquire
                     <span class="popuptext" id="myPopupLg">To inquire about a missing item, you need to be a logged in user!</span>
                 </a>
-                <i class="fas fa-mobile-alt" ></i>
+<!--                <i class="fas fa-mobile-alt" ></i>-->
             </div>
         </div>
     </div>
-    <br><br><br>
+
 </section>
 </div>
 <script

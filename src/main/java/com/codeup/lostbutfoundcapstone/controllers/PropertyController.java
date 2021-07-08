@@ -329,7 +329,7 @@ public class PropertyController {
         User userPoster = property.getUser();
         Inquiry savedInquiry = inquiryDao.save(inquiry);
 
-        emailService.prepareAndSend(property, "Hello, " + userPoster.getUsername() + "", savedInquiry.getInquiry_description());
+        emailService.prepareAndSend(property, "Hello, " + userPoster.getUsername() + "", savedInquiry.getInquiry_description() + "  Please paste this URL in your browser to view the picture from the inquiry: " + image.getPath());
 
         return "redirect:/listings";
     }
