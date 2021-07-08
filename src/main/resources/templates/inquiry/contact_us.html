@@ -7,6 +7,10 @@
 
 </head>
 <body>
+<link rel="stylesheet" href="/css/card.css">
+<br>
+<br>
+<br>
 <script src="https://kit.fontawesome.com/5004ff7a3c.js" crossorigin="anonymous"></script>
 <header>
     <!-- If NOT logged on -->
@@ -14,12 +18,12 @@
     <!-- If logged on -->
     <nav th:replace="fragments/new-navbar :: new-navbar" sec:authorize="isAuthenticated()"></nav>
 </header>
-<div class="container marketing">
+<div class="container">
     <div class="row mt-4">
         <div class="col-lg-4 text-center ">
 
-                <img class="rounded-circle img-fluid" src="img/davila-headshot.jpg" alt="image of Sergio Davila" width="140"
-                     height="140" style="">
+                <img class="rounded-circle" src="img/davila-headshot.jpg" alt="image of Sergio Davila" width="140" height="140"
+                      style="object-fit: cover;">
                 <h2>Sergio Davila</h2>
                 <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies
                     vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo
@@ -44,8 +48,8 @@
                 </div>
             </div>
             <div class="col-lg-4 text-center">
-                <img class="img-circle rounded-circle img-fluid"  src="img/cp_march21-0018.jpg" alt="image of John Pierce" width="140"
-                     height="140">
+                <img class="img-circle rounded-circle"  src="img/cp_march21-0018.jpg" alt="image of John Pierce" width="140"
+                     height="140" style="object-fit: cover;">
                 <h2>John Pierce</h2>
                 <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
                     porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
@@ -58,7 +62,7 @@
                 </div>
             </div>
             <div class="col-lg-4 text-center">
-                <img class=" img-fluid rounded-circle" src="img/codeup_2-21-0016.jpg" alt="image of Nicholas Martinez" width="140" height="140">
+                <img class="rounded-circle" src="img/codeup_2-21-0016.jpg" alt="image of Nicholas Martinez" width="140" height="140" style="object-fit: cover;">
                 <h2>Nicholas Martinez</h2>
                 <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
                     porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
@@ -149,8 +153,8 @@
 
 <!--</div>-->
 
-<footer th:replace="fragments/footer :: footer">
+<footer th:replace="fragments/footer :: footer"></footer>
 
-</footer>
+
 </body>
 </html>

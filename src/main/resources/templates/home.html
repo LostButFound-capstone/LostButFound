@@ -18,6 +18,12 @@
         <div class="text-center mt-4 mb-3">
             <img class="w-50 h-50" src="img/lost-lightpink.svg" alt="logo">
         </div>
+        <div th:if="${param.error}">
+            Invalid Username and Password.
+        </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
         <div class="text-center">
             <div class="row">
                 <div class="col">
@@ -56,6 +62,12 @@
         <div class="d-flex justify-content-center align-items-center">
             <div class="box1 d-flex flex-column text-white">
                 <h3>What do we want to accomplish?</h3>
+                <div th:if="${param.error}">
+                    Invalid Username and Password.
+                </div>
+                <div th:if="${param.logout}">
+                    You have been logged out.
+                </div>
                 <p class="mt-2 mb-4">We help the residents of San Antonio reunite with lost belongings.</p>
                 <div class="row">
                     <div class="col-6">
@@ -93,8 +105,8 @@
 <!--        up your jacket as you run to your gate?-->
 <!--    </p>-->
 
-<script th:replace="fragments/login-fragment :: modaljs"></script>
-<script th:replace="fragments/signup-fragment :: signup-modaljs"></script>
+    <script th:replace="fragments/login-fragment :: modaljs"></script>
+    <script th:replace="fragments/signup-fragment :: signup-modaljs"></script>
     <script>
         // When the user clicks on div, open the popup
         function myFunction() {
@@ -107,5 +119,6 @@
         }
     </script>
 
+    <footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>

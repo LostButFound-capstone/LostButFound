@@ -6,59 +6,113 @@
 <body>
 <!--Header fragment-->
 <header>
-	<nav th:replace="fragments/navbar :: navbar"></nav>
+	<!-- If NOT logged on -->
+	<nav th:replace="fragments/navbar :: navbar" sec:authorize="!isAuthenticated()"></nav>
+	<!-- If logged on -->
+	<nav th:replace="fragments/new-navbar :: new-navbar" sec:authorize="isAuthenticated()"></nav>
 </header>
 
 <!--Main Container-->
-<div class="container-fluid no-gutters border">
-	<h3 align="center">Find lost property:</h3>
-
+<div class="container-fluid mt-5">
+	<br>
+	<br>
+	<h2 align="center">Welcome to the listings page!</h2>
 <!--Listings form-->
 
 		<form th:action="@{/listings}" method="get">
 
-
-
 <!--Filter card-->
-				<div class="container-fluid">
-					<div class="row">
-						<div class="card mb-2 box-shadow ">
-							<div class="card-header">
-								Filter your search:
-							</div>
-
-<!--Locations dropdown-->
-								<label for="locations">Locations:</label>
-								<select id="locations" data-selected="">
-									<option  value="null" selected="selected" disabled="disabled">Select a location</option>
-									<th:block th:each="location : ${locations}">
-										<option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
-									</th:block>
-								</select>
-<!--Categories dropdown-->
-								<label for="categories">Categories:</label>
-								<select id="categories" data-selected="">
-									<option value="null" selected="selected" disabled="disabled">Select a category:</option>
-									<th:block th:each="category : ${categories}">
-										<option th:value="${category.id}"><span th:text="${category.property_type}"></span></option>
-									</th:block>
-								</select>
-<!--Date-picker-->
-								<label for="dateFound">Date lost:</label>
-								<input  class="mb-2" id="dateFound" type="date" name="date_found">
-
-<!--Filter button-->
-								<button  type="button">Filter</button>
-						</div>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="images col card-hidden mb-3 border-0" data-selected="">
+						<span class="loader">loading...</span>
+						<span class="no-selection">...</span>
+						<img class="card-img-top" src="img/san_antonio_airport.jpg" data-image="1" alt="San Antonio Airport" title="San Antonio Airport" />
+						<img src="img/river_walk.jpg" data-image="2" alt="River Walk" title="River Walk" />
+						<img src="img/the_alamo.jpg" data-image="3" alt="The Alamo" title="The Alamo" />
+						<img src="img/north_star_mall.jpg" data-image="4" alt="North Star Mall" title="North Star Mall" />
+						<img src="img/shops_at_lacantera.png" data-image="5" alt="Shops at LaCantera" title="Shops at LaCantera" />
+						<img src="img/ingram_park_mall.jpg" data-image="6" alt="Ingram Park Mall" title="Ingram Park Mall" />
+						<img src="img/south_park_mall.jpg" data-image="7" alt="South Park Mall" title="South Park Mall" />
+						<!--						<img src="img/san_antonio_airport.jpg" data-image="8" alt="Workshop" title="Workshop" />-->
+						<!--						<img src="img/san_antonio_airport.jpg" data-image="9" alt="Workshop" title="Workshop" />-->
+						<!--						<img src="img/san_antonio_airport.jpg" data-image="10" alt="Workshop" title="Workshop" />-->
+						<!--						<img src="img/san_antonio_airport.jpg" data-image="11" alt="Workshop" title="Workshop" />-->
+						<!--						<img src="img/san_antonio_airport.jpg" data-image="12" alt="Workshop" title="Workshop" />-->
+						<!--						<img src="img/san_antonio_airport.jpg" data-image="13" alt="Workshop" title="Workshop" />-->
+						<!--						<img src="img/san_antonio_airport.jpg" data-image="14" alt="Workshop" title="Workshop" />-->
+						<!--						<img src="img/san_antonio_airport.jpg" data-image="15" alt="Workshop" title="Workshop" />-->
+						<!--						<img src="img/san_antonio_airport.jpg" data-image="16" alt="Workshop" title="Workshop" />-->
+						<!--						<img src="img/san_antonio_airport.jpg" data-image="17" alt="Workshop" title="Workshop" />-->
+						<!--						<img src="img/san_antonio_airport.jpg" data-image="18" alt="Workshop" title="Workshop" />-->
+						<!--						<img src="img/san_antonio_airport.jpg" data-image="19" alt="Workshop" title="Workshop" />-->
 					</div>
 				</div>
+				<div class="row mb-3">
+					<div class="col card-hidden box-shadow align-items-middle">
+<!--Locations dropdown-->
+							<label for="locations_dropdown">Locations:</label>
+							<select id="locations_dropdown" data-selected="">
+								<option  value="" selected="selected" disabled="disabled">Select a location</option>
+								<th:block th:each="location : ${locations}">
+									<option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
+								</th:block>
+							</select>
+<!--Categories dropdown-->
+							<label for="categories">Categories:</label>
+							<select id="categories" data-selected="">
+								<option value="null" selected="selected" disabled="disabled">Select a category:</option>
+								<th:block th:each="category : ${categories}">
+									<option th:value="${category.id}"><span th:text="${category.property_type}"></span></option>
+								</th:block>
+							</select>
+<!--Date-picker-->
+							<label for="dateFound">Date lost:</label>
+<!--							<input class="mb-2" id="dateFound" type="date" name="date_found">-->
+							<div class="input-group date mb-2" data-date-format="dd.mm.yyyy">
+								<input  id="dateFound" type="date" class="form-control " placeholder="Select a date">
+								<div class="input-group-addon" >
+									<span class="glyphicon glyphicon-th"></span>
+								</div>
+							</div>
+
+							<button type="submit">Filter
+							</button>
+<!--Filter button-->
+
+					</div>
+					<div class="col-1" >
+
+					</div>
+					<div class="col card align-items-center">
+						How to search:
+						<br>
+
+						- Select a location from the locations drop down.
+						<br>
+
+						- Select a category for your property.
+						<br>
+
+						- Select the date you lost your property at your selected location.
+						<br>
+
+						- Filter through postings made by finders.
+						<br>
+
+						- Once you have found a property post that closely resembles your own, press the inquire button to get in contact with the user that posted the lost property.
+						<br>
+					</div>
+				</div>
+			</div>
 		</form>
+
 <!--Property Cards-->
-			<div class="album py-5 bg-dark">
+			<div style="background: #ef426f; " class="card py-4">
 				<div class="container">
 					<div class="row">
-						<div class="row" th:each="item : ${properties}">
-							<div class="card box-shadow ">
+						<div class="col-6 " th:each="item : ${properties}">
+							<div style="background: #00b2a9; box-shadow: 17px 17px 5px rgba(0,0,0,.4); color: black;" class="card mb-5 rounded card__content">
 								<div class="card-body">
 
 									<p th:text="${item.title}"/></p>
@@ -74,7 +128,8 @@
 									</th:block>
 									<p>Categories:</p>
 
-									<a role="button" class="btn btn-sm btn-outline-secondary" th:href="@{/inquiry/{id}(id=${item.id})}">Inquire</a>
+									<a role="button" style="float: right" class="btn btn-sm btn-outline-secondary" th:href="@{/inquiry/{id}(id=${item.id})}">Inquire</a>
+
 								</div>
 							</div>
 						</div>
@@ -82,9 +137,27 @@
 				</div>
 			</div>
 		</div>
-</body>
+<script>
+    const selectbox = document.getElementById("locations_dropdown");
+    const imagecontainer = document.querySelector(".images");
+    let selection = selectbox.dataset.selected;
 
+    selectbox.addEventListener("change", e => {
+        selection = selectbox.value;
+        imagecontainer.classList.add("loading");
+        imagecontainer.dataset.selected = "";
+
+        setTimeout(() => {
+            imagecontainer.classList.remove("loading");
+            imagecontainer.dataset.selected = selection;
+        }, 1500);
+    });
+
+
+    $('.input-group.date').datepicker({format: "dd.mm.yyyy"});
+
+</script>
 <!--Footer fragment-->
-<footer th:replace="fragments/footer :: footer">
-</footer>
+<!--<footer th:replace="fragments/footer :: footer"></footer>-->
+</body>
 </html>

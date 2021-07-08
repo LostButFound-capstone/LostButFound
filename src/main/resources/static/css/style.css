@@ -24,7 +24,7 @@
 }
 
 body {
-    background-color: var(--main-bg-color);
+    background: -webkit-linear-gradient(220deg, hsla(203, 30%, 80%, 1) 0%, hsla(203, 20%, 20%, 1) 100%);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -41,15 +41,15 @@ p {
 
 /* Color Schemes */
 .main-bg-color {
-    background-color: var(--main-bg-color);
+    background-color: #00b2a9;
 }
 
 .button-bg-color1 {
-    background-color: var(--button-bg-color1);
+    background-color: #ef426f;
 }
 
 .button-bg-color2 {
-    background-color: var(--button-bg-color2);
+    background-color: #ff8200;
 }
 
 .shade1 {
@@ -83,6 +83,24 @@ p {
 #user-pic {
     height: 40px;
     width: 40px;
+    border-radius: 50%;
+}
+
+.imageContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardImage {
+    width: 200px;
+    height: 200px;
+}
+
+.cardImage > img {
+    object-fit: cover;
     border-radius: 50%;
 }
 
@@ -293,12 +311,103 @@ input[type=text], input[type=password] {
 }
 
 /* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
+/*@-webkit-keyframes fadeIn {*/
+/*    from {opacity: 0;}*/
+/*    to {opacity: 1;}*/
+/*}*/
+
+/*@keyframes fadeIn {*/
+/*    from {opacity: 0;}*/
+/*    to {opacity:1 ;}*/
+/*}*/
+
+/*.animated {*/
+/*    !*background-image: url("https://i.ytimg.com/vi/D-rAyCEtVHA/hqdefault.jpg");*!*/
+/*    width: 50%;*/
+/*    height: 50%;*/
+/*    background-repeat: no-repeat;*/
+/*    background-position: left top;*/
+/*    padding-top: 95px;*/
+/*    margin-bottom: 60px;*/
+/*    -webkit-animation-duration: .5s;*/
+/*    animation-duration: .5s;*/
+/*    -webkit-animation-fill-mode: both;*/
+/*    animation-fill-mode: both;*/
+/*}*/
+
+/*@-webkit-keyframes fadeInLeft {*/
+/*    0% {*/
+/*        opacity: 0;*/
+/*        -webkit-transform: translateX(-20px);*/
+/*    }*/
+/*    100% {*/
+/*        opacity: 1;*/
+/*        -webkit-transform: translateX(0);*/
+/*    }*/
+/*}*/
+
+/*@keyframes fadeInLeft {*/
+/*    0% {*/
+/*        opacity: 0;*/
+/*        transform: translateX(-20px);*/
+/*    }*/
+/*    100% {*/
+/*        opacity: 1;*/
+/*        transform: translateX(0);*/
+/*    }*/
+/*}*/
+
+/*.fadeInLeft {*/
+/*    -webkit-animation-name: fadeInLeft;*/
+/*    animation-name: fadeInLeft;*/
+/*}*/
+/*animation-name: fadeInDown;*/
+
+/*Animations*/
+
+[data-animate-in] {
+    opacity: 0;
+    transition: transform 0.8s ease, opacity 0.8s ease
 }
 
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
+[data-animate-in="up"] {
+    transform: translate3d(0, 24px, 0)
+}
+
+[data-animate-in="left"] {
+    transform: translate3d(-25%, 0, 0)
+}
+
+[data-animate-in="right"] {
+    transform: translate3d(25%, 0, 0)
+}
+
+[data-animate-in="down"] {
+    transform: translate3d(0, -24px, 0)
+}
+
+[data-animate-in="fadeIn"] {
+    transform: translate3d(0, 0, 0)
+}
+
+[data-animate-in].in-view {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    transition: transform 0.6s ease, opacity 0.6s ease
+}
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease
+}
+
+.page-loaded .fade-in,.page-loaded.fade-in {
+    opacity: 1
+}
+
+.isSafari.isTouch [data-animate-in],.isSafari.isTouch [data-animate-in="up"] {
+    opacity: 1;
+    transition: none;
+    transform: none
 }

@@ -42,11 +42,13 @@ public class PropertyController {
     }
 
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public String property(Model model){
 
         return "home";
     }
+
+
 
     @PostMapping("/property/{id}")
     public String propertyId(@PathVariable long id, Model model){
@@ -99,24 +101,34 @@ public class PropertyController {
     }
 
     @GetMapping("/profile")
-    public String showProfilePage(Model model) {
+    public String redirectProfilePage() {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
+
+        return "redirect:/profile/" + user.getId();
+    }
+
+    @GetMapping("/profile/{id}")
+    public String showProfilePage(@PathVariable Long id, Model model) {
+//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userDao.getById(id);
 
 
         model.addAttribute("currentUser", user);
         model.addAttribute("properties", propertyDao.findPropertyByUser(user));
+
 
         return "users/profile";
     }
 
     @GetMapping("/profile/edit/{id}")
     public String showEditProfile(@PathVariable Long id, Model model) {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userDao.getById(id);
 
         model.addAttribute("currentUser", user);
         model.addAttribute("properties", propertyDao.findPropertyByUser(user));
-
+        System.out.println("user.getPassword() = " + user.getPassword());
         return "users/edit-profile";
     }
 
@@ -136,7 +148,7 @@ public class PropertyController {
 
         userDao.save(user);
 
-        return "redirect:/profile";
+        return "redirect:/profile/" + id;
     }
 
     @GetMapping("/listings")
@@ -220,13 +232,13 @@ public class PropertyController {
         return "property/listings-dummy";
     }
 
-//    @PostMapping("/property/listings")
-//    public String filterFunctionality(@RequestParam(name = "location") String location_id, @RequestParam(name = "category") String category_id, @RequestParam(name = "date_found") String date_found) {
+//    @PostMapping("/search-results")
+//    public String showSearch(Model model @RequestParam(name = ) ) {
 ////        Long locationIdNum = Long.parseLong(location_id);
 ////        Long categoryIdNum = Long.parseLong(category_id);
 //
 //
-//        return "redirect:/property/listings";
+//        return "redirect:";
 //    }
 
     @GetMapping("/edit/{id}")
@@ -273,7 +285,7 @@ public class PropertyController {
 
         propertyDao.save(property);
 
-        return "redirect:/profile";
+        return "redirect:/profile/" + propertyDao.getById(id).getUser().getId();
     }
 
     @PostMapping("/delete/{id}")
@@ -281,7 +293,7 @@ public class PropertyController {
 
         propertyDao.deleteById(id);
 
-        return "redirect:/profile";
+        return "redirect:/profile/" + propertyDao.getById(id).getUser().getId();
     }
 
     @GetMapping("/inquiry/{id}")
@@ -322,12 +334,12 @@ public class PropertyController {
         return "redirect:/listings";
     }
 
-    @PostMapping("/search")
+    @PostMapping("/search-results")
     public String searchBar(Model model, @RequestParam(name = "searchBar") String searchString) {
 
-        model.addAttribute("properties", propertyDao.findPropertyByCategoriesIsLikeOrLocationIsLike(searchString, searchString));
+        model.addAttribute("searchProperties", propertyDao.findPropertyByCategoriesIsLikeOrLocationIsLike(searchString, searchString));
 
-        return "redirect:/listings";
+        return "property/listings-dummy";
     }
 
     @GetMapping("/verified-users")
@@ -337,6 +349,15 @@ public class PropertyController {
 
 
         return "users/verified-users";
+    }
+
+    @GetMapping("/card")
+    public String showCard(Model model) {
+
+        model.addAttribute("properties", propertyDao.findAll());
+
+
+        return "card-scratch";
     }
 
 }

@@ -19,7 +19,7 @@
     <div id="id01" class="modal">
 
 
-        <form class="modal-content animate" th:action="@{/login}" method="POST">
+        <form class="modal-content animate" th:action="@{/}" method="POST">
 
             <div class="imgcontainer mb-3">
                 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -46,13 +46,19 @@
 
     <div id="id02" class="modal">
 
-        <form class="modal-content animate" th:action="@{/login}" method="POST">
+        <form class="modal-content animate" th:action="@{/}" method="POST">
 
             <div class="imgcontainer mb-3">
                 <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
             </div>
 
             <div class="container">
+                <div th:if="${param.error}">
+                    Invalid Username and Password.
+                </div>
+                <div th:if="${param.logout}">
+                    You have been logged out.
+                </div>
                 <label for="uname"><b>Username</b></label>
                 <input type="text" placeholder="Enter Username" name="username" required id="uname" >
 
