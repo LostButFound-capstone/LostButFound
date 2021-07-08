@@ -11,9 +11,9 @@
 
 .picture {
 
-    max-height: 50%;
-    max-width:50%;
+    height: 50px;
+    width:50px;
     float: right;
-    margin-right: 250px;
+   margin-left: auto;
 
 }
