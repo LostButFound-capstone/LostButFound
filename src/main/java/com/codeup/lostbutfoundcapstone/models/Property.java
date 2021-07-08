@@ -154,4 +154,9 @@ public class Property {
         SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy");
         return formatter.format(this.date_found);
     }
+
+    public String getFormattedDatePosted() {
+        SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy");
+        return formatter.format(this.date_posted);
+    }
 }
