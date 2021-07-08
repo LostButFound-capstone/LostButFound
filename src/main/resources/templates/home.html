@@ -5,6 +5,10 @@
 </head>
 <body>
 
+
+<div class="background">
+
+
     <!-- Mobile Head -->
     <header>
         <!-- If NOT logged on -->
@@ -12,6 +16,14 @@
         <!-- If logged on -->
         <nav th:replace="fragments/new-navbar :: new-navbar" sec:authorize="isAuthenticated()"></nav>
     </header>
+
+
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+
 
     <!-- Small Screens View -->
     <main class="d-block d-lg-none d-xxl-none">
@@ -120,5 +132,6 @@
     </script>
 
     <footer th:replace="fragments/footer :: footer"></footer>
+</div>
 </body>
 </html>
