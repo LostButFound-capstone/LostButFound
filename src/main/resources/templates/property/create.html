@@ -29,7 +29,7 @@
 
     <div class="title">
 
-    <label for="createTitle">What did you find?</label>
+    <label for="createTitle" id="what">What did you find?</label>
       <br>
 
 
@@ -74,7 +74,7 @@
 
     <div class="where">
 
-    <label for="locations">Where did you find this item?</label>
+    <label for="locations" id="whereTitle">Where did you find this item?</label>
  <br>
     <select id="locations" th:field="*{location}">
       <th:block th:each="location : ${locations}">
