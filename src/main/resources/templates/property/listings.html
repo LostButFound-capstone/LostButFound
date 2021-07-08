@@ -13,19 +13,43 @@
 </header>
 
 <!--Main Container-->
-<div class="container-fluid mt-5 no-gutters border">
+<div class="container-fluid mt-5">
 	<br>
 	<br>
-	<h3 align="center">Find lost property:</h3>
-
+	<h2 align="center">Welcome to the listings page!</h2>
 <!--Listings form-->
 
 		<form th:action="@{/listings}" method="get">
 
 <!--Filter card-->
 			<div class="container-fluid">
-				<div class="row mb-2">
-					<div class="col margin-right-2 card box-shadow align-items-middle">
+				<div class="row">
+					<div class="images col card-hidden mb-3 border-0" data-selected="">
+						<span class="loader">loading...</span>
+						<span class="no-selection">...</span>
+						<img class="card-img-top" src="img/san_antonio_airport.jpg" data-image="1" alt="San Antonio Airport" title="San Antonio Airport" />
+						<img src="img/river_walk.jpg" data-image="2" alt="River Walk" title="River Walk" />
+						<img src="img/the_alamo.jpg" data-image="3" alt="The Alamo" title="The Alamo" />
+						<img src="img/north_star_mall.jpg" data-image="4" alt="North Star Mall" title="North Star Mall" />
+						<img src="img/shops_at_lacantera.png" data-image="5" alt="Shops at LaCantera" title="Shops at LaCantera" />
+						<img src="img/ingram_park_mall.jpg" data-image="6" alt="Ingram Park Mall" title="Ingram Park Mall" />
+						<img src="img/south_park_mall.jpg" data-image="7" alt="South Park Mall" title="South Park Mall" />
+						<!--						<img src="img/san_antonio_airport.jpg" data-image="8" alt="Workshop" title="Workshop" />-->
+						<!--						<img src="img/san_antonio_airport.jpg" data-image="9" alt="Workshop" title="Workshop" />-->
+						<!--						<img src="img/san_antonio_airport.jpg" data-image="10" alt="Workshop" title="Workshop" />-->
+						<!--						<img src="img/san_antonio_airport.jpg" data-image="11" alt="Workshop" title="Workshop" />-->
+						<!--						<img src="img/san_antonio_airport.jpg" data-image="12" alt="Workshop" title="Workshop" />-->
+						<!--						<img src="img/san_antonio_airport.jpg" data-image="13" alt="Workshop" title="Workshop" />-->
+						<!--						<img src="img/san_antonio_airport.jpg" data-image="14" alt="Workshop" title="Workshop" />-->
+						<!--						<img src="img/san_antonio_airport.jpg" data-image="15" alt="Workshop" title="Workshop" />-->
+						<!--						<img src="img/san_antonio_airport.jpg" data-image="16" alt="Workshop" title="Workshop" />-->
+						<!--						<img src="img/san_antonio_airport.jpg" data-image="17" alt="Workshop" title="Workshop" />-->
+						<!--						<img src="img/san_antonio_airport.jpg" data-image="18" alt="Workshop" title="Workshop" />-->
+						<!--						<img src="img/san_antonio_airport.jpg" data-image="19" alt="Workshop" title="Workshop" />-->
+					</div>
+				</div>
+				<div class="row mb-3">
+					<div class="col card-hidden box-shadow align-items-middle">
 <!--Locations dropdown-->
 							<label for="locations_dropdown">Locations:</label>
 							<select id="locations_dropdown" data-selected="">
@@ -80,40 +104,15 @@
 						<br>
 					</div>
 				</div>
-				<div class="row">
-					<div class="images col card mb-3 border-0 box-shadow" data-selected="">
-						<span class="loader">loading...</span>
-						<span class="no-selection">no location selected =)</span>
-						<img src="img/san_antonio_airport.jpg" data-image="1" alt="San Antonio Airport" title="San Antonio Airport" />
-						<img src="img/river_walk.jpg" data-image="2" alt="River Walk" title="River Walk" />
-						<img src="img/the_alamo.jpg" data-image="3" alt="The Alamo" title="The Alamo" />
-						<img src="img/north_star_mall.jpg" data-image="4" alt="North Star Mall" title="North Star Mall" />
-						<img src="img/shops_at_lacantera.png" data-image="5" alt="Shops at LaCantera" title="Shops at LaCantera" />
-						<img src="img/ingram_park_mall.jpg" data-image="6" alt="Ingram Park Mall" title="Ingram Park Mall" />
-						<img src="img/south_park_mall.jpg" data-image="7" alt="South Park Mall" title="South Park Mall" />
-						<img src="img/san_antonio_airport.jpg" data-image="8" alt="Workshop" title="Workshop" />
-						<img src="img/san_antonio_airport.jpg" data-image="9" alt="Workshop" title="Workshop" />
-						<img src="img/san_antonio_airport.jpg" data-image="10" alt="Workshop" title="Workshop" />
-						<img src="img/san_antonio_airport.jpg" data-image="11" alt="Workshop" title="Workshop" />
-						<img src="img/san_antonio_airport.jpg" data-image="12" alt="Workshop" title="Workshop" />
-						<img src="img/san_antonio_airport.jpg" data-image="13" alt="Workshop" title="Workshop" />
-						<img src="img/san_antonio_airport.jpg" data-image="14" alt="Workshop" title="Workshop" />
-						<img src="img/san_antonio_airport.jpg" data-image="15" alt="Workshop" title="Workshop" />
-						<img src="img/san_antonio_airport.jpg" data-image="16" alt="Workshop" title="Workshop" />
-						<img src="img/san_antonio_airport.jpg" data-image="17" alt="Workshop" title="Workshop" />
-						<img src="img/san_antonio_airport.jpg" data-image="18" alt="Workshop" title="Workshop" />
-						<img src="img/san_antonio_airport.jpg" data-image="19" alt="Workshop" title="Workshop" />
-					</div>
-				</div>
 			</div>
 		</form>
 
 <!--Property Cards-->
-			<div style="background: #ef426f; " class="card">
+			<div style="background: #ef426f; " class="card py-4">
 				<div class="container">
 					<div class="row">
-						<div class="col-sm-6 " th:each="item : ${properties}">
-							<div style="background: #00b2a9; box-shadow: 17px 17px 5px rgba(0,0,0,.4); color: black;" class="card mb-4 rounded card__content">
+						<div class="col-6 " th:each="item : ${properties}">
+							<div style="background: #00b2a9; box-shadow: 17px 17px 5px rgba(0,0,0,.4); color: black;" class="card mb-5 rounded card__content">
 								<div class="card-body">
 
 									<p th:text="${item.title}"/></p>
