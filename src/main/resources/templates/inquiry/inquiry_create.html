@@ -112,9 +112,9 @@
     const client = filestack.init(FileStackAPI);
     const options = {
         accept: ["image/*"],
-        onFileUploadFinished: anotherFunction,
         imageDim: [2048, 2048],
-        maxSize: 10 * 1024 * 1024
+        maxSize: 10 * 1024 * 1024,
+        onFileUploadFinished: anotherFunction
     };
 
     const btn = document.getElementById('imageURL');
