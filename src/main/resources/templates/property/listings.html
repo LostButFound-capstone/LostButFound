@@ -13,7 +13,7 @@
 </header>
 
 <!--Main Container-->
-<div class="container-fluid mt-5">
+<div class="container mt-5">
 	<br>
 	<br>
 	<h2 align="center">Welcome to the listings page!</h2>
@@ -22,7 +22,7 @@
 		<form th:action="@{/listings}" method="get">
 
 <!--Filter card-->
-			<div class="container-fluid">
+			<div class="container">
 				<div class="row">
 					<div class="images col card-hidden mb-3 border-0" data-selected="">
 						<span class="loader">loading...</span>
@@ -69,8 +69,8 @@
 <!--Date-picker-->
 							<label for="dateFound">Date lost:</label>
 <!--							<input class="mb-2" id="dateFound" type="date" name="date_found">-->
-							<div class="input-group date mb-2" data-date-format="dd.mm.yyyy">
-								<input  id="dateFound" type="date" class="form-control " placeholder="Select a date">
+							<div class="input-group.date mb-2" data-date-format="dd.mm.yyyy">
+								<input  id="dateFound" type="date" class="form-control align-center" placeholder="Select a date">
 								<div class="input-group-addon" >
 									<span class="glyphicon glyphicon-th"></span>
 								</div>
