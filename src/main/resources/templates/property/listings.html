@@ -15,7 +15,7 @@
 </header>
 
 <!--Main Container-->
-<div class="container mt-5">
+<div class="container mt-4">
 	<br>
 	<br>
 	<h2 align="center">Welcome to the listings page!</h2>
@@ -54,16 +54,16 @@
 					<div class="col card box-shadow align-items-middle">
 <!--Locations dropdown-->
 							<label for="locations_dropdown">Locations:</label>
-							<select id="locations_dropdown" data-selected="">
-								<option  value="" selected="selected" disabled="disabled">Select a location</option>
+							<select name="location" id="locations_dropdown" data-selected="">
+								<option  value="null">Select a location</option>
 								<th:block th:each="location : ${locations}">
 									<option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
 								</th:block>
 							</select>
 <!--Categories dropdown-->
 							<label for="categories">Categories:</label>
-							<select id="categories" data-selected="">
-								<option value="null" selected="selected" disabled="disabled">Select a category:</option>
+							<select name="category" id="categories" data-selected="">
+								<option value="null">Select a category:</option>
 								<th:block th:each="category : ${categories}">
 									<option th:value="${category.id}"><span th:text="${category.property_type}"></span></option>
 								</th:block>
@@ -71,8 +71,8 @@
 <!--Date-picker-->
 							<label for="dateFound">Date lost:</label>
 <!--							<input class="mb-2" id="dateFound" type="date" name="date_found">-->
-							<div class="input-group.date mb-2" data-date-format="dd.mm.yyyy">
-								<input  id="dateFound" type="date" class="form-control align-center" placeholder="Select a date">
+							<div class="input-group.date mb-2">
+								<input name="date_found" id="dateFound" type="date" class="form-control align-center">
 								<div class="input-group-addon" >
 									<span class="glyphicon glyphicon-th"></span>
 								</div>
