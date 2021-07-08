@@ -5,7 +5,7 @@ select {
     border-bottom: 2px solid currentcolor;
     font-weight: bold;
     letter-spacing: 0.15em;
-    border-radius: 0;
+    border-radius: 1px;
 }
 select:focus, select:active {
     outline: 0;
