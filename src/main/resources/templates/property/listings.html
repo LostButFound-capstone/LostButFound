@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	  lang="en">
 <head th:replace="fragments/head :: head">
 
 </head>
@@ -135,7 +137,7 @@
 						</div>
 					</div>
 				</div>
-<!--			</div>-->
+			</div>
 <!--		</div>-->
 
 <script>
@@ -247,6 +249,6 @@
 
 </script>
 <!--Footer fragment-->
-<!--<footer th:replace="fragments/footer :: footer"></footer>-->
+<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>

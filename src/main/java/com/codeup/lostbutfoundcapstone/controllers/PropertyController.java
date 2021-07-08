@@ -229,7 +229,7 @@ public class PropertyController {
         System.out.println(location_id);
         System.out.println(category_id);
         System.out.println(date);
-        return "property/listings-dummy";
+        return "property/listings";
     }
 
 //    @PostMapping("/search-results")
