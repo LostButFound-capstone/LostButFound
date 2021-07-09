@@ -23,16 +23,10 @@
     box-sizing: border-box;
 }
 
-
-html {
-    height: 100%;
-}
-
 body {
-    background: -webkit-linear-gradient(220deg, hsla(203, 30%, 80%, 1) 0%, hsla(203, 20%, 20%, 1) 100%);
-    background-repeat: no-repeat;
-    width: 100%;
-    height: auto;
+    height: 100%;
+    margin: 0;
+    background: -webkit-linear-gradient(220deg, hsla(203, 30%, 80%, 1) 0%, hsla(203, 20%, 20%, 1) 100%) no-repeat fixed;
 }
 
 /**************************** background animation test ************************/
@@ -126,6 +120,10 @@ body {
 @media (max-width: 768px) {
     .cube {
         display: none;
+    }
+
+    .bg-attach-scroll {
+        background-attachment: scroll;
     }
 }
 
