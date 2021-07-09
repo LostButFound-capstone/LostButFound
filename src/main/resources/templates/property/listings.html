@@ -1,143 +1,140 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
-	  lang="en">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
 <head th:replace="fragments/head :: head">
 
 </head>
 <body>
+<link rel="stylesheet" href="/css/card.css">
 <!--Header fragment-->
 <header>
-	<!-- If NOT logged on -->
-	<nav th:replace="fragments/navbar :: navbar" sec:authorize="!isAuthenticated()"></nav>
-	<!-- If logged on -->
-	<nav th:replace="fragments/new-navbar :: new-navbar" sec:authorize="isAuthenticated()"></nav>
+    <!-- If NOT logged on -->
+    <nav th:replace="fragments/navbar :: navbar" sec:authorize="!isAuthenticated()"></nav>
+    <!-- If logged on -->
+    <nav th:replace="fragments/new-navbar :: new-navbar" sec:authorize="isAuthenticated()"></nav>
 </header>
 
 <!--Main Container-->
 <div class="container mt-4">
-	<br>
-	<br>
-	<h2 align="center">Welcome to the listings page!</h2>
-<!--Listings form-->
+    <br>
+    <br>
+    <h2 align="center">Welcome to the listings page!</h2>
+    <!--Listings form-->
 
-		<form th:action="@{/listings}" method="get">
+    <form th:action="@{/listings}" method="get">
 
-<!--Filter card-->
-			<div class="container">
-				<div class="row">
-					<div class="images col card-hidden mb-3 border-0" data-selected="">
-						<span class="loader">loading...</span>
-						<span class="no-selection">...</span>
-						<img src="img/san_antonio_airport.jpg" data-image="1" alt="San Antonio Airport" title="San Antonio Airport" />
-						<img src="img/river_walk.jpg" data-image="2" alt="River Walk" title="River Walk" />
-						<img src="img/the_alamo.jpg" data-image="3" alt="The Alamo" title="The Alamo" />
-						<img src="img/north_star_mall.jpg" data-image="4" alt="North Star Mall" title="North Star Mall" />
-						<img src="img/shops_at_lacantera.png" data-image="5" alt="Shops at LaCantera" title="Shops at LaCantera" />
-						<img src="img/ingram_park_mall.jpg" data-image="6" alt="Ingram Park Mall" title="Ingram Park Mall" />
-						<img src="img/south_park_mall.jpg" data-image="7" alt="South Park Mall" title="South Park Mall" />
-						<!--						<img src="img/san_antonio_airport.jpg" data-image="8" alt="Workshop" title="Workshop" />-->
-						<!--						<img src="img/san_antonio_airport.jpg" data-image="9" alt="Workshop" title="Workshop" />-->
-						<!--						<img src="img/san_antonio_airport.jpg" data-image="10" alt="Workshop" title="Workshop" />-->
-						<!--						<img src="img/san_antonio_airport.jpg" data-image="11" alt="Workshop" title="Workshop" />-->
-						<!--						<img src="img/san_antonio_airport.jpg" data-image="12" alt="Workshop" title="Workshop" />-->
-						<!--						<img src="img/san_antonio_airport.jpg" data-image="13" alt="Workshop" title="Workshop" />-->
-						<!--						<img src="img/san_antonio_airport.jpg" data-image="14" alt="Workshop" title="Workshop" />-->
-						<!--						<img src="img/san_antonio_airport.jpg" data-image="15" alt="Workshop" title="Workshop" />-->
-						<!--						<img src="img/san_antonio_airport.jpg" data-image="16" alt="Workshop" title="Workshop" />-->
-						<!--						<img src="img/san_antonio_airport.jpg" data-image="17" alt="Workshop" title="Workshop" />-->
-						<!--						<img src="img/san_antonio_airport.jpg" data-image="18" alt="Workshop" title="Workshop" />-->
-						<!--						<img src="img/san_antonio_airport.jpg" data-image="19" alt="Workshop" title="Workshop" />-->
-					</div>
-				</div>
-				<div class="row mb-3">
-					<div class="col card box-shadow align-items-middle">
-<!--Locations dropdown-->
-							<label for="locations_dropdown">Locations:</label>
-							<select name="location" id="locations_dropdown" data-selected="">
-								<option  value="null">Select a location</option>
-								<th:block th:each="location : ${locations}">
-									<option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
-								</th:block>
-							</select>
-<!--Categories dropdown-->
-							<label for="categories">Categories:</label>
-							<select name="category" id="categories" data-selected="">
-								<option value="null">Select a category:</option>
-								<th:block th:each="category : ${categories}">
-									<option th:value="${category.id}"><span th:text="${category.property_type}"></span></option>
-								</th:block>
-							</select>
-<!--Date-picker-->
-							<label for="dateFound">Date lost:</label>
-<!--							<input class="mb-2" id="dateFound" type="date" name="date_found">-->
-							<div class="input-group.date mb-2">
-								<input name="date_found" id="dateFound" type="date" class="form-control align-center">
-								<div class="input-group-addon" >
-									<span class="glyphicon glyphicon-th"></span>
-								</div>
-							</div>
+        <!--Filter card-->
+        <div class="container">
+            <div class="row">
+                <div class="images col card-hidden mb-3 border-0" data-selected="">
+                    <span class="loader">loading...</span>
+                    <span class="no-selection">...</span>
+                    <img src="img/san_antonio_airport.jpg" data-image="1" alt="San Antonio Airport"
+                         title="San Antonio Airport"/>
+                    <img src="img/river_walk.jpg" data-image="2" alt="River Walk" title="River Walk"/>
+                    <img src="img/the_alamo.jpg" data-image="3" alt="The Alamo" title="The Alamo"/>
+                    <img src="img/north_star_mall.jpg" data-image="4" alt="North Star Mall" title="North Star Mall"/>
+                    <img src="img/shops_at_lacantera.png" data-image="5" alt="Shops at LaCantera"
+                         title="Shops at LaCantera"/>
+                    <img src="img/ingram_park_mall.jpg" data-image="6" alt="Ingram Park Mall" title="Ingram Park Mall"/>
+                    <img src="img/south_park_mall.jpg" data-image="7" alt="South Park Mall" title="South Park Mall"/>
+                    <!--						<img src="img/san_antonio_airport.jpg" data-image="8" alt="Workshop" title="Workshop" />-->
+                    <!--						<img src="img/san_antonio_airport.jpg" data-image="9" alt="Workshop" title="Workshop" />-->
+                    <!--						<img src="img/san_antonio_airport.jpg" data-image="10" alt="Workshop" title="Workshop" />-->
+                    <!--						<img src="img/san_antonio_airport.jpg" data-image="11" alt="Workshop" title="Workshop" />-->
+                    <!--						<img src="img/san_antonio_airport.jpg" data-image="12" alt="Workshop" title="Workshop" />-->
+                    <!--						<img src="img/san_antonio_airport.jpg" data-image="13" alt="Workshop" title="Workshop" />-->
+                    <!--						<img src="img/san_antonio_airport.jpg" data-image="14" alt="Workshop" title="Workshop" />-->
+                    <!--						<img src="img/san_antonio_airport.jpg" data-image="15" alt="Workshop" title="Workshop" />-->
+                    <!--						<img src="img/san_antonio_airport.jpg" data-image="16" alt="Workshop" title="Workshop" />-->
+                    <!--						<img src="img/san_antonio_airport.jpg" data-image="17" alt="Workshop" title="Workshop" />-->
+                    <!--						<img src="img/san_antonio_airport.jpg" data-image="18" alt="Workshop" title="Workshop" />-->
+                    <!--						<img src="img/san_antonio_airport.jpg" data-image="19" alt="Workshop" title="Workshop" />-->
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col card box-shadow align-items-middle">
+                    <!--Locations dropdown-->
+                    <label for="locations_dropdown">Locations:</label>
+                    <select name="location" id="locations_dropdown" data-selected="">
+                        <option value="null">Select a location</option>
+                        <th:block th:each="location : ${locations}">
+                            <option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
+                        </th:block>
+                    </select>
+                    <!--Categories dropdown-->
+                    <label for="categories">Categories:</label>
+                    <select name="category" id="categories" data-selected="">
+                        <option value="null">Select a category:</option>
+                        <th:block th:each="category : ${categories}">
+                            <option th:value="${category.id}"><span th:text="${category.property_type}"></span></option>
+                        </th:block>
+                    </select>
+                    <!--Date-picker-->
+                    <label for="dateFound">Date lost:</label>
+                    <!--							<input class="mb-2" id="dateFound" type="date" name="date_found">-->
+                    <div class="input-group.date mb-2">
+                        <input name="date_found" id="dateFound" type="date" class="form-control align-center">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </div>
 
-							<button type="submit">Filter
-							</button>
-<!--Filter button-->
+                    <button type="submit">Filter
+                    </button>
+                    <!--Filter button-->
 
-					</div>
-					<div class="col-1" >
+                </div>
+                <div class="col-1">
 
-					</div>
-					<div class="col card align-items-center">
-						How to search:
-						<br>
+                </div>
+                <div class="col card align-items-center">
+                    How to search:
+                    <br>
 
-						- Select a location from the locations drop down.
-						<br>
+                    - Select a location from the locations drop down.
+                    <br>
 
-						- Select a category for your property.
-						<br>
+                    - Select a category for your property.
+                    <br>
 
-						- Select the date you lost your property at your selected location.
-						<br>
+                    - Select the date you lost your property at your selected location.
+                    <br>
 
-						- Filter through postings made by finders.
-						<br>
+                    - Filter through postings made by finders.
+                    <br>
 
-						- Once you have found a property post that closely resembles your own, press the inquire button to get in contact with the user that posted the lost property.
-						<br>
-					</div>
-				</div>
-			</div>
-		</form>
+                    - Once you have found a property post that closely resembles your own, press the inquire button to
+                    get in contact with the user that posted the lost property.
+                    <br>
+                </div>
+            </div>
+        </div>
+    </form>
 
-<!--Property Cards-->
-<!--			<div style="background: #ef426f; " class="card-hidden py-4">-->
-				<div class="container">
-					<div class="row">
-						<div class="col-6 " th:each="item : ${properties}">
-							<div style="background: #00b2a9; box-shadow: 17px 17px 5px rgba(0,0,0,.4); color: black;" class="card mb-5 rounded card__content">
-								<div class="card-body">
-
-									<p th:text="${item.title}"></p>
-
-									<p style="float: right;" th:text="${item.location.location_name}"></p>
-									<p>Location found:</p>
-
-									<p style="float: right;" th:text="${item.date_found}"></p>
-									<p>Date Found:</p>
-
-									<th:block th:each="category : ${item.categories}">
-										<p style="float: right;" th:text="${category.property_type}"></p>
-									</th:block>
-									<p>Categories:</p>
-
-									<a role="button" style="float: right" class="btn btn-sm btn-outline-secondary" th:href="@{/inquiry/{id}(id=${item.id})}">Inquire</a>
-
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+    <!--Property Cards-->
+    <div class="container">
+        <div class="row">
+            <div class="col-6 " th:each="item : ${properties}">
+                <div style="background: #00b2a9; box-shadow: 17px 17px 5px rgba(0,0,0,.4); color: black;" class="card mb-5 rounded card__content">
+                    <div class="card-body">
+                        <p th:text="${item.title}"></p>
+                        <p style="float: right;" th:text="${item.location.location_name}"></p>
+                        <p>Location found:</p>
+                        <p style="float: right;" th:text="${item.date_found}"></p>
+                        <p>Date Found:</p>
+                        <th:block th:each="category : ${item.categories}">
+                            <p style="float: right;" th:text="${category.property_type}"></p>
+                        </th:block>
+                        <p>Categories:</p>
+                        <a role="button" style="float: right" class="btn btn-sm btn-outline-secondary" th:href="@{/inquiry/{id}(id=${item.id})}">Inquire</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!--		</div>-->
 
 <script>
@@ -158,96 +155,111 @@
 
 
     $('.input-group.date').datepicker({format: "dd.mm.yyyy"});
+</script>
 
-    // $(function () {
-	//
-    //     var html = $('html');
-    //     // Detections
-    //     if (!("ontouchstart" in window)) {
-    //         html.addClass("noTouch");
-    //     }
-    //     if ("ontouchstart" in window) {
-    //         html.addClass("isTouch");
-    //     }
-    //     if ("ontouchstart" in window) {
-    //         html.addClass("isTouch");
-    //     }
-    //     if (document.documentMode || /Edge/.test(navigator.userAgent)) {
-    //         if (navigator.appVersion.indexOf("Trident") === -1) {
-    //             html.addClass("isEDGE");
-    //         } else {
-    //             html.addClass("isIE isIE11");
-    //         }
-    //     }
-    //     if (navigator.appVersion.indexOf("MSIE") !== -1) {
-    //         html.addClass("isIE");
-    //     }
-    //     if (
-    //         navigator.userAgent.indexOf("Safari") != -1 &&
-    //         navigator.userAgent.indexOf("Chrome") == -1
-    //     ) {
-    //         html.addClass("isSafari");
-    //     }
-	//
-    //     // On Screen
-	//
-    //     $.fn.isOnScreen = function () {
-    //         var elementTop = $(this).offset().top,
-    //             elementBottom = elementTop + $(this).outerHeight(),
-    //             viewportTop = $(window).scrollTop(),
-    //             viewportBottom = viewportTop + $(window).height();
-    //         return elementBottom > viewportTop && elementTop < viewportBottom;
-    //     };
-	//
-    //     function detection() {
-    //         for (var i = 0; i < items.length; i++) {
-    //             var el = $(items[i]);
-	//
-    //             if (el.isOnScreen()) {
-    //                 el.addClass("in-view");
-    //             } else {
-    //                 el.removeClass("in-view");
-    //             }
-    //         }
-    //     }
-	//
-    //     var items = document.querySelectorAll(
-    //         "*[data-animate-in], *[data-detect-viewport]"
-    //         ),
-    //         waiting = false,
-    //         w = $(window);
-	//
-    //     w.on("resize scroll", function () {
-    //         if (waiting) {
-    //             return;
-    //         }
-    //         waiting = true;
-    //         detection();
-	//
-    //         setTimeout(function () {
-    //             waiting = false;
-    //         }, 100);
-    //     });
-	//
-    //     $(document).ready(function () {
-    //         setTimeout(function () {
-    //             detection();
-    //         }, 500);
-	//
-    //         for (var i = 0; i < items.length; i++) {
-    //             var d = 0,
-    //                 el = $(items[i]);
-    //             if (items[i].getAttribute("data-animate-in-delay")) {
-    //                 d = items[i].getAttribute("data-animate-in-delay") / 1000 + "s";
-    //             } else {
-    //                 d = 0;
-    //             }
-    //             el.css("transition-delay", d);
-    //         }
-    //     });
-    // });
+<script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+</script>
+<script>
+    // When the user clicks on div, open the popup
+    function myFunction2(event) {
+        event.stopPropagation();
+        var popup = event.target.childNodes[1];
+        popup.classList.toggle("show");
+    }
+
+    $(function () {
+
+        var html = $('html');
+        // Detections
+        if (!("ontouchstart" in window)) {
+            html.addClass("noTouch");
+        }
+        if ("ontouchstart" in window) {
+            html.addClass("isTouch");
+        }
+        if ("ontouchstart" in window) {
+            html.addClass("isTouch");
+        }
+        if (document.documentMode || /Edge/.test(navigator.userAgent)) {
+            if (navigator.appVersion.indexOf("Trident") === -1) {
+                html.addClass("isEDGE");
+            } else {
+                html.addClass("isIE isIE11");
+            }
+        }
+        if (navigator.appVersion.indexOf("MSIE") !== -1) {
+            html.addClass("isIE");
+        }
+        if (
+            navigator.userAgent.indexOf("Safari") != -1 &&
+            navigator.userAgent.indexOf("Chrome") == -1
+        ) {
+            html.addClass("isSafari");
+        }
+
+        // On Screen
+
+        $.fn.isOnScreen = function () {
+            var elementTop = $(this).offset().top,
+                elementBottom = elementTop + $(this).outerHeight(),
+                viewportTop = $(window).scrollTop(),
+                viewportBottom = viewportTop + $(window).height();
+            return elementBottom > viewportTop && elementTop < viewportBottom;
+        };
+
+        function detection() {
+            for (var i = 0; i < items.length; i++) {
+                var el = $(items[i]);
+
+                if (el.isOnScreen()) {
+                    el.addClass("in-view");
+                } else {
+                    el.removeClass("in-view");
+                }
+            }
+        }
+
+        var items = document.querySelectorAll(
+            "*[data-animate-in], *[data-detect-viewport]"
+            ),
+            waiting = false,
+            w = $(window);
+
+        w.on("resize scroll", function () {
+            if (waiting) {
+                return;
+            }
+            waiting = true;
+            detection();
+
+            setTimeout(function () {
+                waiting = false;
+            }, 100);
+        });
+
+        $(document).ready(function () {
+            setTimeout(function () {
+                detection();
+            }, 500);
+
+            for (var i = 0; i < items.length; i++) {
+                var d = 0,
+                    el = $(items[i]);
+                if (items[i].getAttribute("data-animate-in-delay")) {
+                    d = items[i].getAttribute("data-animate-in-delay") / 1000 + "s";
+                } else {
+                    d = 0;
+                }
+                el.css("transition-delay", d);
+            }
+        });
+    });
 
 </script>
+
 <!--Footer fragment-->
 <footer th:replace="fragments/footer :: footer"></footer>
 </body>
