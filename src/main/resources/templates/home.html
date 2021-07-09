@@ -3,9 +3,8 @@
 <head th:replace="fragments/head :: head">
     <title>Home</title>
 </head>
-<body>
-<!--<div class="background">-->
 
+<body class="bg-attach-scroll">
 
     <!-- Mobile Head -->
     <header>
@@ -102,17 +101,8 @@
             </div>
         </div>
     </main>
-<!--    <p>-->
-<!--        Have you ever been strolling along, minding your own business, and you come across a pair of sunglasses-->
-<!--        someone left-->
-<!--        behind at the park?-->
-<!--    </p>-->
-<!--    <p>-->
-<!--        Like those really nice ones? And you didn't want to leave them there, but you also didn't know-->
-<!--        how to get them back to the person that lost them? Or have you ever been super late for a flight and-->
-<!--        forgot to pick-->
-<!--        up your jacket as you run to your gate?-->
-<!--    </p>-->
+
+<!--    <footer th:replace="fragments/footer :: footer"></footer>-->
 
     <script th:replace="fragments/login-fragment :: modaljs"></script>
     <script th:replace="fragments/signup-fragment :: signup-modaljs"></script>
@@ -127,8 +117,6 @@
             popup.classList.toggle("show");
         }
     </script>
-
-    <footer th:replace="fragments/footer :: footer"></footer>
 <!--</div>-->
 </body>
 </html>
