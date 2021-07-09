@@ -15,15 +15,15 @@
     <nav th:replace="fragments/new-navbar :: new-navbar" sec:authorize="isAuthenticated()"></nav>
 </header>
 
-<div class ="picture">
-    <img src = "img/undraw_next_tasks_iubr.svg">
+
+<div class="picture">
+    <img style="height:100px; width: 100px" th:src="@{../img/undraw_next_tasks_iubr.svg}"/>
 </div>
 
 <!--======================================================== user image and info =================================================-->
 <div class="container">
 
     <div class="media align-items-center py-3 mb-3">
-
 
         <div class="imageContainer">
             <div class="cardImage">
@@ -34,7 +34,7 @@
         <div class="media-body text-center ">
 
             <h4 class="font-weight-bold mb-0"><span th:text="${currentUser.username}"></span></h4>
-            <h4 class="font-weight-bold mb-2"><span class="text-muted font-weight-normal"><span
+            <h4 class="font-weight-bold mb-2"><span class="font-weight-normal"><span
                     th:text="${currentUser.email}"></span></span></h4>
             <a th:href="@{/profile/edit/{id}(id=${currentUser.id})}" class="btn btn-primary btn-sm">Edit</a>
             <!--<a href="#" class="btn btn-default btn-sm">Profile</a>-->
@@ -99,8 +99,8 @@
     <!--            </div>-->
     <!--            <hr class="border-muted m-0">-->
 
-   <div class="listings">My Listings:</div>
-    <div class="album py-5 bg-light"  >
+    <div class="listings">My Listings:</div>
+    <div class="album py-5 bg-light">
 
         <div class="container">
 
@@ -122,7 +122,8 @@
 
                             <p style="float: right" th:text="${item.date_posted}"></p>
                             <p>Date Posted:</p>
-                            <a role="button" class="btn btn-sm btn-outline-secondary" th:href="@{/edit/{id}(id=${item.id})}">Edit
+                            <a role="button" class="btn btn-sm btn-outline-secondary"
+                               th:href="@{/edit/{id}(id=${item.id})}">Edit
                             </a>
 
                             <br>
@@ -130,7 +131,8 @@
 
 
                             <form th:action="@{/delete/{id}(id=${item.id})}" method="post">
-                            <button type="submit" class="btn btn-sm btn-outline-secondary btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-danger">Delete
+                                </button>
                             </form>
                             <!--                            <th:block th:each="category : ${item.categories}">-->
                             <!--                                <p th:text="${category.property_type}"></p>-->
@@ -140,13 +142,11 @@
                 </div>
 
 
-
             </div>
 
 
         </div>
     </div>
-
 
 
     <!--============================= inquiries =========================================================-->
@@ -185,10 +185,6 @@
 <footer th:replace="fragments/footer :: footer"></footer>
 
 </body>
-
-
-
-
 
 
 </html>

@@ -19,7 +19,7 @@
     grid-area:header;
     background-color: rgba(40, 40, 56, 0.99);
     min-width:100%;
-    border-bottom:2px solid #7b7b7b;
+    border-bottom:2px solid #ef426f;
     border-top-left-radius: .4rem;
     border-top-right-radius: .4rem;
     display: flex;
@@ -65,7 +65,7 @@
     color: #d4d4d4;
     font-weight:500;
     font-size: 3rem;
-    padding: .2rem 0 .5rem 1rem;
+    padding: .2rem 1rem .5rem 1rem;
     /*border-bottom:3px dashed black;*/
 }
 
@@ -73,9 +73,9 @@
     background-color: #282838;
     padding:.5em;
     display:flex;
-    justify-content: start;
+    justify-content: center;
     font-size:1.5rem;
-    border-top:3px solid black;
+    border-top:3px solid #ff8200;
     border-bottom-left-radius: .4rem;
     border-bottom-right-radius: .4rem;
 }

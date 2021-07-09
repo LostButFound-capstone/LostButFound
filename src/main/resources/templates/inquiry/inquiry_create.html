@@ -89,7 +89,7 @@
                     <div class="form-group mb-5">
                         <label style="float: left;" for="imageURL">Upload an image:</label>
                         <br>
-                        <button style="float: left;" id="imageURL" name="imageURL" type="button" class="btn btn-success" onclick="myFunction()">Choose File</button>
+                        <button style="float: left;" id="imageURL" type="button" class="btn btn-success" onclick="myFunction()">Choose File</button>
                         <span><i class="fa fa-check hidden" style="color:green"></i></span>
                         <br>
                     </div>
@@ -100,6 +100,7 @@
                     </div>
 
                     <input type="submit" class="btn btn-success">
+                    <input id="hidden" name="imageURL" class="form-control" type="hidden" value="">
                 </div>
             </form>
         </div>
@@ -111,9 +112,9 @@
     const client = filestack.init(FileStackAPI);
     const options = {
         accept: ["image/*"],
-        onFileUploadFinished: anotherFunction,
         imageDim: [2048, 2048],
-        maxSize: 10 * 1024 * 1024
+        maxSize: 10 * 1024 * 1024,
+        onFileUploadFinished: anotherFunction
     };
 
     const btn = document.getElementById('imageURL');

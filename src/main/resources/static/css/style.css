@@ -144,8 +144,149 @@ html, body {
 
 
 body {
-    background: -webkit-linear-gradient(220deg, hsla(203, 30%, 80%, 1) 0%, hsla(203, 20%, 20%, 1) 100%);
+    height: 100%;
+    margin: 0;
+    background: -webkit-linear-gradient(220deg, hsla(203, 30%, 80%, 1) 0%, hsla(203, 20%, 20%, 1) 100%) no-repeat fixed;
 }
+
+.box1 > h3 {
+    font-size: 36px;
+    color: black;
+}
+
+.box1 > p {
+    font-size: 20px;
+    color: black;
+}
+
+.h3, h3 {
+    font-size: 1.75rem;
+    color: black;
+}
+
+.btn-outline-light {
+    color: #000000;
+    border-color: #000000;
+}
+/**************************** background animation test ************************/
+
+/*body {*/
+/*    font-family: 'Josefin Sans', sans-serif;*/
+/*    box-sizing: border-box;*/
+/*}*/
+/*.container-fluid{*/
+/*    height: 100%;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    width: 100%;*/
+/*    background: #FFF;*/
+/*}*/
+/* ============= Animation background ========= */
+.background {
+    background: linear-gradient(270deg, hsla(203, 30%, 80%, 1) 0%, hsla(203, 20%, 20%, 1) 100%);
+    /*background-size: 400% 400%;*/
+    /*animation: Gradient 15s ease infinite;*/
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    padding:0;
+    margin:0px;
+}
+.cube {
+    position: absolute;
+    top: 80vh;
+    left: 45vw;
+    width: 10px;
+    height: 10px;
+    border: solid 1px #D7D4E4;
+    transform-origin: top left;
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    animation: cube 12s ease-in forwards infinite;
+}
+.cube:nth-child(2n) {
+    border-color: #FFF ;
+}
+.cube:nth-child(2) {
+    animation-delay: 2s;
+    left: 25vw;
+    top: 55vh;
+}
+.cube:nth-child(3) {
+    animation-delay: 4s;
+    left: 75vw;
+    top: 60vh;
+}
+.cube:nth-child(4) {
+    animation-delay: 6s;
+    left: 90vw;
+    top: 10vh;
+}
+.cube:nth-child(5) {
+    animation-delay: 8s;
+    left: 10vw;
+    top: 85vh;
+}
+.cube:nth-child(6) {
+    animation-delay: 10s;
+    left: 50vw;
+    top: 10vh;
+}
+
+/* Animate Background*/
+/*@keyframes Gradient {*/
+/*    0% {*/
+/*        background-position: 0% 50%;*/
+/*    }*/
+/*    50% {*/
+/*        background-position: 100% 50%;*/
+/*    }*/
+/*    100% {*/
+/*        background-position: 0% 50%;*/
+/*    }*/
+/*}*/
+@keyframes cube {
+    from {
+        transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        opacity: 1;
+    }
+    to {
+        transform: scale(20) rotate(960deg) translate(-50%, -50%);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .cube {
+        display: none;
+    }
+
+    .bg-attach-scroll {
+        background-attachment: scroll;
+    }
+}
+
+/******************************************************************************************************/
+
+
+/*body {*/
+/*    background: linear-gradient(270deg, hsla(203, 30%, 80%, 1) 0%, hsla(203, 20%, 20%, 1) 100%);*/
+/*    background-size: 400% 400%;*/
+/*    animation: gradient 15s ease infinite;*/
+/*}*/
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--main-font);
@@ -346,10 +487,15 @@ input[type=text], input[type=password] {
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    background-color: #313a3e;
+    margin: 5% auto 15% auto;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 80%;
+}
+
+.inputs {
+    color: #00b2a9;
+    font-weight: bold;
 }
 
 /* The Close Button (x) */
@@ -357,7 +503,7 @@ input[type=text], input[type=password] {
     position: absolute;
     right: 25px;
     top: 0;
-    color: #000;
+    color: #e14545;
     font-size: 35px;
     font-weight: bold;
 }
@@ -530,4 +676,52 @@ input[type=text], input[type=password] {
     opacity: 1;
     transition: none;
     transform: none
+}
+
+#inquireBtn {
+    width:50%;
+    background: #ef426f;
+    color: black;
+    border-color: #ef426f;
+}
+
+#btn{
+    border: 2px solid black;
+    padding: 30px 60px;
+    color: black;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    font-size: 24px;
+    font-family: sans-serif;
+    transition: all .5s;
+}
+
+#btn:before{
+    width: 100%;
+    height: 100%;
+    content: '';
+    margin: auto;
+    position: absolute;
+    top:  -100%;
+    left: -100%;
+    background: #212121;
+    transition: all .5s;
+    z-index: 0;
+
+}
+
+#btn:hover{
+    color: white;
+}
+#btn:hover:before{
+    top: 0;
+    left: 0;
+
+}
+
+/************** Error Page **************/
+
+.error {
+    background: none;
 }

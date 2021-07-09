@@ -229,7 +229,7 @@ public class PropertyController {
         System.out.println(location_id);
         System.out.println(category_id);
         System.out.println(date);
-        return "property/listings-dummy";
+        return "property/listings";
     }
 
 //    @PostMapping("/search-results")
@@ -290,10 +290,13 @@ public class PropertyController {
 
     @PostMapping("/delete/{id}")
     public String postsDelete(@PathVariable Long id) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        propertyDao.deleteById(id);
 
-        return "redirect:/profile/" + propertyDao.getById(id).getUser().getId();
+        propertyDao.deletePropertyCategories(id.toString());
+        propertyDao.deletePropertyById(id.toString());
+
+        return "redirect:/profile/" + user.getId();
     }
 
     @GetMapping("/inquiry/{id}")
@@ -329,7 +332,7 @@ public class PropertyController {
         User userPoster = property.getUser();
         Inquiry savedInquiry = inquiryDao.save(inquiry);
 
-        emailService.prepareAndSend(property, "Hello, " + userPoster.getUsername() + "", savedInquiry.getInquiry_description());
+        emailService.prepareAndSend(property, "Hello, " + userPoster.getUsername() + "", savedInquiry.getInquiry_description() + "  Please paste this URL in your browser to view the picture from the inquiry: " + image.getPath());
 
         return "redirect:/listings";
     }
