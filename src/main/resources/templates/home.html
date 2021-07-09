@@ -69,13 +69,13 @@
     <main class="d-none d-lg-block d-xxl-block">
         <div class="d-flex justify-content-center align-items-center">
             <div class="box1 d-flex flex-column text-white">
-                <h3>What do we want to accomplish?</h3>
                 <div th:if="${param.error}">
                     Invalid Username and Password.
                 </div>
                 <div th:if="${param.logout}">
                     You have been logged out.
                 </div>
+                <h3>What do we want to accomplish?</h3>
                 <p class="mt-2 mb-4">We help the residents of San Antonio reunite with lost belongings.</p>
                 <div class="row">
                     <div class="col-6">

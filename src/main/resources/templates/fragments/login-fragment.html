@@ -26,10 +26,10 @@
             </div>
 
             <div class="container">
-                <label for="usernameSmall"><b>Username</b></label>
+                <label class="inputs" for="usernameSmall"><b>Username</b></label>
                 <input type="text" placeholder="Enter Username" name="username" required id="usernameSmall" >
 
-                <label for="passwordSmall"><b>Password</b></label>
+                <label class="inputs" for="passwordSmall"><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" name="password" required id="passwordSmall" >
 
                 <button class="btn-lg button-fragment" type="submit">Login</button>
@@ -59,10 +59,10 @@
                 <div th:if="${param.logout}">
                     You have been logged out.
                 </div>
-                <label for="uname"><b>Username</b></label>
+                <label class="inputs" for="uname">Username</label>
                 <input type="text" placeholder="Enter Username" name="username" required id="uname" >
 
-                <label for="psw"><b>Password</b></label>
+                <label class="inputs" for="psw">Password</label>
                 <input type="password" placeholder="Enter Password" name="password" required id="psw" >
 
                 <button class="btn-lg button-fragment" type="submit">Login</button>

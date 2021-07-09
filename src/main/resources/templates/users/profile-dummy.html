@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
+
+<head th:replace="fragments/head :: head">
+
+</head>
+<body>
+<header>
+    <!-- If NOT logged on -->
+    <nav th:replace="fragments/navbar :: navbar" sec:authorize="!isAuthenticated()"></nav>
+    <!-- If logged on -->
+    <nav th:replace="fragments/new-navbar :: new-navbar" sec:authorize="isAuthenticated()"></nav>
+</header>
+
+<div class="row">
+    <div class="imageContainer col-3">
+        <div class="cardImage">
+            <img th:src="${currentUser.profile_image_path}" height="200px" width="200px" alt="profile-picture">
+        </div>
+    </div>
+    <div class="card col-9">
+        <div class="card-body">
+            <p>Verified User:</p>
+            <div th:if="${currentUser.isVerified}">
+                <p>Yes</p>
+            </div>
+
+            <div th:if="${currentUser.isVerified == false}">
+                <p>No</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
