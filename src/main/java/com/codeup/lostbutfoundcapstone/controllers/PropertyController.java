@@ -290,10 +290,13 @@ public class PropertyController {
 
     @PostMapping("/delete/{id}")
     public String postsDelete(@PathVariable Long id) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        propertyDao.deleteById(id);
 
-        return "redirect:/profile/" + propertyDao.getById(id).getUser().getId();
+        propertyDao.deletePropertyCategories(id.toString());
+        propertyDao.deletePropertyById(id.toString());
+
+        return "redirect:/profile/" + user.getId();
     }
 
     @GetMapping("/inquiry/{id}")
