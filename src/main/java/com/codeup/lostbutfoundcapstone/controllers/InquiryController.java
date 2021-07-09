@@ -44,6 +44,12 @@ public class InquiryController {
         return "inquiry/contact_us";
     }
 
+    @GetMapping("/error")
+    public String error(Model model){
+
+        return "error";
+    }
+
     @GetMapping("/modaltest")
     public String showModal() {
 
