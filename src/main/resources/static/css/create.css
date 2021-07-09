@@ -91,7 +91,7 @@
 .container:hover .middle {
     opacity: 1;
 
-
+}
 .text {
     background-color: #EF426F;
     color: white;
@@ -106,4 +106,4 @@
     display: flex;
     flex-wrap: wrap;
 
-
+}
