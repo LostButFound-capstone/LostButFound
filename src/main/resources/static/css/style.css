@@ -599,3 +599,9 @@ input[type=text], input[type=password] {
     left: 0;
 
 }
+
+/************** Error Page **************/
+
+.error {
+    background: none;
+}
