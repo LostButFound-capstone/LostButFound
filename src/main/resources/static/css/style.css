@@ -23,6 +23,126 @@
     box-sizing: border-box;
 }
 
+
+
+html, body {
+    width: 100%;
+    height:100%;
+}
+
+
+
+/**************************** background animation test ************************/
+
+/*body {*/
+/*    font-family: 'Josefin Sans', sans-serif;*/
+/*    box-sizing: border-box;*/
+/*}*/
+/*.container-fluid{*/
+/*    height: 100%;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    width: 100%;*/
+/*    background: #FFF;*/
+/*}*/
+/* ============= Animation background ========= */
+.background {
+    background: linear-gradient(270deg, hsla(203, 30%, 80%, 1) 0%, hsla(203, 20%, 20%, 1) 100%);
+    background-size: 400% 400%;
+    /*animation: Gradient 15s ease infinite;*/
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    padding:0;
+    margin:0px;
+}
+.cube {
+    position: absolute;
+    top: 80vh;
+    left: 45vw;
+    width: 10px;
+    height: 10px;
+    border: solid 1px #D7D4E4;
+    transform-origin: top left;
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    animation: cube 12s ease-in forwards infinite;
+}
+.cube:nth-child(2n) {
+    border-color: #FFF ;
+}
+.cube:nth-child(2) {
+    animation-delay: 2s;
+    left: 25vw;
+    top: 55vh;
+}
+.cube:nth-child(3) {
+    animation-delay: 4s;
+    left: 75vw;
+    top: 60vh;
+}
+.cube:nth-child(4) {
+    animation-delay: 6s;
+    left: 90vw;
+    top: 10vh;
+}
+.cube:nth-child(5) {
+    animation-delay: 8s;
+    left: 10vw;
+    top: 85vh;
+}
+.cube:nth-child(6) {
+    animation-delay: 10s;
+    left: 50vw;
+    top: 10vh;
+}
+
+/* Animate Background*/
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+@keyframes cube {
+    from {
+        transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        opacity: 1;
+    }
+    to {
+        transform: scale(20) rotate(960deg) translate(-50%, -50%);
+        opacity: 0;
+    }
+}
+
+/******************************************************************************************************/
+
+
+/*body {*/
+/*    background: linear-gradient(270deg, hsla(203, 30%, 80%, 1) 0%, hsla(203, 20%, 20%, 1) 100%);*/
+/*    background-size: 400% 400%;*/
+/*    animation: gradient 15s ease infinite;*/
+/*}*/
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+
 body {
     height: 100%;
     margin: 0;
