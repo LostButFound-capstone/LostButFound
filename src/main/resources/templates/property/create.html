@@ -5,99 +5,101 @@
 <head th:replace="fragments/head :: head"></head>
 
 <body>
-  <header>
+<header>
     <!-- If NOT logged on -->
     <nav th:replace="fragments/navbar :: navbar" sec:authorize="!isAuthenticated()"></nav>
     <!-- If logged on -->
     <nav th:replace="fragments/new-navbar :: new-navbar" sec:authorize="isAuthenticated()"></nav>
-  </header>
+</header>
 
-  <form th:action="@{/create}" method="post" th:object="${property}">
-
-    <br>
-
-    <img src="img/undraw_add_post_64nu.svg"
-         class="create"
-         alt="">
-
-    <div class="fill-out-form">
-
-    <h5>Tell us about what you found!</h5>
+<div>
+    <div class=" container mt-5 d-flex justify-content-center">
+        <img src="img/undraw_add_post_64nu.svg" class="create image " alt="" width="200px" height="200px">
+        <div class="middle">
+            <div class="text"><h5>Tell us about what you found!</h5></div>
+        </div>
     </div>
 
     <br>
+    <br>
+    <br>
+    <div class="container">
+        <form class=" card mt-5" th:action="@{/create}" method="post" th:object="${property}">
 
-    <div class="title">
+            <!--    <div class="fill-out-form">-->
+            <!--        <h5>Tell us about what you found!</h5>-->
+            <!--    </div>-->
 
-    <label for="createTitle">What did you find?</label>
-      <br>
+
+            <div class="text-center mt-4">
+
+                <label for="dateFound"><h3>When did you find it?</h3></label>
+                <br>
+                <input id="dateFound" type="date" name="date">
+            </div>
+
+            <br>
+
+            <div class="mt-5 mb-5 text-center">
+
+                <label><h3>Choose one or more categories that fits the item you found:</h3></label>
+                <br>
+
+                    <div class="container row justify-content-end" >
+
+                        <th:block class="" th:each="category : ${categories}">
 
 
-    <input id="createTitle" type="text" th:field="*{title}">
+                            <div class="col-3 d-flex align-items-left" style=" width:200px; height:25px;">
+                                <input type="checkbox" name="categories" th:id="${category.id}" th:value="${category.id}">
+                                <label th:for="${category.id}"><span  th:text="${category.property_type}"></span></label>
+
+                            </div>
+
+                        </th:block>
+
+                    </div>
+
+            </div>
+
+
+
+    <div class=" card mt-4" style="width:80%">
+        <div class="card-header text-center">
+            <label for="createTitle">What did you find?</label>
+        </div>
+        <div class="card-body">
+            <textarea id="createTitle" type="text" th:field="*{title}" style="width:100%" required></textarea>
+        </div>
+    </div>
+
+
+    <div class="mt-5 text-center">
+        <div class="container">
+            <label for="locations"><h3>Where did you find this item?</h3></label>
+
+            <select id="locations" th:field="*{location}">
+                <th:block th:each="location : ${locations}">
+                    <option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
+                </th:block>
+            </select>
+
+            <br>
+        </div>        <!--      <div class="button">-->
+        <!--    <input type="submit">-->
+        <button type="submit" class="btn btn-outline-warning mt-3 mb-4">Submit</button>
     </div>
 
     <br>
-
-    <div class="date">
-
-    <label for="dateFound">When did you find it?</label>
-
-      <br>
-
-    <input id="dateFound" type="date" name="date">
-    </div>
-
     <br>
-
-    <div class="categories">
-
-    <label>Choose one or more categories that fits the item you found:</label>
-    </div>
-
     <br>
 
 
-    <div class="category-choices">
+    </form>
+</div>
+</div>
+<!--<footer th:replace="fragments/footer :: footer"></footer>-->
 
-    <th:block th:each="category : ${categories}">
-      <label th:for="${category.id}"><span th:text="${category.property_type}"></span></label>
-      <input type="checkbox" name="categories" th:id="${category.id}" th:value="${category.id}">
 
-      <br>
-
-      <br>
-
-    </th:block>
-    </div>
-
-    <br>
-
-    <div class="where">
-
-    <label for="locations">Where did you find this item?</label>
- <br>
-    <select id="locations" th:field="*{location}">
-      <th:block th:each="location : ${locations}">
-        <option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
-      </th:block>
-    </select>
-
-      <br>
-      <br>
-      <br>
-
-<!--      <div class="button">-->
-<!--    <input type="submit">-->
-      <button type="submit" class="btn btn-outline-warning mt-3">Submit</button>
-      </div>
-
-      <br>
-      <br>
-      <br>
-
-    </div>
-  </form>
-
-  <footer th:replace="fragments/footer :: footer">
 </body>
 </html>
