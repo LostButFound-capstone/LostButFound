@@ -7,12 +7,32 @@
 }
 .listings-container {
     align-items: center;
+    padding-bottom: 2.5rem;
 }
 .card--container {
     width:80%;
     margin:1em auto;
 }
-
+.editprofile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.edit-profile-listings-header {
+    grid-area: header;
+    background-color: rgba(40, 40, 56, 0.99);
+    color: #d4d4d4;
+    min-width: 100%;
+    border-radius: .25rem;
+    display: flex;
+    align-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+.edit-profile-listings-header h2 {
+    font-weight: bold;
+}
 #card-body {
     background: #282838;
     color: #d4d4d4;
@@ -33,6 +53,10 @@
     background: #015398;
     color: #d4d4d4;
 }
+.filestack-api-button {
+    background: #015398;
+    color: #d4d4d4;
+}
 .profile-listings-header {
     grid-area: header;
     background-color: rgba(40, 40, 56, 0.99);
@@ -48,6 +72,7 @@
     font-family: 'Lora',sans-serif;
     color: #d4d4d4;
     margin: 1rem;
+    font-weight: bold;
 }
 .profile__card {
     min-width:100%;

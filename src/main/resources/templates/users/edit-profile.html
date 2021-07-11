@@ -5,10 +5,9 @@
 
 <head th:replace="fragments/head :: head">
 
-
 </head>
 <body>
-
+<link rel="stylesheet" href="/css/card.css">
 <header>
     <!-- If NOT logged on -->
     <nav th:replace="fragments/navbar :: navbar" sec:authorize="!isAuthenticated()"></nav>
@@ -16,93 +15,121 @@
     <nav th:replace="fragments/new-navbar :: new-navbar" sec:authorize="isAuthenticated()"></nav>
 </header>
 
-    <div class="container">
+<div class="container">
 
-        <div class="media align-items-center py-3 mb-3">
+    <div class="card mb-4">
+        <div class="editprofile-container card-body media align-items-center py-3" id="card-body">
             <div class="imageContainer">
-                <div class="cardImage">
-                    <img th:src="${currentUser.profile_image_path}" height="200px" width="200px" alt="profile-picture"/>
+                <div th:if="${currentUser.profile_image_path == null}" class="cardImage">
+                    <img src="/img/no_profile_pic.png" alt="No profile pic available" height="250px"
+                         width="200px"/>
+                </div>
+                <div class="cardImage" th:if="${currentUser.profile_image_path != null}">
+                    <img th:src="${currentUser.profile_image_path}" height="200px" width="200px"
+                         alt="profile-picture"/>
                 </div>
             </div>
             <div class="media-body ">
-                <h4 class="font-weight-bold mb-0"><span th:text="${currentUser.username}"></span></h4>
-                <h4 class="font-weight-bold mb-2"><span class="text-muted font-weight-normal"><span
+                <h4 class="font-weight-bold mt-1"><span th:text="${currentUser.username}"></span></h4>
+                <h4 class="font-weight-bold mb-2"><span class="font-weight-normal"><span
                         th:text="${currentUser.email}"></span></span></h4>
                 <!--            <a href="#" class="btn btn-primary btn-sm">Edit</a>-->
                 <!--            <a href="#" class="btn btn-default btn-sm">Profile</a>-->
             </div>
+<!--            <div class="container">-->
+<!--                <form th:action="@{/profile/edit/{id}(id=${currentUser.id})}" method="post">-->
+<!--                    <div class="form-group mb-3">-->
+<!--                        <label for="username">Edit Username</label>-->
+<!--                        <input id="username" name="username" class="form-control" th:value="${currentUser.username}">-->
+<!--                    </div>-->
+<!--                    <div class="form-group mb-3">-->
+<!--                        <label for="email">Edit Email</label>-->
+<!--                        <input id="email" name="email" class="form-control" th:value="${currentUser.email}">-->
+<!--                    </div>-->
+<!--                    <div class="form-group mb-3">-->
+<!--                        <label for="password">New Password</label>-->
+<!--                        <input id="password" name="password" class="form-control">-->
+<!--                    </div>-->
+<!--                    <div class="form-group mb-3">-->
+<!--                        <label for="profilePicture">Upload an image:</label>-->
+<!--                        <button id="profilePicture" type="button" class="btn btn-success">Choose File</button>-->
+<!--                        <span><i class="fa fa-check hidden" style="color:green"></i></span>-->
+<!--                    </div>-->
+<!--                    <input type="submit" class="btn btn-success btn-block" value="Submit">-->
+<!--                    <input id="hidden" name="profilePicture" class="form-control" type="hidden" value="">-->
+<!--                </form>-->
+<!--            </div>-->
         </div>
-
-        <div class="card mb-4">
-            <div class="card-body">
-                <div class="container">
-                    <form th:action="@{/profile/edit/{id}(id=${currentUser.id})}" method="post">
-                        <div class="form-group mb-3">
-                            <label for="username">Edit Username</label>
-                            <input id="username" name="username" class="form-control" th:value="${currentUser.username}">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="email">Edit Email</label>
-                            <input id="email" name="email" class="form-control" th:value="${currentUser.email}">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="password">New Password</label>
-                            <input id="password" name="password" class="form-control">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="profilePicture">Upload an image:</label>
-                            <button id="profilePicture" type="button" class="btn btn-success">Choose File</button>
-                            <span><i class="fa fa-check hidden" style="color:green"></i></span>
-                        </div>
-                        <input type="submit" class="btn btn-success btn-block" value="Submit">
-                        <input id="hidden" name="profilePicture" class="form-control" type="hidden" value="">
-                    </form>
-                </div>
+    </div>
+    <div class="card mb-4">
+        <div class="card-body" id="card-body">
+            <div class="container">
+                <form th:action="@{/profile/edit/{id}(id=${currentUser.id})}" method="post">
+                    <div class="form-group mb-3">
+                        <label for="username">Edit Username</label>
+                        <input id="username" name="username" class="form-control" th:value="${currentUser.username}">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="email">Edit Email</label>
+                        <input id="email" name="email" class="form-control" th:value="${currentUser.email}">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="password">New Password</label>
+                        <input id="password" name="password" class="form-control">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="profilePicture">Upload an image:</label>
+                        <button id="profilePicture" type="button" class="btn filestack-api-button">Choose File</button>
+                        <span><i class="fa fa-check hidden"></i></span>
+                    </div>
+                    <input type="submit" class="btn filestack-api-button" value="Submit">
+                    <input id="hidden" name="profilePicture" class="form-control" type="hidden" value="">
+                </form>
             </div>
         </div>
     </div>
+</div>
 
-    <footer th:replace="fragments/footer :: footer"></footer>
+<footer th:replace="fragments/footer :: footer"></footer>
 
-    <script>
+<script>
 
-        const client = filestack.init(FileStackAPI);
-        const options = {
-            accept: ["image/*"],
-            imageDim: [2048, 2048],
-            maxSize: 10 * 1024 * 1024,
-            onFileUploadFinished: anotherFunction,
-            transformations: {
-                force: true,
-                circle: true,
-                crop: false
-            }
-        };
-
-        const btn = document.getElementById('profilePicture');
-        const picker = client.picker(options);
-
-        btn.addEventListener('click', function (e) {
-            e.preventDefault();
-            console.log("I was clicked");
-            picker.open();
-        })
-
-        function anotherFunction(res) {
-            console.log(res);
-            let handle = "https://cdn.filestackcontent.com/" + res.handle;
-            console.log(handle);
-
-
-
-            document.getElementById('hidden').value = handle;
-            console.log(document.getElementById('hidden').value)
-
-            if (handle !== "") {
-                document.querySelector('.fa-check').classList.remove('hidden')
-                document.querySelector('.fa-check').classList.add('visible')
-            }
+    const client = filestack.init(FileStackAPI);
+    const options = {
+        accept: ["image/*"],
+        imageDim: [2048, 2048],
+        maxSize: 10 * 1024 * 1024,
+        onFileUploadFinished: anotherFunction,
+        transformations: {
+            force: true,
+            circle: true,
+            crop: false
         }
-    </script>
+    };
+
+    const btn = document.getElementById('profilePicture');
+    const picker = client.picker(options);
+
+    btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        console.log("I was clicked");
+        picker.open();
+    })
+
+    function anotherFunction(res) {
+        console.log(res);
+        let handle = "https://cdn.filestackcontent.com/" + res.handle;
+        console.log(handle);
+
+
+        document.getElementById('hidden').value = handle;
+        console.log(document.getElementById('hidden').value)
+
+        if (handle !== "") {
+            document.querySelector('.fa-check').classList.remove('hidden')
+            document.querySelector('.fa-check').classList.add('visible')
+        }
+    }
+</script>
 </body>
 </html>

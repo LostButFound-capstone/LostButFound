@@ -28,10 +28,12 @@
                     <div id="card-body" class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
                             <div th:if="${currentUser.profile_image_path == null}" class="cardImage">
-                                <img src="/img/no_profile_pic.png" alt="No profile pic available" height="250px" width="200px"/>
+                                <img src="/img/no_profile_pic.png" alt="No profile pic available" height="250px"
+                                     width="200px"/>
                             </div>
                             <div class="cardImage" th:if="${currentUser.profile_image_path != null}">
-                                <img th:src="${currentUser.profile_image_path}" height="200px" width="200px" alt="profile-picture"/>
+                                <img th:src="${currentUser.profile_image_path}" height="200px" width="200px"
+                                     alt="profile-picture"/>
                             </div>
 
                             <div class="mt-3">
@@ -45,7 +47,8 @@
                                 <div th:if="${currentUser.isAdmin()}">
                                     <h5 class="profile-text">LostButFound Administrator</h5>
                                 </div>
-                                <a th:href="@{/profile/edit/{id}(id=${currentUser.id})}" class="btn edit-profile">Edit profile</a>
+                                <a th:href="@{/profile/edit/{id}(id=${currentUser.id})}" class="btn edit-profile">Edit
+                                    profile</a>
                             </div>
                         </div>
                     </div>
@@ -54,125 +57,129 @@
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap user-info">
                             <h6 class="mb-0">Username:</h6>
-                            <span  th:text="${currentUser.username}"></span>
+                            <span th:text="${currentUser.username}"></span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap user-info">
                             <h6 class="mb-0">Email: </h6>
-                            <span  th:text="${currentUser.email}"></span>
+                            <span th:text="${currentUser.email}"></span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap user-info">
                             <h6 class="mb-0">User role:</h6>
-                            <span  th:if="${currentUser.isVerified() == false && currentUser.isAdmin() == false}">Finder/Searcher</span>
-                            <span  th:if="${currentUser.isAdmin()}">Administrator</span>
-                            <span  th:if="${currentUser.isVerified()}">Verified User</span>
+                            <span th:if="${currentUser.isVerified() == false && currentUser.isAdmin() == false}">Finder/Searcher</span>
+                            <span th:if="${currentUser.isAdmin()}">Administrator</span>
+                            <span th:if="${currentUser.isVerified()}">Verified User</span>
                         </li>
-<!--                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">-->
-<!--                            <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram mr-2 icon-inline text-danger"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>Instagram</h6>-->
-<!--                            <span class="text-secondary">bootdey</span>-->
-<!--                        </li>-->
-<!--                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">-->
-<!--                            <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook mr-2 icon-inline text-primary"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>Facebook</h6>-->
-<!--                            <span class="text-secondary">bootdey</span>-->
-<!--                        </li>-->
+                        <!--                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">-->
+                        <!--                            <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram mr-2 icon-inline text-danger"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>Instagram</h6>-->
+                        <!--                            <span class="text-secondary">bootdey</span>-->
+                        <!--                        </li>-->
+                        <!--                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">-->
+                        <!--                            <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook mr-2 icon-inline text-primary"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>Facebook</h6>-->
+                        <!--                            <span class="text-secondary">bootdey</span>-->
+                        <!--                        </li>-->
                     </ul>
                 </div>
             </div>
-            <div class="col-md-8">
-                <div class="card mb-3 listings-container">
-                    <div class="d-lg-block d-xxl-block col-12 profile-listings-header">
-                        <h2>Your findings:</h2>
-                    </div>
-                    <div class="d-lg-block d-xxl-block col-11 mt-5" th:each="item : ${properties}">
-                        <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
-
-                            <div class="card__header">
-                                <div class="card__image">
-                                    <img th:src="${item.user.profile_image_path}" height="50px" width="50px"/>
-                                </div>
-                                <h2 th:text="${item.title}"></h2>
-                            </div>
-
-                            <div class="card__body">
-                                <p class="about__me">Found by:<span class="about__me"
-                                                                    th:text="${item.user.username}"></span></p>
-                                <p class="about__me">Location found: <span th:text="${item.location.location_name}"></span>
-                                </p>
-                                <p class="about__me">Categories:
-                                    <th:block th:each="category : ${item.categories}"><span
-                                            th:text="${category.property_type}"></span><span> | </span></th:block>
-                                </p>
-                                <p class="about__me" style="float: right">Date posted: <span
-                                        th:text="${item.formattedDatePosted}"></span></p>
-                                <p class="about__me">Date found: <span th:text="${item.formattedDateFound}"></span></p>
-                                <div class="important__social__links">
-                                    <a role="button" class="btn btn-outline-secondary edit-delete edit-listing"
-                                       th:href="@{/edit/{id}(id=${item.id})}">Edit
-                                    </a>
-                                    <form th:action="@{/delete/{id}(id=${item.id})}" method="post">
-                                        <button type="submit" class="btn btn-outline-secondary btn-danger edit-delete">Delete
-                                        </button>
-                                    </form>
-                                </div>
+<!--            <th:block th:if="${properties.size() != 0}">-->
+                <div class="col-md-8">
+                    <th:block th:if="${properties.size() == 0}">
+                        <div class="card mb-3 listings-container p-0">
+                            <div class="d-lg-block d-xxl-block col-12 edit-profile-listings-header">
+                                <h2>This is where your findings would be. Haven't found anything yet? Many people's lost
+                                    belongings are still out there waiting to be found!</h2>
                             </div>
                         </div>
+                    </th:block>
+                    <th:block th:if="${properties.size() != 0}">
+                    <div class="card mb-3 listings-container">
 
+                        <div class="d-lg-block d-xxl-block col-12 profile-listings-header">
+                            <h2>Your findings:</h2>
+                        </div>
+                        <div class="d-lg-block d-xxl-block col-11 mt-5" th:each="item : ${properties}">
+                            <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
 
+                                <div class="card__header">
+                                    <div class="card__image">
+                                        <img th:src="${item.user.profile_image_path}" alt="profile-image-small"
+                                             height="50px" width="50px"/>
+                                    </div>
+                                    <h2 th:text="${item.title}"></h2>
+                                </div>
+
+                                <div class="card__body">
+                                    <p class="about__me">Found by:<span class="about__me"
+                                                                        th:text="${item.user.username}"></span></p>
+                                    <p class="about__me">Location found: <span
+                                            th:text="${item.location.location_name}"></span>
+                                    </p>
+                                    <p class="about__me">Categories:
+                                        <th:block th:each="category : ${item.categories}"><span
+                                                th:text="${category.property_type}"></span><span> | </span></th:block>
+                                    </p>
+                                    <p class="about__me" style="float: right">Date posted: <span
+                                            th:text="${item.formattedDatePosted}"></span></p>
+                                    <p class="about__me">Date found: <span th:text="${item.formattedDateFound}"></span>
+                                    </p>
+                                    <div class="important__social__links">
+                                        <a role="button" class="btn btn-outline-secondary edit-delete edit-listing"
+                                           th:href="@{/edit/{id}(id=${item.id})}">Edit
+                                        </a>
+                                        <form th:action="@{/delete/{id}(id=${item.id})}" method="post">
+                                            <button type="submit"
+                                                    class="btn btn-outline-secondary btn-danger edit-delete">Delete
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-<!--                    <div class="card-body">-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-sm-3">-->
-<!--                                <h6 class="mb-0">Username</h6>-->
-<!--                            </div>-->
-<!--                            <div class="col-sm-9 text-secondary" th:text="${currentUser.username}">-->
+                    </th:block>
+                    <th:block th:if="${inquiries.size() == 0}">
+                        <div class="col-md-12">
+                            <div class="card mb-3 listings-container p-0">
+                                    <div class="d-lg-block d-xxl-block col-12 edit-profile-listings-header">
+                                        <h2>This is where your inquiries would be. Haven't inquired about anything yet? Good job
+                                            on
+                                            not losing anything yet!</h2>
+                                    </div>
+                            </div>
+                        </div>
+                    </th:block>
+                    <th:block th:if="${inquiries.size() != 0}">
+                        <div class="col-md-12">
+                            <div class="card mb-3 listings-container p-0">
+                                    <div class="d-lg-block d-xxl-block col-12 edit-profile-listings-header">
+                                        <h2>here your inquiries</h2>
+                                    </div>
+                            </div>
+                        </div>
+                    </th:block>
+                </div>
 
-<!--                            </div>-->
+<!--            <th:block th:if="${properties.size() == 0}">-->
+<!--                    <div class="card mb-3 listings-container p-0">-->
+<!--                        <div class="d-lg-block d-xxl-block col-12 edit-profile-listings-header">-->
+<!--                            <h2>This is where your findings would be. Haven't found anything yet? Many people's lost-->
+<!--                                belongings are still out there waiting to be found!</h2>-->
 <!--                        </div>-->
-<!--                        <hr>-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-sm-3">-->
-<!--                                <h6 class="mb-0">Email</h6>-->
-<!--                            </div>-->
-<!--                            <div class="col-sm-9 text-secondary">-->
-<!--                                fip@jukmuh.al-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <hr>-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-sm-3">-->
-<!--                                <h6 class="mb-0">Phone</h6>-->
-<!--                            </div>-->
-<!--                            <div class="col-sm-9 text-secondary">-->
-<!--                                (239) 816-9029-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <hr>-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-sm-3">-->
-<!--                                <h6 class="mb-0">Mobile</h6>-->
-<!--                            </div>-->
-<!--                            <div class="col-sm-9 text-secondary">-->
-<!--                                (320) 380-4539-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <hr>-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-sm-3">-->
-<!--                                <h6 class="mb-0">Address</h6>-->
-<!--                            </div>-->
-<!--                            <div class="col-sm-9 text-secondary">-->
-<!--                                Bay Area, San Francisco, CA-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <hr>-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-sm-12">-->
-<!--                                <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>-->
+<!--                    </div>-->
+<!--            </th:block>-->
+<!--            <th:block th:if="${inquiries.size() == 0}">-->
+<!--                <div class="col-md-8">-->
+<!--                    <div class="card mb-3 listings-container p-0">-->
+<!--                        <div class="card mb-3 listings-container">-->
+<!--                            <div class="d-lg-block d-xxl-block col-12 edit-profile-listings-header">-->
+<!--                                <h2>This is where your inquiries would be. Haven't inquired about anything yet? Good job-->
+<!--                                    on-->
+<!--                                    not losing anything yet!</h2>-->
 <!--                            </div>-->
 <!--                        </div>-->
 <!--                    </div>-->
-                </div>
-
-            </div>
+<!--                </div>-->
+<!--            </th:block>-->
         </div>
 
     </div>
