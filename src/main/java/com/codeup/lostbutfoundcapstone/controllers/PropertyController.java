@@ -116,9 +116,10 @@ public class PropertyController {
 
         model.addAttribute("currentUser", user);
         model.addAttribute("properties", propertyDao.findPropertyByUser(user));
+        model.addAttribute("inquiries", inquiryDao.findInquiryByUser(user));
 
 
-        return "users/profile";
+        return "users/profile-dummy";
     }
 
     @GetMapping("/profile/edit/{id}")

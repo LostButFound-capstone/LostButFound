@@ -1,7 +1,78 @@
 /*Card CSS*/
+.card {
+    background: #00b2a9;
+}
+.list-group-item {
+    padding: .8rem .5rem;
+}
+.listings-container {
+    align-items: center;
+    padding-bottom: 2.5rem;
+}
 .card--container {
     width:80%;
     margin:1em auto;
+}
+.editprofile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.edit-profile-listings-header {
+    grid-area: header;
+    background-color: rgba(40, 40, 56, 0.99);
+    color: #d4d4d4;
+    min-width: 100%;
+    border-radius: .25rem;
+    display: flex;
+    align-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+.edit-profile-listings-header h2 {
+    font-weight: bold;
+}
+#card-body {
+    background: #282838;
+    color: #d4d4d4;
+    border-radius: .25rem;
+}
+.user-info {
+    background-color: rgba(40, 40, 56, 0.99);
+    color: #d4d4d4;
+}
+.edit-delete {
+    width: 300px;
+    color: #d4d4d4;
+}
+.edit-listing {
+    background: #015398;
+}
+.edit-profile {
+    background: #015398;
+    color: #d4d4d4;
+}
+.filestack-api-button {
+    background: #015398;
+    color: #d4d4d4;
+}
+.profile-listings-header {
+    grid-area: header;
+    background-color: rgba(40, 40, 56, 0.99);
+    min-width: 100%;
+    /*border: 2px solid #ef426f;*/
+    border-radius: .25rem;
+    display: flex;
+    align-content: center;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+.profile-listings-header h2 {
+    font-family: 'Lora',sans-serif;
+    color: #d4d4d4;
+    margin: 1rem;
+    font-weight: bold;
 }
 .profile__card {
     min-width:100%;
@@ -64,7 +135,7 @@
 .about__me {
     color: #d4d4d4;
     font-weight:500;
-    font-size: 3rem;
+    font-size: 1.2rem;
     padding: .2rem 1rem .5rem 1rem;
     /*border-bottom:3px dashed black;*/
 }
@@ -73,7 +144,7 @@
     background-color: #282838;
     padding:.5em;
     display:flex;
-    justify-content: center;
+    justify-content: space-evenly;
     font-size:1.5rem;
     border-top:3px solid #ff8200;
     border-bottom-left-radius: .4rem;

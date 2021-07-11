@@ -11,13 +11,19 @@
 
 
 
-/*.footer, a, li {*/
-/*    list-style: none;*/
-/*    text-decoration: none;*/
-/*    display: inline-block;*/
-/*    color: black;*/
-/*    font-weight: bold;*/
-/*}*/
+.footer {
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-list {
+    display: flex;
+    justify-content: center;
+}
 
 /*footer {*/
 /*    bottom: 0;*/
