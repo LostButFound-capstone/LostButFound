@@ -68,3 +68,13 @@ VALUES ('San Antonio Airport', 12345),
        ('Mission San Jose', 12345),
        ('Traders Village', 12345),
        ('Other', 12345);
+
+dokku mysql:connect lostbutfound_db
+drop database lostbutfound_db; create database lostbutfound_db;
+exit;
+dokku ps:rebuild lostbutfound_db
+
+dokku mysql:connect lostbutfound_db
+
+dokku mysql:link lostbutfound_db lostbutfound.xyz
+

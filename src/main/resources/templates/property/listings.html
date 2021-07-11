@@ -147,7 +147,7 @@
                             <p class="about__me">Date found: <span th:text="${item.formattedDateFound}"></span></p>
                             <!--            <p class="about__me">Date posted: <span th:text="${item.formattedDatePosted}"></span></p>-->
                             <div class="important__social__links">
-                                <a sec:authorize="isAuthenticated()" role="button"
+                                <a sec:authorize="isAuthenticated()" id="inquireBtn" role="button"
                                    class="btn btn-sm btn-outline-secondary"
                                    th:href="@{/inquiry/{id}(id=${item.id})}">Inquire</a>
                                 <a sec:authorize="!isAuthenticated()" id="inquireBtn" role="button"
@@ -192,7 +192,7 @@
                             <p class="about__me">Date found: <span th:text="${item.formattedDateFound}"></span></p>
                             <!--            <p class="about__me">Date posted: <span th:text="${item.formattedDatePosted}"></span></p>-->
                             <div class="important__social__links">
-                                <a sec:authorize="isAuthenticated()" role="button"
+                                <a sec:authorize="isAuthenticated()" id="inquireBtn" role="button"
                                    class="btn btn-sm btn-outline-secondary"
                                    th:href="@{/inquiry/{id}(id=${item.id})}">Inquire</a>
                                 <a sec:authorize="!isAuthenticated()" id="inquireBtn" role="button"

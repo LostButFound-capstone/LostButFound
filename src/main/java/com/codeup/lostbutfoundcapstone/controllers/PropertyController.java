@@ -118,7 +118,7 @@ public class PropertyController {
         model.addAttribute("properties", propertyDao.findPropertyByUser(user));
 
 
-        return "users/profile";
+        return "users/profile-dummy";
     }
 
     @GetMapping("/profile/edit/{id}")
