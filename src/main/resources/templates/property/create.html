@@ -12,24 +12,40 @@
     <nav th:replace="fragments/new-navbar :: new-navbar" sec:authorize="isAuthenticated()"></nav>
 </header>
 
-<div>
-    <div class=" container mt-2 d-flex justify-content-center">
-        <img src="img/undraw_add_post_64nu.svg" class="create image " alt="" width="500px" height="500px">
-        <div class="middle">
-            <div class="text"><h5>Tell us about what you found!</h5></div>
+<div class="container">
+    <div class="container row mt-5">
+
+        <div class="box2 mt-5 text-center">
+            <h2>Instructions for creating listing:</h2>
+            <br>
+            <p>I found someone's item...now what?
+                Hey finder! Kudos to you for using the honor system!! Now, let’s help someone find their lost belonging!
+                Fill out this form but try not to be too specific. Give a general description of the lost item and avoid
+                anything that makes the item unique. This is in effort to prevent fraudulent claims and to avoid
+                mistakes in returning items.</p>
         </div>
+
+        <div class="box1">
+            <div class="mt-2 d-flex justify-content-center">
+                <img src="img/undraw_add_post_64nu.svg" class="create image " alt="" width="300px" height="300px">
+                <div class="middle">
+                    <div class="text"><h5>Tell us about what you found!</h5></div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <br>
     <br>
     <br>
-    <div class="container" >
-        <form class="card mb-5" style="background-color: #223B48; color: white; box-shadow: 10px 10px 5px grey;" th:action="@{/create}" method="post" th:object="${property}">
+
+        <form class="card mb-5" style="background-color: #223B48; color: white; box-shadow: 10px 10px 5px grey;"
+              th:action="@{/create}" method="post" th:object="${property}">
 
             <!--    <div class="fill-out-form">-->
             <!--        <h5>Tell us about what you found!</h5>-->
             <!--    </div>-->
-
 
             <div class="text-center mt-4">
 
@@ -51,7 +67,8 @@
 
 
                         <div class="col-3 d-flex align-items-left" style=" width:200px; height:25px;">
-                            <input class="mx-2" type="checkbox" name="categories" th:id="${category.id}" th:value="${category.id}" required>
+                            <input class="mx-2" type="checkbox" name="categories" th:id="${category.id}"
+                                   th:value="${category.id}" required>
                             <label th:for="${category.id}"><span th:text="${category.property_type}"></span></label>
 
                         </div>
@@ -66,12 +83,13 @@
 
 
             <div class="container">
-                <div class="mt-4" >
+                <div class="mt-4">
                     <div class=" text-center">
                         <label for="createTitle"><h3>What did you find?</h3></label>
                     </div>
                     <div>
-                        <textarea id="createTitle" type="text" th:field="*{title}" style="width:100%" required></textarea>
+                        <textarea id="createTitle" type="text" th:field="*{title}" style="width:100%"
+                                  required></textarea>
                     </div>
                 </div>
             </div>
@@ -100,7 +118,7 @@
 
 
         </form>
-    </div>
+
 </div>
 <!--<footer th:replace="fragments/footer :: footer"></footer>-->
 
