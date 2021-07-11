@@ -93,17 +93,29 @@
 
 }
 .text {
-    background-color: #EF426F;
+    background-color: #223B48;
     color: white;
     font-size: 16px;
     padding: 16px 32px;
-    border-radius: 25px;
+    border-radius: 10px 100px / 120px;
     border: 3px solid #00B2A9;
 }
 
 
-.flex-container {
-    display: flex;
-    flex-wrap: wrap;
 
+hr.solid {
+    border-top: 3px solid #EF426F;
+}
+
+hr.solid2 {
+    border-top: 3px solid #00B2A9;
+}
+
+hr.solid3 {
+    border-top: 3px solid #FF8200;
+}
+
+ label h3 {
+    color: white;
+     font-weight: bold;
 }
