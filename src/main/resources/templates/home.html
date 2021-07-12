@@ -2,6 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="fragments/head :: head">
     <title>Home</title>
+<!--    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>-->
+    <script src="/js/script.js"></script>
 </head>
 <body class="bg-attach-scroll">
 
@@ -18,6 +20,7 @@
     </header>
 
 
+
     <div class="cube"></div>
     <div class="cube"></div>
     <div class="cube"></div>
@@ -27,6 +30,10 @@
 
     <!-- Small Screens View -->
     <main class="d-block d-lg-none d-xxl-none">
+        <div th:replace="fragments/login-alert :: alert" sec:authorize="isAuthenticated()"></div>
+<!--        <div th:replace="fragments/signup-alert :: alert"></div>-->
+<!--        <div th:replace="fragments/logout-alert :: alert"></div>-->
+
         <div class="text-center mt-4 mb-3">
             <img class="w-50 h-50" src="img/lost-lightpink.svg" alt="logo">
         </div>
@@ -71,6 +78,11 @@
 
     <!-- Large Screens View -->
     <main class="d-none d-lg-block d-xxl-block">
+
+        <div th:replace="fragments/login-alert :: alert" sec:authorize="isAuthenticated()"></div>
+        <!--        <div th:replace="fragments/signup-alert :: alert"></div>-->
+        <!--        <div th:replace="fragments/logout-alert :: alert"></div>-->
+
         <div class="d-flex justify-content-center align-items-center">
             <div class="box1 d-flex flex-column text-white">
                 <div th:if="${param.error}">
