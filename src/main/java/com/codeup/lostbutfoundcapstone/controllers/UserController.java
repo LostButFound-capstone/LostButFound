@@ -38,7 +38,7 @@ public class UserController {
         user.setVerified(false);
         user.setProfile_image_path(null);
         users.save(user);
-        return "redirect:/";
+        return "home";
     }
 
 }
