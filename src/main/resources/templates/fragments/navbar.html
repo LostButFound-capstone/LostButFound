@@ -32,12 +32,9 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-<!--                <div>-->
-<!--                    <img id="logo" src="img/logo.png" alt="logo" width="30" height="24">-->
-<!--                </div>-->
-<!--                <a>-->
-<!--                    <img id="user-pic" src="https://fer-uig.glitch.me" alt="user-icon">-->
-<!--                </a>-->
+                <a class="navbar-brand" th:href="@{/}">
+                    <img id="logo" src="/img/lostbutfound_logo.png" alt="logo">
+                </a>
             </div>
         </div>
     </nav>
@@ -46,7 +43,7 @@
     <nav th:fragment="navbar" class="navbar navbar-expand-lg main-bg-color d-none d-lg-block d-xxl-block">
         <div class="container-fluid">
 
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" th:href="@{/}">
                 <img src="/img/lostbutfound_logo.png" alt="" width="70" height="60">
             </a>
 
@@ -60,20 +57,12 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" aria-current="page" th:href="@{/}">Home</a>
                     </li>
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link text-white" th:href="@{/profile}">Profile</a>-->
-<!--                    </li>-->
                     <li class="nav-item">
                         <a class="nav-link text-white" th:href="@{/listings}">Listings</a>
                     </li>
                     <li th:replace="fragments/login-fragment :: modal-lg"></li>
 
                     <li th:replace="fragments/signup-fragment :: signup-modal-lg"></li>
-
-
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link text-white" th:href="@{/sign-up}">Sign Up</a>-->
-<!--                    </li>-->
                 </ul>
             </div>
         </div>
