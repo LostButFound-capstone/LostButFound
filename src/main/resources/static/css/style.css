@@ -357,11 +357,14 @@ p {
 .cardImage {
     width: 200px;
     height: 200px;
+    border-radius: 50%;
 }
 
 .cardImage > img {
     object-fit: cover;
     border-radius: 50%;
+    height: auto;
+    background: #009bbe;
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
