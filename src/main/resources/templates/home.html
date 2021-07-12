@@ -59,7 +59,6 @@
                         <a sec:authorize="!isAuthenticated()" class="btn btn-outline-light popup" role="button" onclick="myFunction()">Share
                             <img src="img/nambeshadap.png" class="popuptext" id="myPopup" alt="nambe-shadap">
                         </a>
-<!--                        <a class="btn btn-outline-light" th:href="@{/create}" role="button">Share</a>-->
                     </div>
                 </div>
             </div>
@@ -117,8 +116,6 @@
             </div>
         </div>
     </main>
-
-<!--    <footer th:replace="fragments/footer :: footer"></footer>-->
 
     <script th:replace="fragments/login-fragment :: modaljs"></script>
     <script th:replace="fragments/signup-fragment :: signup-modaljs"></script>
