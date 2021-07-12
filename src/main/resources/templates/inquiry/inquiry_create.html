@@ -16,95 +16,94 @@
 <!--    <h6>Please fill in your information and a good description of the item you lost.</h6>-->
 <!--</div>-->
 
-    <div class="container mt-4 mb-4">
-        <div class="card">
+<div class="container mt-4 mb-4">
+    <div class="card" style="background-color: #223B48; color: white; box-shadow: 10px 10px 5px grey;">
 
-            <div class="card mx-3 my-3">
-                <div class="card-body">
+        <div class="card-body mt-5">
 
-                    <div class="d-inline-flex">
-                        <h2>User:</h2>
-                    </div>
-                    <div class="d-inline-flex">
-                        <h2 th:text="${listing.user.username}"></h2>
-                    </div>
-                    <br>
-
-                    <div class="d-inline-flex">
-                        <h3>Lost item:</h3>
-                    </div>
-                    <div class="d-inline-flex">
-                        <h3 th:text="${listing.title}"/></h2>
-                    </div>
-                    <br>
-
-                    <div class="d-inline-flex">
-                        <h3>Found at:</h3>
-                    </div>
-                    <div class="d-inline-flex">
-                        <h3 th:text="${listing.location.location_name}"></h3>
-                    </div>
-                    <br>
-
-                    <div class="d-inline-flex">
-                        <h3>Date Found:</h3>
-                    </div>
-                    <div class="d-inline-flex">
-                        <h3 th:text="${listing.date_found}"></h3>
-                    </div>
-
+            <div class="mx-5">
+                <div class="d-inline-flex">
+                    <h2>User:</h2>
                 </div>
+                <div class="d-inline-flex">
+                    <h2 th:text="${listing.user.username}"></h2>
+                </div>
+                <br>
+
+                <div class="d-inline-flex">
+                    <h2>Lost item:</h2>
+                </div>
+                <div class="d-inline-flex">
+                    <h2 th:text="${listing.title}"/></h2>
+                </div>
+                <br>
+
+                <div class="d-inline-flex">
+                    <h2>Found at:</h2>
+                </div>
+                <div class="d-inline-flex">
+                    <h2 th:text="${listing.location.location_name}"></h2>
+                </div>
+                <br>
+
+                <div class="d-inline-flex">
+                    <h2>Date Found:</h2>
+                </div>
+                <div class="d-inline-flex">
+                    <h2 th:text="${listing.date_found}"></h2>
+                </div>
+
             </div>
 
-            <div class="mx-4">
-                <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ex itaque officia quia
-                    repudiandae,
-                    sunt tempora. Accusantium adipisci aperiam atque dolore hic iusto maxime molestias, nam qui ut
-                    voluptas
-                    voluptates.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ex itaque
-                    officia
-                    quia
-                    repudiandae,
-                    sunt tempora. Accusantium adipisci aperiam atque dolore hic iusto maxime molestias, nam qui ut
-                    voluptas
-                    voluptates.</h5>
+            <hr class="solid  mx-3 mt-5" style="border-top: 3px solid #EF426F;">
+
+            <div class="mt-5 mx-5">
+                <h5>How it works:
+                    <br>
+                    <br>
+                    Fill out this form to see if this item is yours! It’s a good idea to include something specific
+                    about
+                    your item so that we for sure know it’s yours!
+                    For example, tell the finder something like the background photo on your phone, the color of your
+                    case,
+                    the brand of your item, or even that stain on your jacket!
+                    The more specific you are, the easier it’ll be to claim your lost item!</h5>
             </div>
 
-            <form th:action="@{/inquiry/{id}(id=${listing.id})}" method="post" th:object="${inquiry}">
-                <div class="card-body text-center">
 
-                    <!--                <div class="form-group w-50">-->
-                    <!--                    <label style="float: left" class="inputs" for="email">Contact @Email:</label>-->
-                    <!--                    <input class="form-control" id="email" th:text="${user.email}"/>-->
-                    <!--                </div>-->
+            <div class="mx-5 mt-5">
+                <form th:action="@{/inquiry/{id}(id=${listing.id})}" method="post" th:object="${inquiry}">
 
-
-                    <div class="form-group w-100 mb-4">
-                        <label style="float: left;" class="inputs" for="description">Description of your
-                            item:</label>
-                        <textarea class="form-control" id="description"
-                                  th:field="*{inquiry_description}"></textarea>
+                    <div class=" w-100 mb-5">
+                        <label style="float: left;" class="inputs" for="description">Description of your item:</label>
+                        <textarea class="form-control" id="description" th:field="*{inquiry_description}"></textarea>
                     </div>
 
-                    <div class="form-group mb-5">
-                        <label style="float: left;" for="imageURL">Upload an image:</label>
+                    <div class=" mb-5">
+                        <label for="imageURL"><h5>Upload an image:</h5></label>
                         <br>
-                        <button style="float: left;" id="imageURL" type="button" class="btn btn-success" onclick="myFunction()">Choose File</button>
+                        <button id="imageURL" type="button" class="btn btn-secondary" onclick="myFunction()">Choose
+                            File
+                        </button>
                         <span><i class="fa fa-check hidden" style="color:green"></i></span>
-                        <br>
                     </div>
 
-                    <div class="form-group mb-3">
+                    <div class=" mb-3">
                         <label style="float: left;" for="imageDescription" class="inputs">Image description:</label>
                         <input type="text" name="imageDescription" class="form-control" id="imageDescription">
                     </div>
 
-                    <input type="submit" class="btn btn-success">
-                    <input id="hidden" name="imageURL" class="form-control" type="hidden" value="">
-                </div>
-            </form>
+                    <hr class="solid  my-5" style="border-top: 3px solid #FF8200;">
+
+                    <div class="text-center mb-4">
+                        <input type="submit" class="btn btn-secondary">
+                        <input id="hidden" name="imageURL" class="form-control" type="hidden" value="">
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
+</div>
 <footer th:replace="fragments/footer :: footer"></footer>
 
 <script>
@@ -130,7 +129,6 @@
         console.log(res);
         let handle = "https://cdn.filestackcontent.com/" + res.handle;
         console.log(handle);
-
 
 
         document.getElementById('hidden').value = handle;
