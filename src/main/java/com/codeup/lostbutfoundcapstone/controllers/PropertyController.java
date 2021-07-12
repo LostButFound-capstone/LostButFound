@@ -170,6 +170,7 @@ public class PropertyController {
             System.out.println("date = " + date);
 
             model.addAttribute("properties", propertyDao.findAll());
+            model.addAttribute("imagePath", "static/img/the_alamo.jpg");
         } else if(!date.equals("") && location_id.equals("null") && category_id.equals("null")) {
             System.out.println("date found is not equal to null string but location id and category id is");
             Date newDate = formatter.parse(date);
