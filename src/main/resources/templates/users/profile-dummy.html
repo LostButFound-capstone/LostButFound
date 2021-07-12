@@ -28,7 +28,7 @@
                     <div id="card-body" class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
                             <div th:if="${currentUser.profile_image_path == null}" class="cardImage">
-                                <img src="/img/no_profile_pic.png" alt="No profile pic available" height="250px"
+                                <img src="/img/no_profile_pic.png" alt="No profile pic available" height="200px"
                                      width="200px"/>
                             </div>
                             <div class="cardImage" th:if="${currentUser.profile_image_path != null}">
@@ -94,16 +94,23 @@
                     <div class="card mb-3 listings-container">
 
                         <div class="d-lg-block d-xxl-block col-12 profile-listings-header">
-                            <h2>Your findings:</h2>
+                            <h2>Here are your findings so far:</h2>
                         </div>
                         <div class="d-lg-block d-xxl-block col-11 mt-5" th:each="item : ${properties}">
                             <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
 
                                 <div class="card__header">
-                                    <div class="card__image">
+                                    <div th:if="${item.user.profile_image_path == null}" class="card__image">
+                                        <img src="/img/no_profile_pic.png" alt="No profile pic available" height="55px" width="50px"/>
+                                    </div>
+                                    <div class="card__image" th:if="${item.user.profile_image_path != null}">
                                         <img th:src="${item.user.profile_image_path}" alt="profile-image-small"
                                              height="50px" width="50px"/>
                                     </div>
+<!--                                    <div class="card__image">-->
+<!--                                        <img th:src="${item.user.profile_image_path}" alt="profile-image-small"-->
+<!--                                             height="50px" width="50px"/>-->
+<!--                                    </div>-->
                                     <h2 th:text="${item.title}"></h2>
                                 </div>
 

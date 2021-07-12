@@ -25,6 +25,14 @@
     justify-content: center;
 }
 
+.footer-list a {
+    color: black;
+    text-decoration: none;
+}
+.footer-list a:hover {
+    color: #cbecf8;
+}
+
 /*footer {*/
 /*    bottom: 0;*/
 /*    width: 100%;*/
