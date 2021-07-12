@@ -55,7 +55,7 @@ html, body {
     width: 100%;
     overflow: hidden;
     padding:0;
-    margin:0px;
+    margin:0;
 }
 .cube {
     position: absolute;

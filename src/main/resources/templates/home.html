@@ -8,7 +8,7 @@
 <body class="bg-attach-scroll">
 
 
-<div class="background">
+<div class="background" style="overflow: scroll">
 
 
     <!-- Mobile Head -->
@@ -30,7 +30,8 @@
 
     <!-- Small Screens View -->
     <main class="d-block d-lg-none d-xxl-none">
-        <div th:replace="fragments/login-alert :: alert" sec:authorize="isAuthenticated()"></div>
+
+<!--        <div id="alert1" th:replace="fragments/login-alert :: alert" sec:authorize="isAuthenticated()"></div>-->
 <!--        <div th:replace="fragments/signup-alert :: alert"></div>-->
 <!--        <div th:replace="fragments/logout-alert :: alert"></div>-->
 
@@ -79,9 +80,9 @@
     <!-- Large Screens View -->
     <main class="d-none d-lg-block d-xxl-block">
 
-        <div th:replace="fragments/login-alert :: alert" sec:authorize="isAuthenticated()"></div>
-        <!--        <div th:replace="fragments/signup-alert :: alert"></div>-->
-        <!--        <div th:replace="fragments/logout-alert :: alert"></div>-->
+<!--        <div th:replace="fragments/login-alert :: alert" sec:authorize="isAuthenticated()"></div>-->
+<!--        <div th:replace="fragments/signup-alert :: alert"></div>-->
+<!--        <div th:replace="fragments/logout-alert :: alert"></div>-->
 
         <div class="d-flex justify-content-center align-items-center">
             <div class="box1 d-flex flex-column text-white">
