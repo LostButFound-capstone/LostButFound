@@ -103,11 +103,23 @@
     padding-right: unset;
     padding-left: unset;
 }
-
+.d-flex {
+    align-items: center;
+}
 hr.solid {
     border-top: 3px solid #EF426F;
 }
-
+#card-body-instruction {
+    background: #282838;
+    color: #d4d4d4;
+    border-radius: .25rem;
+}
+#card-body-instruction h2, h4 {
+    line-height: 1.5;
+}
+/*#card-body-instruction h4 {*/
+/*    line-height: 1.4;*/
+/*}*/
 hr.solid2 {
     border-top: 3px solid #009bbe;
 }
@@ -117,7 +129,7 @@ hr.solid3 {
 }
 
 label h3 {
-    color: white;
+    color: #d4d4d4;
     font-weight: bold;
 }
 
@@ -127,5 +139,11 @@ label h3 {
 
 .box-2 {
     width: 30%;
+    display: flex;
+    justify-content: center;
 }
 
+#purple-popup {
+    margin-bottom: 0;
+    margin-top: 0;
+}

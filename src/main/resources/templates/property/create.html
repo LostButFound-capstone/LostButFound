@@ -16,24 +16,29 @@
 <div class="container" data-animate-in="right">
     <div class="container row mt-5">
 
-        <div class="card box-1 mt-5 text-center instruction-box">
-            <div class="card-body" id="card-body">
-<!--            <h2>Instructions for creating listing:</h2>-->
-<!--            <br>-->
-                <h2 style="font-style: italic; font-weight: bold; color: #d4d4d4;">I found someone's item...now what?</h2>
-            <h4>
-                Hey finder! Kudos to you for using the honor system!! Now, let’s help someone find their lost belonging!
-                Fill out this form but try not to be too specific. Give a general description of the lost item and avoid
-                anything that makes the item unique. This is in effort to prevent fraudulent claims and to avoid
-                mistakes in returning items.</h4>
+        <div class="card box-1 mt-5 instruction-box">
+            <div class="card-body" id="card-body-instruction">
+                <!--            <h2>Instructions for creating listing:</h2>-->
+                <!--            <br>-->
+                <h2 style="font-style: italic; font-weight: bold; color: #d4d4d4;">I found someone's item...now
+                    what?</h2>
+                <hr class="solid mx-3 mt-3">
+                <h4>
+                    Hey finder! Kudos to you for using the honor system!! Now, let’s help someone find their lost
+                    belonging!
+                    Fill out this form but try not to be too specific. Give a general description of the lost item and
+                    avoid
+                    anything that makes the item unique. This is in effort to prevent fraudulent claims and to avoid
+                    mistakes in returning items.</h4>
             </div>
         </div>
 
         <div class="box-2">
             <div class="mt-2 d-flex justify-content-center">
-                <img src="img/undraw_add_post_64nu.svg" class="create image " alt="" width="300px" height="300px">
+                <img src="img/undraw_add_post_64nu.svg" class="create image " alt="purple-girl" width="300px"
+                     height="300px">
                 <div class="middle">
-                    <div class="text"><h5>Tell us about what you found!</h5></div>
+                    <div class="text"><h5 id="purple-popup">Tell us about what you found!</h5></div>
                 </div>
             </div>
         </div>
@@ -43,84 +48,84 @@
     <br>
 
 
-        <form class="card mt-3 mb-5" style="background: #282838; color: #d4d4d4;; box-shadow: 10px 10px 5px grey;"
-              th:action="@{/create}" method="post" th:object="${property}">
+    <form class="card mt-3 mb-5" style="background: #282838; color: #d4d4d4; border: 1px solid #009bbe;"
+          th:action="@{/create}" method="post" th:object="${property}">
 
-            <!--    <div class="fill-out-form">-->
-            <!--        <h5>Tell us about what you found!</h5>-->
-            <!--    </div>-->
+        <!--    <div class="fill-out-form">-->
+        <!--        <h5>Tell us about what you found!</h5>-->
+        <!--    </div>-->
 
-            <div class="text-center mt-4">
+        <div class="text-center mt-4">
 
-                <label class="mt-4" for="dateFound"><h3>When did you find it?</h3></label>
-                <br>
-                <input id="dateFound" type="date" name="date" required>
+            <label class="mt-4" for="dateFound"><h3>When did you find it?</h3></label>
+            <br>
+            <input id="dateFound" type="date" name="date" required>
+        </div>
+
+        <hr class="solid  mx-3 mt-5">
+
+        <div class="mt-5 mb-5 text-center">
+
+            <label><h3>Choose one or more categories that fits the item you found:</h3></label>
+            <br>
+
+            <div class="container row justify-content-end">
+
+                <th:block class="" th:each="category : ${categories}">
+
+
+                    <div class="col-3 d-flex align-items-left" style=" width:200px; height:25px;">
+                        <input class="mx-2" type="checkbox" name="categories" th:id="${category.id}"
+                               th:value="${category.id}">
+                        <label th:for="${category.id}"><span th:text="${category.property_type}"></span></label>
+
+                    </div>
+
+                </th:block>
+
             </div>
 
-            <hr class="solid  mx-3 mt-5">
+        </div>
 
-            <div class="mt-5 mb-5 text-center">
-
-                <label><h3>Choose one or more categories that fits the item you found:</h3></label>
-                <br>
-
-                <div class="container row justify-content-end">
-
-                    <th:block class="" th:each="category : ${categories}">
+        <hr class="solid2 mx-3 mt-3">
 
 
-                        <div class="col-3 d-flex align-items-left" style=" width:200px; height:25px;">
-                            <input class="mx-2" type="checkbox" name="categories" th:id="${category.id}"
-                                   th:value="${category.id}">
-                            <label th:for="${category.id}"><span th:text="${category.property_type}"></span></label>
+        <div class="container">
+            <div class="mt-4">
+                <div class=" text-center">
+                    <label for="createTitle"><h3>What did you find?</h3></label>
+                </div>
+                <div>
+                    <input id="createTitle" type="text" th:field="*{title}" style="width:100%"
+                           required>
+                </div>
+            </div>
+        </div>
 
-                        </div>
+        <hr class="solid3 mx-3 mt-5">
 
+        <div class="container mt-5 text-center">
+            <div class="d-flex justify-content-around">
+                <label for="locations"><h3>Where did you find this item?</h3></label>
+
+                <select id="locations" th:field="*{location}" required>
+                    <th:block th:each="location : ${locations}">
+                        <option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
                     </th:block>
+                </select>
 
-                </div>
+                <br>
+            </div>        <!--      <div class="button">-->
+            <!--    <input type="submit">-->
+            <button type="submit" class="btn btn-outline-secondary mt-3 mb-4">Submit</button>
+        </div>
 
-            </div>
-
-            <hr class="solid2 mx-3 mt-3">
-
-
-            <div class="container">
-                <div class="mt-4">
-                    <div class=" text-center">
-                        <label for="createTitle"><h3>What did you find?</h3></label>
-                    </div>
-                    <div>
-                        <textarea id="createTitle" type="text" th:field="*{title}" style="width:100%"
-                                  required></textarea>
-                    </div>
-                </div>
-            </div>
-
-            <hr class="solid3 mx-3 mt-5">
-
-            <div class="container mt-5 text-center">
-                <div class="d-flex justify-content-around">
-                    <label for="locations"><h3>Where did you find this item?</h3></label>
-
-                    <select id="locations" th:field="*{location}" required>
-                        <th:block th:each="location : ${locations}">
-                            <option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
-                        </th:block>
-                    </select>
-
-                    <br>
-                </div>        <!--      <div class="button">-->
-                <!--    <input type="submit">-->
-                <button type="submit" class="btn btn-outline-secondary mt-3 mb-4">Submit</button>
-            </div>
-
-            <br>
-            <br>
-            <br>
+        <br>
+        <br>
+        <br>
 
 
-        </form>
+    </form>
 
 </div>
 <!--<footer th:replace="fragments/footer :: footer"></footer>-->
