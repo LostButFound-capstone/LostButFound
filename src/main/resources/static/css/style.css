@@ -301,7 +301,7 @@ p {
 
 /* Color Schemes */
 .main-bg-color {
-    background-color: #00b3bc;
+    background-color: #009bbe;
 }
 
 .button-bg-color1 {
@@ -421,13 +421,14 @@ p {
 
 /****************************** Modals ********************************/
 /* Full-width input fields */
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=email] {
     width: 100%;
-    padding: 12px 20px;
+    padding: .375rem .75rem;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    border-radius: .25rem;
 }
 
 /* Set a style for all buttons */
@@ -442,7 +443,7 @@ input[type=text], input[type=password] {
 /*}*/
 
 .button-fragment {
-    background-color: rgb(46,192,248);
+    background-color: #009bbe;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -493,8 +494,10 @@ input[type=text], input[type=password] {
 }
 
 .inputs {
-    color: #00b3bc;
+    color: #d4d4d4;
     font-weight: bold;
+    font-size: larger;
+    margin-top: .5rem;
 }
 
 /* The Close Button (x) */
