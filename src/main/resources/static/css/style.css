@@ -151,25 +151,24 @@ body {
 
 .box1 > h3 {
     font-size: 36px;
-    color: black;
+    color: #dfe1e5;
 }
 
 .box1 > p {
     font-size: 20px;
-    color: black;
+    color: #dfe1e5;
 }
 
 .h3, h3 {
     font-size: 1.75rem;
-    color: black;
+    color: #dfe1e5;
 }
 
 .btn-outline-light {
-    color: #000000;
-    border-color: #000000;
+    color: #dfe1e5;
 }
 /**************************** background animation test ************************/
-
+/*#00b3bc*/
 /*body {*/
 /*    font-family: 'Josefin Sans', sans-serif;*/
 /*    box-sizing: border-box;*/
@@ -302,7 +301,7 @@ p {
 
 /* Color Schemes */
 .main-bg-color {
-    background-color: #00b2a9;
+    background-color: #00b3bc;
 }
 
 .button-bg-color1 {
@@ -494,7 +493,7 @@ input[type=text], input[type=password] {
 }
 
 .inputs {
-    color: #00b2a9;
+    color: #00b3bc;
     font-weight: bold;
 }
 
@@ -506,6 +505,7 @@ input[type=text], input[type=password] {
     color: #e14545;
     font-size: 35px;
     font-weight: bold;
+    z-index: 1;
 }
 
 .close:hover,
@@ -660,7 +660,7 @@ input[type=text], input[type=password] {
     opacity: 1;
     transform: translate3d(0, 0, 0);
     -webkit-transform: translate3d(0, 0, 0);
-    transition: transform 0.6s ease, opacity 0.6s ease
+    transition: transform 0.5s ease, opacity 0.5s ease
 }
 
 .fade-in {

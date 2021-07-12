@@ -5,6 +5,7 @@
 <head th:replace="fragments/head :: head"></head>
 
 <body>
+<link rel="stylesheet" href="/css/card.css">
 <header>
     <!-- If NOT logged on -->
     <nav th:replace="fragments/navbar :: navbar" sec:authorize="!isAuthenticated()"></nav>
@@ -12,20 +13,23 @@
     <nav th:replace="fragments/new-navbar :: new-navbar" sec:authorize="isAuthenticated()"></nav>
 </header>
 
-<div class="container">
+<div class="container" data-animate-in="right">
     <div class="container row mt-5">
 
-        <div class="box2 mt-5 text-center">
-            <h2>Instructions for creating listing:</h2>
-            <br>
-            <p>I found someone's item...now what?
+        <div class="card box-1 mt-5 text-center instruction-box">
+            <div class="card-body" id="card-body">
+<!--            <h2>Instructions for creating listing:</h2>-->
+<!--            <br>-->
+                <h2 style="font-style: italic; font-weight: bold; color: #d4d4d4;">I found someone's item...now what?</h2>
+            <h4>
                 Hey finder! Kudos to you for using the honor system!! Now, let’s help someone find their lost belonging!
                 Fill out this form but try not to be too specific. Give a general description of the lost item and avoid
                 anything that makes the item unique. This is in effort to prevent fraudulent claims and to avoid
-                mistakes in returning items.</p>
+                mistakes in returning items.</h4>
+            </div>
         </div>
 
-        <div class="box1">
+        <div class="box-2">
             <div class="mt-2 d-flex justify-content-center">
                 <img src="img/undraw_add_post_64nu.svg" class="create image " alt="" width="300px" height="300px">
                 <div class="middle">
@@ -37,10 +41,9 @@
     </div>
 
     <br>
-    <br>
-    <br>
 
-        <form class="card mb-5" style="background-color: #223B48; color: white; box-shadow: 10px 10px 5px grey;"
+
+        <form class="card mt-3 mb-5" style="background: #282838; color: #d4d4d4;; box-shadow: 10px 10px 5px grey;"
               th:action="@{/create}" method="post" th:object="${property}">
 
             <!--    <div class="fill-out-form">-->
@@ -68,7 +71,7 @@
 
                         <div class="col-3 d-flex align-items-left" style=" width:200px; height:25px;">
                             <input class="mx-2" type="checkbox" name="categories" th:id="${category.id}"
-                                   th:value="${category.id}" required>
+                                   th:value="${category.id}">
                             <label th:for="${category.id}"><span th:text="${category.property_type}"></span></label>
 
                         </div>
@@ -122,6 +125,107 @@
 </div>
 <!--<footer th:replace="fragments/footer :: footer"></footer>-->
 
+<script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+</script>
+<script>
+    // When the user clicks on div, open the popup
+    function myFunction2(event) {
+        event.stopPropagation();
+        var popup = event.target.childNodes[1];
+        popup.classList.toggle("show");
+    }
 
+    $(function () {
+
+        var html = $('html');
+        // Detections
+        if (!("ontouchstart" in window)) {
+            html.addClass("noTouch");
+        }
+        if ("ontouchstart" in window) {
+            html.addClass("isTouch");
+        }
+        if ("ontouchstart" in window) {
+            html.addClass("isTouch");
+        }
+        if (document.documentMode || /Edge/.test(navigator.userAgent)) {
+            if (navigator.appVersion.indexOf("Trident") === -1) {
+                html.addClass("isEDGE");
+            } else {
+                html.addClass("isIE isIE11");
+            }
+        }
+        if (navigator.appVersion.indexOf("MSIE") !== -1) {
+            html.addClass("isIE");
+        }
+        if (
+            navigator.userAgent.indexOf("Safari") != -1 &&
+            navigator.userAgent.indexOf("Chrome") == -1
+        ) {
+            html.addClass("isSafari");
+        }
+
+        // On Screen
+
+        $.fn.isOnScreen = function () {
+            var elementTop = $(this).offset().top,
+                elementBottom = elementTop + $(this).outerHeight(),
+                viewportTop = $(window).scrollTop(),
+                viewportBottom = viewportTop + $(window).height();
+            return elementBottom > viewportTop && elementTop < viewportBottom;
+        };
+
+        function detection() {
+            for (var i = 0; i < items.length; i++) {
+                var el = $(items[i]);
+
+                if (el.isOnScreen()) {
+                    el.addClass("in-view");
+                } else {
+                    el.removeClass("in-view");
+                }
+            }
+        }
+
+        var items = document.querySelectorAll(
+            "*[data-animate-in], *[data-detect-viewport]"
+            ),
+            waiting = false,
+            w = $(window);
+
+        w.on("resize scroll", function () {
+            if (waiting) {
+                return;
+            }
+            waiting = true;
+            detection();
+
+            setTimeout(function () {
+                waiting = false;
+            }, 100);
+        });
+
+        $(document).ready(function () {
+            setTimeout(function () {
+                detection();
+            }, 500);
+
+            for (var i = 0; i < items.length; i++) {
+                var d = 0,
+                    el = $(items[i]);
+                if (items[i].getAttribute("data-animate-in-delay")) {
+                    d = items[i].getAttribute("data-animate-in-delay") / 1000 + "s";
+                } else {
+                    d = 0;
+                }
+                el.css("transition-delay", d);
+            }
+        });
+    });
+
+</script>
 </body>
 </html>
