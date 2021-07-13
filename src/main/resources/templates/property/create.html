@@ -14,9 +14,9 @@
 </header>
 
 <div class="container" data-animate-in="right">
-    <div class="container row mt-5">
+    <div class="container row">
 
-        <div class="card box-1 mt-5 instruction-box">
+        <div class="card box-1 instruction-box">
             <div class="card-body" id="card-body-instruction">
                 <!--            <h2>Instructions for creating listing:</h2>-->
                 <!--            <br>-->
@@ -34,7 +34,7 @@
         </div>
 
         <div class="box-2">
-            <div class="mt-2 d-flex justify-content-center">
+            <div class="mt-2 d-flex justify-content-btween">
                 <img src="img/undraw_add_post_64nu.svg" class="create image " alt="purple-girl" width="300px"
                      height="300px">
                 <div class="middle">
@@ -48,7 +48,7 @@
     <br>
 
 
-    <form class="card mt-3 mb-5" style="background: #282838; color: #d4d4d4; border: 1px solid #009bbe;"
+    <form class="card mb-5" style="background: #282838; color: #d4d4d4; border: 1px solid #009bbe;"
           th:action="@{/create}" method="post" th:object="${property}">
 
         <!--    <div class="fill-out-form">-->
