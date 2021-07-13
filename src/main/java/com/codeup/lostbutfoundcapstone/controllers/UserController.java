@@ -2,6 +2,7 @@ package com.codeup.lostbutfoundcapstone.controllers;
 
 import com.codeup.lostbutfoundcapstone.DAOs.UserRepository;
 import com.codeup.lostbutfoundcapstone.models.User;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,6 +40,13 @@ public class UserController {
         user.setProfile_image_path(null);
         users.save(user);
         return "home";
+    }
+
+    @GetMapping("/profile-pic")
+    public String showProfilePic(Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("profilePic", user.getProfile_image_path());
+        return "";
     }
 
 }
