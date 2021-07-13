@@ -139,8 +139,32 @@
                             <p class="about__me">Location found: <span th:text="${item.location.location_name}"></span>
                             </p>
                             <p class="about__me">Categories:
-                                <th:block th:each="category : ${item.categories}"><span
-                                        th:text="${category.property_type}"></span><span> | </span></th:block>
+                                <th:block th:each="category : ${item.categories}">
+                                    <span th:text="${category.property_type}"></span>
+                                    <img th:if="${category.id == 1}" src="/img/category_icons/phone_icon.png" alt="icon">
+                                    <img th:if="${category.id == 2}" src="/img/category_icons/tablet_icon.png" alt="icon">
+                                    <img th:if="${category.id == 3}" src="/img/category_icons/headphones_icon.png" alt="icon">
+                                    <img th:if="${category.id == 4}" src="/img/category_icons/laptop_icon.png" alt="icon">
+                                    <img th:if="${category.id == 5}" src="/img/category_icons/electronics_icon.png" alt="icon">
+                                    <img th:if="${category.id == 6}" src="/img/category_icons/keys_icon.png" alt="icon">
+                                    <img th:if="${category.id == 7}" src="/img/category_icons/glasses_icon.png" alt="icon">
+                                    <img th:if="${category.id == 8}" src="/img/category_icons/other_icon.png" alt="icon">
+                                    <img th:if="${category.id == 9}" src="/img/category_icons/other_icon.png" alt="icon">
+                                    <img th:if="${category.id == 10}" src="/img/category_icons/purse_icon.png" alt="icon">
+                                    <img th:if="${category.id == 11}" src="/img/category_icons/makeup_bag_icon.png" alt="icon">
+                                    <img th:if="${category.id == 12}" src="/img/category_icons/hats_icon.png" alt="icon">
+                                    <img th:if="${category.id == 13}" src="/img/category_icons/jackets_icon.png" alt="icon">
+                                    <img th:if="${category.id == 14}" src="/img/category_icons/shoes_icon.png" alt="icon">
+                                    <img th:if="${category.id == 15}" src="/img/category_icons/clothes_icon.png" alt="icon">
+                                    <img th:if="${category.id == 16}" src="/img/category_icons/other_icon.png" alt="icon">
+                                    <img th:if="${category.id == 17}" src="/img/category_icons/camera_icon.png" alt="icon">
+                                    <img th:if="${category.id == 18}" src="/img/category_icons/passport_icon.png" alt="icon">
+                                    <img th:if="${category.id == 19}" src="/img/category_icons/luggage_icon.png" alt="icon">
+                                    <img th:if="${category.id == 20}" src="/img/category_icons/other_icon.png" alt="icon">
+                                    <img th:if="${category.id == 21}" src="/img/category_icons/toys_icon.png" alt="icon">
+                                    <img th:if="${category.id == 22}" src="/img/category_icons/books_icon.png" alt="icon">
+                                    <img th:if="${category.id == 23}" src="/img/category_icons/other_icon.png" alt="icon">
+                                </th:block>
                             </p>
                             <p class="about__me" style="float: right">Date posted: <span
                                     th:text="${item.formattedDatePosted}"></span></p>
@@ -243,6 +267,12 @@
             event.stopPropagation();
             var popup = event.target.childNodes[1];
             popup.classList.toggle("show");
+            // setTimeout(function() {
+            //     $(".popuptext").hide();
+            //     }, 2000);
+            $(function () {
+                $('.popuptext').delay(3000).fadeOut();
+            });
         }
 
         $(function () {
