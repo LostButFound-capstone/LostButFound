@@ -108,7 +108,7 @@
             <div class="d-flex justify-content-around">
                 <label for="locations"><h3>Where did you find this item?</h3></label>
 
-                <select id="locations" th:field="*{location}" required>
+                <select id="locations" th:field="*{location}" style="margin-bottom: 0em;" required>
                     <th:block th:each="location : ${locations}">
                         <option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
                     </th:block>
@@ -117,7 +117,7 @@
                 <br>
             </div>        <!--      <div class="button">-->
             <!--    <input type="submit">-->
-            <button type="submit" class="btn btn-outline-secondary mt-3 mb-4">Submit</button>
+            <button type="submit" class="btn btn-outline-secondary mt-5 mb-4">Submit</button>
         </div>
 
         <br>
