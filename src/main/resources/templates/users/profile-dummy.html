@@ -27,7 +27,7 @@
                 <div class="card">
                     <div id="card-body" class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
-                            <div th:if="${currentUser.profile_image_path == null}" class="cardImage">
+                            <div class="cardImage" th:if="${currentUser.profile_image_path == null}">
                                 <img src="/img/no_profile_pic.png" alt="No profile pic available" height="200px"
                                      width="200px"/>
                             </div>
