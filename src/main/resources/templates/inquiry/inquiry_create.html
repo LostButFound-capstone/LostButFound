@@ -50,7 +50,13 @@
                     <h2>Date Found:</h2>
                 </div>
                 <div class="d-inline-flex">
-                    <h2 th:text="${listing.date_found}"></h2>
+                    <h2 th:text="${listing.getFormattedDateFound()}"></h2>
+                </div>
+                div class="d-inline-flex">
+                <h2>Date Posted:</h2>
+            </div>
+                <div class="d-inline-flex">
+                    <h2 th:text="${listing.getFormattedDatePosted()}"></h2>
                 </div>
 
             </div>

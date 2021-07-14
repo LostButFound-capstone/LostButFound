@@ -693,10 +693,14 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 #inquireBtn {
-    width:50%;
-    background: #ef426f;
-    color: black;
-    border-color: #ef426f;
+    width: 50%;
+    background: #659dbd;
+    color: white;
+    border-color: #e18a77;
+
+}
+#inquireBtn:hover {
+    background-color: #e18a77;
 }
 
 #btn{

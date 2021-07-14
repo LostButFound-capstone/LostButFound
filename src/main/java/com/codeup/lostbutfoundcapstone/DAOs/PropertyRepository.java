@@ -26,7 +26,7 @@ public interface PropertyRepository extends JpaRepository<Property, Long> {
     @Query(value = "delete from property where id = ?", nativeQuery = true)
     void deletePropertyById(String id);
 
-    @Query(value = "SELECT * FROM p property where p.title like %?1%", nativeQuery = true)
+    @Query(value = "SELECT * FROM property where title like %?1%", nativeQuery = true)
     List<Property> findPropertyByTitle(String title);
 
     List<Property> findPropertyByUser(User user);
