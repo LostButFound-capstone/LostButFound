@@ -344,7 +344,7 @@ public class PropertyController {
 
         model.addAttribute("searchProperties", propertyDao.findPropertyByCategoriesIsLikeOrLocationIsLike(searchString, searchString));
 
-        return "property/listings-dummy";
+        return "property/listings";
     }
 
     @GetMapping("/verified-users")
