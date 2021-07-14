@@ -18,7 +18,7 @@
 <div class="container" data-animate-in="right">
 
     <div class="card mb-4">
-        <div class="editprofile-container card-body media align-items-center py-3" id="card-body">
+        <div class="editprofile-container card-body media align-items-center py-3" id="card-body" style="background: #264851; color: #edd9bc; border: 1px solid #e18a77;">
             <div class="imageContainer">
                 <div th:if="${currentUser.profile_image_path == null}" class="cardImage">
                     <img src="/img/no_profile_pic.png" alt="No profile pic available" height="250px"
@@ -33,36 +33,12 @@
                 <h4 class="font-weight-bold mt-1"><span th:text="${currentUser.username}"></span></h4>
                 <h4 class="font-weight-bold mb-2"><span class="font-weight-normal"><span
                         th:text="${currentUser.email}"></span></span></h4>
-                <!--            <a href="#" class="btn btn-primary btn-sm">Edit</a>-->
-                <!--            <a href="#" class="btn btn-default btn-sm">Profile</a>-->
             </div>
-<!--            <div class="container">-->
-<!--                <form th:action="@{/profile/edit/{id}(id=${currentUser.id})}" method="post">-->
-<!--                    <div class="form-group mb-3">-->
-<!--                        <label for="username">Edit Username</label>-->
-<!--                        <input id="username" name="username" class="form-control" th:value="${currentUser.username}">-->
-<!--                    </div>-->
-<!--                    <div class="form-group mb-3">-->
-<!--                        <label for="email">Edit Email</label>-->
-<!--                        <input id="email" name="email" class="form-control" th:value="${currentUser.email}">-->
-<!--                    </div>-->
-<!--                    <div class="form-group mb-3">-->
-<!--                        <label for="password">New Password</label>-->
-<!--                        <input id="password" name="password" class="form-control">-->
-<!--                    </div>-->
-<!--                    <div class="form-group mb-3">-->
-<!--                        <label for="profilePicture">Upload an image:</label>-->
-<!--                        <button id="profilePicture" type="button" class="btn btn-success">Choose File</button>-->
-<!--                        <span><i class="fa fa-check hidden" style="color:green"></i></span>-->
-<!--                    </div>-->
-<!--                    <input type="submit" class="btn btn-success btn-block" value="Submit">-->
-<!--                    <input id="hidden" name="profilePicture" class="form-control" type="hidden" value="">-->
-<!--                </form>-->
-<!--            </div>-->
+
         </div>
     </div>
     <div class="card mb-4">
-        <div class="card-body" id="card-body">
+        <div class="card-body" id="card-body" style="background: #264851; color: #edd9bc; border: 1px solid #e18a77;">
             <div class="container">
                 <form th:action="@{/profile/edit/{id}(id=${currentUser.id})}" method="post">
                     <div class="form-group mb-3">
@@ -75,14 +51,14 @@
                     </div>
                     <div class="form-group mb-3">
                         <label for="password">New Password</label>
-                        <input id="password" name="password" class="form-control">
+                        <input type="password" id="password" name="password" class="form-control" required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="profilePicture">Upload an image:</label>
-                        <button id="profilePicture" type="button" class="btn filestack-api-button">Choose File</button>
+                        <button id="profilePicture" type="button" class="btn filestack-api-button" style="background: #e18a77; color: white; border: 1px solid black;">Choose File</button>
                         <span><i class="fa fa-check hidden"></i></span>
                     </div>
-                    <input type="submit" class="btn filestack-api-button" value="Submit">
+                    <input type="submit" class="btn filestack-api-button" value="Submit" style="background: #659dbd; color: white; border: 1px solid black;">
                     <input id="hidden" name="profilePicture" class="form-control" type="hidden" value="">
                 </form>
             </div>
