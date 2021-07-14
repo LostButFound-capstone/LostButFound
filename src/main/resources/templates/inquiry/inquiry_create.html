@@ -5,6 +5,7 @@
 
 <head th:replace="fragments/head :: head"></head>
 <body>
+<link rel="stylesheet" href="/css/card.css">
 <header>
     <!-- If NOT logged on -->
     <nav th:replace="fragments/navbar :: navbar" sec:authorize="!isAuthenticated()"></nav>
@@ -17,13 +18,24 @@
 <!--</div>-->
 
 <div class="container mt-4 mb-4">
-    <div class="card" style="background-color: #282838; color: white; box-shadow: 10px 10px 5px grey; border: 1px solid #009bbe">
+    <div class="card" style="background: #264851; color: #edd9bc; border: 1px solid #e18a77;">
 
-        <div class="card-body mt-5">
+        <div class="card-body" style="background: #264851; color: #edd9bc; border: 1px solid #e18a77;">
 
             <div class="mx-5">
+                <h1 class="text-center mb-4">Inquiry Form</h1>
+                <hr class="solid  mx-3 mt-5" style="opacity: 1; border-top: 3px solid #e18a77;">
+                <div class="d-inline-flex mt-3">
+
+                    <h2>Listing Title: </h2>
+                </div>
                 <div class="d-inline-flex">
-                    <h2>User:</h2>
+                    <h2 th:text="${listing.title}"></h2>
+                </div>
+                <br>
+
+                <div class="d-inline-flex">
+                    <h2>Found by: </h2>
                 </div>
                 <div class="d-inline-flex">
                     <h2 th:text="${listing.user.username}"></h2>
@@ -31,15 +43,7 @@
                 <br>
 
                 <div class="d-inline-flex">
-                    <h2>Lost item:</h2>
-                </div>
-                <div class="d-inline-flex">
-                    <h2 th:text="${listing.title}"/></h2>
-                </div>
-                <br>
-
-                <div class="d-inline-flex">
-                    <h2>Found at:</h2>
+                    <h2>Found at: </h2>
                 </div>
                 <div class="d-inline-flex">
                     <h2 th:text="${listing.location.location_name}"></h2>
@@ -47,33 +51,37 @@
                 <br>
 
                 <div class="d-inline-flex">
-                    <h2>Date Found:</h2>
+                    <h2>Date Found: </h2>
                 </div>
                 <div class="d-inline-flex">
                     <h2 th:text="${listing.getFormattedDateFound()}"></h2>
                 </div>
-                div class="d-inline-flex">
-                <h2>Date Posted:</h2>
-            </div>
+                <br>
+
+                <div class="d-inline-flex">
+                <h2>Date Posted: </h2>
+                </div>
                 <div class="d-inline-flex">
                     <h2 th:text="${listing.getFormattedDatePosted()}"></h2>
                 </div>
 
             </div>
 
-            <hr class="solid  mx-3 mt-5" style="border-top: 3px solid #EF426F;">
+            <hr class="solid  mx-3 mt-5" style="opacity: 1; border-top:  3px solid #e18a77;">
 
             <div class="mt-5 mx-5">
-                <h5 style="line-height: 1.5">How it works:
+                <h3 class="text-beige" style="line-height: 1.5">How it works:</h3>
+                <h5 style="line-height: 1.5">
                     <br>
                     <br>
-                    Fill out this form to see if this item is yours! It’s a good idea to include something specific
-                    about
-                    your item so that we for sure know it’s yours!
-                    For example, tell the finder something like the background photo on your phone, the color of your
-                    case,
-                    the brand of your item, or even that stain on your jacket!
-                    The more specific you are, the easier it’ll be to claim your lost item!</h5>
+                    -Fill out this form to see if this item is yours!
+                    <br><br>
+                    -It’s a good idea to include something specific about your item so that we for sure know it’s yours!
+                    <br><br>
+                    -Ex: background photo on your phone, case color, brand of your item, or even that stain on your jacket!
+                    <br><br>
+                    -The more specific you are, the easier it’ll be to claim your lost item!
+                </h5>
             </div>
 
 
@@ -81,7 +89,7 @@
                 <form th:action="@{/inquiry/{id}(id=${listing.id})}" method="post" th:object="${inquiry}">
 
                     <div class=" w-100 mb-5">
-                        <label style="float: left;" class="inputs" for="description">Description of your item:</label>
+                        <label style="float: left;" class="inputs text-beige" for="description">Description of your item:</label>
                         <textarea class="form-control" id="description" th:field="*{inquiry_description}"></textarea>
                     </div>
 
@@ -95,11 +103,11 @@
                     </div>
 
                     <div class=" mb-3">
-                        <label style="float: left;" for="imageDescription" class="inputs">Image description:</label>
+                        <label style="float: left;" for="imageDescription" class="inputs text-beige">Image description:</label>
                         <input type="text" name="imageDescription" class="form-control" id="imageDescription">
                     </div>
 
-                    <hr class="solid  my-5" style="border-top: 3px solid #FF8200;">
+                    <hr class="solid  my-5" style="opacity: 1; border-top: 3px solid #e18a77;">
 
                     <div class="text-center mb-4">
                         <input type="submit" class="btn btn-secondary">
