@@ -41,7 +41,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" th:href="@{/}">
-        <img id="logo" src="/img/lostbutfound_logo.png" alt="logo" style="margin-left: 18px">
+        <img id="logo" src="/img/logo-beige.png" alt="logo" style="margin-left: 18px">
       </a>
       <a th:if="${#authentication.principal.profile_image_path == null}" th:href="@{/profile}">
         <img class="user-pic" src="/img/pro-pic-icon.png" alt="No profile pic available" style="margin-left: 1px"/>
@@ -58,7 +58,7 @@
   <div class="container-fluid">
 
     <a class="navbar-brand" th:href="@{/}">
-      <img src="/img/lostbutfound_logo.png" alt="logo" width="70px" height="60px">
+      <img src="/img/logo-beige.png" alt="logo" width="70px" height="60px">
     </a>
 
     <form class="d-flex" th:action="@{/search-results}" method="post">
