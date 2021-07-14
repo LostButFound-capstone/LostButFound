@@ -254,7 +254,7 @@ public class PropertyController {
         model.addAttribute("property", propertyDao.getById(id));
         model.addAttribute("categories", propertyCategoryDao.findAll());
         model.addAttribute("locations", locationDao.findAll());
-        return "property/edit-dummy";
+        return "property/edit_create";
     }
 
     @PostMapping("/edit/{id}")
