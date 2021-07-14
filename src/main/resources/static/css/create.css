@@ -107,7 +107,8 @@
     align-items: center;
 }
 hr.solid {
-    border-top: 3px solid #EF426F;
+    border-top: 3px solid #e18a77;
+    opacity: 1;
 }
 #card-body-instruction {
     background: #282838;
@@ -122,10 +123,12 @@ hr.solid {
 /*}*/
 hr.solid2 {
     border-top: 3px solid #009bbe;
+    opacity: 1;
 }
 
 hr.solid3 {
     border-top: 3px solid #FF8200;
+    opacity: 1;
 }
 
 label h3 {
