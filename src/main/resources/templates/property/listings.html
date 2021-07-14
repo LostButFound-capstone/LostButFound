@@ -7,6 +7,7 @@
 </head>
 <body>
 <link rel="stylesheet" href="/css/card.css">
+<link rel="stylesheet" href="/css/listings.css">
 <!--Header fragment-->
 <header>
     <!-- If NOT logged on -->
@@ -25,36 +26,39 @@
     <form th:action="@{/listings}" method="get">
 
         <!--Filter card-->
-        <div class="container">
-            <div class="row">
-                <div class="images col card-hidden mb-3 border-0" data-selected="">
-                    <span class="loader">loading...</span>
-                    <span class="no-selection">...</span>
-                    <img src="img/san_antonio_airport.jpg" data-image="1" alt="San Antonio Airport"
-                         title="San Antonio Airport"/>
-                    <img src="img/river_walk.jpg" data-image="2" alt="River Walk" title="River Walk"/>
-                    <img src="img/the_alamo.jpg" data-image="3" alt="The Alamo" title="The Alamo"/>
-                    <img src="img/north_star_mall.jpg" data-image="4" alt="North Star Mall" title="North Star Mall"/>
-                    <img src="img/shops_at_lacantera.png" data-image="5" alt="Shops at LaCantera"
-                         title="Shops at LaCantera"/>
-                    <img src="img/ingram_park_mall.jpg" data-image="6" alt="Ingram Park Mall" title="Ingram Park Mall"/>
-                    <img src="img/south_park_mall.jpg" data-image="7" alt="South Park Mall" title="South Park Mall"/>
-                    <!--						<img src="img/san_antonio_airport.jpg" data-image="8" alt="Workshop" title="Workshop" />-->
-                    <!--						<img src="img/san_antonio_airport.jpg" data-image="9" alt="Workshop" title="Workshop" />-->
-                    <!--						<img src="img/san_antonio_airport.jpg" data-image="10" alt="Workshop" title="Workshop" />-->
-                    <!--						<img src="img/san_antonio_airport.jpg" data-image="11" alt="Workshop" title="Workshop" />-->
-                    <!--						<img src="img/san_antonio_airport.jpg" data-image="12" alt="Workshop" title="Workshop" />-->
-                    <!--						<img src="img/san_antonio_airport.jpg" data-image="13" alt="Workshop" title="Workshop" />-->
-                    <!--						<img src="img/san_antonio_airport.jpg" data-image="14" alt="Workshop" title="Workshop" />-->
-                    <!--						<img src="img/san_antonio_airport.jpg" data-image="15" alt="Workshop" title="Workshop" />-->
-                    <!--						<img src="img/san_antonio_airport.jpg" data-image="16" alt="Workshop" title="Workshop" />-->
-                    <!--						<img src="img/san_antonio_airport.jpg" data-image="17" alt="Workshop" title="Workshop" />-->
-                    <!--						<img src="img/san_antonio_airport.jpg" data-image="18" alt="Workshop" title="Workshop" />-->
-                    <!--						<img src="img/san_antonio_airport.jpg" data-image="19" alt="Workshop" title="Workshop" />-->
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col card box-shadow align-items-middle">
+        <div class="container-fluid">
+            <div id="dropdown_row" class="row">
+                <img id="rounded_image" class="rounded" style="border-color: #E18A77; border-radius: 25px; width: 100%; height: 40vh;" src="img/san_antonio_skyline.png" alt="San Antonio Skyline"/>
+
+<!--                <div class="images" data-selected="">-->
+<!--                    <span class="loader">loading...</span>-->
+<!--                    <span class="no-selection"></span>-->
+
+<!--                    <img src="img/san_antonio_airport.jpg" data-image="1" alt="San Antonio Airport"-->
+<!--                         title="San Antonio Airport"/>-->
+<!--                    <img src="img/river_walk.jpg" data-image="2" alt="River Walk" title="River Walk"/>-->
+<!--                    <img src="img/the_alamo.jpg" data-image="3" alt="The Alamo" title="The Alamo"/>-->
+<!--                    <img src="img/north_star_mall.jpg" data-image="4" alt="North Star Mall" title="North Star Mall"/>-->
+<!--                    <img src="img/shops_at_lacantera.png" data-image="5" alt="Shops at LaCantera"-->
+<!--                         title="Shops at LaCantera"/>-->
+<!--                    <img src="img/ingram_park_mall.jpg" data-image="6" alt="Ingram Park Mall" title="Ingram Park Mall"/>-->
+<!--                    <img src="img/south_park_mall.jpg" data-image="7" alt="South Park Mall" title="South Park Mall"/>-->
+<!--                    &lt;!&ndash;						<img src="img/san_antonio_airport.jpg" data-image="8" alt="Workshop" title="Workshop" />&ndash;&gt;-->
+<!--                    &lt;!&ndash;						<img src="img/san_antonio_airport.jpg" data-image="9" alt="Workshop" title="Workshop" />&ndash;&gt;-->
+<!--                    &lt;!&ndash;						<img src="img/san_antonio_airport.jpg" data-image="10" alt="Workshop" title="Workshop" />&ndash;&gt;-->
+<!--                    &lt;!&ndash;						<img src="img/san_antonio_airport.jpg" data-image="11" alt="Workshop" title="Workshop" />&ndash;&gt;-->
+<!--                    &lt;!&ndash;						<img src="img/san_antonio_airport.jpg" data-image="12" alt="Workshop" title="Workshop" />&ndash;&gt;-->
+<!--                    &lt;!&ndash;						<img src="img/san_antonio_airport.jpg" data-image="13" alt="Workshop" title="Workshop" />&ndash;&gt;-->
+<!--                    &lt;!&ndash;						<img src="img/san_antonio_airport.jpg" data-image="14" alt="Workshop" title="Workshop" />&ndash;&gt;-->
+<!--                    &lt;!&ndash;						<img src="img/san_antonio_airport.jpg" data-image="15" alt="Workshop" title="Workshop" />&ndash;&gt;-->
+<!--                    &lt;!&ndash;						<img src="img/san_antonio_airport.jpg" data-image="16" alt="Workshop" title="Workshop" />&ndash;&gt;-->
+<!--                    &lt;!&ndash;						<img src="img/san_antonio_airport.jpg" data-image="17" alt="Workshop" title="Workshop" />&ndash;&gt;-->
+<!--                    &lt;!&ndash;						<img src="img/san_antonio_airport.jpg" data-image="18" alt="Workshop" title="Workshop" />&ndash;&gt;-->
+<!--                    &lt;!&ndash;						<img src="img/san_antonio_airport.jpg" data-image="19" alt="Workshop" title="Workshop" />&ndash;&gt;-->
+<!--                </div>-->
+<!--            </div>-->
+            <div  id="dropdown_row" class="row  space-between mt-3">
+                <div class="col-6 card ">
                     <!--Locations dropdown-->
                     <label for="locations_dropdown">Locations:</label>
                     <select name="location" id="locations_dropdown" data-selected="">
@@ -80,15 +84,13 @@
                         </div>
                     </div>
 
-                    <button type="submit">Filter
-                    </button>
+                    <button type="submit" style="background-color: #659DBD" class="btn btn-sm">Filter</button>
                     <!--Filter button-->
-
+    </form>
                 </div>
-                <div class="col-1">
 
-                </div>
-                <div class="col card align-items-center">
+
+                <div class="col-6 card">
                     How to search:
                     <br>
 
@@ -105,19 +107,19 @@
                     <br>
 
                     - Once you have found a property post that closely resembles your own, press the inquire button to
-                    get in contact with the user that posted the lost property.
+                      get in contact with the user that posted the lost property.
                     <br>
                 </div>
             </div>
-        </div>
-    </form>
+<!--        </div>-->
+
 
     <!--Property Cards-->
-    <div class="container-fluid">
-        <div class="card py-3 px-4">
+<!--    <div class="container">-->
+        <div  id="background-card" class="">
             <div class="row">
                 <th:block th:if="${searchProperties != null}">
-                    <div class="d-none d-lg-block d-xxl-block col-6 mt-5" th:each="item : ${searchProperties}">
+                    <div class="d-none d-lg-block d-xxl-block col-6 mt-3" th:each="item : ${searchProperties}">
                         <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
 
                             <div class="card__header">
@@ -240,7 +242,7 @@
                     </div>
                 </th:block>
                 <th:block th:if="${searchProperties == null}">
-                <div class="d-none d-lg-block d-xxl-block col-6 mt-5" th:each="item : ${properties}">
+                <div class="d-none d-lg-block d-xxl-block col-6 mt-3" th:each="item : ${properties}">
                     <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
 
                         <div class="card__header">
@@ -364,7 +366,6 @@
                 </th:block>
             </div>
         </div>
-    </div>
 </div>
     <!--		</div>-->
 
