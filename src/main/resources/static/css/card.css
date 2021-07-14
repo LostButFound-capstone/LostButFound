@@ -49,7 +49,7 @@
 }
 .edit-delete {
     width: 300px;
-    color: #d4d4d4;
+    color: white;
     background-color: #ca3d43;
 }
 .edit-listing {
@@ -57,7 +57,7 @@
 }
 .edit-profile {
     background: #659dbd;
-    color: #edd9bc;
+    color: white;
     border: 1px solid black;
 }
 .filestack-api-button {
@@ -160,11 +160,8 @@
 }
 
 i {
-    /*background-color:#fff;*/
     padding:.5em;
     border-radius:50%;
-    /*box-shadow:5px 5px 5px rgba(0,0,0,.1) inset ,2px 2px 2px rgba(0,0,0,.1),-2px -2px 2px rgba(0,0,0,.1);*/
-    /*color:#1f1d01;*/
     color: #009bbe;
     transition:background-color 300ms,color 300ms;
 }

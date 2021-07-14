@@ -6,7 +6,6 @@
 
 <body>
 <link rel="stylesheet" href="/css/card.css">
-
 <header>
     <!-- If NOT logged on -->
     <nav th:replace="fragments/navbar :: navbar" sec:authorize="!isAuthenticated()"></nav>
@@ -15,217 +14,195 @@
 </header>
 
 <div class="container" data-animate-in="right">
-    <div class="container row mt-5">
 
-        <!--        <div class="card box-1 mt-5 instruction-box">-->
-        <!--            <div class="card-body" id="card-body-instruction">-->
-        <!--                &lt;!&ndash;            <h2>Instructions for creating listing:</h2>&ndash;&gt;-->
-        <!--                &lt;!&ndash;            <br>&ndash;&gt;-->
+    <form class="card mt-3 mb-5" style="background: #264851; color: #d4d4d4; border: 1px solid #e18a77;"
+          th:action="@{/edit/{id}(id=${property.id})}" method="post" th:object="${property}">
 
-        <!--                <hr class="solid mx-3 mt-3">-->
+        <!--    <div class="fill-out-form">-->
+        <!--        <h5>Tell us about what you found!</h5>-->
+        <!--    </div>-->
 
-        <!--            </div>-->
-        <!--        </div>-->
+        <div class="text-center mt-4">
+
+            <label class="mt-4" for="dateFound"><h3 class="text-beige">When did you find it?</h3></label>
+            <br>
+            <input id="dateFound" type="date" name="date" th:value="${dateFound}" required>
+        </div>
+
+        <hr class="solid  mx-3 mt-5">
+
+        <div class="mt-5 mb-5 text-center">
+
+            <label><h3 class="text-beige">Choose one or more categories that fits the item you found:</h3></label>
+            <br>
+
+            <div class="container row justify-content-end">
+
+
+                <th:block th:each="category : ${categories}">
+
+                    <div th:if="${property.categories.contains(category)}" class="col-3 d-flex align-items-center align-items-left" style=" width:200px; height:25px;">
+                        <input class="mx-2" checked="checked" type="checkbox" name="categories" th:id="${category.id}" th:value="${category.id}">
+                        <label th:for="${category.id}"><span class="text-beige" th:text="${category.property_type}"></span></label>
+                    </div>
+
+                    <div th:unless="${property.categories.contains(category)}" class="col-3 d-flex align-items-center align-items-left" style=" width:200px; height:25px;">
+                        <input class="mx-2" type="checkbox" name="categories" th:id="${category.id}" th:value="${category.id}">
+                        <label th:for="${category.id}"><span class="text-beige" th:text="${category.property_type}"></span></label>
+                    </div>
+
+                </th:block>
+
+            </div>
+
+        </div>
+
+        <hr class="solid2 mx-3 mt-3">
+
+
+        <div class="container">
+            <div class="mt-4">
+                <div class=" text-center">
+                    <label for="createTitle"><h3 class="text-beige">What did you find?</h3></label>
+                </div>
+                <div>
+                    <input id="createTitle" type="text" th:field="*{title}" style="width:100%"
+                           required>
+                </div>
+            </div>
+        </div>
+
+        <hr class="solid3 mx-3 mt-5">
+
+        <div class="container mt-5 text-center">
+            <div class="d-flex justify-content-around">
+                <label for="locations"><h3 class="text-beige">Where did you find this item?</h3></label>
+
+                <select id="locations" th:field="*{location}" required>
+                    <th:block th:each="location : ${locations}">
+                        <option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
+                    </th:block>
+                </select>
+
+                <br>
+            </div>
+            <input type="hidden" name="datePosted" th:value="${datePosted}">
+
+            <button type="submit" class="btn btn-outline-secondary mt-3 mb-4">Submit</button>
+        </div>
+
+        <br>
+        <br>
         <br>
 
-    </div>
 
-        <form class="card mt-3 mb-5" style="background: #282838; color: #d4d4d4; border: 1px solid #009bbe;"
-              th:action="@{/edit/{id}(id=${property.id})}" method="post" th:object="${property}">
+    </form>
 
-            <!--    <div class="fill-out-form">-->
-            <!--        <h5>Tell us about what you found!</h5>-->
-            <!--    </div>-->
+</div>
+<footer th:replace="fragments/footer :: footer"></footer>
 
-            <div class="text-center mt-4">
+<script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+</script>
+<script>
+    // When the user clicks on div, open the popup
+    function myFunction2(event) {
+        event.stopPropagation();
+        var popup = event.target.childNodes[1];
+        popup.classList.toggle("show");
+    }
 
-                <label class="mt-4" for="dateFound"><h3>When did you find it?</h3></label>
-                <br>
-                <input id="dateFound" type="date" name="date" th:value="${dateFound}">
-            </div>
+    $(function () {
 
-            <hr class="solid  mx-3 mt-5">
-
-            <div class="mt-5 mb-5 text-center">
-
-                <label><h3>Choose one or more categories that fits the item you found:</h3></label>
-                <br>
-
-                <div class="container row justify-content-end">
-
-                    <th:block class="" th:each="category : ${categories}">
-
-                        <th:block th:if="${property.categories.contains(category)}">
-
-                        <div class="col-3 d-flex align-items-left" style=" width:200px; height:25px;">
-                            <input class="mx-2" type="checkbox" name="categories" th:id="${category.id}"
-                                   th:value="${category.id}">
-                            <label th:for="${category.id}"><span th:text="${category.property_type}"></span></label>
-                            <input checked="checked" type="checkbox" name="categories" th:id="${category.id}" th:value="${category.id}">
-                        </div>
-                            <div th:unless="${property.categories.contains(category)}">
-                                <label th:for="${category.id}"><span th:text="${category.property_type}"></span></label><br>
-                                <input type="checkbox" name="categories" th:id="${category.id}" th:value="${category.id}">
-                            </div>
-                        </th:block>
-
-
-
-
-                        </th:block>
-                    </th:block>
-
-                </div>
-
-            </div>
-
-            <hr class="solid2 mx-3 mt-3">
-
-
-            <div class="container">
-                <div class="mt-4">
-                    <div class=" text-center">
-                        <label for="createTitle"><h3>What did you find?</h3></label>
-                    </div>
-                    <div>
-                        <input id="createTitle" type="text" th:field="*{title}" style="width:100%"
-                               required>
-                    </div>
-                </div>
-            </div>
-
-            <hr class="solid3 mx-3 mt-5">
-
-            <div class="container mt-5 text-center">
-                <div class="d-flex justify-content-around">
-                    <label for="locations"><h3>Where did you find this item?</h3></label>
-
-                    <select id="locations" th:field="*{location}" required>
-                        <th:block th:each="location : ${locations}">
-                            <option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
-                        </th:block>
-                    </select>
-
-                    <br>
-                </div>        <!--      <div class="button">-->
-                <!--    <input type="submit">-->
-                <input type="hidden" name="datePosted" th:value="${datePosted}">
-
-                <button type="submit" class="btn btn-outline-secondary mt-3 mb-4">Submit</button>
-            </div>
-
-            <br>
-            <br>
-            <br>
-
-
-        </form>
-
-    </div>
-    <!--<footer th:replace="fragments/footer :: footer"></footer>-->
-
-    <script
-            src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-            crossorigin="anonymous">
-    </script>
-    <script>
-        // When the user clicks on div, open the popup
-        function myFunction2(event) {
-            event.stopPropagation();
-            var popup = event.target.childNodes[1];
-            popup.classList.toggle("show");
+        var html = $('html');
+        // Detections
+        if (!("ontouchstart" in window)) {
+            html.addClass("noTouch");
+        }
+        if ("ontouchstart" in window) {
+            html.addClass("isTouch");
+        }
+        if ("ontouchstart" in window) {
+            html.addClass("isTouch");
+        }
+        if (document.documentMode || /Edge/.test(navigator.userAgent)) {
+            if (navigator.appVersion.indexOf("Trident") === -1) {
+                html.addClass("isEDGE");
+            } else {
+                html.addClass("isIE isIE11");
+            }
+        }
+        if (navigator.appVersion.indexOf("MSIE") !== -1) {
+            html.addClass("isIE");
+        }
+        if (
+            navigator.userAgent.indexOf("Safari") != -1 &&
+            navigator.userAgent.indexOf("Chrome") == -1
+        ) {
+            html.addClass("isSafari");
         }
 
-        $(function () {
+        // On Screen
 
-            var html = $('html');
-            // Detections
-            if (!("ontouchstart" in window)) {
-                html.addClass("noTouch");
-            }
-            if ("ontouchstart" in window) {
-                html.addClass("isTouch");
-            }
-            if ("ontouchstart" in window) {
-                html.addClass("isTouch");
-            }
-            if (document.documentMode || /Edge/.test(navigator.userAgent)) {
-                if (navigator.appVersion.indexOf("Trident") === -1) {
-                    html.addClass("isEDGE");
+        $.fn.isOnScreen = function () {
+            var elementTop = $(this).offset().top,
+                elementBottom = elementTop + $(this).outerHeight(),
+                viewportTop = $(window).scrollTop(),
+                viewportBottom = viewportTop + $(window).height();
+            return elementBottom > viewportTop && elementTop < viewportBottom;
+        };
+
+        function detection() {
+            for (var i = 0; i < items.length; i++) {
+                var el = $(items[i]);
+
+                if (el.isOnScreen()) {
+                    el.addClass("in-view");
                 } else {
-                    html.addClass("isIE isIE11");
+                    el.removeClass("in-view");
                 }
             }
-            if (navigator.appVersion.indexOf("MSIE") !== -1) {
-                html.addClass("isIE");
+        }
+
+        var items = document.querySelectorAll(
+            "*[data-animate-in], *[data-detect-viewport]"
+            ),
+            waiting = false,
+            w = $(window);
+
+        w.on("resize scroll", function () {
+            if (waiting) {
+                return;
             }
-            if (
-                navigator.userAgent.indexOf("Safari") != -1 &&
-                navigator.userAgent.indexOf("Chrome") == -1
-            ) {
-                html.addClass("isSafari");
-            }
+            waiting = true;
+            detection();
 
-            // On Screen
-
-            $.fn.isOnScreen = function () {
-                var elementTop = $(this).offset().top,
-                    elementBottom = elementTop + $(this).outerHeight(),
-                    viewportTop = $(window).scrollTop(),
-                    viewportBottom = viewportTop + $(window).height();
-                return elementBottom > viewportTop && elementTop < viewportBottom;
-            };
-
-            function detection() {
-                for (var i = 0; i < items.length; i++) {
-                    var el = $(items[i]);
-
-                    if (el.isOnScreen()) {
-                        el.addClass("in-view");
-                    } else {
-                        el.removeClass("in-view");
-                    }
-                }
-            }
-
-            var items = document.querySelectorAll(
-                "*[data-animate-in], *[data-detect-viewport]"
-                ),
-                waiting = false,
-                w = $(window);
-
-            w.on("resize scroll", function () {
-                if (waiting) {
-                    return;
-                }
-                waiting = true;
-                detection();
-
-                setTimeout(function () {
-                    waiting = false;
-                }, 100);
-            });
-
-            $(document).ready(function () {
-                setTimeout(function () {
-                    detection();
-                }, 500);
-
-                for (var i = 0; i < items.length; i++) {
-                    var d = 0,
-                        el = $(items[i]);
-                    if (items[i].getAttribute("data-animate-in-delay")) {
-                        d = items[i].getAttribute("data-animate-in-delay") / 1000 + "s";
-                    } else {
-                        d = 0;
-                    }
-                    el.css("transition-delay", d);
-                }
-            });
+            setTimeout(function () {
+                waiting = false;
+            }, 100);
         });
 
-    </script>
+        $(document).ready(function () {
+            setTimeout(function () {
+                detection();
+            }, 500);
+
+            for (var i = 0; i < items.length; i++) {
+                var d = 0,
+                    el = $(items[i]);
+                if (items[i].getAttribute("data-animate-in-delay")) {
+                    d = items[i].getAttribute("data-animate-in-delay") / 1000 + "s";
+                } else {
+                    d = 0;
+                }
+                el.css("transition-delay", d);
+            }
+        });
+    });
+
+</script>
 </body>
 </html>
 

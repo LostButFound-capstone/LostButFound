@@ -71,7 +71,7 @@
 
             <div class="container row justify-content-end">
 
-                <th:block class="" th:each="category : ${categories}">
+                <th:block th:each="category : ${categories}">
 
 
                     <div class="col-3 d-flex align-items-left" style=" width:200px; height:25px;">
@@ -115,8 +115,7 @@
                 </select>
 
                 <br>
-            </div>        <!--      <div class="button">-->
-            <!--    <input type="submit">-->
+            </div>
             <button type="submit" class="btn btn-outline-secondary mt-5 mb-4">Submit</button>
         </div>
 

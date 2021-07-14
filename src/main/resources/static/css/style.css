@@ -165,7 +165,7 @@ body {
 }
 
 .btn-outline-light {
-    color: #dfe1e5;
+    color: white;
 }
 .btn-outline-secondary {
     border-color: #edd9bc;
@@ -365,13 +365,13 @@ p {
     width: 200px;
     height: 200px;
     border-radius: 50%;
+    background: #254b5b;
 }
 
 .cardImage > img {
     object-fit: cover;
     border-radius: 50%;
-    height: auto;
-    background: #7d9c95;
+    /*background: #7d9c95;*/
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
