@@ -1,12 +1,12 @@
-select {
-    margin-bottom: 2em;
-    padding: 0.25em;
-    border: 0;
-    border-bottom: 2px solid currentcolor;
-    font-weight: bold;
-    letter-spacing: 0.15em;
-    border-radius: 1px;
-}
+/*select {*/
+/*    margin-bottom: 2em;*/
+/*    padding: 0.25em;*/
+/*    border: 0;*/
+/*    border-bottom: 2px solid currentcolor;*/
+/*    font-weight: bold;*/
+/*    letter-spacing: 0.15em;*/
+/*    border-radius: 1px;*/
+/*}*/
 select:focus, select:active {
     outline: 0;
     border-bottom-color: #FF8200;
@@ -20,7 +20,7 @@ select:focus, select:active {
     justify-content: center;
     align-items: center;
     border-radius: 3px 3px 3px 3px;
-    overflow: hidden;
+    overflow: auto;
     /*box-shadow: 0 20px 15px -15px rgba(0, 0, 0, 0.5);*/
 }
 .images img,
@@ -31,13 +31,14 @@ select:focus, select:active {
     font-weight: bold;
 }
 .images[data-selected=""]:not(.loading) {
-    /*background: #eee;*/
+    background-image: url(/img/the_alamo.jpg);
+    background-repeat: no-repeat;
 }
 .images[data-selected=""]:not(.loading) .no-selection {
-    display: block;
+    display: flex;
 }
 .images.loading {
-    background: #eee;
+
 }
 .images.loading .loader {
     display: block;
