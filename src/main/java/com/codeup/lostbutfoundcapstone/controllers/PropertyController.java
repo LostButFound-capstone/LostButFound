@@ -342,7 +342,7 @@ public class PropertyController {
     @PostMapping("/search-results")
     public String searchBar(Model model, @RequestParam(name = "searchBar") String searchString) {
 
-        model.addAttribute("searchProperties", propertyDao.findPropertyByCategoriesIsLikeOrLocationIsLike(searchString, searchString));
+        model.addAttribute("searchProperties", propertyDao.findPropertyByTitle(searchString));
 
         return "property/listings";
     }
