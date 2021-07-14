@@ -30,7 +30,11 @@ html, body {
     height:100%;
 }
 
-
+body {
+    height: 100%;
+    margin: 0;
+    background-color: #7e9b93;
+}
 
 /**************************** background animation test ************************/
 
@@ -47,7 +51,7 @@ html, body {
 /*}*/
 /* ============= Animation background ========= */
 .background {
-    background: linear-gradient(270deg, hsla(203, 30%, 80%, 1) 0%, hsla(203, 20%, 20%, 1) 100%);
+    background: #2b4857;
     background-size: 400% 400%;
     /*animation: Gradient 15s ease infinite;*/
     position: relative;
@@ -141,31 +145,30 @@ html, body {
     }
 }
 
-
-
-body {
-    height: 100%;
-    margin: 0;
-    background: -webkit-linear-gradient(220deg, hsla(203, 30%, 80%, 1) 0%, hsla(203, 20%, 20%, 1) 100%) no-repeat fixed;
+.text-beige {
+    color: #edd9bc;
 }
 
 .box1 > h3 {
     font-size: 36px;
-    color: #dfe1e5;
+    color: black;
 }
 
 .box1 > p {
     font-size: 20px;
-    color: #dfe1e5;
+    color: black;
 }
 
 .h3, h3 {
     font-size: 1.75rem;
-    color: #dfe1e5;
+    color: black;
 }
 
 .btn-outline-light {
     color: #dfe1e5;
+}
+.btn-outline-secondary {
+    border-color: #edd9bc;
 }
 /**************************** background animation test ************************/
 /*#00b3bc*/
@@ -182,7 +185,7 @@ body {
 /*}*/
 /* ============= Animation background ========= */
 .background {
-    background: linear-gradient(270deg, hsla(203, 30%, 80%, 1) 0%, hsla(203, 20%, 20%, 1) 100%);
+    background-color: #7d9c95;
     /*background-size: 400% 400%;*/
     /*animation: Gradient 15s ease infinite;*/
     position: relative;
@@ -301,15 +304,15 @@ p {
 
 /* Color Schemes */
 .main-bg-color {
-    background-color: #009bbe;
+    background-color: #254b5b;
 }
 
 .button-bg-color1 {
-    background-color: #ef426f;
+    background-color: #B5ac97;
 }
 
 .button-bg-color2 {
-    background-color: #ff8200;
+    background-color: #de8d79;
 }
 
 .shade1 {
@@ -363,7 +366,7 @@ p {
     object-fit: cover;
     border-radius: 50%;
     height: auto;
-    background: #009bbe;
+    background: #7d9c95;
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
@@ -419,6 +422,7 @@ p {
     width: 100%;
     padding-right: 80px;
 }
+
 
 
 /****************************** Modals ********************************/
@@ -489,14 +493,14 @@ input[type=text], input[type=password], input[type=email] {
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #313a3e;
+    background-color: #2b4857;
     margin: 5% auto 15% auto;
     border: 1px solid #888;
     width: 80%;
 }
 
 .inputs {
-    color: #d4d4d4;
+    color: #B5ac97;
     font-weight: bold;
     font-size: larger;
     margin-top: .5rem;

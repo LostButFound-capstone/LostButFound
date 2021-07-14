@@ -1,7 +1,11 @@
 /*Card CSS*/
 .card {
-    background: #009bbe;
+    background: #edd9bc;
+    border: solid 2px #e18a77
 }
+/*.btn-danger {*/
+/*    background-color: #e18a6;*/
+/*}*/
 .list-group-item {
     padding: .8rem .5rem;
 }
@@ -21,8 +25,8 @@
 }
 .edit-profile-listings-header {
     grid-area: header;
-    background-color: rgba(40, 40, 56, 0.99);
-    color: #d4d4d4;
+    background-color: #254b5b;
+    color: #e18a77;
     min-width: 100%;
     border-radius: .25rem;
     display: flex;
@@ -32,26 +36,29 @@
 }
 .edit-profile-listings-header h2 {
     font-weight: bold;
+    color: #e18a77;
 }
 #card-body {
-    background: #282838;
-    color: #d4d4d4;
+    background: #edd9bc;
+    color: black;
     border-radius: .25rem;
 }
 .user-info {
-    background-color: rgba(40, 40, 56, 0.99);
-    color: #d4d4d4;
+    background-color: #edd9bc;
+    color: black;
 }
 .edit-delete {
     width: 300px;
     color: #d4d4d4;
+    background-color: #ca3d43;
 }
 .edit-listing {
-    background: #015398;
+    background: #659dbd;
 }
 .edit-profile {
-    background: #015398;
-    color: #d4d4d4;
+    background: #659dbd;
+    color: #edd9bc;
+    border: 1px solid black;
 }
 .filestack-api-button {
     background: #015398;
@@ -59,7 +66,7 @@
 }
 .profile-listings-header {
     grid-area: header;
-    background-color: rgba(40, 40, 56, 0.99);
+    background-color: #254b5b;
     min-width: 100%;
     /*border: 2px solid #ef426f;*/
     border-radius: .25rem;
@@ -67,16 +74,17 @@
     align-content: center;
     text-align: center;
     margin-bottom: 1.5rem;
+    border-bottom: 2px solid #e18a77;
 }
 .profile-listings-header h2 {
     font-family: 'Lora',sans-serif;
-    color: #d4d4d4;
+    color: #e18a77;
     margin: 1rem;
     font-weight: bold;
 }
 .profile__card {
     min-width:100%;
-    background-color: rgba(40, 40, 56, 0.86);
+    background-color: #264851;
     box-shadow:17px 17px 5px rgba(0,0,0,.4);
     /*display:grid;*/
     grid-template-columns:1fr;
@@ -88,9 +96,9 @@
 }
 .card__header {
     grid-area:header;
-    background-color: rgba(40, 40, 56, 0.99);
+    background-color: #254b5b;
     min-width:100%;
-    border-bottom:2px solid #ef426f;
+    border-bottom:2px solid #e18a77;
     border-top-left-radius: .4rem;
     border-top-right-radius: .4rem;
     display: flex;
@@ -103,7 +111,7 @@
     font-family:'Lora',sans-serif;
     font-size:1.8rem;
     /*text-align: center;*/
-    color: #d4d4d4;
+    color: #e18a77;
     /*padding:.3em 0;*/
     margin: auto auto auto .5rem;
 }
@@ -133,7 +141,7 @@
 }
 
 .about__me {
-    color: #d4d4d4;
+    color: #edd9bc;
     font-weight:500;
     font-size: 1.2rem;
     padding: .2rem 1rem .5rem 1rem;
@@ -141,12 +149,12 @@
 }
 
 .important__social__links {
-    background-color: #282838;
+    background-color: #254b5b;
     padding:.5em;
     display:flex;
     justify-content: space-evenly;
     font-size:1.5rem;
-    border-top:3px solid #ff8200;
+    border-top:2px solid #e18a77;
     border-bottom-left-radius: .4rem;
     border-bottom-right-radius: .4rem;
 }

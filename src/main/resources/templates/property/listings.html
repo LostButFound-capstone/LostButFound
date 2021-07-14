@@ -73,7 +73,6 @@
                     </select>
                     <!--Date-picker-->
                     <label for="dateFound">Date lost:</label>
-                    <!--							<input class="mb-2" id="dateFound" type="date" name="date_found">-->
                     <div class="input-group.date mb-2">
                         <input name="date_found" id="dateFound" type="date" class="form-control align-center">
                         <div class="input-group-addon">
@@ -117,6 +116,130 @@
     <div class="container-fluid">
         <div class="card py-3 px-4">
             <div class="row">
+                <th:block th:if="${searchProperties != null}">
+                    <div class="d-none d-lg-block d-xxl-block col-6 mt-5" th:each="item : ${searchProperties}">
+                        <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
+
+                            <div class="card__header">
+                                <div class="card__image">
+                                    <img th:src="${item.user.profile_image_path}" height="50px" width="50px"/>
+                                </div>
+                                <h2 th:text="${item.title}"></h2>
+                            </div>
+
+                            <div class="card__body">
+                                <p class="about__me">Found by:<span class="about__me"
+                                                                    th:text="${item.user.username}"></span></p>
+                                <p class="about__me">Location found: <span th:text="${item.location.location_name}"></span>
+                                </p>
+                                <p class="about__me">Categories:
+                                    <th:block th:each="category : ${item.categories}">
+                                        <span th:text="${category.property_type}"></span>
+                                        <img th:if="${category.id == 1}" src="/img/category_icons/phone_icon.png" alt="icon">
+                                        <img th:if="${category.id == 2}" src="/img/category_icons/tablet_icon.png" alt="icon">
+                                        <img th:if="${category.id == 3}" src="/img/category_icons/headphones_icon.png" alt="icon">
+                                        <img th:if="${category.id == 4}" src="/img/category_icons/laptop_icon.png" alt="icon">
+                                        <img th:if="${category.id == 5}" src="/img/category_icons/electronics_icon.png" alt="icon">
+                                        <img th:if="${category.id == 6}" src="/img/category_icons/keys_icon.png" alt="icon">
+                                        <img th:if="${category.id == 7}" src="/img/category_icons/glasses_icon.png" alt="icon">
+                                        <img th:if="${category.id == 8}" src="/img/category_icons/other_icon.png" alt="icon">
+                                        <img th:if="${category.id == 9}" src="/img/category_icons/other_icon.png" alt="icon">
+                                        <img th:if="${category.id == 10}" src="/img/category_icons/purse_icon.png" alt="icon">
+                                        <img th:if="${category.id == 11}" src="/img/category_icons/makeup_bag_icon.png" alt="icon">
+                                        <img th:if="${category.id == 12}" src="/img/category_icons/hats_icon.png" alt="icon">
+                                        <img th:if="${category.id == 13}" src="/img/category_icons/jackets_icon.png" alt="icon">
+                                        <img th:if="${category.id == 14}" src="/img/category_icons/shoes_icon.png" alt="icon">
+                                        <img th:if="${category.id == 15}" src="/img/category_icons/clothes_icon.png" alt="icon">
+                                        <img th:if="${category.id == 16}" src="/img/category_icons/other_icon.png" alt="icon">
+                                        <img th:if="${category.id == 17}" src="/img/category_icons/camera_icon.png" alt="icon">
+                                        <img th:if="${category.id == 18}" src="/img/category_icons/passport_icon.png" alt="icon">
+                                        <img th:if="${category.id == 19}" src="/img/category_icons/luggage_icon.png" alt="icon">
+                                        <img th:if="${category.id == 20}" src="/img/category_icons/other_icon.png" alt="icon">
+                                        <img th:if="${category.id == 21}" src="/img/category_icons/toys_icon.png" alt="icon">
+                                        <img th:if="${category.id == 22}" src="/img/category_icons/books_icon.png" alt="icon">
+                                        <img th:if="${category.id == 23}" src="/img/category_icons/other_icon.png" alt="icon">
+                                    </th:block>
+                                </p>
+                                <p class="about__me" style="float: right">Date posted: <span
+                                        th:text="${item.formattedDatePosted}"></span></p>
+                                <p class="about__me">Date found: <span th:text="${item.formattedDateFound}"></span></p>
+                                <div class="important__social__links">
+                                    <a sec:authorize="isAuthenticated()" id="inquireBtn" role="button"
+                                       class="btn btn-sm btn-outline-secondary"
+                                       th:href="@{/inquiry/{id}(id=${item.id})}">Inquire</a>
+                                    <a sec:authorize="!isAuthenticated()" id="inquireBtn" role="button"
+                                       class="btn btn-sm btn-outline-secondary popup"
+                                       onclick="myFunction2(event)">Inquire
+                                        <span class="popuptext" id="myPopupLg">To inquire about a missing item, you need to be a logged in user!</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="d-block d-lg-none d-xxl-none col-12" th:each="item : ${searchProperties}">
+                        <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
+
+                            <div class="card__header">
+                                <div class="card__image">
+                                    <img th:src="${item.user.profile_image_path}" height="50px" width="50px"/>
+                                </div>
+                                <h2 th:text="${item.title}"></h2>
+                            </div>
+
+                            <div class="card__body">
+                                <p class="about__me">Found by:<span class="about__me"
+                                                                    th:text="${item.user.username}"></span></p>
+                                <p class="about__me">Location found: <span th:text="${item.location.location_name}"></span>
+                                </p>
+                                <p class="about__me">Categories:
+                                    <th:block th:each="category : ${item.categories}">
+                                        <span th:text="${category.property_type}"></span>
+                                        <img th:if="${category.id == 1}" src="/img/category_icons/phone_icon.png" alt="icon">
+                                        <img th:if="${category.id == 2}" src="/img/category_icons/tablet_icon.png" alt="icon">
+                                        <img th:if="${category.id == 3}" src="/img/category_icons/headphones_icon.png" alt="icon">
+                                        <img th:if="${category.id == 4}" src="/img/category_icons/laptop_icon.png" alt="icon">
+                                        <img th:if="${category.id == 5}" src="/img/category_icons/electronics_icon.png" alt="icon">
+                                        <img th:if="${category.id == 6}" src="/img/category_icons/keys_icon.png" alt="icon">
+                                        <img th:if="${category.id == 7}" src="/img/category_icons/glasses_icon.png" alt="icon">
+                                        <img th:if="${category.id == 8}" src="/img/category_icons/other_icon.png" alt="icon">
+                                        <img th:if="${category.id == 9}" src="/img/category_icons/other_icon.png" alt="icon">
+                                        <img th:if="${category.id == 10}" src="/img/category_icons/purse_icon.png" alt="icon">
+                                        <img th:if="${category.id == 11}" src="/img/category_icons/makeup_bag_icon.png" alt="icon">
+                                        <img th:if="${category.id == 12}" src="/img/category_icons/hats_icon.png" alt="icon">
+                                        <img th:if="${category.id == 13}" src="/img/category_icons/jackets_icon.png" alt="icon">
+                                        <img th:if="${category.id == 14}" src="/img/category_icons/shoes_icon.png" alt="icon">
+                                        <img th:if="${category.id == 15}" src="/img/category_icons/clothes_icon.png" alt="icon">
+                                        <img th:if="${category.id == 16}" src="/img/category_icons/other_icon.png" alt="icon">
+                                        <img th:if="${category.id == 17}" src="/img/category_icons/camera_icon.png" alt="icon">
+                                        <img th:if="${category.id == 18}" src="/img/category_icons/passport_icon.png" alt="icon">
+                                        <img th:if="${category.id == 19}" src="/img/category_icons/luggage_icon.png" alt="icon">
+                                        <img th:if="${category.id == 20}" src="/img/category_icons/other_icon.png" alt="icon">
+                                        <img th:if="${category.id == 21}" src="/img/category_icons/toys_icon.png" alt="icon">
+                                        <img th:if="${category.id == 22}" src="/img/category_icons/books_icon.png" alt="icon">
+                                        <img th:if="${category.id == 23}" src="/img/category_icons/other_icon.png" alt="icon">
+                                    </th:block>
+                                </p>
+                                <p class="about__me" style="float: right">Date posted: <span
+                                        th:text="${item.formattedDatePosted}"></span></p>
+                                <p class="about__me">Date found: <span th:text="${item.formattedDateFound}"></span></p>
+                                <div class="important__social__links">
+                                    <a sec:authorize="isAuthenticated()" id="inquireBtn" role="button"
+                                       class="btn btn-sm btn-outline-secondary"
+                                       th:href="@{/inquiry/{id}(id=${item.id})}">Inquire</a>
+                                    <a sec:authorize="!isAuthenticated()" id="inquireBtn" role="button"
+                                       class="btn btn-sm btn-outline-secondary popup"
+                                       onclick="myFunction2(event)">Inquire
+                                        <span class="popuptext" id="myPopupLg">To inquire about a missing item, you need to be a logged in user!</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </th:block>
+                <th:block th:if="${searchProperties == null}">
                 <div class="d-none d-lg-block d-xxl-block col-6 mt-5" th:each="item : ${properties}">
                     <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
 
@@ -126,12 +249,6 @@
                             </div>
                             <h2 th:text="${item.title}"></h2>
                         </div>
-
-                        <!--        <div class="image__container">-->
-                        <!--            <div class="card__image">-->
-                        <!--                <img th:src="${item.user.profile_image_path}" height="200px" width="200px"/>-->
-                        <!--            </div>-->
-                        <!--        </div>-->
 
                         <div class="card__body">
                             <p class="about__me">Found by:<span class="about__me"
@@ -169,7 +286,6 @@
                             <p class="about__me" style="float: right">Date posted: <span
                                     th:text="${item.formattedDatePosted}"></span></p>
                             <p class="about__me">Date found: <span th:text="${item.formattedDateFound}"></span></p>
-                            <!--            <p class="about__me">Date posted: <span th:text="${item.formattedDatePosted}"></span></p>-->
                             <div class="important__social__links">
                                 <a sec:authorize="isAuthenticated()" id="inquireBtn" role="button"
                                    class="btn btn-sm btn-outline-secondary"
@@ -179,7 +295,6 @@
                                    onclick="myFunction2(event)">Inquire
                                     <span class="popuptext" id="myPopupLg">To inquire about a missing item, you need to be a logged in user!</span>
                                 </a>
-                                <!--                <i class="fas fa-mobile-alt" ></i>-->
                             </div>
                         </div>
                     </div>
@@ -196,25 +311,42 @@
                             <h2 th:text="${item.title}"></h2>
                         </div>
 
-                        <!--        <div class="image__container">-->
-                        <!--            <div class="card__image">-->
-                        <!--                <img th:src="${item.user.profile_image_path}" height="200px" width="200px"/>-->
-                        <!--            </div>-->
-                        <!--        </div>-->
-
                         <div class="card__body">
                             <p class="about__me">Found by:<span class="about__me"
                                                                 th:text="${item.user.username}"></span></p>
                             <p class="about__me">Location found: <span th:text="${item.location.location_name}"></span>
                             </p>
                             <p class="about__me">Categories:
-                                <th:block th:each="category : ${item.categories}"><span
-                                        th:text="${category.property_type}"></span><span> | </span></th:block>
+                                <th:block th:each="category : ${item.categories}">
+                                    <span th:text="${category.property_type}"></span>
+                                    <img th:if="${category.id == 1}" src="/img/category_icons/phone_icon.png" alt="icon">
+                                    <img th:if="${category.id == 2}" src="/img/category_icons/tablet_icon.png" alt="icon">
+                                    <img th:if="${category.id == 3}" src="/img/category_icons/headphones_icon.png" alt="icon">
+                                    <img th:if="${category.id == 4}" src="/img/category_icons/laptop_icon.png" alt="icon">
+                                    <img th:if="${category.id == 5}" src="/img/category_icons/electronics_icon.png" alt="icon">
+                                    <img th:if="${category.id == 6}" src="/img/category_icons/keys_icon.png" alt="icon">
+                                    <img th:if="${category.id == 7}" src="/img/category_icons/glasses_icon.png" alt="icon">
+                                    <img th:if="${category.id == 8}" src="/img/category_icons/other_icon.png" alt="icon">
+                                    <img th:if="${category.id == 9}" src="/img/category_icons/other_icon.png" alt="icon">
+                                    <img th:if="${category.id == 10}" src="/img/category_icons/purse_icon.png" alt="icon">
+                                    <img th:if="${category.id == 11}" src="/img/category_icons/makeup_bag_icon.png" alt="icon">
+                                    <img th:if="${category.id == 12}" src="/img/category_icons/hats_icon.png" alt="icon">
+                                    <img th:if="${category.id == 13}" src="/img/category_icons/jackets_icon.png" alt="icon">
+                                    <img th:if="${category.id == 14}" src="/img/category_icons/shoes_icon.png" alt="icon">
+                                    <img th:if="${category.id == 15}" src="/img/category_icons/clothes_icon.png" alt="icon">
+                                    <img th:if="${category.id == 16}" src="/img/category_icons/other_icon.png" alt="icon">
+                                    <img th:if="${category.id == 17}" src="/img/category_icons/camera_icon.png" alt="icon">
+                                    <img th:if="${category.id == 18}" src="/img/category_icons/passport_icon.png" alt="icon">
+                                    <img th:if="${category.id == 19}" src="/img/category_icons/luggage_icon.png" alt="icon">
+                                    <img th:if="${category.id == 20}" src="/img/category_icons/other_icon.png" alt="icon">
+                                    <img th:if="${category.id == 21}" src="/img/category_icons/toys_icon.png" alt="icon">
+                                    <img th:if="${category.id == 22}" src="/img/category_icons/books_icon.png" alt="icon">
+                                    <img th:if="${category.id == 23}" src="/img/category_icons/other_icon.png" alt="icon">
+                                </th:block>
                             </p>
                             <p class="about__me" style="float: right">Date posted: <span
                                     th:text="${item.formattedDatePosted}"></span></p>
                             <p class="about__me">Date found: <span th:text="${item.formattedDateFound}"></span></p>
-                            <!--            <p class="about__me">Date posted: <span th:text="${item.formattedDatePosted}"></span></p>-->
                             <div class="important__social__links">
                                 <a sec:authorize="isAuthenticated()" id="inquireBtn" role="button"
                                    class="btn btn-sm btn-outline-secondary"
@@ -224,12 +356,12 @@
                                    onclick="myFunction2(event)">Inquire
                                     <span class="popuptext" id="myPopupLg">To inquire about a missing item, you need to be a logged in user!</span>
                                 </a>
-                                <!--                <i class="fas fa-mobile-alt" ></i>-->
                             </div>
                         </div>
                     </div>
 
                 </section>
+                </th:block>
             </div>
         </div>
     </div>
