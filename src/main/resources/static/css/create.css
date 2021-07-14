@@ -132,7 +132,7 @@ hr.solid3 {
 }
 
 label h3 {
-    color: #d4d4d4;
+    color: #edd9bc;
     font-weight: bold;
 }
 
@@ -151,6 +151,6 @@ label h3 {
     margin-top: 0;
 }
 
-h2, h4 , ul li {
+h2, h4, ul li {
     color:#edd9bc;
 }
