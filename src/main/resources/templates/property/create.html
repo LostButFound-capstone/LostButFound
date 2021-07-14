@@ -20,7 +20,7 @@
             <div class="card-body" id="card-body-instruction" style="background-color: #264851">
                 <!--            <h2>Instructions for creating listing:</h2>-->
                 <!--            <br>-->
-                <h2 style="font-style: italic; font-weight: bold; color: #d4d4d4;">I found someone's item...now
+                <h2 style="font-style: italic; font-weight: bold; color: #edd9bc;">I found someone's item...now
                     what?</h2>
                 <hr class="solid mx-3 mt-3">
                 <h4>
@@ -57,7 +57,7 @@
 
         <div class="text-center mt-4">
 
-            <label class="mt-4" for="dateFound"><h3>When did you find it?</h3></label>
+            <label class="mt-4" for="dateFound"><h2>When did you find it?</h2></label>
             <br>
             <input id="dateFound" type="date" name="date" required>
         </div>
@@ -66,7 +66,7 @@
 
         <div class="mt-5 mb-5 text-center">
 
-            <label><h3>Choose one or more categories that fits the item you found:</h3></label>
+            <label><h2>Choose one or more categories that fits the item you found:</h2></label>
             <br>
 
             <div class="container row justify-content-end">
@@ -74,7 +74,7 @@
                 <th:block th:each="category : ${categories}">
 
 
-                    <div class="col-3 d-flex align-items-left" style=" width:200px; height:25px;">
+                    <div class="col-3 d-flex align-items-left" style=" width:200px; height:25px; color: #edd9bc">
                         <input class="mx-2" type="checkbox" name="categories" th:id="${category.id}"
                                th:value="${category.id}">
                         <label th:for="${category.id}"><span th:text="${category.property_type}"></span></label>
@@ -93,7 +93,7 @@
         <div class="container">
             <div class="mt-4">
                 <div class=" text-center">
-                    <label for="createTitle"><h3>What did you find?</h3></label>
+                    <label for="createTitle"><h2>What did you find?</h2></label>
                 </div>
                 <div>
                     <input id="createTitle" type="text" th:field="*{title}" style="width:100%"
@@ -106,7 +106,7 @@
 
         <div class="container mt-5 text-center">
             <div class="d-flex justify-content-around">
-                <label for="locations"><h3>Where did you find this item?</h3></label>
+                <label for="locations"><h2>Where did you find this item?</h2></label>
 
                 <select id="locations" th:field="*{location}" style="margin-bottom: 0em;" required>
                     <th:block th:each="location : ${locations}">
@@ -116,7 +116,7 @@
 
                 <br>
             </div>
-            <button type="submit" class="btn btn-outline-secondary mt-5 mb-4">Submit</button>
+            <button type="submit" class="btn btn-outline-secondary mt-5 mb-4" style="background-color: #659DBD; color: white;">Submit</button>
         </div>
 
         <br>
