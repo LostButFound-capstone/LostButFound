@@ -1,9 +1,9 @@
 :root {
-    --shades-of-main-bg-1: #929FAD;
-    --shades-of-main-bg-2: #A0ABB8;
-    --shades-of-main-bg-3: #ADB7C2;
-    --shades-of-main-bg-4: #BBC3CC;
-    --shades-of-main-bg-5: #C9CFD6;
+    --shades-of-main-bg-1: #395D6B;
+    --shades-of-main-bg-2: #4F6F7B;
+    --shades-of-main-bg-3: #65818C;
+    --shades-of-main-bg-4: #7B939C;
+    --shades-of-main-bg-5: #91A5AD;
 
     --button-bg-color2: darkturquoise; /* OPTION: #997877 */
     --button-bg-color1: darkslateblue; /* OPTION: #879977 */
@@ -346,6 +346,11 @@ p {
     height: 40px;
     width: 40px;
     border-radius: 50%;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 0.5rem;
+    padding-left: 2rem !important;
 }
 
 .imageContainer {

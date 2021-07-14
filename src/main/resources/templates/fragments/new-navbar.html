@@ -8,22 +8,26 @@
 <nav th:fragment="new-navbar" class="d-block d-lg-none d-xxl-none" sec:authorize="isAuthenticated()">
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="main-bg-color p-3">
-      <form class="d-flex" th:action="@{/listings}" method="post">
+      <form class="d-flex" th:action="@{/search-results}" method="post">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchBar">
-        <button class="btn border-white text-beige" type="submit">Search</button>
+        <button type="button" class="btn btn-outline-light">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16" style="margin-top: -5px;">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+          </svg>
+        </button>
       </form>
     </div>
     <div class="shade1 p-3">
       <a class="text-decoration-none" th:href="@{/}"> <h5 class="text-beige h4 border-bottom border-white">Home</h5> </a>
     </div>
     <div class="shade2 p-3">
-      <a class="text-decoration-none" th:href="@{/profile}"> <h5 class="text-beige h4 border-bottom border-white">Profile</h5> </a>
-    </div>
-    <div class="shade3 p-3">
       <a class="text-decoration-none" th:href="@{/listings}"> <h5 class="text-beige h4 border-bottom border-white">Listing</h5> </a>
     </div>
-    <div class="shade4 p-3">
+    <div class="shade3 p-3">
       <a class="text-decoration-none" th:href="@{/create}"> <h5 class="text-beige h4 border-bottom border-white">Create Post</h5> </a>
+    </div>
+    <div class="shade4 p-3">
+      <a class="text-decoration-none" th:href="@{/profile}"> <h5 class="text-beige h4 border-bottom border-white">Profile</h5> </a>
     </div>
     <div class="shade5 p-3">
       <form th:action="@{/logout}" th:method="post">
@@ -57,9 +61,13 @@
       <img src="/img/lostbutfound_logo.png" alt="logo" width="70px" height="60px">
     </a>
 
-    <form class="d-flex" th:action="@{/listings}" method="post">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchBar">
-      <button class="btn border-white text-beige" type="submit">Search</button>
+    <form class="d-flex" th:action="@{/search-results}" method="post">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchBar" style="width: 335px;">
+      <button type="button" class="btn btn-outline-light">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16" style="margin-top: -5px;">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+        </svg>
+      </button>
     </form>
 
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -68,13 +76,13 @@
           <a class="nav-link text-beige" aria-current="page" th:href="@{/}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-beige" th:href="@{/profile}">Profile</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link text-beige" th:href="@{/listings}">Listings</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-beige" th:href="@{/create}">Create Post</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-beige" th:href="@{/profile}">Profile</a>
         </li>
         <li class="nav-item">
           <form th:action="@{/logout}" th:method="post">
