@@ -1,10 +1,10 @@
 select {
-    /*margin-bottom: 2em;*/
-    /*padding: 0.25em;*/
+    /*margin-bottom: 1em;*/
+    padding: 0.25em;
     /*border: 0;*/
     border-bottom: 2px solid currentcolor;
     font-weight: bold;
-    /*letter-spacing: 0.15em;*/
+    letter-spacing: 0.15em;
     /*border-radius: 1px;*/
 }
 select:focus, select:active {
@@ -90,11 +90,24 @@ select:focus, select:active {
 
 /*Card Animation*/
 
-#dropdown_row {
+#no_gutters {
     --bs-gutter-x: none !important;
     --bs-gutter-y: none !important;
 }
 
+#column1 {
+    align-content: center;
+}
+
+#middle_column {
+    max-width: min-content;
+    margin: 1%;
+}
+
+#how_to_search {
+    color: black;
+}
+
 #rounded_image {
-    border-radius: 25%;
+    border-radius: 30%;
 }
