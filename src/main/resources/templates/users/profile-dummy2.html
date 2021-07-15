@@ -16,7 +16,7 @@
 </header>
 
 
-<div class="container" data-animate-in="right" data-animate-in-delay="100">
+<div class="container mb-3" data-animate-in="right" data-animate-in-delay="100" >
     <div class="main-body">
 
         <!-- Breadcrumb -->
@@ -125,14 +125,14 @@
                                     <p class="about__me">Date found: <span th:text="${item.formattedDateFound}"></span>
                                     </p>
                                     <div class="important__social__links">
-                                        <a role="button" id="edit-btn" class="btn btn-outline-secondary edit-delete edit-listing"
-                                           th:href="@{/edit/{id}(id=${item.id})}">Edit
-                                        </a>
-                                        <form th:action="@{/delete/{id}(id=${item.id})}" method="post">
-                                            <button type="submit"
-                                                    class="btn btn-outline-secondary btn-danger edit-delete" id="delete-btn">Delete
-                                            </button>
-                                        </form>
+                                        <div>
+                                            <a role="button" id="edit-btn" class="btn btn-outline-secondary edit-delete edit-listing" th:href="@{/edit/{id}(id=${item.id})}">Edit</a>
+                                        </div>
+                                        <div>
+                                            <form th:action="@{/delete/{id}(id=${item.id})}" method="post">
+                                                <button type="submit" class="btn btn-outline-secondary btn-danger edit-delete" id="delete-btn">Delete</button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -329,6 +329,8 @@
     });
 
 </script>
+<div class="mt-4">
 <footer th:replace="fragments/footer :: footer"></footer>
+</div>
 </body>
 </html>
