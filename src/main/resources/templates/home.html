@@ -143,20 +143,22 @@
         }
     </script>
 
+<!--    <footer id="homePageFooter" style="background-color: #edd9bc">-->
+<!--        <div class="text-center">-->
+<!--            <ul class=" footer footer-list">-->
+<!--                <li><a th:href="@{/}">&copy; LostButFound</a></li>-->
+<!--                <li>||</li>-->
+<!--                <li><a th:href="@{/contact}">Contact Us</a></li>-->
+<!--                <li>||</li>-->
+<!--                <li><a href="https://github.com/LostButFound-capstone" target="_blank">Github</a></li>-->
 
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </footer>-->
 
+    <footer th:replace="fragments/footer :: footer"></footer>
 </div>
-<footer id="homePageFooter">
-    <div class="text-center">
-        <ul class=" footer footer-list">
-            <li><a th:href="@{/}">&copy; LostButFound</a></li>
-            <li>||</li>
-            <li><a th:href="@{/contact}">Contact Us</a></li>
-            <li>||</li>
-            <li><a href="https://github.com/LostButFound-capstone" target="_blank">Github</a></li>
 
-        </ul>
-    </div>
-</footer>
+
 </body>
 </html>
