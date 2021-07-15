@@ -25,6 +25,23 @@
     justify-content: center;
     margin-left: 2px;
     margin-right: 2px;
+    margin-top: -88px;
+}
+
+
+.footer2 {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 2.5rem;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin-left: 2px;
+    margin-right: 2px;
 }
 
 a {
@@ -48,10 +65,13 @@ a {
     color: #cbecf8;
 }
 
-#contactPageFooter {
+/*#contactPageFooter {*/
+/*    position: absolute;*/
+/*    bottom: 0;*/
+/*    width: 100%;*/
+/*    height: 2.5rem;*/
 
-
-}
+/*}*/
 
 #homePageFooter {
     position: absolute;
