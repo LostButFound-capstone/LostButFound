@@ -122,19 +122,19 @@
                                         <th:block th:each="category : ${item.categories}"><span
                                                 th:text="${category.property_type}"></span><span> | </span></th:block>
                                     </p>
-                                    <p class="about__me" style="float: right">Date posted: <span
+                                    <p class="about__me">Date posted: <span
                                             th:text="${item.formattedDatePosted}"></span></p>
                                     <p class="about__me">Date found: <span th:text="${item.formattedDateFound}"></span>
                                     </p>
                                     <div class="important__social__links">
-                                        <a role="button" id="edit-btn" class="btn btn-outline-secondary edit-delete edit-listing"
-                                           th:href="@{/edit/{id}(id=${item.id})}">Edit
-                                        </a>
-                                        <form th:action="@{/delete/{id}(id=${item.id})}" method="post">
-                                            <button type="submit"
-                                                    class="btn btn-outline-secondary btn-danger edit-delete" id="delete-btn">Delete
-                                            </button>
-                                        </form>
+                                        <div>
+                                            <a role="button" id="edit-btn" class="btn btn-outline-secondary edit-delete edit-listing" th:href="@{/edit/{id}(id=${item.id})}">Edit</a>
+                                        </div>
+                                        <div>
+                                            <form th:action="@{/delete/{id}(id=${item.id})}" method="post">
+                                                <button type="submit" class="btn btn-outline-secondary btn-danger edit-delete" id="delete-btn">Delete</button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
