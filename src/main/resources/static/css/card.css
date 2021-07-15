@@ -3,6 +3,7 @@
     background: #edd9bc;
     border: solid 2px #e18a77
 }
+
 /*.btn-danger {*/
 /*    background-color: #e18a6;*/
 /*}*/
@@ -48,7 +49,6 @@
     color: black;
 }
 .edit-delete {
-    width: 300px;
     color: white;
     background-color: #ca3d43;
 }
@@ -237,5 +237,39 @@ i {
     }
     .important__social__links {
         font-size:1.4rem;
+    }
+}
+
+@media only screen and (min-width: 320px) {
+    .edit-delete {
+        width: 100px;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .edit-delete {
+        width: 150px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .edit-delete {
+        width: 150px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .edit-delete {
+        width: 200px;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .edit-delete {
+        width: 300px;
     }
 }
