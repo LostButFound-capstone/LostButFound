@@ -52,6 +52,12 @@
     color: white;
     background-color: #ca3d43;
 }
+#edit-btn:hover {
+     background-color: #008aff;
+}
+#delete-btn:hover {
+     background-color: #8d0000;
+}
 .edit-listing {
     background: #659dbd;
 }
@@ -60,9 +66,16 @@
     color: white;
     border: 1px solid black;
 }
+.edit-profile:hover {
+    background-color: #008aff;
+    color: white;
+}
 .filestack-api-button {
     background: #015398;
     color: #d4d4d4;
+}
+.filestack-api-button:hover {
+    background-color: #fd623e;
 }
 .profile-listings-header {
     grid-area: header;
