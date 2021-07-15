@@ -7,16 +7,19 @@
     <title>Title</title>
 </head>
 <body>
-
+<div class="wrapper">
 <footer th:fragment="footer">
-    <div class="text-center mt-3 footer">
-        <ul style="list-style: none" class="footer-list">
-            <li><a th:href="@{/}">&copy; LostButFound</a><span> | </span></li>
-            <li><span> | </span><a th:href="@{/contact}">Contact Us</a><span> | </span></li>
-            <li><span> | </span><a href="https://github.com/LostButFound-capstone" target="_blank">Github</a><span> | </span></li>
-            <li><span> | </span><a href="https://codeup.com/" target="_blank">Codeup</a></li>
+    <div class="text-center mt-3">
+        <ul class="footer">
+            <li><a th:href="@{/}">&copy; LostButFound</a></li>
+            <li>||</li>
+            <li><a th:href="@{/contact}">Contact Us</a></li>
+            <li>||</li>
+            <li><a href="https://github.com/LostButFound-capstone" target="_blank">Github</a></li>
+
         </ul>
     </div>
 </footer>
+</div>
 </body>
 </html>
