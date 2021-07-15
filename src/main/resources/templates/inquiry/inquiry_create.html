@@ -87,7 +87,7 @@
 
             <div class="mx-5 mt-5">
                 <form th:action="@{/inquiry/{id}(id=${listing.id})}" method="post" th:object="${inquiry}">
-
+                    <input type="hidden" name="property-id" th:value="${listing.id}">
                     <div class=" w-100 mb-5">
                         <label style="float: left;" class="inputs text-beige" for="description">Description of your item:</label>
                         <textarea class="form-control" id="description" th:field="*{inquiry_description}"></textarea>

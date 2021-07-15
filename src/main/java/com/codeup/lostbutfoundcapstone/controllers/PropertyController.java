@@ -119,7 +119,7 @@ public class PropertyController {
         model.addAttribute("inquiries", inquiryDao.findInquiryByUser(user));
 
 
-        return "users/profile-dummy";
+        return "users/profile-dummy2";
     }
 
     @GetMapping("/profile/edit/{id}")
@@ -314,7 +314,7 @@ public class PropertyController {
     }
 
     @PostMapping("/inquiry/{id}")
-    public String createInquiry(@PathVariable Long id, @ModelAttribute Inquiry inquiry, @RequestParam(name = "imageURL") String imageURL, @RequestParam(name = "imageDescription") String imageDescription) throws ParseException {
+    public String createInquiry(@PathVariable Long id, @ModelAttribute Inquiry inquiry, @RequestParam(name = "imageURL") String imageURL, @RequestParam(name = "imageDescription") String imageDescription, @RequestParam(name = "property-id") String propertyId) throws ParseException {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         InquiryImage image = new InquiryImage(imageURL, imageDescription, inquiry);
@@ -326,9 +326,13 @@ public class PropertyController {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Date currentDate = formatter.parse(dateFormat.format(blankDate));
 
+        Long propertyIdLong = Long.parseLong(propertyId);
+        Property propertyInquired = propertyDao.getById(propertyIdLong);
+
         inquiry.setUser(user);
         inquiry.setDate_posted(currentDate);
         inquiry.setImages(images);
+        inquiry.setProperty(propertyInquired);
         Property property = propertyDao.getById(id);
 
         User userPoster = property.getUser();
