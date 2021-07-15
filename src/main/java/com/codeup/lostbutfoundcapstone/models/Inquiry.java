@@ -33,19 +33,21 @@ public class Inquiry {
     public Inquiry() {
     }
 
-    public Inquiry(String inquiry_description, Date date_posted, User user, List<InquiryImage> images) {
+    public Inquiry(String inquiry_description, Date date_posted, User user, List<InquiryImage> images, Property property) {
         this.inquiry_description = inquiry_description;
         this.date_posted = date_posted;
         this.user = user;
         this.images = images;
+        this.property = property;
     }
 
-    public Inquiry(long id, String inquiry_description, Date date_posted, User user, List<InquiryImage> images) {
+    public Inquiry(long id, String inquiry_description, Date date_posted, User user, List<InquiryImage> images, Property property) {
         this.id = id;
         this.inquiry_description = inquiry_description;
         this.date_posted = date_posted;
         this.user = user;
         this.images = images;
+        this.property = property;
     }
 
     public long getId() {
@@ -86,5 +88,13 @@ public class Inquiry {
 
     public void setImages(List<InquiryImage> images) {
         this.images = images;
+    }
+
+    public Property getProperty() {
+        return property;
+    }
+
+    public void setProperty(Property property) {
+        this.property = property;
     }
 }

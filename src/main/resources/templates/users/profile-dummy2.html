@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
+
+<head th:replace="fragments/head :: head">
+
+</head>
+<body>
+<link rel="stylesheet" href="/css/card.css">
+<header>
+    <!-- If NOT logged on -->
+    <nav th:replace="fragments/navbar :: navbar" sec:authorize="!isAuthenticated()"></nav>
+    <!-- If logged on -->
+    <nav th:replace="fragments/new-navbar :: new-navbar" sec:authorize="isAuthenticated()"></nav>
+</header>
+
+
+<div class="container" data-animate-in="right" data-animate-in-delay="100">
+    <div class="main-body">
+
+        <!-- Breadcrumb -->
+        <!-- /Breadcrumb -->
+
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div id="card-body" class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <div class="cardImage" th:if="${currentUser.profile_image_path == null}">
+                                <img src="/img/pro-pic-icon.png" alt="No profile pic available" style="width: 180px; height: 180px; margin-top: 25px"/>
+                            </div>
+                            <div class="cardImage" th:if="${currentUser.profile_image_path != null}">
+                                <img th:src="${currentUser.profile_image_path}" height="200px" width="200px"
+                                     alt="profile-picture"/>
+                            </div>
+
+                            <div class="mt-3">
+                                <h4 class="profile-text" th:text="${currentUser.username}"></h4>
+                                <div th:if="${currentUser.isVerified() == false}">
+                                    <h5>Finder/Searcher</h5>
+                                </div>
+                                <div th:if="${currentUser.isVerified()}">
+                                    <h5 class="profile-text">Verified User</h5>
+                                </div>
+                                <div th:if="${currentUser.isAdmin()}">
+                                    <h5 class="profile-text">LostButFound Administrator</h5>
+                                </div>
+                                <a th:href="@{/profile/edit/{id}(id=${currentUser.id})}" class="btn edit-profile">Edit
+                                    profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap user-info">
+                            <h6 class="mb-0">Username:</h6>
+                            <span th:text="${currentUser.username}"></span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap user-info">
+                            <h6 class="mb-0">Email: </h6>
+                            <span th:text="${currentUser.email}"></span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap user-info">
+                            <h6 class="mb-0">User role:</h6>
+                            <span th:if="${currentUser.isVerified() == false && currentUser.isAdmin() == false}">Finder/Searcher</span>
+                            <span th:if="${currentUser.isAdmin()}">Administrator</span>
+                            <span th:if="${currentUser.isVerified()}">Verified User</span>
+                        </li>
+                        <!--                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">-->
+                        <!--                            <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram mr-2 icon-inline text-danger"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>Instagram</h6>-->
+                        <!--                            <span class="text-secondary">bootdey</span>-->
+                        <!--                        </li>-->
+                        <!--                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">-->
+                        <!--                            <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook mr-2 icon-inline text-primary"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>Facebook</h6>-->
+                        <!--                            <span class="text-secondary">bootdey</span>-->
+                        <!--                        </li>-->
+                    </ul>
+                </div>
+            </div>
+                <div class="col-md-8">
+                    <th:block th:if="${properties.size() == 0}">
+                        <div class="card mb-3 listings-container p-0">
+                            <div class="d-lg-block d-xxl-block col-12 profile-listings-header">
+                                <h2>Seems like you haven’t found anything yet! No worries!</h2>
+                            </div>
+                        </div>
+                    </th:block>
+                    <th:block th:if="${properties.size() != 0}">
+                    <div class="card mb-3 listings-container">
+
+                        <div class="d-lg-block d-xxl-block col-12 profile-listings-header">
+                            <h2>Here are your findings so far:</h2>
+                        </div>
+                        <div class="d-lg-block d-xxl-block col-11 mt-5" th:each="item : ${properties}">
+                            <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
+
+                                <div class="card__header">
+                                    <div th:if="${item.user.profile_image_path == null}" class="card__image">
+                                        <img src="/img/no_profile_pic.png" alt="No profile pic available" height="55px" width="50px"/>
+                                    </div>
+                                    <div class="card__image" th:if="${item.user.profile_image_path != null}">
+                                        <img th:src="${item.user.profile_image_path}" alt="profile-image-small"
+                                             height="50px" width="50px"/>
+                                    </div>
+<!--                                    <div class="card__image">-->
+<!--                                        <img th:src="${item.user.profile_image_path}" alt="profile-image-small"-->
+<!--                                             height="50px" width="50px"/>-->
+<!--                                    </div>-->
+                                    <h2 th:text="${item.title}"></h2>
+                                </div>
+
+                                <div class="card__body">
+                                    <p class="about__me">Found by:<span class="about__me"
+                                                                        th:text="${item.user.username}"></span></p>
+                                    <p class="about__me">Location found: <span
+                                            th:text="${item.location.location_name}"></span>
+                                    </p>
+                                    <p class="about__me">Categories:
+                                        <th:block th:each="category : ${item.categories}"><span
+                                                th:text="${category.property_type}"></span><span> | </span></th:block>
+                                    </p>
+                                    <p class="about__me" style="float: right">Date posted: <span th:text="${item.formattedDatePosted}"></span></p>
+                                    <p class="about__me">Date found: <span th:text="${item.formattedDateFound}"></span>
+                                    </p>
+                                    <div class="important__social__links">
+                                        <a role="button" id="edit-btn" class="btn btn-outline-secondary edit-delete edit-listing"
+                                           th:href="@{/edit/{id}(id=${item.id})}">Edit
+                                        </a>
+                                        <form th:action="@{/delete/{id}(id=${item.id})}" method="post">
+                                            <button type="submit"
+                                                    class="btn btn-outline-secondary btn-danger edit-delete" id="delete-btn">Delete
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    </th:block>
+                    <th:block th:if="${inquiries.size() == 0}">
+                        <div class="col-md-12">
+                            <div class="card mb-3 listings-container p-0">
+                                    <div class="d-lg-block d-xxl-block col-12 profile-listings-header">
+                                        <h2>Looks like nobody has claimed the item you lost! Hopefully they find it soon! </h2>
+                                    </div>
+                            </div>
+                        </div>
+                    </th:block>
+                    <th:block th:if="${inquiries.size() != 0}">
+                        <div class="col-md-12">
+                            <div class="card mb-3 listings-container p-0">
+                                    <div class="d-lg-block d-xxl-block col-12 profile-listings-header">
+                                        <h2>Here are your inquiries: </h2>
+                                    </div>
+                                <div class="d-lg-block d-xxl-block col-11 mt-5" th:each="inquiry : ${inquiries}">
+                                    <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
+
+                                        <div class="card__header">
+                                            <div th:if="${inquiry.user.profile_image_path == null}" class="card__image">
+                                                <img src="/img/no_profile_pic.png" alt="No profile pic available" height="55px" width="50px"/>
+                                            </div>
+                                            <div class="card__image" th:if="${inquiry.user.profile_image_path != null}">
+                                                <img th:src="${inquiry.user.profile_image_path}" alt="profile-image-small" height="50px" width="50px"/>
+                                            </div>
+                                            <h2><span th:text="${inquiry.property.title}"></span></h2>
+                                        </div>
+
+                                        <div class="card__body">
+                                            <p class="about__me">Found by:<span class="about__me"
+                                                                                th:text="${inquiry.user.username}"></span></p>
+                                            <p class="about__me">Location found: <span th:text="${inquiry.property.location.location_name}"></span>
+                                            </p>
+                                            <p class="about__me">Categories:
+                                                <th:block th:each="category : ${inquiry.property.categories}">
+                                                    <span th:text="${category.property_type}"></span><span> | </span>
+                                                </th:block>
+                                            </p>
+                                            <p class="about__me" style="float: right">Date posted: <span
+                                                    th:text="${inquiry.property.formattedDatePosted}"></span></p>
+                                            <p class="about__me">Date found: <span th:text="${inquiry.property.formattedDateFound}"></span>
+                                            </p>
+<!--                                            <div class="important__social__links">-->
+<!--                                                <a role="button" id="edit-btn" class="btn btn-outline-secondary edit-delete edit-listing"-->
+<!--                                                   th:href="@{/edit/{id}(id=${item.id})}">Edit-->
+<!--                                                </a>-->
+<!--                                                <form th:action="@{/delete/{id}(id=${item.id})}" method="post">-->
+<!--                                                    <button type="submit"-->
+<!--                                                            class="btn btn-outline-secondary btn-danger edit-delete" id="delete-btn">Delete-->
+<!--                                                    </button>-->
+<!--                                                </form>-->
+<!--                                            </div>-->
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </th:block>
+                </div>
+
+<!--            <th:block th:if="${properties.size() == 0}">-->
+<!--                    <div class="card mb-3 listings-container p-0">-->
+<!--                        <div class="d-lg-block d-xxl-block col-12 edit-profile-listings-header">-->
+<!--                            <h2>This is where your findings would be. Haven't found anything yet? Many people's lost-->
+<!--                                belongings are still out there waiting to be found!</h2>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--            </th:block>-->
+<!--            <th:block th:if="${inquiries.size() == 0}">-->
+<!--                <div class="col-md-8">-->
+<!--                    <div class="card mb-3 listings-container p-0">-->
+<!--                        <div class="card mb-3 listings-container">-->
+<!--                            <div class="d-lg-block d-xxl-block col-12 edit-profile-listings-header">-->
+<!--                                <h2>This is where your inquiries would be. Haven't inquired about anything yet? Good job-->
+<!--                                    on-->
+<!--                                    not losing anything yet!</h2>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </th:block>-->
+        </div>
+
+    </div>
+</div>
+
+<script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+</script>
+<script>
+    // When the user clicks on div, open the popup
+    function myFunction2(event) {
+        event.stopPropagation();
+        var popup = event.target.childNodes[1];
+        popup.classList.toggle("show");
+    }
+
+    $(function () {
+
+        var html = $('html');
+        // Detections
+        if (!("ontouchstart" in window)) {
+            html.addClass("noTouch");
+        }
+        if ("ontouchstart" in window) {
+            html.addClass("isTouch");
+        }
+        if ("ontouchstart" in window) {
+            html.addClass("isTouch");
+        }
+        if (document.documentMode || /Edge/.test(navigator.userAgent)) {
+            if (navigator.appVersion.indexOf("Trident") === -1) {
+                html.addClass("isEDGE");
+            } else {
+                html.addClass("isIE isIE11");
+            }
+        }
+        if (navigator.appVersion.indexOf("MSIE") !== -1) {
+            html.addClass("isIE");
+        }
+        if (
+            navigator.userAgent.indexOf("Safari") != -1 &&
+            navigator.userAgent.indexOf("Chrome") == -1
+        ) {
+            html.addClass("isSafari");
+        }
+
+        // On Screen
+
+        $.fn.isOnScreen = function () {
+            var elementTop = $(this).offset().top,
+                elementBottom = elementTop + $(this).outerHeight(),
+                viewportTop = $(window).scrollTop(),
+                viewportBottom = viewportTop + $(window).height();
+            return elementBottom > viewportTop && elementTop < viewportBottom;
+        };
+
+        function detection() {
+            for (var i = 0; i < items.length; i++) {
+                var el = $(items[i]);
+
+                if (el.isOnScreen()) {
+                    el.addClass("in-view");
+                } else {
+                    el.removeClass("in-view");
+                }
+            }
+        }
+
+        var items = document.querySelectorAll(
+            "*[data-animate-in], *[data-detect-viewport]"
+            ),
+            waiting = false,
+            w = $(window);
+
+        w.on("resize scroll", function () {
+            if (waiting) {
+                return;
+            }
+            waiting = true;
+            detection();
+
+            setTimeout(function () {
+                waiting = false;
+            }, 100);
+        });
+
+        $(document).ready(function () {
+            setTimeout(function () {
+                detection();
+            }, 500);
+
+            for (var i = 0; i < items.length; i++) {
+                var d = 0,
+                    el = $(items[i]);
+                if (items[i].getAttribute("data-animate-in-delay")) {
+                    d = items[i].getAttribute("data-animate-in-delay") / 1000 + "s";
+                } else {
+                    d = 0;
+                }
+                el.css("transition-delay", d);
+            }
+        });
+    });
+
+</script>
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>
