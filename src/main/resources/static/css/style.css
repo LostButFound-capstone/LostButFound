@@ -10,12 +10,9 @@
     /* OPTION: #C25B56 */
     --main-bg-color: lightslategrey; /* #778799 - Main Background Color */
 
-    --main-font: 'Montserrat', sans-serif;
+    --main-font: 'Domine', serif;;
     --sub-font: 'Roboto', sans-serif;
 }
-
-/*font-family: 'Montserrat', sans-serif;*/
-/*font-family: 'Roboto', sans-serif;*/
 
 *,
 *::before,
@@ -159,7 +156,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-    font-family: var(--sub-font);
+    font-family: var(--main-font);
 }
 
 .border-br {
