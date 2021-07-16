@@ -21,15 +21,16 @@
         <div class="editprofile-container card-body media align-items-center py-3" id="card-body" style="background: #264851; color: #edd9bc; border: 1px solid #e18a77;">
             <div class="imageContainer">
                 <div th:if="${currentUser.profile_image_path == null}" class="cardImage">
-                    <img src="/img/no_profile_pic.png" alt="No profile pic available" height="250px"
-                         width="200px"/>
+<!--                    <img src="/img/no_profile_pic.png" alt="No profile pic available" height="250px"-->
+<!--                         width="200px"/>-->
+                    <img src="/img/pro-pic-icon.png" alt="No profile pic available" style="width: 180px; height: 180px; margin-top: 25px"/>
                 </div>
                 <div class="cardImage" th:if="${currentUser.profile_image_path != null}">
                     <img th:src="${currentUser.profile_image_path}" height="200px" width="200px"
                          alt="profile-picture"/>
                 </div>
             </div>
-            <div class="media-body ">
+            <div class="media-body">
                 <h4 class="font-weight-bold mt-1"><span th:text="${currentUser.username}"></span></h4>
                 <h4 class="font-weight-bold mb-2"><span class="font-weight-normal"><span
                         th:text="${currentUser.email}"></span></span></h4>
