@@ -129,36 +129,37 @@
                                 <p class="about__me">Location found: <span th:text="${item.location.location_name}"></span>
                                 </p>
                                 <p class="about__me">Categories:
+                                    <br>
                                     <th:block th:each="category : ${item.categories}">
                                         <span th:text="${category.property_type}"></span>
-                                        <img th:if="${category.id == 1}" src="/img/category_icons/phone_icon.png" alt="icon">
-                                        <img th:if="${category.id == 2}" src="/img/category_icons/tablet_icon.png" alt="icon">
-                                        <img th:if="${category.id == 3}" src="/img/category_icons/headphones_icon.png" alt="icon">
-                                        <img th:if="${category.id == 4}" src="/img/category_icons/laptop_icon.png" alt="icon">
-                                        <img th:if="${category.id == 5}" src="/img/category_icons/electronics_icon.png" alt="icon">
-                                        <img th:if="${category.id == 6}" src="/img/category_icons/keys_icon.png" alt="icon">
-                                        <img th:if="${category.id == 7}" src="/img/category_icons/glasses_icon.png" alt="icon">
-                                        <img th:if="${category.id == 8}" src="/img/category_icons/other_icon.png" alt="icon">
-                                        <img th:if="${category.id == 9}" src="/img/category_icons/other_icon.png" alt="icon">
-                                        <img th:if="${category.id == 10}" src="/img/category_icons/purse_icon.png" alt="icon">
-                                        <img th:if="${category.id == 11}" src="/img/category_icons/makeup_bag_icon.png" alt="icon">
-                                        <img th:if="${category.id == 12}" src="/img/category_icons/hats_icon.png" alt="icon">
-                                        <img th:if="${category.id == 13}" src="/img/category_icons/jackets_icon.png" alt="icon">
-                                        <img th:if="${category.id == 14}" src="/img/category_icons/shoes_icon.png" alt="icon">
-                                        <img th:if="${category.id == 15}" src="/img/category_icons/clothes_icon.png" alt="icon">
-                                        <img th:if="${category.id == 16}" src="/img/category_icons/other_icon.png" alt="icon">
-                                        <img th:if="${category.id == 17}" src="/img/category_icons/camera_icon.png" alt="icon">
-                                        <img th:if="${category.id == 18}" src="/img/category_icons/passport_icon.png" alt="icon">
-                                        <img th:if="${category.id == 19}" src="/img/category_icons/luggage_icon.png" alt="icon">
-                                        <img th:if="${category.id == 20}" src="/img/category_icons/other_icon.png" alt="icon">
-                                        <img th:if="${category.id == 21}" src="/img/category_icons/toys_icon.png" alt="icon">
-                                        <img th:if="${category.id == 22}" src="/img/category_icons/books_icon.png" alt="icon">
-                                        <img th:if="${category.id == 23}" src="/img/category_icons/other_icon.png" alt="icon">
+                                        <img th:if="${category.id == 1}" src="/img/category_icons/1-phone-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 2}" src="/img/category_icons/2-tablet-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 3}" src="/img/category_icons/3-headphones-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 4}" src="/img/category_icons/4-laptop-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 5}" src="/img/category_icons/5-electronics-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 6}" src="/img/category_icons/6-keys-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 7}" src="/img/category_icons/7-glasses-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 8}" src="/img/category_icons/8-wallet-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 9}" src="/img/category_icons/9-jewelry-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 10}" src="/img/category_icons/10-purses-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 11}" src="/img/category_icons/11-makeup-bag-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 12}" src="/img/category_icons/12-hats-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 13}" src="/img/category_icons/13-jackets-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 14}" src="/img/category_icons/14-shoes-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 15}" src="/img/category_icons/15-clothing-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 16}" src="/img/category_icons/16-backpacks-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 17}" src="/img/category_icons/17-cameras-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 18}" src="/img/category_icons/18-passports-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 19}" src="/img/category_icons/19-luggage-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 20}" src="/img/category_icons/20-water-bottles-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 21}" src="/img/category_icons/21-toys-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 22}" src="/img/category_icons/22-books-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 23}" src="/img/category_icons/23-other-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
                                     </th:block>
                                 </p>
-                                <p class="about__me" style="float: right">Date posted: <span
+                                <p class="about__me" style="float: right">Date posted: <br><span
                                         th:text="${item.formattedDatePosted}"></span></p>
-                                <p class="about__me">Date found: <span th:text="${item.formattedDateFound}"></span></p>
+                                <p class="about__me">Date found: <br><span th:text="${item.formattedDateFound}"></span></p>
                                 <div class="important__social__links">
                                     <a sec:authorize="isAuthenticated()" id="inquireBtn" role="button"
                                        class="btn btn-sm btn-outline-secondary"
@@ -190,36 +191,37 @@
                                 <p class="about__me">Location found: <span th:text="${item.location.location_name}"></span>
                                 </p>
                                 <p class="about__me">Categories:
+                                    <br>
                                     <th:block th:each="category : ${item.categories}">
                                         <span th:text="${category.property_type}"></span>
-                                        <img th:if="${category.id == 1}" src="/img/category_icons/phone_icon.png" alt="icon">
-                                        <img th:if="${category.id == 2}" src="/img/category_icons/tablet_icon.png" alt="icon">
-                                        <img th:if="${category.id == 3}" src="/img/category_icons/headphones_icon.png" alt="icon">
-                                        <img th:if="${category.id == 4}" src="/img/category_icons/laptop_icon.png" alt="icon">
-                                        <img th:if="${category.id == 5}" src="/img/category_icons/electronics_icon.png" alt="icon">
-                                        <img th:if="${category.id == 6}" src="/img/category_icons/keys_icon.png" alt="icon">
-                                        <img th:if="${category.id == 7}" src="/img/category_icons/glasses_icon.png" alt="icon">
-                                        <img th:if="${category.id == 8}" src="/img/category_icons/other_icon.png" alt="icon">
-                                        <img th:if="${category.id == 9}" src="/img/category_icons/other_icon.png" alt="icon">
-                                        <img th:if="${category.id == 10}" src="/img/category_icons/purse_icon.png" alt="icon">
-                                        <img th:if="${category.id == 11}" src="/img/category_icons/makeup_bag_icon.png" alt="icon">
-                                        <img th:if="${category.id == 12}" src="/img/category_icons/hats_icon.png" alt="icon">
-                                        <img th:if="${category.id == 13}" src="/img/category_icons/jackets_icon.png" alt="icon">
-                                        <img th:if="${category.id == 14}" src="/img/category_icons/shoes_icon.png" alt="icon">
-                                        <img th:if="${category.id == 15}" src="/img/category_icons/clothes_icon.png" alt="icon">
-                                        <img th:if="${category.id == 16}" src="/img/category_icons/other_icon.png" alt="icon">
-                                        <img th:if="${category.id == 17}" src="/img/category_icons/camera_icon.png" alt="icon">
-                                        <img th:if="${category.id == 18}" src="/img/category_icons/passport_icon.png" alt="icon">
-                                        <img th:if="${category.id == 19}" src="/img/category_icons/luggage_icon.png" alt="icon">
-                                        <img th:if="${category.id == 20}" src="/img/category_icons/other_icon.png" alt="icon">
-                                        <img th:if="${category.id == 21}" src="/img/category_icons/toys_icon.png" alt="icon">
-                                        <img th:if="${category.id == 22}" src="/img/category_icons/books_icon.png" alt="icon">
-                                        <img th:if="${category.id == 23}" src="/img/category_icons/other_icon.png" alt="icon">
+                                        <img th:if="${category.id == 1}" src="/img/category_icons/1-phone-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 2}" src="/img/category_icons/2-tablet-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 3}" src="/img/category_icons/3-headphones-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 4}" src="/img/category_icons/4-laptop-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 5}" src="/img/category_icons/5-electronics-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 6}" src="/img/category_icons/6-keys-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 7}" src="/img/category_icons/7-glasses-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 8}" src="/img/category_icons/8-wallet-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 9}" src="/img/category_icons/9-jewelry-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 10}" src="/img/category_icons/10-purses-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 11}" src="/img/category_icons/11-makeup-bag-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 12}" src="/img/category_icons/12-hats-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 13}" src="/img/category_icons/13-jackets-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 14}" src="/img/category_icons/14-shoes-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 15}" src="/img/category_icons/15-clothing-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 16}" src="/img/category_icons/16-backpacks-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 17}" src="/img/category_icons/17-cameras-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 18}" src="/img/category_icons/18-passports-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 19}" src="/img/category_icons/19-luggage-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 20}" src="/img/category_icons/20-water-bottles-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 21}" src="/img/category_icons/21-toys-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 22}" src="/img/category_icons/22-books-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                        <img th:if="${category.id == 23}" src="/img/category_icons/23-other-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
                                     </th:block>
                                 </p>
-                                <p class="about__me" style="float: right">Date posted: <span
+                                <p class="about__me" style="float: right">Date posted: <br><span
                                         th:text="${item.formattedDatePosted}"></span></p>
-                                <p class="about__me">Date found: <span th:text="${item.formattedDateFound}"></span></p>
+                                <p class="about__me">Date found: <br><span th:text="${item.formattedDateFound}"></span></p>
                                 <div class="important__social__links">
                                     <a sec:authorize="isAuthenticated()" id="inquireBtn" role="button"
                                        class="btn btn-sm btn-outline-secondary"
@@ -252,36 +254,37 @@
                             <p class="about__me">Location found: <span th:text="${item.location.location_name}"></span>
                             </p>
                             <p class="about__me">Categories:
+                                <br>
                                 <th:block th:each="category : ${item.categories}">
                                     <span th:text="${category.property_type}"></span>
-                                    <img th:if="${category.id == 1}" src="/img/category_icons/phone_icon.png" alt="icon">
-                                    <img th:if="${category.id == 2}" src="/img/category_icons/tablet_icon.png" alt="icon">
-                                    <img th:if="${category.id == 3}" src="/img/category_icons/headphones_icon.png" alt="icon">
-                                    <img th:if="${category.id == 4}" src="/img/category_icons/laptop_icon.png" alt="icon">
-                                    <img th:if="${category.id == 5}" src="/img/category_icons/electronics_icon.png" alt="icon">
-                                    <img th:if="${category.id == 6}" src="/img/category_icons/keys_icon.png" alt="icon">
-                                    <img th:if="${category.id == 7}" src="/img/category_icons/glasses_icon.png" alt="icon">
-                                    <img th:if="${category.id == 8}" src="/img/category_icons/other_icon.png" alt="icon">
-                                    <img th:if="${category.id == 9}" src="/img/category_icons/other_icon.png" alt="icon">
-                                    <img th:if="${category.id == 10}" src="/img/category_icons/purse_icon.png" alt="icon">
-                                    <img th:if="${category.id == 11}" src="/img/category_icons/makeup_bag_icon.png" alt="icon">
-                                    <img th:if="${category.id == 12}" src="/img/category_icons/hats_icon.png" alt="icon">
-                                    <img th:if="${category.id == 13}" src="/img/category_icons/jackets_icon.png" alt="icon">
-                                    <img th:if="${category.id == 14}" src="/img/category_icons/shoes_icon.png" alt="icon">
-                                    <img th:if="${category.id == 15}" src="/img/category_icons/clothes_icon.png" alt="icon">
-                                    <img th:if="${category.id == 16}" src="/img/category_icons/other_icon.png" alt="icon">
-                                    <img th:if="${category.id == 17}" src="/img/category_icons/camera_icon.png" alt="icon">
-                                    <img th:if="${category.id == 18}" src="/img/category_icons/passport_icon.png" alt="icon">
-                                    <img th:if="${category.id == 19}" src="/img/category_icons/luggage_icon.png" alt="icon">
-                                    <img th:if="${category.id == 20}" src="/img/category_icons/other_icon.png" alt="icon">
-                                    <img th:if="${category.id == 21}" src="/img/category_icons/toys_icon.png" alt="icon">
-                                    <img th:if="${category.id == 22}" src="/img/category_icons/books_icon.png" alt="icon">
-                                    <img th:if="${category.id == 23}" src="/img/category_icons/other_icon.png" alt="icon">
+                                    <img th:if="${category.id == 1}" src="/img/category_icons/1-phone-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 2}" src="/img/category_icons/2-tablet-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 3}" src="/img/category_icons/3-headphones-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 4}" src="/img/category_icons/4-laptop-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 5}" src="/img/category_icons/5-electronics-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 6}" src="/img/category_icons/6-keys-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 7}" src="/img/category_icons/7-glasses-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 8}" src="/img/category_icons/8-wallet-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 9}" src="/img/category_icons/9-jewelry-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 10}" src="/img/category_icons/10-purses-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 11}" src="/img/category_icons/11-makeup-bag-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 12}" src="/img/category_icons/12-hats-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 13}" src="/img/category_icons/13-jackets-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 14}" src="/img/category_icons/14-shoes-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 15}" src="/img/category_icons/15-clothing-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 16}" src="/img/category_icons/16-backpacks-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 17}" src="/img/category_icons/17-cameras-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 18}" src="/img/category_icons/18-passports-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 19}" src="/img/category_icons/19-luggage-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 20}" src="/img/category_icons/20-water-bottles-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 21}" src="/img/category_icons/21-toys-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 22}" src="/img/category_icons/22-books-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 23}" src="/img/category_icons/23-other-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
                                 </th:block>
                             </p>
-                            <p class="about__me" style="float: right">Date posted: <span
+                            <p class="about__me" style="float: right">Date posted: <br><span
                                     th:text="${item.formattedDatePosted}"></span></p>
-                            <p class="about__me">Date found: <span th:text="${item.formattedDateFound}"></span></p>
+                            <p class="about__me">Date found: <br><span th:text="${item.formattedDateFound}"></span></p>
                             <div class="important__social__links">
                                 <a sec:authorize="isAuthenticated()" id="inquireBtn" role="button"
                                    class="btn btn-sm btn-outline-secondary"
@@ -313,36 +316,37 @@
                             <p class="about__me">Location found: <span th:text="${item.location.location_name}"></span>
                             </p>
                             <p class="about__me">Categories:
+                                <br>
                                 <th:block th:each="category : ${item.categories}">
                                     <span th:text="${category.property_type}"></span>
-                                    <img th:if="${category.id == 1}" src="/img/category_icons/phone_icon.png" alt="icon">
-                                    <img th:if="${category.id == 2}" src="/img/category_icons/tablet_icon.png" alt="icon">
-                                    <img th:if="${category.id == 3}" src="/img/category_icons/headphones_icon.png" alt="icon">
-                                    <img th:if="${category.id == 4}" src="/img/category_icons/laptop_icon.png" alt="icon">
-                                    <img th:if="${category.id == 5}" src="/img/category_icons/electronics_icon.png" alt="icon">
-                                    <img th:if="${category.id == 6}" src="/img/category_icons/keys_icon.png" alt="icon">
-                                    <img th:if="${category.id == 7}" src="/img/category_icons/glasses_icon.png" alt="icon">
-                                    <img th:if="${category.id == 8}" src="/img/category_icons/other_icon.png" alt="icon">
-                                    <img th:if="${category.id == 9}" src="/img/category_icons/other_icon.png" alt="icon">
-                                    <img th:if="${category.id == 10}" src="/img/category_icons/purse_icon.png" alt="icon">
-                                    <img th:if="${category.id == 11}" src="/img/category_icons/makeup_bag_icon.png" alt="icon">
-                                    <img th:if="${category.id == 12}" src="/img/category_icons/hats_icon.png" alt="icon">
-                                    <img th:if="${category.id == 13}" src="/img/category_icons/jackets_icon.png" alt="icon">
-                                    <img th:if="${category.id == 14}" src="/img/category_icons/shoes_icon.png" alt="icon">
-                                    <img th:if="${category.id == 15}" src="/img/category_icons/clothes_icon.png" alt="icon">
-                                    <img th:if="${category.id == 16}" src="/img/category_icons/other_icon.png" alt="icon">
-                                    <img th:if="${category.id == 17}" src="/img/category_icons/camera_icon.png" alt="icon">
-                                    <img th:if="${category.id == 18}" src="/img/category_icons/passport_icon.png" alt="icon">
-                                    <img th:if="${category.id == 19}" src="/img/category_icons/luggage_icon.png" alt="icon">
-                                    <img th:if="${category.id == 20}" src="/img/category_icons/other_icon.png" alt="icon">
-                                    <img th:if="${category.id == 21}" src="/img/category_icons/toys_icon.png" alt="icon">
-                                    <img th:if="${category.id == 22}" src="/img/category_icons/books_icon.png" alt="icon">
-                                    <img th:if="${category.id == 23}" src="/img/category_icons/other_icon.png" alt="icon">
+                                    <img th:if="${category.id == 1}" src="/img/category_icons/1-phone-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 2}" src="/img/category_icons/2-tablet-new.png" alt="icon" style="height: 35px;vertical-align: baseline;">
+                                    <img th:if="${category.id == 3}" src="/img/category_icons/3-headphones-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 4}" src="/img/category_icons/4-laptop-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 5}" src="/img/category_icons/5-electronics-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 6}" src="/img/category_icons/6-keys-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 7}" src="/img/category_icons/7-glasses-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 8}" src="/img/category_icons/8-wallet-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 9}" src="/img/category_icons/9-jewelry-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 10}" src="/img/category_icons/10-purses-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 11}" src="/img/category_icons/11-makeup-bag-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 12}" src="/img/category_icons/12-hats-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 13}" src="/img/category_icons/13-jackets-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 14}" src="/img/category_icons/14-shoes-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 15}" src="/img/category_icons/15-clothing-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 16}" src="/img/category_icons/16-backpacks-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 17}" src="/img/category_icons/17-cameras-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 18}" src="/img/category_icons/18-passports-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 19}" src="/img/category_icons/19-luggage-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 20}" src="/img/category_icons/20-water-bottles-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 21}" src="/img/category_icons/21-toys-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 22}" src="/img/category_icons/22-books-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                    <img th:if="${category.id == 23}" src="/img/category_icons/23-other-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
                                 </th:block>
                             </p>
-                            <p class="about__me" style="float: right">Date posted: <span
+                            <p class="about__me" style="float: right">Date posted: <br><span
                                     th:text="${item.formattedDatePosted}"></span></p>
-                            <p class="about__me">Date found: <span th:text="${item.formattedDateFound}"></span></p>
+                            <p class="about__me">Date found: <br><span th:text="${item.formattedDateFound}"></span></p>
                             <div class="important__social__links">
                                 <a sec:authorize="isAuthenticated()" id="inquireBtn" role="button"
                                    class="btn btn-sm btn-outline-secondary"
@@ -361,7 +365,7 @@
             </div>
         </div>
 </div>
-    <!--		</div>-->
+<!--    		</div>-->
 
     <script>
         const selectbox = document.getElementById("locations_dropdown");
@@ -493,6 +497,6 @@
     </script>
 
     <!--Footer fragment-->
-    <footer th:replace="fragments/footer :: footer"></footer>
+    <footer th:replace="fragments/footer :: footer2"></footer>
 </body>
 </html>
