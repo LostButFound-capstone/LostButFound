@@ -98,3 +98,9 @@ select:focus, select:active {
 #rounded_image {
     border-radius: 25%;
 }
+
+@media only screen and (max-width: 600px) {
+    #no_gutters {
+        flex-direction: column;
+    }
+}
