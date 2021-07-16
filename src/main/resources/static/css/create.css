@@ -154,3 +154,36 @@ label h3 {
 h2, h4, ul li {
     color:#edd9bc;
 }
+
+@media only screen and (max-width: 600px) {
+    #flex-dir {
+        flex-direction: column;
+    }
+
+    #locations {
+        width: 100%;
+    }
+
+    .row {
+        display: revert;
+        --bs-gutter-x: none;
+        --bs-gutter-y: none;
+    }
+
+    .box-1 {
+        width: 100%;
+    }
+
+    #pad-marg {
+        margin: 0;
+        padding: 0;
+    }
+
+    .image {
+        opacity: 1;
+        display: block;
+        transition: .5s ease;
+        backface-visibility: hidden;
+        width: 300px;
+    }
+}

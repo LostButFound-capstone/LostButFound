@@ -40,17 +40,17 @@ body {
 
 .box1 > h3 {
     font-size: 36px;
-    color: black;
+    color: white;
 }
 
 .box1 > p {
     font-size: 20px;
-    color: black;
+    color: white;
 }
 
 .h3, h3 {
     font-size: 1.75rem;
-    color: black;
+    color: white;
 }
 
 .btn-outline-light {

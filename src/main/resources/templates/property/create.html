@@ -14,7 +14,7 @@
 </header>
 
 <div class="container" data-animate-in="right">
-    <div class="container row">
+    <div id="pad-marg" class="container row">
 
         <div class="card box-1 instruction-box">
             <div class="card-body" id="card-body-instruction" style="background-color: #264851">
@@ -109,7 +109,7 @@
         <hr class="solid3 mx-3 mt-5">
 
         <div class="container mt-5 text-center">
-            <div class="d-flex justify-content-around">
+            <div id="flex-dir" class="d-flex justify-content-around">
                 <label for="locations"><h3>Where did you find this item?</h3></label>
 
                 <select id="locations" th:field="*{location}" style="margin-bottom: 0em;" required>
