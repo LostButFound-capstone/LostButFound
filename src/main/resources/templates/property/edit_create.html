@@ -65,8 +65,8 @@
                 <div class=" text-center">
                     <label for="createTitle"><h3 class="text-beige">What did you find?</h3></label>
                 </div>
-                <div>
-                    <input id="createTitle" type="text" th:field="*{title}" style="width:100%"
+                <div class="d-flex justify-content-center">
+                    <input id="createTitle" type="text" th:field="*{title}" style="width:80%"
                            required>
                 </div>
             </div>
@@ -87,8 +87,8 @@
                 <br>
             </div>
             <input type="hidden" name="datePosted" th:value="${datePosted}">
-
-            <button type="submit" class="btn btn-outline-secondary mt-3 mb-4">Submit</button>
+            <br>
+            <button type="submit" class="btn btn-outline-secondary mt-3 mb-4 edit-create-submit">Submit</button>
         </div>
 
         <br>
@@ -99,7 +99,6 @@
     </form>
 
 </div>
-<footer th:replace="fragments/footer :: footer"></footer>
 
 <script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -203,6 +202,7 @@
     });
 
 </script>
+<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>
 

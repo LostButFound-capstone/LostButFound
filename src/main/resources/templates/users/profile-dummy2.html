@@ -16,7 +16,7 @@
 </header>
 
 
-<div class="container" data-animate-in="right" data-animate-in-delay="100">
+<div class="container mb-3" data-animate-in="right" data-animate-in-delay="100" >
     <div class="main-body">
 
         <!-- Breadcrumb -->
@@ -79,11 +79,10 @@
                     </ul>
                 </div>
             </div>
-<!--            <th:block th:if="${properties.size() != 0}">-->
                 <div class="col-md-8">
                     <th:block th:if="${properties.size() == 0}">
                         <div class="card mb-3 listings-container p-0">
-                            <div class="d-lg-block d-xxl-block col-12 edit-profile-listings-header">
+                            <div class="d-lg-block d-xxl-block col-12 profile-listings-header">
                                 <h2>Seems like you haven’t found anything yet! No worries!</h2>
                             </div>
                         </div>
@@ -98,8 +97,9 @@
                             <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
 
                                 <div class="card__header">
-                                    <div th:if="${item.user.profile_image_path == null}" class="card__image">
-                                        <img src="/img/no_profile_pic.png" alt="No profile pic available" height="55px" width="50px"/>
+                                    <div class="card__image" th:if="${item.user.profile_image_path == null}">
+<!--                                        <img src="/img/no_profile_pic.png" alt="No profile pic available" height="55px" width="50px"/>-->
+                                        <img src="/img/pro-pic-icon.png" alt="No profile pic available" style="height: 45px; width: 45px;  margin-top: 6px"/>
                                     </div>
                                     <div class="card__image" th:if="${item.user.profile_image_path != null}">
                                         <img th:src="${item.user.profile_image_path}" alt="profile-image-small"
@@ -122,8 +122,7 @@
                                         <th:block th:each="category : ${item.categories}"><span
                                                 th:text="${category.property_type}"></span><span> | </span></th:block>
                                     </p>
-                                    <p class="about__me">Date posted: <span
-                                            th:text="${item.formattedDatePosted}"></span></p>
+                                    <p class="about__me" style="float: right">Date posted: <span th:text="${item.formattedDatePosted}"></span></p>
                                     <p class="about__me">Date found: <span th:text="${item.formattedDateFound}"></span>
                                     </p>
                                     <div class="important__social__links">
@@ -145,7 +144,7 @@
                     <th:block th:if="${inquiries.size() == 0}">
                         <div class="col-md-12">
                             <div class="card mb-3 listings-container p-0">
-                                    <div class="d-lg-block d-xxl-block col-12 edit-profile-listings-header">
+                                    <div class="d-lg-block d-xxl-block col-12 profile-listings-header">
                                         <h2>Looks like nobody has claimed the item you lost! Hopefully they find it soon! </h2>
                                     </div>
                             </div>
@@ -153,10 +152,52 @@
                     </th:block>
                     <th:block th:if="${inquiries.size() != 0}">
                         <div class="col-md-12">
-                            <div class="card mb-3 listings-container p-0">
-                                    <div class="d-lg-block d-xxl-block col-12 edit-profile-listings-header">
+                            <div class="card mb-3 listings-container" style="padding-bottom: 1.5rem;">
+                                    <div class="d-lg-block d-xxl-block col-12 profile-listings-header">
                                         <h2>Here are your inquiries: </h2>
                                     </div>
+                                <div class="d-lg-block d-xxl-block col-11 mt-5" th:each="inquiry : ${inquiries}">
+                                    <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
+
+                                        <div class="card__header">
+                                            <div class="card__image" th:if="${inquiry.user.profile_image_path == null}">
+<!--                                                <img src="/img/no_profile_pic.png" alt="No profile pic available" height="55px" width="50px"/>-->
+                                                <img src="/img/pro-pic-icon.png" alt="No profile pic available" style="height: 45px; width: 45px;  margin-top: 6px"/>
+                                            </div>
+                                            <div class="card__image" th:if="${inquiry.user.profile_image_path != null}">
+                                                <img th:src="${inquiry.user.profile_image_path}" alt="profile-image-small" height="50px" width="50px"/>
+                                            </div>
+                                            <h2><span th:text="${inquiry.property.title}"></span></h2>
+                                        </div>
+
+                                        <div class="card__body">
+                                            <p class="about__me">Found by:<span class="about__me"
+                                                                                th:text="${inquiry.property.user.username}"></span></p>
+                                            <p class="about__me">Location found: <span th:text="${inquiry.property.location.location_name}"></span>
+                                            </p>
+                                            <p class="about__me">Categories:
+                                                <th:block th:each="category : ${inquiry.property.categories}">
+                                                    <span th:text="${category.property_type}"></span><span> | </span>
+                                                </th:block>
+                                            </p>
+                                            <p class="about__me" style="float: right">Date posted: <span
+                                                    th:text="${inquiry.property.formattedDatePosted}"></span></p>
+                                            <p class="about__me">Date found: <span th:text="${inquiry.property.formattedDateFound}"></span>
+                                            </p>
+                                            <div class="important__social__links">
+<!--                                                <a role="button" id="edit-btn" class="btn btn-outline-secondary edit-delete edit-listing"-->
+<!--                                                   th:href="@{/edit/{id}(id=${item.id})}">Edit-->
+<!--                                                </a>-->
+<!--                                                <form th:action="@{/delete/{id}(id=${item.id})}" method="post">-->
+<!--                                                    <button type="submit"-->
+<!--                                                            class="btn btn-outline-secondary btn-danger edit-delete" id="delete-btn">Delete-->
+<!--                                                    </button>-->
+<!--                                                </form>-->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </th:block>
@@ -290,5 +331,6 @@
     });
 
 </script>
+<footer th:replace="fragments/footer :: footer2"></footer>
 </body>
 </html>

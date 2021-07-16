@@ -3,6 +3,7 @@
     background: #edd9bc;
     border: solid 2px #e18a77
 }
+
 /*.btn-danger {*/
 /*    background-color: #e18a6;*/
 /*}*/
@@ -48,9 +49,14 @@
     color: black;
 }
 .edit-delete {
-    width: 300px;
     color: white;
     background-color: #ca3d43;
+}
+#edit-btn:hover {
+     background-color: #008aff;
+}
+#delete-btn:hover {
+     background-color: #8d0000;
 }
 .edit-listing {
     background: #659dbd;
@@ -60,9 +66,16 @@
     color: white;
     border: 1px solid black;
 }
+.edit-profile:hover {
+    background-color: #008aff;
+    color: white;
+}
 .filestack-api-button {
     background: #015398;
     color: #d4d4d4;
+}
+.filestack-api-button:hover {
+    background-color: #fd623e;
 }
 .profile-listings-header {
     grid-area: header;
@@ -129,7 +142,7 @@
 .card__image {
     width:50px;
     height:50px;
-    background-color:#009bbe;
+    background-color: #659dbd;
     border-radius:50%;
     box-shadow:0 0 5px rgba(0,0,0,.5);
     margin: 1rem 1rem;
@@ -224,5 +237,39 @@ i {
     }
     .important__social__links {
         font-size:1.4rem;
+    }
+}
+
+@media only screen and (min-width: 320px) {
+    .edit-delete {
+        width: 100px;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .edit-delete {
+        width: 150px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .edit-delete {
+        width: 150px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .edit-delete {
+        width: 200px;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .edit-delete {
+        width: 300px;
     }
 }
