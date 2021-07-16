@@ -1,5 +1,3 @@
-
-
 /*************************** contact us page *******************/
 
 /*.card-head {*/
@@ -28,12 +26,11 @@
     margin-top: -88px;
 }
 
-
 .footer2 {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 2.5rem;
+    /*position: absolute;*/
+    /*bottom: 0;*/
+    width: 100%;
+    height: 2.5rem;
     list-style: none;
     text-decoration: none;
     color: black;
@@ -50,7 +47,7 @@ a {
 
 
 .footer-list li {
- color: black;
+    color: black;
 }
 
 .footer-list a {
