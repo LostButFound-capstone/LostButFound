@@ -67,8 +67,19 @@
     </div>
 </div>
 
-<footer th:replace="fragments/footer :: footer"></footer>
+<!--<footer th:replace="fragments/footer :: footer"></footer>-->
+<footer th:fragment="footer1">
+    <div class="text-center mt-5">
+        <ul class="footer-list editProfile">
+            <li><a th:href="@{/}">&copy; LostButFound</a></li>
+            <li>||</li>
+            <li><a th:href="@{/contact}">Contact Us</a></li>
+            <li>||</li>
+            <li><a href="https://github.com/LostButFound-capstone" target="_blank">Github</a></li>
 
+        </ul>
+    </div>
+</footer>
 <script>
 
     const client = filestack.init(FILESTACK_API_KEY);

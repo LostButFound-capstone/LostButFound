@@ -156,7 +156,18 @@
 <!--        </div>-->
 <!--    </footer>-->
 
-    <footer th:replace="fragments/footer :: footer1"></footer>
+    <footer th:fragment="footer1">
+        <div class="text-center mt-5">
+            <ul class="footer-list homePageFooter">
+                <li><a th:href="@{/}">&copy; LostButFound</a></li>
+                <li>||</li>
+                <li><a th:href="@{/contact}">Contact Us</a></li>
+                <li>||</li>
+                <li><a href="https://github.com/LostButFound-capstone" target="_blank">Github</a></li>
+
+            </ul>
+        </div>
+    </footer>
 </div>
 
 
