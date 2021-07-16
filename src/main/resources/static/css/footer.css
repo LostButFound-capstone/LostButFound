@@ -23,12 +23,11 @@
     justify-content: center;
     margin-left: 2px;
     margin-right: 2px;
-    margin-top: -88px;
+
 }
 
 .footer2 {
-    /*position: absolute;*/
-    /*bottom: 0;*/
+
     width: 100%;
     height: 2.5rem;
     list-style: none;
@@ -40,6 +39,44 @@
     margin-left: 2px;
     margin-right: 2px;
 }
+
+.homePageFooter {
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: -88px;
+}
+
+
+.contactFooter {
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-top: 250px;
+}
+
+.editProfile {
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-top: 100px;
+}
+
 
 a {
     text-decoration: none;
@@ -77,11 +114,9 @@ a {
     height: 2.5rem;
 }
 
-@media (max-width: 768px) {
-    #contactPageFooter {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 2.5rem;
+@media only screen and (max-width: 600px) {
+    #no_gutters {
+        --bs-gutter-x: none !important;
+        --bs-gutter-y: none !important;
     }
 }

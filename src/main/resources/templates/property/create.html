@@ -133,8 +133,19 @@
     </form>
 
 </div>
-<footer th:replace="fragments/footer :: footer"></footer>
+<!--<footer th:replace="fragments/footer :: footer"></footer>-->
+<footer th:fragment="footer2">
+    <div class="text-center mt-5">
+        <ul class="footer-list footer2">
+            <li><a th:href="@{/}">&copy; LostButFound</a></li>
+            <li>||</li>
+            <li><a th:href="@{/contact}">Contact Us</a></li>
+            <li>||</li>
+            <li><a href="https://github.com/LostButFound-capstone" target="_blank">Github</a></li>
 
+        </ul>
+    </div>
+</footer>
 <script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
