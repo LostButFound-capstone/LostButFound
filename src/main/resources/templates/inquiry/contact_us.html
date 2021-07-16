@@ -5,6 +5,7 @@
 
 <head th:replace="fragments/head :: head">
 
+
 </head>
 
 <body>
@@ -17,9 +18,16 @@
     <nav th:replace="fragments/new-navbar :: new-navbar" sec:authorize="isAuthenticated()"></nav>
 </header>
 
+<div class="container card mt-3">
+    <div class="card-header text-center mt-3" style="background-color: #2b4857; color: #E18A77">
+        <h1>About Us</h1>
+    </div>
+
+
 <div class="container">
-    <div class="row mt-4">
-        <div class=" card col-lg-4 text-center" style="background-color: #264851; border-radius: 25px;">
+    <div class="row mt-4 justify-content-evenly">
+        <div class=" card col-lg-4 text-center"
+             style="background-color: #264851; border-radius: 25px; width: 300px; height: 370px">
             <div class="card-body">
                 <img class="rounded-circle my-3" src="img/davila-headshot.jpg" alt="image of Sergio Davila" width="140"
                      height="140" style="object-fit: cover;">
@@ -34,56 +42,78 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 text-center">
-            <img class=" img-fluid rounded-circle" src="img/Screen Shot 2021-06-22 at 6.26.15 PM 2.png"
-                 alt="image of Jonathan Sanchez" width="140" height="140">
-            <h2>Jonathan Sanchez</h2>
+        <div class=" card col-lg-4 text-center"
+             style="background-color: #264851; border-radius: 25px; width: 300px; height: 370px">
+            <div class="card-body">
+                <img class=" img-fluid rounded-circle my-3" src="img/Screen Shot 2021-06-22 at 6.26.15 PM 2.png"
+                     alt="image of Jonathan Sanchez" width="140" height="140">
+                <h2>Jonathan</h2>
+                <h2>Sanchez</h2>
 
-            <div style="font-size: x-large;">
-                <a href="https://github.com/jonathan-sanchez" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/jonathan-sanchez11b/" target="_blank"><i
-                        class="fab fa-linkedin"></i></a>
-                <a href="mailto:jonathan.sanchez11b@gmail.com"><i class="fas fa-at"></i></a>
+                <div style="font-size: xx-large;">
+                    <a href="https://github.com/jonathan-sanchez" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/jonathan-sanchez11b/" target="_blank"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="mailto:jonathan.sanchez11b@gmail.com"><i class="fas fa-at"></i></a>
+                </div>
             </div>
         </div>
-        <div class="col-lg-4 text-center">
-            <img class="img-circle rounded-circle" src="img/cp_march21-0018.jpg" alt="image of John Pierce" width="140"
-                 height="140" style="object-fit: cover;">
-            <h2>John Pierce</h2>
+        <div class=" card col-lg-4 text-center"
+             style="background-color: #264851; border-radius: 25px; width: 300px; height: 370px">
+            <div class="card-body">
+                <img class="img-circle rounded-circle my-3" src="img/cp_march21-0018.jpg" alt="image of John Pierce"
+                     width="140"
+                     height="140" style="object-fit: cover;">
+                <h2>John</h2>
+                <h2>Pierce</h2>
 
-            <div style="font-size: x-large;">
-                <a href="https://github.com/John-Pierce42" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/johnpierce42/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:pierce.johndaniel@gmail.com"><i class="fas fa-at"></i></a>
+                <div style="font-size: xx-large;">
+                    <a href="https://github.com/John-Pierce42" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/johnpierce42/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:pierce.johndaniel@gmail.com"><i class="fas fa-at"></i></a>
+                </div>
             </div>
-        </div>
-        <div class="col-lg-4 text-center">
-            <img class="rounded-circle" src="img/codeup_2-21-0016.jpg" alt="image of Nicholas Martinez" width="140"
-                 height="140" style="object-fit: cover;">
-            <h2>Nicholas Martinez</h2>
-
-            <div style="font-size: x-large;">
-                <a href="https://github.com/NicholasMartinez-git" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/nicholas-martinez-8b206320b/" target="_blank"><i
-                        class="fab fa-linkedin"></i></a>
-                <a href="mailto:nicholas.martinez212@gmail.com"><i class="fas fa-at"></i></a>
-            </div>
-        </div>
-        <div class="col-lg-4 text-center">
-            <img class="rounded-circle" src="img/Image from iOS.jpg" alt="image of Irfa Sheikh" width="140"
-                 height="140">
-            <h2>Irfa Sheikh</h2>
-
-            <div style="font-size: x-large;">
-                <a href="https://github.com/irfasheikh" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/irfa-sheikh-16199020a/" target="_blank"><i
-                        class="fab fa-linkedin"></i></a>
-                <a href="mailto:irfasheikh@gmail.com"><i class="fas fa-at"></i></a>
-            </div>
-
         </div>
     </div>
+    <div class="row mt-4 justify-content-evenly">
+        <div class=" card col-lg-4 text-center"
+             style="background-color: #264851; border-radius: 25px; width: 300px; height: 370px">
+            <div class="card-body">
+                <img class="rounded-circle my-3" src="img/codeup_2-21-0016.jpg" alt="image of Nicholas Martinez"
+                     width="140"
+                     height="140" style="object-fit: cover;">
+                <h2>Nicholas</h2>
+                <h2>Martinez</h2>
 
+                <div style="font-size: xx-large;">
+                    <a href="https://github.com/NicholasMartinez-git" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/nicholas-martinez-8b206320b/" target="_blank"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="mailto:nicholas.martinez212@gmail.com"><i class="fas fa-at"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class=" card col-lg-4 text-center"
+             style="background-color: #264851; border-radius: 25px; width: 300px; height: 370px">
+            <div class="card-body">
+                <img class="rounded-circle my-3" src="img/Image from iOS.jpg" alt="image of Irfa Sheikh" width="140"
+                     height="140">
+                <h2>Irfa</h2>
+                <h2>Sheikh</h2>
+
+                <div style="font-size: xx-large;">
+                    <a href="https://github.com/irfasheikh" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/irfa-sheikh-16199020a/" target="_blank"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="mailto:irfasheikh@gmail.com"><i class="fas fa-at"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
 
 </div>
 
