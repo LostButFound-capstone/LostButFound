@@ -178,6 +178,12 @@ i {
     color: #009bbe;
     transition:background-color 300ms,color 300ms;
 }
+
+a i {
+    color: #659DBD;
+}
+
+
 .fa-facebook {
     padding:.5em .68em;
 }
