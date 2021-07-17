@@ -8,6 +8,7 @@
 <body>
 <link rel="stylesheet" href="/css/card.css">
 <link rel="stylesheet" href="/css/listings.css">
+<link rel="stylesheet" href="/css/listings2.css">
 <!--Header fragment-->
 <header>
     <!-- If NOT logged on -->
@@ -57,7 +58,7 @@
 <!--                    &lt;!&ndash;						<img src="img/san_antonio_airport.jpg" data-image="19" alt="Workshop" title="Workshop" />&ndash;&gt;-->
 <!--                </div>-->
 <!--            </div>-->
-            <div  id="no_gutters" class="row  mt-3">
+            <div  id="no_gutters" class="row mt-3">
                 <div id="column1" class="col card ">
                     <!--Locations dropdown-->
                     <label for="locations_dropdown">Locations:</label>
@@ -84,9 +85,12 @@
                         </div>
                     </div>
 
-                    <button type="submit" style="background-color: #659DBD" class="btn btn-sm">Filter</button>
+                    <button id="listings-submit" type="submit" class="btn btn-sm">Filter</button>
                     <!--Filter button-->
                 </div>
+<!--            </div>-->
+<!--            </div>-->
+<!--        </div>-->
     </form>
                 <div id="middle_column" class="col">
 
@@ -94,7 +98,7 @@
 
 
                 <div id="column2" class="col text-align-center card">
-                    How to search:
+                    <h3>How to search:</h3>
                     <br>
                     <ul>
                         <li id="how_to_search">Select a location from the locations dropdown.</li>
@@ -117,8 +121,13 @@
                         <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
 
                             <div class="card__header">
-                                <div class="card__image">
-                                    <img th:src="${item.user.profile_image_path}" height="50px" width="50px"/>
+                                <div class="card__image" th:if="${item.user.profile_image_path == null}">
+                                    <!--                                        <img src="/img/no_profile_pic.png" alt="No profile pic available" height="55px" width="50px"/>-->
+                                    <img src="/img/pro-pic-icon.png" alt="No profile pic available" style="height: 45px; width: 45px;  margin-top: 6px"/>
+                                </div>
+                                <div class="card__image" th:if="${item.user.profile_image_path != null}">
+                                    <img th:src="${item.user.profile_image_path}" alt="profile-image-small"
+                                         height="50px" width="50px"/>
                                 </div>
                                 <h2 th:text="${item.title}"></h2>
                             </div>
@@ -131,7 +140,7 @@
                                 <p class="about__me">Categories:
                                     <br>
                                     <th:block th:each="category : ${item.categories}">
-                                        <span th:text="${category.property_type}"></span>
+                                        <span th:text="${category.property_type}"></span><span> </span>
                                         <img th:if="${category.id == 1}" src="/img/category_icons/1-phone-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
                                         <img th:if="${category.id == 2}" src="/img/category_icons/2-tablet-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
                                         <img th:if="${category.id == 3}" src="/img/category_icons/3-headphones-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
@@ -179,8 +188,16 @@
                         <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
 
                             <div class="card__header">
-                                <div class="card__image">
-                                    <img th:src="${item.user.profile_image_path}" height="50px" width="50px"/>
+<!--                                <div class="card__image">-->
+<!--                                    <img th:src="${item.user.profile_image_path}" height="50px" width="50px"/>-->
+<!--                                </div>-->
+                                <div class="card__image" th:if="${item.user.profile_image_path == null}">
+                                    <!--                                        <img src="/img/no_profile_pic.png" alt="No profile pic available" height="55px" width="50px"/>-->
+                                    <img src="/img/pro-pic-icon.png" alt="No profile pic available" style="height: 45px; width: 45px;  margin-top: 6px"/>
+                                </div>
+                                <div class="card__image" th:if="${item.user.profile_image_path != null}">
+                                    <img th:src="${item.user.profile_image_path}" alt="profile-image-small"
+                                         height="50px" width="50px"/>
                                 </div>
                                 <h2 th:text="${item.title}"></h2>
                             </div>
@@ -193,7 +210,7 @@
                                 <p class="about__me">Categories:
                                     <br>
                                     <th:block th:each="category : ${item.categories}">
-                                        <span th:text="${category.property_type}"></span>
+                                        <span th:text="${category.property_type}"></span><span> </span>
                                         <img th:if="${category.id == 1}" src="/img/category_icons/1-phone-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
                                         <img th:if="${category.id == 2}" src="/img/category_icons/2-tablet-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
                                         <img th:if="${category.id == 3}" src="/img/category_icons/3-headphones-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
@@ -242,8 +259,16 @@
                     <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
 
                         <div class="card__header">
-                            <div class="card__image">
-                                <img th:src="${item.user.profile_image_path}" height="50px" width="50px"/>
+<!--                            <div class="card__image">-->
+<!--                                <img th:src="${item.user.profile_image_path}" height="50px" width="50px"/>-->
+<!--                            </div>-->
+                            <div class="card__image" th:if="${item.user.profile_image_path == null}">
+                                <!--                                        <img src="/img/no_profile_pic.png" alt="No profile pic available" height="55px" width="50px"/>-->
+                                <img src="/img/pro-pic-icon.png" alt="No profile pic available" style="height: 45px; width: 45px;  margin-top: 6px"/>
+                            </div>
+                            <div class="card__image" th:if="${item.user.profile_image_path != null}">
+                                <img th:src="${item.user.profile_image_path}" alt="profile-image-small"
+                                     height="50px" width="50px"/>
                             </div>
                             <h2 th:text="${item.title}"></h2>
                         </div>
@@ -256,7 +281,7 @@
                             <p class="about__me">Categories:
                                 <br>
                                 <th:block th:each="category : ${item.categories}">
-                                    <span th:text="${category.property_type}"></span>
+                                    <span th:text="${category.property_type}"></span><span> </span>
                                     <img th:if="${category.id == 1}" src="/img/category_icons/1-phone-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
                                     <img th:if="${category.id == 2}" src="/img/category_icons/2-tablet-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
                                     <img th:if="${category.id == 3}" src="/img/category_icons/3-headphones-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
@@ -304,8 +329,16 @@
                     <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
 
                         <div class="card__header">
-                            <div class="card__image">
-                                <img th:src="${item.user.profile_image_path}" height="50px" width="50px"/>
+<!--                            <div class="card__image">-->
+<!--                                <img th:src="${item.user.profile_image_path}" height="50px" width="50px"/>-->
+<!--                            </div>-->
+                            <div class="card__image" th:if="${item.user.profile_image_path == null}">
+                                <!--                                        <img src="/img/no_profile_pic.png" alt="No profile pic available" height="55px" width="50px"/>-->
+                                <img src="/img/pro-pic-icon.png" alt="No profile pic available" style="height: 45px; width: 45px;  margin-top: 6px"/>
+                            </div>
+                            <div class="card__image" th:if="${item.user.profile_image_path != null}">
+                                <img th:src="${item.user.profile_image_path}" alt="profile-image-small"
+                                     height="50px" width="50px"/>
                             </div>
                             <h2 th:text="${item.title}"></h2>
                         </div>
@@ -318,7 +351,7 @@
                             <p class="about__me">Categories:
                                 <br>
                                 <th:block th:each="category : ${item.categories}">
-                                    <span th:text="${category.property_type}"></span>
+                                    <span th:text="${category.property_type}"></span><span> </span>
                                     <img th:if="${category.id == 1}" src="/img/category_icons/1-phone-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
                                     <img th:if="${category.id == 2}" src="/img/category_icons/2-tablet-new.png" alt="icon" style="height: 35px;vertical-align: baseline;">
                                     <img th:if="${category.id == 3}" src="/img/category_icons/3-headphones-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">

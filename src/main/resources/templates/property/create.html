@@ -96,11 +96,11 @@
 
         <div class="container">
             <div class="mt-4">
-                <div class=" text-center">
+                <div class="text-center">
                     <label for="createTitle"><h2>What did you find?</h2></label>
                 </div>
                 <div>
-                    <input id="createTitle" type="text" th:field="*{title}" style="width:100%"
+                    <input maxlength="24" id="createTitle" type="text" th:field="*{title}" style="width:100%"
                            required>
                 </div>
             </div>
