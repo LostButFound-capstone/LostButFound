@@ -609,3 +609,9 @@ input[type=text], input[type=password], input[type=email] {
 .error {
     background: none;
 }
+
+@media only screen and (max-width: 420px) {
+    #flex-dir {
+        flex-direction: column;
+    }
+}

@@ -17,3 +17,13 @@
    margin-left: auto;
 
 }
+
+@media only screen and (max-width: 420px) {
+    .mt-5 {
+        margin-top: 1rem !important;
+    }
+
+    #column2 {
+        margin-top: 1rem;
+    }
+}
