@@ -11,6 +11,7 @@
 #column1 > label {
     font-size: 1.5rem;
     margin-top: .5rem;
+    margin-bottom: .5rem;
 }
 #column1 > select {
     margin-top: .5rem;
@@ -18,7 +19,7 @@
 }
 #column1 > input {
     margin-top: .5rem;
-    margin-bottom: ,5rem;
+    margin-bottom: 5rem;
 }
 #dateFound {
     margin-top: .5rem;
@@ -26,7 +27,7 @@
 #listings-submit {
     background-color: #659DBD;
     color: white;
-    margin-top: 2.6rem;
+    margin-top: 3.6rem;
     width: 80%;
     align-self: center;
     border: 1px solid #e18a77;

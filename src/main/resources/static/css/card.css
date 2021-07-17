@@ -90,7 +90,6 @@
     border-bottom: 2px solid #e18a77;
 }
 .profile-listings-header h2 {
-    font-family: 'Lora',sans-serif;
     color: #e18a77;
     margin: 1rem;
     font-weight: bold;
@@ -121,7 +120,6 @@
 }
 .card__header h2 {
     font-weight:600;
-    font-family:'Lora',sans-serif;
     font-size:1.8rem;
     /*text-align: center;*/
     color: #e18a77;
