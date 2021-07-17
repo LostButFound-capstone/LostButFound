@@ -112,8 +112,13 @@ select:focus, select:active {
     border-radius: 25%;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 420px) {
     #no_gutters {
         flex-direction: column;
+        padding: 10px;
+    }
+
+    .card__header {
+        margin-top: 10px;
     }
 }

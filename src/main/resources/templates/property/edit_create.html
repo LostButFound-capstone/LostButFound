@@ -36,7 +36,7 @@
             <label><h3 class="text-beige">Choose one or more categories that fits the item you found:</h3></label>
             <br>
 
-            <div class="container row justify-content-end">
+            <div class="container row">
 
 
                 <th:block th:each="category : ${categories}">
@@ -75,7 +75,7 @@
         <hr class="solid3 mx-3 mt-5">
 
         <div class="container mt-5 text-center">
-            <div class="d-flex justify-content-around">
+            <div id="flex-dir" class="d-flex justify-content-around">
                 <label for="locations"><h3 class="text-beige">Where did you find this item?</h3></label>
 
                 <select id="locations" th:field="*{location}" required>
