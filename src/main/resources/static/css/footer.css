@@ -47,8 +47,7 @@
     font-weight: bold;
     display: flex;
     justify-content: center;
-    margin-left: 2px;
-    margin-right: 2px;
+    margin-right: 2rem;
     margin-top: -88px;
 }
 
@@ -145,5 +144,17 @@ a {
 
     .footer2 {
         margin: 0 !important;
+    }
+}
+
+@media (min-width: 421px) {
+    .homePageFooter {
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .homePageFooter {
+        margin-top: -88px;
     }
 }
