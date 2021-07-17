@@ -38,7 +38,10 @@ body {
     --bs-gutter-y: none !important;
 }
 
-
+#flex-center {
+    display: flex;
+    justify-content: end;
+}
 .text-beige {
     color: #edd9bc;
 }
