@@ -9,6 +9,8 @@
 
 <body>
 
+<!--============================================ MOBILE VIEW ==================================================================-->
+
 <div th:fragment="modal" class="shade3 p-3">
 
     <a id="button-modalSmall" class="text-decoration-none" role="button" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
@@ -19,6 +21,7 @@
     <div id="id01" class="modal">
 
 
+
         <form class="modal-content animate" th:action="@{/}" method="POST">
 
             <div class="imgcontainer mb-3">
@@ -26,6 +29,11 @@
             </div>
 
             <div class="container">
+
+                <div class="text-center">
+                    <h2>Login</h2>
+                </div>
+
                 <label class="inputs" for="usernameSmall"><b>Username:</b></label>
                 <input type="text" placeholder="Enter Username" name="username" required id="usernameSmall" >
 
@@ -36,8 +44,12 @@
             </div>
 
         </form>
+
     </div>
 </div>
+
+<!--=============================================== DESKTOP VIEW ====================================================-->
+
 <li th:fragment="modal-lg" class="nav-item">
     <a id="button-modalLg" class="nav-link text-beige" role="button" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">
         Login
@@ -59,6 +71,11 @@
                 <div th:if="${param.logout}">
                     You have been logged out.
                 </div>
+
+                <div class="text-center">
+                    <h2>Login</h2>
+                </div>
+
                 <label class="inputs" for="uname">Username:</label>
                 <input type="text" placeholder="Enter Username" name="username" required id="uname" >
 
