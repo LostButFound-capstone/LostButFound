@@ -97,7 +97,7 @@
 .profile__card {
     min-width:100%;
     background-color: #264851;
-    /*box-shadow:17px 17px 5px rgba(0,0,0,.4);*/
+    box-shadow: 10px 10px 5px rgba(0,0,0,.4);
     /*display:grid;*/
     grid-template-columns:1fr;
     grid-template-areas:'header'

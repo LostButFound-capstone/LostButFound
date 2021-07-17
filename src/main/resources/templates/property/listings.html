@@ -21,7 +21,7 @@
 <div class="container no-gutters mt-4">
     <br>
     <br>
-    <h2 align="center">Welcome to the listings page!</h2>
+
     <!--Listings form-->
 
     <form th:action="@{/listings}" method="get">
@@ -29,8 +29,12 @@
         <!--Filter card-->
         <div class="container-fluid">
             <div id="no_gutters" class="row">
+                <div class="card" >
+                    <div class="d-flex justify-content-center align-items-center" style="padding: 1.2rem; background-color: #254b5b; border-bottom: 1px solid #E18A77">
+                        <h2 style="margin-bottom: 0" align="center">Welcome to the listings page!</h2>
+                    </div>
                 <img id="rounded_image" class="rounded" style="border-color: #E18A77; border-radius: 25px; width: 100%; height: 40vh;" src="img/san_antonio_skyline.png" alt="San Antonio Skyline"/>
-
+            </div>
 <!--                <div class="images" data-selected="">-->
 <!--                    <span class="loader">loading...</span>-->
 <!--                    <span class="no-selection"></span>-->
@@ -85,7 +89,7 @@
                         </div>
                     </div>
 
-                    <button id="listings-submit" type="submit" class="btn btn-sm">Filter</button>
+                    <button id="listings-submit" type="submit" class="btn btn-sm" style="font-size: 1.2rem; height: 2.5rem">Filter</button>
                     <!--Filter button-->
                 </div>
 <!--            </div>-->
@@ -98,7 +102,7 @@
 
 
                 <div id="column2" class="col text-align-center card">
-                    <h3 style="color: #edd9bc">How to search:</h3>
+                    <h2 style="margin-bottom: 0; text-align: center; color: #edd9bc">How to search:</h2>
                     <br>
                     <ul>
                         <li id="how_to_search">Select a location from the locations dropdown.</li>
@@ -114,7 +118,7 @@
 
     <!--Property Cards-->
 <!--    <div class="container">-->
-        <div  id="no_gutters" class="card mt-3">
+        <div  id="no_gutters" class="card mt-3" style="padding-bottom: 2rem">
             <div class="row">
                 <th:block th:if="${searchProperties != null}">
                     <div class="d-none d-lg-block d-xxl-block col-6 mt-3" th:each="item : ${searchProperties}">
@@ -184,7 +188,7 @@
 
 
                     </div>
-                    <div class="d-block d-lg-none d-xxl-none col-12" th:each="item : ${searchProperties}">
+                    <div style="padding: .5rem 1rem" class="d-block d-lg-none d-xxl-none col-12" th:each="item : ${searchProperties}">
                         <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
 
                             <div class="card__header">
@@ -255,7 +259,7 @@
                     </div>
                 </th:block>
                 <th:block th:if="${searchProperties == null}">
-                <div class="d-none d-lg-block d-xxl-block col-6 mt-3" th:each="item : ${properties}">
+                <div style="padding: .5rem 1rem" class="d-none d-lg-block d-xxl-block col-6 mt-3" th:each="item : ${properties}">
                     <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
 
                         <div class="card__header">
@@ -325,7 +329,7 @@
 
 
                 </div>
-                <section class="d-block d-lg-none d-xxl-none col-12" th:each="item : ${properties}">
+                <div style="padding: .5rem 1rem" class="d-block d-lg-none d-xxl-none col-12" th:each="item : ${properties}">
                     <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
 
                         <div class="card__header">
@@ -393,7 +397,7 @@
                         </div>
                     </div>
 
-                </section>
+                </div>
                 </th:block>
             </div>
         </div>
