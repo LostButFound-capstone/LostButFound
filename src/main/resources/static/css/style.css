@@ -33,6 +33,11 @@ body {
     background-color: #7e9b93;
 }
 
+.row {
+    --bs-gutter-x: none !important;
+    --bs-gutter-y: none !important;
+}
+
 
 .text-beige {
     color: #edd9bc;
@@ -73,7 +78,7 @@ body {
     width: 100%;
     overflow: scroll;
     padding:0;
-    margin:0px;
+    margin:0;
 }
 .cube {
     position: absolute;
