@@ -74,8 +74,12 @@
 
     <!-- Large Screens View -->
     <main class="d-none d-lg-block d-xxl-block">
+<!--        <div class="d-flex justify-content-center" style="padding: 3rem; text-align: center">-->
+<!--        <img src="/img/logo-beige.png" alt="logo" width="90" height="80">-->
+<!--            <h1 style="color: white;">Welcome to LostButFound, a San Antonio based lost and found service.</h1>-->
+<!--        </div>-->
+        <div class="d-flex justify-content-center align-items-center" style="height: 77vh">
 
-        <div class="d-flex justify-content-center align-items-center">
             <div class="box1 d-flex flex-column text-white">
                 <div th:if="${param.error}">
                     Invalid Username and Password.
@@ -117,14 +121,13 @@
 <!--                <p>We are committed to reuniting the people of San Antonio with their lost belongings. Our goal is to provide a seamless process for both finders and searchers. We created a secure platform in which finders and searchers can communicate with ease. </p>-->
                 <h2 style="color: black;">Services we provide:</h2>
                 <br>
-                <p>
-                    -Ability to post lost items
-                    <br>
-                    -Users have the ability to search through lost items to retrieve their belongings
-                    <br>
-                    -Searchers can filter through items using location and category for items
-                    <br>
-                </p>
+                <ul >
+                    <li style="color: black">Ability to post lost items</li>
+                    <li style="color: black">Users have the ability to search through lost items to retrieve their belongings
+                    </li>
+                    <li style="color: black">Searchers can filter through items using location and category for items
+                    </li>
+                </ul>
             </div>
         </div>
     </main>
