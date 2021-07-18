@@ -623,4 +623,10 @@ input[type=text], input[type=password], input[type=email] {
     [data-animate-in="right"] {
         transform: none;
     }
+
+    #flex-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
