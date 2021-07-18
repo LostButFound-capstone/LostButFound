@@ -18,9 +18,8 @@
 </header>
 
 <!--Main Container-->
-<div class="container no-gutters mt-4">
-    <br>
-    <br>
+<div class="container no-gutters">
+
 
     <!--Listings form-->
 
@@ -30,7 +29,7 @@
         <div class="container-fluid">
             <div id="no_gutters" class="row">
                 <div class="card" >
-                    <div class="d-flex justify-content-center align-items-center" style="padding: 1.2rem; background-color: #254b5b; border-bottom: 1px solid #E18A77">
+                    <div class="d-flex justify-content-center align-items-center" style="padding: 1.2rem; background-color: #254b5b; border-bottom: 2px solid #E18A77">
                         <h2 style="margin-bottom: 0" align="center">Welcome to the listings page!</h2>
                     </div>
                 <img id="rounded_image" class="rounded" style="border-color: #E18A77; border-radius: 25px; width: 100%; height: 40vh;" src="img/san_antonio_skyline.png" alt="San Antonio Skyline"/>
@@ -102,7 +101,9 @@
 
 
                 <div id="column2" class="col text-align-center card">
-                    <h2 style="margin-bottom: 0; text-align: center; color: #edd9bc">How to search:</h2>
+                    <div style="border-bottom: 3px solid #e18a77">
+                    <h2 style="margin-bottom: 0; text-align: center; color: #edd9bc">How to search:</h2></div>
+<!--                    <hr class="solid mx-3 mt-3">-->
                     <br>
                     <ul>
                         <li id="how_to_search">Select a location from the locations dropdown.</li>
@@ -124,7 +125,7 @@
                     <div class="d-none d-lg-block d-xxl-block col-6 mt-3" th:each="item : ${searchProperties}">
                         <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
 
-                            <div class="card__header">
+                            <div style="word-break: break-all" class="card__header">
                                 <div class="card__image" th:if="${item.user.profile_image_path == null}">
                                     <!--                                        <img src="/img/no_profile_pic.png" alt="No profile pic available" height="55px" width="50px"/>-->
                                     <img src="/img/pro-pic-icon.png" alt="No profile pic available" style="height: 45px; width: 45px;  margin-top: 6px"/>
@@ -139,7 +140,7 @@
                             <div class="card__body">
                                 <p class="about__me">Found by:<span class="about__me"
                                                                     th:text="${item.user.username}"></span></p>
-                                <p class="about__me">Location found: <span th:text="${item.location.location_name}"></span>
+                                <p class="about__me">Location found: <br> <span th:text="${item.location.location_name}"></span>
                                 </p>
                                 <p class="about__me">Categories:
                                     <br>
@@ -191,7 +192,7 @@
                     <div style="padding: .5rem 1rem" class="d-block d-lg-none d-xxl-none col-12" th:each="item : ${searchProperties}">
                         <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
 
-                            <div class="card__header">
+                            <div style="word-break: break-all" class="card__header">
 <!--                                <div class="card__image">-->
 <!--                                    <img th:src="${item.user.profile_image_path}" height="50px" width="50px"/>-->
 <!--                                </div>-->
@@ -209,7 +210,7 @@
                             <div class="card__body">
                                 <p class="about__me">Found by:<span class="about__me"
                                                                     th:text="${item.user.username}"></span></p>
-                                <p class="about__me">Location found: <span th:text="${item.location.location_name}"></span>
+                                <p class="about__me">Location found: <br><span th:text="${item.location.location_name}"></span>
                                 </p>
                                 <p class="about__me">Categories:
                                     <br>
@@ -262,7 +263,7 @@
                 <div style="padding: .5rem 1rem" class="d-none d-lg-block d-xxl-block col-6 mt-3" th:each="item : ${properties}">
                     <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
 
-                        <div class="card__header">
+                        <div style="word-break: break-all" class="card__header">
 <!--                            <div class="card__image">-->
 <!--                                <img th:src="${item.user.profile_image_path}" height="50px" width="50px"/>-->
 <!--                            </div>-->
@@ -280,7 +281,7 @@
                         <div class="card__body">
                             <p class="about__me">Found by:<span class="about__me"
                                                                 th:text="${item.user.username}"></span></p>
-                            <p class="about__me">Location found: <span th:text="${item.location.location_name}"></span>
+                            <p class="about__me">Location found: <br><span th:text="${item.location.location_name}"></span>
                             </p>
                             <p class="about__me">Categories:
                                 <br>
@@ -332,7 +333,7 @@
                 <div style="padding: .5rem 1rem" class="d-block d-lg-none d-xxl-none col-12" th:each="item : ${properties}">
                     <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
 
-                        <div class="card__header">
+                        <div style="word-break: break-all" class="card__header">
 <!--                            <div class="card__image">-->
 <!--                                <img th:src="${item.user.profile_image_path}" height="50px" width="50px"/>-->
 <!--                            </div>-->
@@ -350,7 +351,7 @@
                         <div class="card__body">
                             <p class="about__me">Found by:<span class="about__me"
                                                                 th:text="${item.user.username}"></span></p>
-                            <p class="about__me">Location found: <span th:text="${item.location.location_name}"></span>
+                            <p class="about__me">Location found: <br><span th:text="${item.location.location_name}"></span>
                             </p>
                             <p class="about__me">Categories:
                                 <br>
@@ -438,9 +439,9 @@
             // setTimeout(function() {
             //     $(".popuptext").hide();
             //     }, 2000);
-            $(function () {
-                $('.popuptext').delay(3000).fadeOut();
-            });
+            // $(function () {
+            //     $('.popuptext').delay(3000).fadeOut();
+            // });
         }
 
         $(function () {

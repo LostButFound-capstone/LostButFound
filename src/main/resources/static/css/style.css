@@ -40,7 +40,7 @@ body {
 
 #flex-center {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
 .text-beige {
     color: #edd9bc;
@@ -616,5 +616,11 @@ input[type=text], input[type=password], input[type=email] {
 @media only screen and (max-width: 420px) {
     #flex-dir {
         flex-direction: column;
+    }
+    [data-animate-in] {
+        transform: none;
+    }
+    [data-animate-in="right"] {
+        transform: none;
     }
 }

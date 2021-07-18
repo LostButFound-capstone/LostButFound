@@ -3,7 +3,13 @@
     background: #edd9bc;
     border: solid 2px #e18a77
 }
-
+@media only screen and (min-width: 420px) {
+    #sticky {
+         position: -webkit-sticky; /* Safari */
+         position: sticky;
+         top: 16px;
+     }
+}
 /*.btn-danger {*/
 /*    background-color: #e18a6;*/
 /*}*/
@@ -70,13 +76,30 @@
     background-color: #008aff;
     color: white;
 }
-.filestack-api-button {
-    background: #015398;
-    color: #d4d4d4;
+/*.filestack-api-button {*/
+/*    background: #015398;*/
+/*    color: #d4d4d4;*/
+/*}*/
+/*.filestack-api-button:hover {*/
+/*    background-color: #fd623e;*/
+/*}*/
+#profilePicture {
+    background: #e18a77;
+    color: white;
+    border: 1px solid black;
 }
-.filestack-api-button:hover {
-    background-color: #fd623e;
+#profilePicture:hover {
+    background-color: #ff7b5e;
 }
+#edit-profile-submit {
+    background: #659dbd;
+    color: white;
+    border: 1px solid black;
+}
+#edit-profile-submit:hover {
+    background-color: #008aff;
+}
+
 .profile-listings-header {
     grid-area: header;
     background-color: #254b5b;
@@ -169,6 +192,13 @@
     border-bottom-left-radius: .4rem;
     border-bottom-right-radius: .4rem;
 }
+.edit-create-submit {
+    background-color: #659DBD;
+    color: white
+}
+.edit-create-submit:hover {
+    background-color: #008aff;
+}
 
 i {
     padding:.5em;
@@ -180,6 +210,23 @@ i {
 a i {
     color: #659DBD;
 }
+#inquiry-image-submit {
+    background: #e18a77;
+    color: white;
+    border: 1px solid black;
+}
+#inquiry-image-submit:hover {
+    background-color: #ff7b5e;
+}
+#inquiry-submit {
+    background: #659dbd;
+    color: white;
+    border: 1px solid black;
+}
+#inquiry-submit:hover {
+    background-color: #008aff;
+}
+
 
 
 .fa-facebook {
@@ -244,9 +291,24 @@ a i {
     }
 }
 
-@media only screen and (min-width: 320px) {
+@media only screen and (min-width: 420px) {
     .edit-delete {
         width: 100px;
+    }
+    #profile-column1 {
+        width: 33%;
+    }
+    #profile-column2 {
+        width: 2%;
+    }
+    #profile-column3 {
+        width: 65%;
+    }
+    [data-animate-in] {
+        transform: none;
+    }
+    [data-animate-in="right"] {
+        transform: none;
     }
 }
 

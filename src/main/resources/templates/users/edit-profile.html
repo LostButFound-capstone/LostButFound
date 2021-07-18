@@ -30,10 +30,11 @@
                          alt="profile-picture"/>
                 </div>
             </div>
+            <br>
             <div class="media-body">
-                <h4 class="font-weight-bold mt-1"><span th:text="${currentUser.username}"></span></h4>
+                <h4 class="font-weight-bold mt-1"><span style="word-break: break-all" th:text="${currentUser.username}"></span></h4>
                 <h4 class="font-weight-bold mb-2"><span class="font-weight-normal"><span
-                        th:text="${currentUser.email}"></span></span></h4>
+                        style="word-break: break-all" th:text="${currentUser.email}"></span></span></h4>
             </div>
 
         </div>
@@ -43,24 +44,28 @@
             <div class="container">
                 <form th:action="@{/profile/edit/{id}(id=${currentUser.id})}" method="post">
                     <div class="form-group mb-3">
-                        <label for="username">Edit Username</label>
+                        <h4><label for="username">Edit Username: </label></h4>
                         <input id="username" name="username" class="form-control" th:value="${currentUser.username}">
                     </div>
                     <div class="form-group mb-3">
-                        <label for="email">Edit Email</label>
+                        <h4><label for="email">Edit Email: </label></h4>
                         <input id="email" name="email" class="form-control" th:value="${currentUser.email}">
                     </div>
                     <div class="form-group mb-3">
-                        <label for="password">New Password</label>
-                        <input type="password" id="password" name="password" class="form-control" required>
+                        <h4><label for="password">New Password: </label></h4>
+                        <input style="margin: 0" type="password" id="password" name="password" class="form-control" required>
                     </div>
-                    <div class="form-group mb-3">
-                        <label for="profilePicture">Upload an image:</label>
-                        <button id="profilePicture" type="button" class="btn filestack-api-button">Choose File</button>
+                    <div class="form-group mb-3" style="border-bottom: 2px solid #e18a77">
+                        <h4><label for="profilePicture">Upload a profile picture:</label></h4>
+                        <button style="margin-bottom: 1rem" id="profilePicture" type="button" class="btn filestack-api-button">Choose File</button>
                         <span><i class="fa fa-check hidden"></i></span>
                     </div>
-                    <input id="edit-profile-submit" type="submit" class="btn filestack-api-button" value="Submit">
+
+                    <br>
+                    <div class="d-flex justify-content-center">
+                    <input style="width: 30%" id="edit-profile-submit" type="submit" class="btn filestack-api-button align-self-center" value="Submit">
                     <input id="hidden" name="profilePicture" class="form-control" type="hidden" value="">
+                    </div>
                 </form>
             </div>
         </div>
