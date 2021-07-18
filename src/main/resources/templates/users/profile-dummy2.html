@@ -16,14 +16,15 @@
 </header>
 
 
-<div class="container mb-3" data-animate-in="right" data-animate-in-delay="100" >
+<div class="container mb-3" data-animate-in="right" data-animate-in-delay="100">
     <div class="main-body">
 
         <!-- Breadcrumb -->
         <!-- /Breadcrumb -->
 
         <div class="row gutters-sm">
-            <div class="col-md-4 mb-3">
+            <div id="profile-column1" class="col-md-3 mb-3">
+                <div id="sticky">
                 <div class="card">
                     <div id="card-body" class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
@@ -78,11 +79,13 @@
                         <!--                        </li>-->
                     </ul>
                 </div>
+                </div>
             </div>
-                <div class="col-md-8">
+                <div id="profile-column2" class="col-md-1"></div>
+                <div id="profile-column3" class="col-md-7">
                     <th:block th:if="${properties.size() == 0}">
                         <div class="card mb-3 listings-container p-0">
-                            <div class="d-lg-block d-xxl-block col-12 profile-listings-header">
+                            <div class="d-lg-block d-xxl-block col-12 profile-listings-header" style="margin-bottom: 0; border: none">
                                 <h2>Seems like you haven’t found anything yet! No worries!</h2>
                             </div>
                         </div>
@@ -96,12 +99,12 @@
                         <div class="d-lg-block d-xxl-block col-11 mt-5" th:each="item : ${properties}">
                             <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
 
-                                <div class="card__header">
+                                <div style="word-break: break-all" class="card__header" >
                                     <div class="card__image" th:if="${item.user.profile_image_path == null}">
 <!--                                        <img src="/img/no_profile_pic.png" alt="No profile pic available" height="55px" width="50px"/>-->
                                         <img src="/img/pro-pic-icon.png" alt="No profile pic available" style="height: 45px; width: 45px;  margin-top: 6px"/>
                                     </div>
-                                    <div class="card__image" th:if="${item.user.profile_image_path != null}">
+                                    <div style="word-break: break-all" class="card__image" th:if="${item.user.profile_image_path != null}">
                                         <img th:src="${item.user.profile_image_path}" alt="profile-image-small"
                                              height="50px" width="50px"/>
                                     </div>
@@ -170,7 +173,7 @@
                     <th:block th:if="${inquiries.size() == 0}">
                         <div class="col-md-12">
                             <div class="card mb-3 listings-container p-0">
-                                    <div class="d-lg-block d-xxl-block col-12 profile-listings-header">
+                                    <div class="d-lg-block d-xxl-block col-12 profile-listings-header" style="margin-bottom: 0; border: none">
                                         <h2>Looks like nobody has claimed the item you lost! Hopefully they find it soon! </h2>
                                     </div>
                             </div>

@@ -22,7 +22,7 @@
 
         <div class="card-body" style="background: #264851; color: #edd9bc; border: 1px solid #e18a77;">
 
-            <div class="mx-5">
+            <div class="mx-3">
                 <h1 class="text-center mb-4">Inquiry Form</h1>
                 <hr class="solid  mx-3 mt-5" style="opacity: 1; border-top: 3px solid #e18a77;">
                 <div class="d-inline-flex mt-3">
@@ -73,7 +73,7 @@
                 <h3 class="text-beige" style="line-height: 1.5">How it works:</h3>
                 <h5 style="line-height: 1.5">
                     <br>
-                    <br>
+
                     -Fill out this form to see if this item is yours!
                     <br><br>
                     -It’s a good idea to include something specific about your item so that we for sure know it’s yours!
@@ -94,9 +94,9 @@
                     </div>
 
                     <div class=" mb-5">
-                        <label for="imageURL"><h5>Upload an image:</h5></label>
+                        <label for="inquiry-image-submit"><h5>Upload an image:</h5></label>
                         <br>
-                        <button id="imageURL" type="button" class="btn btn-secondary" onclick="myFunction()">Choose
+                        <button id="inquiry-image-submit" type="button" class="btn btn-secondary" onclick="myFunction()">Choose
                             File
                         </button>
                         <span><i class="fa fa-check hidden" style="color:green"></i></span>
@@ -110,7 +110,7 @@
                     <hr class="solid  my-5" style="opacity: 1; border-top: 3px solid #e18a77;">
 
                     <div class="text-center mb-4">
-                        <input type="submit" class="btn btn-secondary">
+                        <input id="inquiry-submit" type="submit" class="btn btn-secondary">
                         <input id="hidden" name="imageURL" class="form-control" type="hidden" value="">
                     </div>
                 </form>

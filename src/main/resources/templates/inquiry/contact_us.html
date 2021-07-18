@@ -18,10 +18,13 @@
     <nav th:replace="fragments/new-navbar :: new-navbar" sec:authorize="isAuthenticated()"></nav>
 </header>
 
-<div class="container card mt-3">
-    <div class="card-header text-center mt-3" style="background-color: #2b4857; color: #E18A77; border: 2px solid #E18A77">
-        <h1>About Us</h1>
-    </div>
+<div class="container card mt-4" style="padding: 0">
+    <h1 class="card-header text-center" style="background-color: #2b4857; color: #E18A77;">About Us</h1>
+</div>
+<div class="container card">
+<!--    <div >-->
+<!--        -->
+<!--    </div>-->
 
 
 <div class="container">
@@ -119,7 +122,7 @@
 
 
 <footer th:fragment="footer1">
-    <div class="text-center mt-5">
+    <div class="text-center">
         <ul class="footer-list contactFooter">
             <li><a th:href="@{/}">&copy; LostButFound</a></li>
             <li>||</li>

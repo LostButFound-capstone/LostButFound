@@ -61,7 +61,7 @@
     justify-content: center;
     margin-left: 2px;
     margin-right: 2px;
-    padding-top: 250px;
+    padding-top: 180px;
 }
 
 .editProfile {
@@ -73,7 +73,7 @@
     justify-content: center;
     margin-left: 2px;
     margin-right: 2px;
-    padding-top: 100px;
+    padding-top: 45px;
 }
 
 
@@ -144,6 +144,12 @@ a {
 
     .footer2 {
         margin: 0 !important;
+    }
+    [data-animate-in] {
+        transform: none;
+    }
+    [data-animate-in="right"] {
+        transform: none;
     }
 }
 
