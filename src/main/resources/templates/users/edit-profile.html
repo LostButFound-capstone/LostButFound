@@ -105,18 +105,14 @@
 
     btn.addEventListener('click', function (e) {
         e.preventDefault();
-        console.log("I was clicked");
         picker.open();
     })
 
     function anotherFunction(res) {
-        console.log(res);
         let handle = "https://cdn.filestackcontent.com/" + res.handle;
-        console.log(handle);
 
 
         document.getElementById('hidden').value = handle;
-        console.log(document.getElementById('hidden').value)
 
         if (handle !== "") {
             document.querySelector('.fa-check').classList.remove('hidden')
