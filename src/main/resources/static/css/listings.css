@@ -115,10 +115,21 @@ select:focus, select:active {
 @media only screen and (max-width: 420px) {
     #no_gutters {
         flex-direction: column;
-        padding: 10px;
     }
 
     .card__header {
         margin-top: 10px;
+    }
+
+    p, label, ul, li, button, a, select {
+        font-size: 1rem !important;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.2rem !important;
+    }
+
+    #how_to_search {
+        margin-top: 1rem;
     }
 }
