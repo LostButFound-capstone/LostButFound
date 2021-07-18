@@ -160,6 +160,10 @@ h2, h4, ul li {
         flex-direction: column;
     }
 
+    #flex-direction {
+        flex-direction: column;
+    }
+
     #locations {
         width: 100%;
     }
