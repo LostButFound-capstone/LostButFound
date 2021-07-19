@@ -65,7 +65,7 @@
                 <div id="column1" class="col card ">
                     <!--Locations dropdown-->
                     <label for="locations_dropdown">Locations:</label>
-                    <select name="location" id="locations_dropdown" data-selected="">
+                    <select style="font-size: large;" class="form-control" name="location" id="locations_dropdown" data-selected="">
                         <option value="null">Select a location</option>
                         <th:block th:each="location : ${locations}">
                             <option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
@@ -73,7 +73,7 @@
                     </select>
                     <!--Categories dropdown-->
                     <label for="categories">Categories:</label>
-                    <select name="category" id="categories" data-selected="">
+                    <select style="font-size: large;" class="form-control" name="category" id="categories" data-selected="">
                         <option value="null">Select a category</option>
                         <th:block th:each="category : ${categories}">
                             <option th:value="${category.id}"><span th:text="${category.property_type}"></span></option>
@@ -82,7 +82,7 @@
                     <!--Date-picker-->
                     <label for="dateFound">Date lost:</label>
                     <div class="input-group.date mb-2">
-                        <input name="date_found" id="dateFound" type="date" class="form-control align-center">
+                        <input style="font-size: large;" name="date_found" id="dateFound" type="date" class="form-control align-center">
                         <div class="input-group-addon">
                             <span class="glyphicon glyphicon-th"></span>
                         </div>
@@ -139,7 +139,7 @@
                     <div class="d-none d-lg-block d-xxl-block col-6 mt-3" th:each="item : ${searchProperties}">
                         <div class="profile__card" data-animate-in="fadeIn" data-animate-in-delay="200">
 
-                            <div style="word-break: break-all" class="card__header">
+                            <div style="word-break: break-word" class="card__header">
                                 <div class="card__image" th:if="${item.user.profile_image_path == null}">
                                     <!--                                        <img src="/img/no_profile_pic.png" alt="No profile pic available" height="55px" width="50px"/>-->
                                     <img src="/img/pro-pic-icon.png" alt="No profile pic available" style="height: 45px; width: 45px;  margin-top: 6px"/>
@@ -207,7 +207,7 @@
                     <div style="padding: .5rem 1rem" class="d-block d-lg-none d-xxl-none col-12" th:each="item : ${searchProperties}">
                         <div class="profile__card" data-animate-in="fadeIn" data-animate-in-delay="200">
 
-                            <div style="word-break: break-all" class="card__header">
+                            <div style="word-break: break-word" class="card__header">
 <!--                                <div class="card__image">-->
 <!--                                    <img th:src="${item.user.profile_image_path}" height="50px" width="50px"/>-->
 <!--                                </div>-->
@@ -293,8 +293,9 @@
                 <div style="padding: .5rem 1rem" class="d-none d-lg-block d-xxl-block col-6 mt-3" th:each="item : ${properties}">
                     <div class="profile__card" data-animate-in="fadeIn" data-animate-in-delay="200">
 
-                        <div style="word-break: break-all" class="card__header">
+                        <div style="word-break: break-word" class="card__header">
 <!--                            <div class="card__image">-->
+
 <!--                                <img th:src="${item.user.profile_image_path}" height="50px" width="50px"/>-->
 <!--                            </div>-->
                             <div class="card__image" th:if="${item.user.profile_image_path == null}">
@@ -364,7 +365,7 @@
                 <div style="padding: .5rem 1rem" class="d-block d-lg-none d-xxl-none col-12" th:each="item : ${properties}">
                     <div class="profile__card" data-animate-in="fadeIn" data-animate-in-delay="200">
 
-                        <div style="word-break: break-all" class="card__header">
+                        <div style="word-break: break-word" class="card__header">
 <!--                            <div class="card__image">-->
 <!--                                <img th:src="${item.user.profile_image_path}" height="50px" width="50px"/>-->
 <!--                            </div>-->
