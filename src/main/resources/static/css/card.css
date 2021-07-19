@@ -304,12 +304,12 @@ a i {
     #profile-column3 {
         width: 65%;
     }
-    [data-animate-in] {
-        transform: none;
-    }
-    [data-animate-in="right"] {
-        transform: none;
-    }
+    /*[data-animate-in] {*/
+    /*    transform: none;*/
+    /*}*/
+    /*[data-animate-in="right"] {*/
+    /*    transform: none;*/
+    /*}*/
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
