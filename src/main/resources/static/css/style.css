@@ -614,6 +614,12 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 @media only screen and (max-width: 420px) {
+    .mx-5 {
+        margin: 0 !important;
+    }
+    .no-padding {
+        padding: 0 !important;
+    }
     #flex-dir {
         flex-direction: column;
     }
