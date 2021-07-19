@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/head :: head">
+  <title>Listings</title>
+</head>
+<link rel="stylesheet" href="/css/card.css">
+<script src="https://kit.fontawesome.com/ffd5be2154.js" crossorigin="anonymous"></script>
+<body>
+<header>
+  <!-- If NOT logged on -->
+  <nav th:replace="fragments/navbar :: navbar" sec:authorize="!isAuthenticated()"></nav>
+  <!-- If logged on -->
+  <nav th:replace="fragments/new-navbar :: new-navbar" sec:authorize="isAuthenticated()"></nav>
+</header>
+
+<br><br><br><br>
+
+<!--The issue with the padding is in the .about__me class. Would have to apply border radius(border-top-right-radius: .5em, border-bottom-left-radius: .5em, etc.) to each individual container Or wrap entire card in a separate div to round the edges out-->
+
+  <section class="card--container" th:each="item : ${properties}">
+    <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
+
+      <div class="card__header">
+        <div class="card__image">
+          <img src="/img/nambeshadap.png" height="50px" width="50px"/>
+        </div>
+        <h2>NOMBRE SHUTUP</h2>
+      </div>
+
+
+      <div class="card__body">
+        <img src="/img/nambeshadap.png" alt="nombre-shadap" height="100%" width="100%">
+        <div class="important__social__links">
+          <a id="inquireBtn" role="button" class="btn btn-sm btn-outline-secondary popup"
+             onclick="myFunction2(event)">Como te gusta este parade?
+            <span class="popuptext" id="myPopupLg">GO SPURS GO</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+<script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+<script>
+  // When the user clicks on div, open the popup
+  function myFunction2(event) {
+    event.stopPropagation();
+    var popup = event.target.childNodes[1];
+    popup.classList.toggle("show");
+  }
+
+  $(function () {
+
+    var html = $('html');
+    // Detections
+    if (!("ontouchstart" in window)) {
+      html.addClass("noTouch");
+    }
+    if ("ontouchstart" in window) {
+      html.addClass("isTouch");
+    }
+    if ("ontouchstart" in window) {
+      html.addClass("isTouch");
+    }
+    if (document.documentMode || /Edge/.test(navigator.userAgent)) {
+      if (navigator.appVersion.indexOf("Trident") === -1) {
+        html.addClass("isEDGE");
+      } else {
+        html.addClass("isIE isIE11");
+      }
+    }
+    if (navigator.appVersion.indexOf("MSIE") !== -1) {
+      html.addClass("isIE");
+    }
+    if (
+            navigator.userAgent.indexOf("Safari") != -1 &&
+            navigator.userAgent.indexOf("Chrome") == -1
+    ) {
+      html.addClass("isSafari");
+    }
+
+    // On Screen
+
+    $.fn.isOnScreen = function () {
+      var elementTop = $(this).offset().top,
+              elementBottom = elementTop + $(this).outerHeight(),
+              viewportTop = $(window).scrollTop(),
+              viewportBottom = viewportTop + $(window).height();
+      return elementBottom > viewportTop && elementTop < viewportBottom;
+    };
+
+    function detection() {
+      for (var i = 0; i < items.length; i++) {
+        var el = $(items[i]);
+
+        if (el.isOnScreen()) {
+          el.addClass("in-view");
+        } else {
+          el.removeClass("in-view");
+        }
+      }
+    }
+
+    var items = document.querySelectorAll(
+            "*[data-animate-in], *[data-detect-viewport]"
+            ),
+            waiting = false,
+            w = $(window);
+
+    w.on("resize scroll", function () {
+      if (waiting) {
+        return;
+      }
+      waiting = true;
+      detection();
+
+      setTimeout(function () {
+        waiting = false;
+      }, 100);
+    });
+
+    $(document).ready(function () {
+      setTimeout(function () {
+        detection();
+      }, 500);
+
+      for (var i = 0; i < items.length; i++) {
+        var d = 0,
+                el = $(items[i]);
+        if (items[i].getAttribute("data-animate-in-delay")) {
+          d = items[i].getAttribute("data-animate-in-delay") / 1000 + "s";
+        } else {
+          d = 0;
+        }
+        el.css("transition-delay", d);
+      }
+    });
+  });
+
+</script>
+<footer th:replace="fragments/footer :: footer2"></footer>
+</body>
+</html>

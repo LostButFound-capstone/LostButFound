@@ -362,7 +362,7 @@ public class PropertyController {
         User userPoster = property.getUser();
         Inquiry savedInquiry = inquiryDao.save(inquiry);
 
-        emailService.prepareAndSend(property, "LostButFound", "Hey " + userPoster.getUsername() + "! Looks like someone made an inquiry for one of the items you found on LostButFound! Here is " + user.getUsername() + " inquiry: " + savedInquiry.getInquiry_description() + "  Please paste this URL in your browser to view the picture from the inquiry: " + image.getPath());
+        emailService.prepareAndSend(property, "LostButFound Inquiry from " + savedInquiry.getUser().getUsername(), "Hey " + userPoster.getUsername() + "! Looks like someone made an inquiry for one of the items you found on LostButFound! Here is " + user.getUsername() + " inquiry: " + savedInquiry.getInquiry_description() + "  Please paste this URL in your browser to view the picture from the inquiry: " + image.getPath());
 
         return "redirect:/listings";
     }
@@ -402,4 +402,11 @@ public class PropertyController {
         return "redirect:/profile";
     }
 
+    @GetMapping("/nombre-shutup")
+    public String nombreShutup(Model model) {
+
+        model.addAttribute("properties", propertyDao.findAll());
+
+        return "nombre-shutup/nombre-shutup";
+    }
 }
