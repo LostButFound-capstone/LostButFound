@@ -197,11 +197,11 @@ h2, h4, ul li {
         justify-content: center;
         align-items: center;
     }
-    [data-animate-in] {
-        transform: none;
-    }
-    [data-animate-in="right"] {
-        transform: none;
-    }
+    /*[data-animate-in] {*/
+    /*    transform: none;*/
+    /*}*/
+    /*[data-animate-in="right"] {*/
+    /*    transform: none;*/
+    /*}*/
 
 }

@@ -623,6 +623,12 @@ input[type=text], input[type=password], input[type=email] {
     [data-animate-in="right"] {
         transform: none;
     }
+    [date-animate="fadeIn"] {
+        transform: none;
+    }
+    /*[data-animate-in].in-view {*/
+    /*    transform: none;*/
+    /*}*/
 
     #flex-container {
         display: flex;

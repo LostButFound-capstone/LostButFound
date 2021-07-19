@@ -37,10 +37,13 @@
 }
 #column2 {
     padding: 1.5rem;
-    /*font-size: 1rem;*/font-size: 1.3rem;
+    /*font-size: 1rem;*/font-size: 1.174rem;
     background: #254b5b;
     color: #edd9bc;
 }
-#column2 > li {
+@media only screen and (min-width: 1200px) {
 
+    #column2 {
+        font-size: 1.3rem;
+    }
 }

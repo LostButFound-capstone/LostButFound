@@ -18,7 +18,7 @@
 </header>
 
 <!--Main Container-->
-<div class="container no-gutters">
+<div class="container no-gutters" data-animate-in="right" data-animate-in-delay="100">
 
 
     <!--Listings form-->
@@ -74,7 +74,7 @@
                     <!--Categories dropdown-->
                     <label for="categories">Categories:</label>
                     <select name="category" id="categories" data-selected="">
-                        <option value="null">Select a category:</option>
+                        <option value="null">Select a category</option>
                         <th:block th:each="category : ${categories}">
                             <option th:value="${category.id}"><span th:text="${category.property_type}"></span></option>
                         </th:block>
@@ -104,13 +104,13 @@
                     <div style="border-bottom: 3px solid #e18a77">
                     <h2 style="margin-bottom: 0; text-align: center; color: #edd9bc">How to search:</h2></div>
 <!--                    <hr class="solid mx-3 mt-3">-->
-                    <br>
-                    <ul>
-                        <li id="how_to_search">Select a location from the locations dropdown.</li>
+
+                    <ul class="mt-lg-4">
+                        <li class="" id="how_to_search">Select a location from the locations dropdown.</li>
                         <li id="how_to_search">Select a category for your lost property.</li>
-                        <li id="how_to_search">Select the date you lost you lost your property at specified location.</li>
+                        <li id="how_to_search">Select the date you lost your property at specified location.</li>
                         <li id="how_to_search">Filter through postings made by finders.</li>
-                        <li id="how_to_search">Once you have found a post that closely matches your item description, press the inquire button to be redirected to our inquire form that will be sent to the user that posted the item.</li>
+                        <li id="how_to_search">Once you have found a post that closely matches your item description, press the inquiry button to be redirected to our inquire form that will be sent to the user that posted the item.</li>
                     </ul>
                 </div>
             </div>
@@ -123,7 +123,7 @@
             <div class="row">
                 <th:block th:if="${searchProperties != null}">
                     <div class="d-none d-lg-block d-xxl-block col-6 mt-3" th:each="item : ${searchProperties}">
-                        <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
+                        <div class="profile__card" data-animate-in="fadeIn" data-animate-in-delay="200">
 
                             <div style="word-break: break-all" class="card__header">
                                 <div class="card__image" th:if="${item.user.profile_image_path == null}">
@@ -190,7 +190,7 @@
 
                     </div>
                     <div style="padding: .5rem 1rem" class="d-block d-lg-none d-xxl-none col-12" th:each="item : ${searchProperties}">
-                        <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
+                        <div class="profile__card" data-animate-in="fadeIn" data-animate-in-delay="200">
 
                             <div style="word-break: break-all" class="card__header">
 <!--                                <div class="card__image">-->
@@ -261,7 +261,7 @@
                 </th:block>
                 <th:block th:if="${searchProperties == null}">
                 <div style="padding: .5rem 1rem" class="d-none d-lg-block d-xxl-block col-6 mt-3" th:each="item : ${properties}">
-                    <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
+                    <div class="profile__card" data-animate-in="fadeIn" data-animate-in-delay="200">
 
                         <div style="word-break: break-all" class="card__header">
 <!--                            <div class="card__image">-->
@@ -331,7 +331,7 @@
 
                 </div>
                 <div style="padding: .5rem 1rem" class="d-block d-lg-none d-xxl-none col-12" th:each="item : ${properties}">
-                    <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
+                    <div class="profile__card" data-animate-in="fadeIn" data-animate-in-delay="200">
 
                         <div style="word-break: break-all" class="card__header">
 <!--                            <div class="card__image">-->

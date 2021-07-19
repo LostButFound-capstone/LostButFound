@@ -97,7 +97,7 @@
                             <h2>Here are your findings so far:</h2>
                         </div>
                         <div class="d-lg-block d-xxl-block col-11 mt-5" th:each="item : ${properties}">
-                            <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
+                            <div class="profile__card" data-animate-in="fadeIn" data-animate-in-delay="200">
 
                                 <div style="word-break: break-all" class="card__header" >
                                     <div class="card__image" th:if="${item.user.profile_image_path == null}">
@@ -181,12 +181,12 @@
                     </th:block>
                     <th:block th:if="${inquiries.size() != 0}">
                         <div class="col-md-12">
-                            <div class="card mb-3 listings-container" style="padding-bottom: 1.5rem;">
+                            <div class="card mb-3 listings-container">
                                     <div class="d-lg-block d-xxl-block col-12 profile-listings-header">
                                         <h2>Here are your inquiries: </h2>
                                     </div>
                                 <div class="d-lg-block d-xxl-block col-11 mt-5" th:each="inquiry : ${inquiries}">
-                                    <div class="profile__card" data-animate-in="right" data-animate-in-delay="200">
+                                    <div class="profile__card" data-animate-in="fadeIn" data-animate-in-delay="200">
 
                                         <div class="card__header">
                                             <div class="card__image" th:if="${inquiry.user.profile_image_path == null}">

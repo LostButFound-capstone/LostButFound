@@ -138,12 +138,12 @@ a {
     .footer2 {
         margin: 0 !important;
     }
-    [data-animate-in] {
-        transform: none;
-    }
-    [data-animate-in="right"] {
-        transform: none;
-    }
+    /*[data-animate-in] {*/
+    /*    transform: none;*/
+    /*}*/
+    /*[data-animate-in="right"] {*/
+    /*    transform: none;*/
+    /*}*/
 
     ul {
         margin-top: 1rem;
