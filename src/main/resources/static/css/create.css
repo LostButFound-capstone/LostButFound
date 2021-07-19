@@ -154,6 +154,37 @@ label h3 {
 h2, h4, ul li {
     color:#edd9bc;
 }
+/*================ update ==============*/
+#checkboxes {
+    padding-left:180px;
+}
+
+.when {
+    margin-right: 25px;
+}
+
+.date {
+    margin-left: 25px;
+}
+
+.what {
+    display: flex;
+    padding-left: 45px;
+
+}
+
+.what-label {
+margin-top: 8px;
+}
+
+.what-input {
+    width: 70%;
+    margin-left: 19px;
+    padding-right: 85px;
+    padding-left:20px
+}
+
+
 
 @media only screen and (max-width: 420px) {
     #flex-dir {
@@ -197,6 +228,18 @@ h2, h4, ul li {
         justify-content: center;
         align-items: center;
     }
+
+    [data-animate-in] {
+        transform: none;
+    }
+    [data-animate-in="right"] {
+        transform: none;
+    }
+    /*=================== update =============*/
+    #checkboxes {
+        padding-left:10px;
+    }
+
     /*[data-animate-in] {*/
     /*    transform: none;*/
     /*}*/
@@ -204,4 +247,27 @@ h2, h4, ul li {
     /*    transform: none;*/
     /*}*/
 
+
+    .when {
+        margin-right:unset;
+    }
+
+    .date {
+        margin-left: unset;
+    }
+
+    .what {
+        display: unset;
+    }
+
+    .what-label {
+        padding-left: 18px;
+    }
+
+    .what-input {
+        width: unset;
+        margin-left: unset;
+        padding-left: unset;
+        padding-right: unset;
+    }
 }

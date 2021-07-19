@@ -20,17 +20,21 @@
             <div class="card-body" id="card-body-instruction" style="background-color: #264851">
                 <!--            <h2>Instructions for creating listing:</h2>-->
                 <!--            <br>-->
-                <h2 class="text-center" style="font-style: italic; font-weight: bold; color: #edd9bc;">I found someone's item...now what?</h2>
+                <h2 class="text-center" style="font-style: italic; font-weight: bold; color: #edd9bc;">I found someone's
+                    item...now what?</h2>
                 <hr class="solid mx-3 mt-3">
 
-                <h4 style="margin-left: 2rem; margin-bottom: 21px">Hey finder! Kudos to you for using the honor system!</h4>
+                <h4 style="margin-left: 2rem; margin-bottom: 21px">Hey finder! Kudos to you for using the honor
+                    system!</h4>
 
                 <ul>
                     <li><h4> Fill out this form but try not to be too specific</h4></li>
 
-                    <li><h4> Give a general description of the lost item and avoid anything that makes the item unique</h4></li>
+                    <li><h4> Give a general description of the lost item and avoid anything that makes the item
+                        unique</h4></li>
 
-                    <li><h4> This is in effort to prevent fraudulent claims and to avoid mistakes in returning items</h4></li>
+                    <li><h4> This is in effort to prevent fraudulent claims and to avoid mistakes in returning
+                        items</h4></li>
                 </ul>
 
             </div>
@@ -58,11 +62,13 @@
         <!--        <h5>Tell us about what you found!</h5>-->
         <!--    </div>-->
 
-        <div id="flex-direction" class="text-center mt-4 d-flex justify-content-around align-items-center">
-
-            <label class="mt-4" for="dateFound"><h2>When did you find it?</h2></label>
-            <br>
-            <input id="dateFound" type="date" name="date" required>
+        <div id="flex-direction" class="text-center mt-4 d-flex justify-content-center align-items-center" >
+            <div class="when">
+                <label class="mt-4" for="dateFound"><h2>When did you find it?</h2></label>
+            </div>
+            <div class="date" style="padding-top:15px;">
+                <input  id="dateFound" type="date" name="date" style="padding: 5px 5px 5px 20px" required>
+            </div>
         </div>
 
         <hr class="solid  mx-3 mt-5">
@@ -72,7 +78,7 @@
             <label><h2>Choose one or more categories that fits the item you found:</h2></label>
             <br>
 
-            <div class="container row justify-content-end">
+            <div id="checkboxes" class="container row">
 
                 <th:block th:each="category : ${categories}">
 
@@ -94,12 +100,12 @@
 
 
         <div class="container">
-            <div class="mt-4">
-                <div class="text-center">
+            <div class=" what mt-4">
+                <div class=" what-label">
                     <label for="createTitle"><h2>What did you find?</h2></label>
                 </div>
-                <div>
-                    <input maxlength="24" id="createTitle" type="text" th:field="*{title}" style="width:100%"
+                <div class="what-input">
+                    <input maxlength="24" id="createTitle" type="text" th:field="*{title}"
                            required>
                 </div>
             </div>
@@ -109,9 +115,9 @@
 
         <div class="container mt-5 text-center">
             <div id="flex-dir" class="d-flex justify-content-around">
-                <label for="locations"><h3>Where did you find this item?</h3></label>
+                <label for="locations"><h2>Where did you find this item?</h2></label>
 
-                <select id="locations" th:field="*{location}" style="margin-bottom: 0em;" required>
+                <select id="locations" th:field="*{location}" style="margin-bottom: 10px; padding: 7px" required>
                     <th:block th:each="location : ${locations}">
                         <option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
                     </th:block>
