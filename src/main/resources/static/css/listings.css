@@ -119,9 +119,15 @@ select:focus, select:active {
     h1, h2, h3, h4, h5, h6 {
         font-size: 1rem !important;
     }
+    .navbar-toggler {
+        font-size: 1.25rem !important;
+    }
 }
 
 @media only screen and (min-width: 351px) and (max-width: 420px) {
+    .navbar-toggler {
+        font-size: 1.25rem !important;
+    }
     #no_gutters {
         flex-direction: column;
     }
