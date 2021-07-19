@@ -111,8 +111,17 @@ select:focus, select:active {
 #rounded_image {
     border-radius: 25%;
 }
+@media only screen and (min-width: 320px) and (max-width: 350px) {
+    p, label, ul, li, button, a, select {
+        font-size: .825rem !important;
+    }
 
-@media only screen and (max-width: 420px) {
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1rem !important;
+    }
+}
+
+@media only screen and (min-width: 351px) and (max-width: 420px) {
     #no_gutters {
         flex-direction: column;
     }
@@ -133,3 +142,4 @@ select:focus, select:active {
         margin-top: 1rem;
     }
 }
+
