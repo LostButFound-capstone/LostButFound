@@ -122,6 +122,20 @@
         <div  id="no_gutters" class="card mt-3" style="padding-bottom: 2rem">
             <div class="row">
                 <th:block th:if="${searchProperties != null}">
+                    <th:block th:if="${searchProperties.size() == 0}">
+                        <div class="card listings-container p-0">
+                            <div class="d-none d-lg-block d-xxl-block col-12 profile-listings-header" style="margin-bottom: 0; border: none">
+                                <h2>Aw, man! Looks like someone hasn't found that yet! :(</h2>
+                                <h3> No results match your search</h3>
+                            </div>
+                        </div>
+                        <div class="card listings-container p-0">
+                            <div class="d-block d-lg-none d-xxl-none col-12 profile-listings-header" style="margin-bottom: 0; border: none">
+                                <h2>Aw, man! Looks like someone hasn't found that yet! :(</h2>
+                                <h3> No results match your search</h3>
+                            </div>
+                        </div>
+                    </th:block>
                     <div class="d-none d-lg-block d-xxl-block col-6 mt-3" th:each="item : ${searchProperties}">
                         <div class="profile__card" data-animate-in="fadeIn" data-animate-in-delay="200">
 
@@ -169,6 +183,7 @@
                                         <img th:if="${category.id == 21}" src="/img/category_icons/21-toys-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
                                         <img th:if="${category.id == 22}" src="/img/category_icons/22-books-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
                                         <img th:if="${category.id == 23}" src="/img/category_icons/23-other-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+
                                     </th:block>
                                 </p>
                                 <p class="about__me" style="float: right">Date posted: <br><span
@@ -239,6 +254,7 @@
                                         <img th:if="${category.id == 21}" src="/img/category_icons/21-toys-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
                                         <img th:if="${category.id == 22}" src="/img/category_icons/22-books-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
                                         <img th:if="${category.id == 23}" src="/img/category_icons/23-other-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+
                                     </th:block>
                                 </p>
                                 <p class="about__me" style="float: right">Date posted: <br><span
@@ -260,6 +276,20 @@
                     </div>
                 </th:block>
                 <th:block th:if="${searchProperties == null}">
+                    <th:block th:if="${properties.size() == 0}">
+                        <div class="card listings-container p-0">
+                            <div class="d-none d-lg-block d-xxl-block col-12 profile-listings-header" style="margin-bottom: 0; border: none">
+                                <h2>Aw, man! Looks like someone hasn't found that yet! :(</h2>
+                                <h3> No results match your search</h3>
+                            </div>
+                        </div>
+                        <div class="card listings-container p-0">
+                            <div class="d-block d-lg-none d-xxl-none col-12 profile-listings-header" style="margin-bottom: 0; border: none">
+                                <h2>Aw, man! Looks like someone hasn't found that yet! :(</h2>
+                                <h3> No results match your search</h3>
+                            </div>
+                        </div>
+                    </th:block>
                 <div style="padding: .5rem 1rem" class="d-none d-lg-block d-xxl-block col-6 mt-3" th:each="item : ${properties}">
                     <div class="profile__card" data-animate-in="fadeIn" data-animate-in-delay="200">
 
@@ -310,6 +340,7 @@
                                     <img th:if="${category.id == 21}" src="/img/category_icons/21-toys-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
                                     <img th:if="${category.id == 22}" src="/img/category_icons/22-books-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
                                     <img th:if="${category.id == 23}" src="/img/category_icons/23-other-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+
                                 </th:block>
                             </p>
                             <p class="about__me" style="float: right">Date posted: <br><span
@@ -380,6 +411,7 @@
                                     <img th:if="${category.id == 21}" src="/img/category_icons/21-toys-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
                                     <img th:if="${category.id == 22}" src="/img/category_icons/22-books-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
                                     <img th:if="${category.id == 23}" src="/img/category_icons/23-other-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+
                                 </th:block>
                             </p>
                             <p class="about__me" style="float: right">Date posted: <br><span

@@ -83,6 +83,90 @@
             </div>
                 <div id="profile-column2" class="col-md-1"></div>
                 <div id="profile-column3" class="col-md-7">
+                        <th:block th:if="${inquiredProperties.size() != 0}">
+                            <div class="card mb-3 listings-container">
+                                <div class="d-lg-block d-xxl-block col-12 profile-listings-header">
+                                    <h2>Someone has inquired about your found item:</h2>
+                                </div>
+                                <th:block th:each="inquiredProperty : ${inquiredProperties}">
+                                <div class="d-lg-block d-xxl-block col-11 mt-5" th:each="inquiry : ${inquiredProperty.inquiries}">
+                                    <div class="profile__card" data-animate-in="fadeIn" data-animate-in-delay="200">
+
+                                        <div style="word-break: break-all" class="card__header">
+                                            <div class="card__image" th:if="${inquiry.user.profile_image_path == null}">
+                                                <img src="/img/pro-pic-icon.png" alt="No profile pic available" style="height: 45px; width: 45px;  margin-top: 6px"/>
+                                            </div>
+                                            <div style="word-break: break-all" class="card__image" th:if="${inquiry.user.profile_image_path != null}">
+                                                <img th:src="${inquiry.user.profile_image_path}" alt="profile-image-small" height="50px" width="50px"/>
+                                            </div>
+                                            <!--                                    <div class="card__image">-->
+                                            <!--                                        <img th:src="${item.user.profile_image_path}" alt="profile-image-small"-->
+                                            <!--                                             height="50px" width="50px"/>-->
+                                            <!--                                    </div>-->
+                                            <h2>Inquired by: <br><span th:text="${inquiry.user.username}"></span></h2>
+                                        </div>
+
+                                        <div class="card__body">
+                                            <p class="about__me">Listing title: <br><span th:text="${inquiry.property.title}"></span></p>
+                                            <p class="about__me">Inquiry: <br><span th:text="${inquiry.inquiry_description}"></span></p>
+<!--                                            <p class="about__me">Location found: <span-->
+<!--                                                    th:text="${inquiry.property.location.location_name}"></span>-->
+<!--                                            </p>-->
+<!--                                            <p class="about__me">Categories:-->
+<!--                                                <br>-->
+<!--                                                &lt;!&ndash;                                        <th:block th:each="category : ${item.categories}"><span&ndash;&gt;-->
+<!--                                                &lt;!&ndash;                                                th:text="${category.property_type}"></span><span> | </span></th:block>&ndash;&gt;-->
+<!--                                                <th:block th:each="category : ${inquiry.property.categories}">-->
+<!--                                                    <span th:text="${category.property_type}"></span><span> </span>-->
+<!--                                                    <img th:if="${category.id == 1}" src="/img/category_icons/1-phone-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">-->
+<!--                                                    <img th:if="${category.id == 2}" src="/img/category_icons/2-tablet-new.png" alt="icon" style="height: 35px;vertical-align: baseline;">-->
+<!--                                                    <img th:if="${category.id == 3}" src="/img/category_icons/3-headphones-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">-->
+<!--                                                    <img th:if="${category.id == 4}" src="/img/category_icons/4-laptop-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">-->
+<!--                                                    <img th:if="${category.id == 5}" src="/img/category_icons/5-electronics-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">-->
+<!--                                                    <img th:if="${category.id == 6}" src="/img/category_icons/6-keys-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">-->
+<!--                                                    <img th:if="${category.id == 7}" src="/img/category_icons/7-glasses-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">-->
+<!--                                                    <img th:if="${category.id == 8}" src="/img/category_icons/8-wallet-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">-->
+<!--                                                    <img th:if="${category.id == 9}" src="/img/category_icons/9-jewelry-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">-->
+<!--                                                    <img th:if="${category.id == 10}" src="/img/category_icons/10-purses-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">-->
+<!--                                                    <img th:if="${category.id == 11}" src="/img/category_icons/11-makeup-bag-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">-->
+<!--                                                    <img th:if="${category.id == 12}" src="/img/category_icons/12-hats-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">-->
+<!--                                                    <img th:if="${category.id == 13}" src="/img/category_icons/13-jackets-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">-->
+<!--                                                    <img th:if="${category.id == 14}" src="/img/category_icons/14-shoes-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">-->
+<!--                                                    <img th:if="${category.id == 15}" src="/img/category_icons/15-clothing-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">-->
+<!--                                                    <img th:if="${category.id == 16}" src="/img/category_icons/16-backpacks-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">-->
+<!--                                                    <img th:if="${category.id == 17}" src="/img/category_icons/17-cameras-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">-->
+<!--                                                    <img th:if="${category.id == 18}" src="/img/category_icons/18-passports-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">-->
+<!--                                                    <img th:if="${category.id == 19}" src="/img/category_icons/19-luggage-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">-->
+<!--                                                    <img th:if="${category.id == 20}" src="/img/category_icons/20-water-bottles-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">-->
+<!--                                                    <img th:if="${category.id == 21}" src="/img/category_icons/21-toys-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">-->
+<!--                                                    <img th:if="${category.id == 22}" src="/img/category_icons/22-books-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">-->
+<!--                                                    <img th:if="${category.id == 23}" src="/img/category_icons/23-other-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">-->
+<!--                                                    <br>-->
+<!--                                                </th:block>-->
+<!--                                            </p>-->
+<!--&lt;!&ndash;                                            <p class="about__me" style="float: right">Date posted: <span th:text="${inquiry.property.formattedDatePosted}"></span></p>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <p class="about__me">Date found: <span th:text="${inquiry.property.formattedDateFound}"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            </p>&ndash;&gt;<p class="about__me" style="float: right">Date posted: <br><span-->
+<!--                                                th:text="${inquiry.property.formattedDatePosted}"></span></p>-->
+<!--                                            <p class="about__me">Date found: <br><span th:text="${inquiry.property.formattedDateFound}"></span></p>-->
+                                            <div class="important__social__links">
+<!--                                                <div>-->
+<!--                                                    <a role="button"  class="btn btn-outline-secondary edit-delete edit-listing" th:href="@{/edit/{id}(id=${item.id})}">Edit</a>-->
+<!--                                                </div>-->
+                                                <div>
+                                                    <form th:action="@{/delete-inquiry/{id}(id=${inquiry.property.id})}">
+                                                        <button id="edit-btn" type="submit" class="btn btn-outline-secondary btn-danger edit-delete edit-listing">Resolve inquiry as complete</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                </th:block>
+                            </div>
+
+                        </th:block>
                     <th:block th:if="${properties.size() == 0}">
                         <div class="card mb-3 listings-container p-0">
                             <div class="d-lg-block d-xxl-block col-12 profile-listings-header" style="margin-bottom: 0; border: none">
@@ -116,12 +200,12 @@
                                 </div>
 
                                 <div class="card__body">
-                                    <p class="about__me">Found by:<span class="about__me"
-                                                                        th:text="${item.user.username}"></span></p>
-                                    <p class="about__me">Location found: <span
+                                    <p class="about__me">Found by: <span th:text="${item.user.username}"></span></p>
+                                    <p class="about__me">Location found: <br><span
                                             th:text="${item.location.location_name}"></span>
                                     </p>
                                     <p class="about__me">Categories:
+                                        <br>
 <!--                                        <th:block th:each="category : ${item.categories}"><span-->
 <!--                                                th:text="${category.property_type}"></span><span> | </span></th:block>-->
                                         <th:block th:each="category : ${item.categories}">
@@ -149,11 +233,14 @@
                                             <img th:if="${category.id == 21}" src="/img/category_icons/21-toys-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
                                             <img th:if="${category.id == 22}" src="/img/category_icons/22-books-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
                                             <img th:if="${category.id == 23}" src="/img/category_icons/23-other-new.png" alt="icon" style="height: 35px; vertical-align: baseline;">
+                                            <br>
                                         </th:block>
                                     </p>
-                                    <p class="about__me" style="float: right">Date posted: <span th:text="${item.formattedDatePosted}"></span></p>
-                                    <p class="about__me">Date found: <span th:text="${item.formattedDateFound}"></span>
-                                    </p>
+<!--                                    <p class="about__me" style="float: right">Date posted: <span th:text="${item.formattedDatePosted}"></span></p>-->
+<!--                                    <p class="about__me">Date found: <span th:text="${item.formattedDateFound}"></span>-->
+<!--                                    </p>--><p class="about__me" style="float: right">Date posted: <br><span
+                                        th:text="${item.formattedDatePosted}"></span></p>
+                                    <p class="about__me">Date found: <br><span th:text="${item.formattedDateFound}"></span></p>
                                     <div class="important__social__links">
                                         <div>
                                             <a role="button" id="edit-btn" class="btn btn-outline-secondary edit-delete edit-listing" th:href="@{/edit/{id}(id=${item.id})}">Edit</a>
@@ -183,7 +270,7 @@
                         <div class="col-md-12">
                             <div class="card mb-3 listings-container">
                                     <div class="d-lg-block d-xxl-block col-12 profile-listings-header">
-                                        <h2>Here are your inquiries: </h2>
+                                        <h2>Here are the inquiries you have made: </h2>
                                     </div>
                                 <div class="d-lg-block d-xxl-block col-11 mt-5" th:each="inquiry : ${inquiries}">
                                     <div class="profile__card" data-animate-in="fadeIn" data-animate-in-delay="200">
@@ -243,11 +330,11 @@
 <!--                                                <a role="button" id="edit-btn" class="btn btn-outline-secondary edit-delete edit-listing"-->
 <!--                                                   th:href="@{/edit/{id}(id=${item.id})}">Edit-->
 <!--                                                </a>-->
-<!--                                                <form th:action="@{/delete/{id}(id=${item.id})}" method="post">-->
-<!--                                                    <button type="submit"-->
-<!--                                                            class="btn btn-outline-secondary btn-danger edit-delete" id="delete-btn">Delete-->
-<!--                                                    </button>-->
-<!--                                                </form>-->
+                                                <form th:action="@{/delete-inquiry/{id}(id=${inquiry.id})}" method="post">
+                                                    <button type="submit"
+                                                            class="btn btn-outline-secondary btn-danger edit-delete" id="delete-btn">Delete inquiry
+                                                    </button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>

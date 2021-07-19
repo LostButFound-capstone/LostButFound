@@ -113,11 +113,25 @@ public class PropertyController {
 //        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = userDao.getById(id);
 
+        List<Property> properties = propertyDao.findPropertyByUser(user);
+
+        List<Property> inquiredProperties = new ArrayList<>();
+
+//        for (int i = 0; i < properties.size(); i++) {
+//            if(properties.get(i).getInquiries().size() != 0) {
+//                inquiredProperties.add(properties.get(i));
+//            }
+//        }
+        for (Property property : properties) {
+            if (property.getInquiries().size() != 0) {
+                inquiredProperties.add(property);
+            }
+        }
 
         model.addAttribute("currentUser", user);
         model.addAttribute("properties", propertyDao.findPropertyByUser(user));
         model.addAttribute("inquiries", inquiryDao.findInquiryByUser(user));
-
+        model.addAttribute("inquiredProperties", inquiredProperties);
 
         return "users/profile-dummy2";
     }
@@ -301,6 +315,16 @@ public class PropertyController {
         return "redirect:/profile/" + user.getId();
     }
 
+    @PostMapping("/delete-inquiry/{id}")
+    public String inquiriesDelete(@PathVariable Long id) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+
+        inquiryDao.delete(inquiryDao.getById(id));
+
+        return "redirect:/profile/" + user.getId();
+    }
+
     @GetMapping("/inquiry/{id}")
     public String showInquiry(@PathVariable Long id, Model model) {
         //User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -338,7 +362,7 @@ public class PropertyController {
         User userPoster = property.getUser();
         Inquiry savedInquiry = inquiryDao.save(inquiry);
 
-        emailService.prepareAndSend(property, "Hello, " + userPoster.getUsername() + "", savedInquiry.getInquiry_description() + "  Please paste this URL in your browser to view the picture from the inquiry: " + image.getPath());
+        emailService.prepareAndSend(property, "LostButFound", "Hey " + userPoster.getUsername() + "! Looks like someone made an inquiry for one of the items you found on LostButFound! Here is " + user.getUsername() + " inquiry: " + savedInquiry.getInquiry_description() + "  Please paste this URL in your browser to view the picture from the inquiry: " + image.getPath());
 
         return "redirect:/listings";
     }
@@ -367,6 +391,15 @@ public class PropertyController {
 
 
         return "card-scratch";
+    }
+
+    @PostMapping("/inquiry-complete/{id}")
+    public String inquiryComplete(@PathVariable Long id) {
+
+        Property inquiredProperty = propertyDao.getById(id);
+        inquiredProperty.setInquiry_complete(true);
+
+        return "redirect:/profile";
     }
 
 }

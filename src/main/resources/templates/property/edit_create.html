@@ -42,12 +42,12 @@
                 <th:block th:each="category : ${categories}">
 
                     <div th:if="${property.categories.contains(category)}" class="col-3 d-flex align-items-center align-items-left" style=" width:200px; height:25px;">
-                        <input class="mx-2" checked="checked" type="checkbox" name="categories" th:id="${category.id}" th:value="${category.id}">
+                        <input class="mx-2 category-checkbox" checked="checked" type="checkbox" name="categories" th:id="${category.id}" th:value="${category.id}">
                         <label th:for="${category.id}"><span class="text-beige" th:text="${category.property_type}"></span></label>
                     </div>
 
                     <div th:unless="${property.categories.contains(category)}" class="col-3 d-flex align-items-center align-items-left" style=" width:200px; height:25px;">
-                        <input class="mx-2" type="checkbox" name="categories" th:id="${category.id}" th:value="${category.id}">
+                        <input class="mx-2 category-checkbox" type="checkbox" name="categories" th:id="${category.id}" th:value="${category.id}">
                         <label th:for="${category.id}"><span class="text-beige" th:text="${category.property_type}"></span></label>
                     </div>
 
@@ -104,6 +104,14 @@
         src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
         crossorigin="anonymous">
+</script>
+<script>
+    $('input[type=checkbox]').on('change', function (e) {
+        if ($('input[type=checkbox]:checked').length > 3) {
+            $(this).prop('checked', false);
+            alert("Only 3 categories are allowed to be chosen");
+        }
+    });
 </script>
 <script>
     // When the user clicks on div, open the popup
