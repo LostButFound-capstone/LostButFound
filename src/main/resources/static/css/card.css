@@ -112,7 +112,7 @@
     margin-bottom: 1.5rem;
     border-bottom: 2px solid #e18a77;
 }
-.profile-listings-header h2 {
+.profile-listings-header h2, h3 {
     color: #e18a77;
     margin: 1rem;
     font-weight: bold;
@@ -304,18 +304,22 @@ a i {
     #profile-column3 {
         width: 65%;
     }
-    /*[data-animate-in] {*/
-    /*    transform: none;*/
-    /*}*/
-    /*[data-animate-in="right"] {*/
-    /*    transform: none;*/
-    /*}*/
+    .profile-listings-header {
+        display: flex;
+        flex-direction: column;
+        color: #e18a77;
+    }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
     .edit-delete {
         width: 150px;
+    }
+    .profile-listings-header {
+        display: flex;
+        flex-direction: column;
+        color: #e18a77;
     }
 }
 
