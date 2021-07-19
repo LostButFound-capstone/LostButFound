@@ -63,11 +63,11 @@
         <!--    </div>-->
 
         <div id="flex-direction" class="text-center mt-4 d-flex justify-content-center align-items-center" >
-            <div>
-                <label class="mt-4" for="dateFound" style="margin-right: 25px;"><h2>When did you find it?</h2></label>
+            <div class="when">
+                <label class="mt-4" for="dateFound"><h2>When did you find it?</h2></label>
             </div>
-            <div style="padding-top:15px;">
-                <input  id="dateFound" type="date" name="date" style="padding: 5px 5px 5px 20px; margin-left:25px;" required>
+            <div class="date" style="padding-top:15px;">
+                <input  id="dateFound" type="date" name="date" style="padding: 5px 5px 5px 20px" required>
             </div>
         </div>
 
@@ -78,7 +78,7 @@
             <label><h2>Choose one or more categories that fits the item you found:</h2></label>
             <br>
 
-            <div class="container row" style="padding-left:180px;">
+            <div id="checkboxes" class="container row">
 
                 <th:block th:each="category : ${categories}">
 
@@ -100,12 +100,12 @@
 
 
         <div class="container">
-            <div class="mt-4">
-                <div class="text-center">
+            <div class=" what mt-4">
+                <div class=" what-label">
                     <label for="createTitle"><h2>What did you find?</h2></label>
                 </div>
-                <div>
-                    <input maxlength="24" id="createTitle" type="text" th:field="*{title}" style="width:100%"
+                <div class="what-input">
+                    <input maxlength="24" id="createTitle" type="text" th:field="*{title}"
                            required>
                 </div>
             </div>
@@ -115,9 +115,9 @@
 
         <div class="container mt-5 text-center">
             <div id="flex-dir" class="d-flex justify-content-around">
-                <label for="locations"><h3>Where did you find this item?</h3></label>
+                <label for="locations"><h2>Where did you find this item?</h2></label>
 
-                <select id="locations" th:field="*{location}" style="margin-bottom: 0em;" required>
+                <select id="locations" th:field="*{location}" style="margin-bottom: 10px; padding: 7px" required>
                     <th:block th:each="location : ${locations}">
                         <option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
                     </th:block>
