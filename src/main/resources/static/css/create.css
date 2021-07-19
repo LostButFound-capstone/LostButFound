@@ -272,14 +272,14 @@ margin-top: 8px;
     }
 }
 
-@media only screen and (min-width: 375px) {
+@media only screen and (min-width: 375px) and (max-width: 420px) {
 
     .what-label {
         padding-left: 43px;
     }
 }
 
-@media only screen and (min-width: 414px) {
+@media only screen and (min-width: 414px) and (max-width: 420px) {
 
     .what-label {
         padding-left: 60px;
