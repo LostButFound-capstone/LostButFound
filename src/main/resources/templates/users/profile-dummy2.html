@@ -154,7 +154,7 @@
 <!--                                                    <a role="button"  class="btn btn-outline-secondary edit-delete edit-listing" th:href="@{/edit/{id}(id=${item.id})}">Edit</a>-->
 <!--                                                </div>-->
                                                 <div>
-                                                    <form th:action="@{/delete-inquiry/{id}(id=${inquiry.property.id})}">
+                                                    <form th:action="@{/delete-inquiry/{id}(id=${inquiry.property.id})}" method="post">
                                                         <button id="edit-btn" type="submit" class="btn btn-outline-secondary btn-danger edit-delete edit-listing">Resolve inquiry as complete</button>
                                                     </form>
                                                 </div>
