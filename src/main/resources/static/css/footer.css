@@ -21,9 +21,6 @@
     font-weight: bold;
     display: flex;
     justify-content: center;
-    margin-left: 2px;
-    margin-right: 2px;
-
 }
 
 .footer2 {
@@ -36,8 +33,6 @@
     font-weight: bold;
     display: flex;
     justify-content: center;
-    margin-left: 2px;
-    margin-right: 2px;
 }
 
 .homePageFooter {
@@ -59,8 +54,6 @@
     font-weight: bold;
     display: flex;
     justify-content: center;
-    margin-left: 2px;
-    margin-right: 2px;
     padding-top: 180px;
 }
 
@@ -145,11 +138,16 @@ a {
     .footer2 {
         margin: 0 !important;
     }
-    [data-animate-in] {
-        transform: none;
-    }
-    [data-animate-in="right"] {
-        transform: none;
+    /*[data-animate-in] {*/
+    /*    transform: none;*/
+    /*}*/
+    /*[data-animate-in="right"] {*/
+    /*    transform: none;*/
+    /*}*/
+
+    ul {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
 }
 

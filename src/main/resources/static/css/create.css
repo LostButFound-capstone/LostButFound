@@ -228,6 +228,7 @@ margin-top: 8px;
         justify-content: center;
         align-items: center;
     }
+
     [data-animate-in] {
         transform: none;
     }
@@ -238,6 +239,14 @@ margin-top: 8px;
     #checkboxes {
         padding-left:10px;
     }
+
+    /*[data-animate-in] {*/
+    /*    transform: none;*/
+    /*}*/
+    /*[data-animate-in="right"] {*/
+    /*    transform: none;*/
+    /*}*/
+
 
     .when {
         margin-right:unset;
