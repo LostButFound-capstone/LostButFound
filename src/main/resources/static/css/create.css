@@ -271,3 +271,17 @@ margin-top: 8px;
         padding-right: unset;
     }
 }
+
+@media only screen and (min-width: 375px) {
+
+    .what-label {
+        padding-left: 43px;
+    }
+}
+
+@media only screen and (min-width: 414px) {
+
+    .what-label {
+        padding-left: 60px;
+    }
+}
