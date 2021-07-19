@@ -6,6 +6,7 @@
 
 <body>
 <link rel="stylesheet" href="/css/card.css">
+<link rel="stylesheet" href="/css/create.css">
 <header>
     <!-- If NOT logged on -->
     <nav th:replace="fragments/navbar :: navbar" sec:authorize="!isAuthenticated()"></nav>
@@ -22,33 +23,39 @@
         <!--        <h5>Tell us about what you found!</h5>-->
         <!--    </div>-->
 
-        <div class="text-center mt-4">
-
-            <label class="mt-4" for="dateFound"><h3 class="text-beige">When did you find it?</h3></label>
-            <br>
-            <input id="dateFound" type="date" name="date" th:value="${dateFound}" required>
+        <div id="flex-direction" class="text-center mt-4 d-flex justify-content-center align-items-center">
+            <div class="when">
+                <label class="mt-4" for="dateFound"><h2>When did you find it?</h2></label>
+            </div>
+            <div class="date" style="padding-top:15px;">
+                <input id="dateFound" type="date" name="date" th:value="${dateFound}" style="padding: 5px 5px 5px 20px" required>
+            </div>
         </div>
 
         <hr class="solid  mx-3 mt-5">
 
         <div class="mt-5 mb-5 text-center">
 
-            <label><h3 class="text-beige">Choose one or more categories that fits the item you found:</h3></label>
+            <label><h2>Choose up to three categories that fits the item you found:</h2></label>
             <br>
 
-            <div id="flex-center" class="container row">
-
+            <div id="checkboxes" class="container row">
 
                 <th:block th:each="category : ${categories}">
 
-                    <div th:if="${property.categories.contains(category)}" class="col-3 d-flex align-items-center align-items-left" style=" width:200px; height:25px;">
-                        <input class="mx-2 category-checkbox" checked="checked" type="checkbox" name="categories" th:id="${category.id}" th:value="${category.id}">
-                        <label th:for="${category.id}"><span class="text-beige" th:text="${category.property_type}"></span></label>
+                    <div th:if="${property.categories.contains(category)}" class="col-3 d-flex align-items-left" style=" width:200px; height:25px; color: #edd9bc">
+                        <input class="mx-2 category-checkbox" checked="checked" type="checkbox" name="categories"
+                               th:id="${category.id}" th:value="${category.id}">
+                        <label th:for="${category.id}"><span th:text="${category.property_type}"></span></label>
+
                     </div>
 
-                    <div th:unless="${property.categories.contains(category)}" class="col-3 d-flex align-items-center align-items-left" style=" width:200px; height:25px;">
-                        <input class="mx-2 category-checkbox" type="checkbox" name="categories" th:id="${category.id}" th:value="${category.id}">
-                        <label th:for="${category.id}"><span class="text-beige" th:text="${category.property_type}"></span></label>
+                    <div th:unless="${property.categories.contains(category)}"
+                         class="col-3 d-flex align-items-left" style=" width:200px; height:25px; color: #edd9bc">
+                        <input class="mx-2" type="checkbox" name="categories" th:id="${category.id}"
+                               th:value="${category.id}">
+                        <label th:for="${category.id}"><span th:text="${category.property_type}"></span></label>
+
                     </div>
 
                 </th:block>
@@ -61,12 +68,12 @@
 
 
         <div class="container">
-            <div class="mt-4">
-                <div class=" text-center">
-                    <label for="createTitle"><h3 class="text-beige">What did you find?</h3></label>
+            <div class="what mt-4">
+                <div class=" what-label">
+                    <label for="createTitle"><h2>What did you find?</h2></label>
                 </div>
-                <div class="d-flex justify-content-center">
-                    <input maxlength="24" id="createTitle" type="text" th:field="*{title}" style="width:80%"
+                <div class="what-input">
+                    <input maxlength="24" id="createTitle" type="text" th:field="*{title}"
                            required>
                 </div>
             </div>
@@ -76,9 +83,9 @@
 
         <div class="container mt-5 text-center">
             <div id="flex-dir" class="d-flex justify-content-around">
-                <label for="locations"><h3 class="text-beige">Where did you find this item?</h3></label>
+                <label for="locations"><h2 class="text-beige">Where did you find this item?</h2></label>
 
-                <select id="locations" th:field="*{location}" required>
+                <select id="locations" th:field="*{location}" style="margin-bottom: 10px; padding: 7px" required>
                     <th:block th:each="location : ${locations}">
                         <option th:value="${location.id}"><span th:text="${location.location_name}"></span></option>
                     </th:block>
@@ -87,8 +94,9 @@
                 <br>
             </div>
             <input type="hidden" name="datePosted" th:value="${datePosted}">
-            <br>
-            <button type="submit" class="btn btn-outline-secondary mt-3 mb-4 edit-create-submit">Submit</button>
+            <button type="submit" class="btn btn-outline-secondary mt-5 mb-4"
+                    style="background-color: #659DBD; color: white;">Submit
+            </button>
         </div>
 
         <br>
